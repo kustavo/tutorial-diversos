@@ -1,0 +1,58 @@
+site_name: Guia Rápido
+site_description: 'Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.'
+site_author: 'Gustavo Araujo'
+
+site_url: https://ajuda.gitlab.io/guia-rapido/
+site_dir: public
+docs_dir: docs
+repo_url: https://gitlab.com/ajuda/guia-rapido/
+repo_name: 'GitLab'
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed
+  - pymdownx.superfences
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - codehilite:
+      linenums: true
+  - toc:
+      permalink: true
+      separator: "-"
+
+theme:
+  name: 'material'
+  custom_dir: overrides
+  palette:
+    primary: indigo
+    accent: indigo
+  font:
+    text: Ubuntu
+    code: Ubuntu Mono
+  features:
+    - navigation.tabs
+  language: pt
+  logo: logo.svg
+  favicon: favicon.svg
+
+extra_css: [extra.css]
+
+nav:
+  - Home: index.md
+  - .Net:
+    - ./dotnet/erros-solucoes.md
+  - Linux:
+    - Shell:
+      - ./linux/shell/linux-shell.md
+      - ./linux/shell/bash.md
+      - ./linux/shell/dash.md
+      - ./linux/shell/zsh.md
+      - ./linux/shell/gnome-terminal.md
+  - Markdown:
+    - MkDocs:
+      - ./markdown/mkdocs.md
+      
+
