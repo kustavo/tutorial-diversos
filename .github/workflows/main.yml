@@ -3,9 +3,9 @@ name: Build Documentation using MkDocs
 # events but only for the master branch 
 on: 
   push: 
-    branches: [master] 
+    branches: [main] 
   pull_request: 
-    branches: [master] 
+    branches: [main] 
 jobs: 
   build: 
     name: Build and Deploy Documentation 
