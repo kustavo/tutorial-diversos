@@ -1,0 +1,1341 @@
+
+
+
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+      
+      
+        <link rel="canonical" href="https://kustavo.github.io/guia-rapido/java/linguagem/introducao/">
+      
+      
+        <meta name="author" content="Gustavo Araujo">
+      
+      <link rel="shortcut icon" href="../../../favicon.svg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.14">
+    
+    
+      
+        <title>Introdução - Guia Rápido</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.d3202873.min.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ff0a5ce4.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4051b5">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>body,input{font-family:"Ubuntu",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../extra.css">
+    
+    
+  
+      
+    
+  <script>document.addEventListener("DOMContentLoaded",function(){document.body.addEventListener("click",function(e){if(e.target instanceof HTMLElement){var t=e.target.closest("a[href^=http]");t&&ga("send","event","outbound","click",t.href)}})})</script>
+
+    
+  
+  
+    
+  
+  
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Guia Rápido - Introdução">
+    <meta property="og:description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+    <meta property="og:url" content="https://kustavo.github.io/guia-rapido/java/linguagem/introducao/">
+    <meta property="og:image" content="https://kustavo.github.io/guia-rapido/assets/images/banner.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="568">
+    <link rel="stylesheet" href="../../../assets/stylesheets/home.css">
+
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introducao" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-header-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../../logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Guia Rápido
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Introdução
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../../logo.svg" alt="logo">
+
+    </a>
+    Guia Rápido
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      .Net
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label=".Net" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        .Net
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../dotnet/erros-solucoes/" title="Erros e soluções" class="md-nav__link">
+      Erros e soluções
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Linux
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Shell
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Shell" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        <span class="md-nav__icon md-icon"></span>
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/linux-shell/" title="Linux shell" class="md-nav__link">
+      Linux shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/bash/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/dash/" title="Dash" class="md-nav__link">
+      Dash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/zsh/" title="Z-shell" class="md-nav__link">
+      Z-shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/gnome-terminal/" title="Gnome terminal" class="md-nav__link">
+      Gnome terminal
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Markdown
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Markdown" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Markdown
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      MkDocs
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="MkDocs" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon"></span>
+        MkDocs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../markdown/mkdocs/" title="MkDocs" class="md-nav__link">
+      MkDocs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linguagem" class="md-nav__link">
+    Linguagem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compilacao" class="md-nav__link">
+    Compilação
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criacao-de-executavel" class="md-nav__link">
+    Criação de executável
+  </a>
+  
+    <nav class="md-nav" aria-label="Criação de executável">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comando-d" class="md-nav__link">
+    Comando -d
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comando-ch" class="md-nav__link">
+    Comando -ch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execucao" class="md-nav__link">
+    Execução
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package" class="md-nav__link">
+    Package
+  </a>
+  
+    <nav class="md-nav" aria-label="Package">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomenclatura" class="md-nav__link">
+    Nomenclatura
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wrappers" class="md-nav__link">
+    Wrappers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#termos" class="md-nav__link">
+    Termos
+  </a>
+  
+    <nav class="md-nav" aria-label="Termos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#campo" class="md-nav__link">
+    Campo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#campo_1" class="md-nav__link">
+    Campo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propriedade" class="md-nav__link">
+    Propriedade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variavel" class="md-nav__link">
+    Variável
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametro" class="md-nav__link">
+    Parâmetro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#argumento" class="md-nav__link">
+    Argumento
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variancia" class="md-nav__link">
+    Variância
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pojo" class="md-nav__link">
+    POJO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javabean" class="md-nav__link">
+    JavaBean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#topicos-para-o-estudo-da-linguagem" class="md-nav__link">
+    Tópicos para o estudo da linguagem
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+                  <a href="https://github.com/kustavo/guia-rapido/edit/master/docs/java/linguagem/introducao.md" title="Editar esta página" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="introducao">Introdução<a class="headerlink" href="#introducao" title="Permanent link">&para;</a></h1>
+<div class="toc">
+<ul>
+<li><a href="#introducao">Introdução</a><ul>
+<li><a href="#linguagem">Linguagem</a></li>
+<li><a href="#compilacao">Compilação</a></li>
+<li><a href="#criacao-de-executavel">Criação de executável</a><ul>
+<li><a href="#comando-d">Comando -d</a></li>
+<li><a href="#comando-ch">Comando -ch</a></li>
+</ul>
+</li>
+<li><a href="#execucao">Execução</a></li>
+<li><a href="#package">Package</a><ul>
+<li><a href="#nomenclatura">Nomenclatura</a></li>
+</ul>
+</li>
+<li><a href="#wrappers">Wrappers</a></li>
+<li><a href="#termos">Termos</a><ul>
+<li><a href="#campo">Campo</a></li>
+<li><a href="#campo_1">Campo</a></li>
+<li><a href="#propriedade">Propriedade</a></li>
+<li><a href="#variavel">Variável</a></li>
+<li><a href="#parametro">Parâmetro</a></li>
+<li><a href="#argumento">Argumento</a></li>
+<li><a href="#variancia">Variância</a></li>
+<li><a href="#pojo">POJO</a></li>
+<li><a href="#javabean">JavaBean</a></li>
+<li><a href="#topicos-para-o-estudo-da-linguagem">Tópicos para o estudo da linguagem</a></li>
+</ul>
+</li>
+<li><a href="#links">Links</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="linguagem">Linguagem<a class="headerlink" href="#linguagem" title="Permanent link">&para;</a></h2>
+<p>Java é uma linguagem de programação orientada a objetos desenvolvida na década de 90 por uma equipe de programadores chefiada por James Gosling, na empresa Sun Microsystems. Em 2008 o Java foi adquirido pela empresa Oracle Corporation. A linguagem Java é compilada para um <em>bytecode</em> que é interpretado por uma máquina virtual (Java Virtual Machine - JVM).</p>
+<h2 id="compilacao">Compilação<a class="headerlink" href="#compilacao" title="Permanent link">&para;</a></h2>
+<p>A compilação dos arquivos <code>.java</code> deve ser feita a partir do diretório raiz do projeto.</p>
+<ul>
+<li>Compilando arquivos já separados em diretórios referentes aos pacotes:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>javac pacote/Arquivo1.java pacote/Arquivo2.java
+ou
+javac pacote/*.java
+</code></pre></div>
+
+<ul>
+<li>Se os arquivos não tiverem separados em diretórios referentes ao pacotes, é usado o parâmetro <code>-d</code> que irá criar os diretórios automaticamente.</li>
+</ul>
+<div class="highlight"><pre><span></span><code> javac -d . Arquivo1.java Arquivo2.java
+ ou
+ javac -d . *.java
+</code></pre></div>
+
+<h2 id="criacao-de-executavel">Criação de executável<a class="headerlink" href="#criacao-de-executavel" title="Permanent link">&para;</a></h2>
+<p>Criação do arquivo executável <code>.jar</code>.</p>
+<ul>
+<li>Com o arquivo externo <code>MANIFEST.mf</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>Manifest-Version: 1.0
+Main-Class: br.com.teste.Arquivo
+SplashScreen-Image: logo.png
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>  jar -cvfm Arquivo.jar MANIFEST.mf Arquivo.class
+</code></pre></div>
+
+<ul>
+<li>Sem o arquivo <code>MANIFEST.mf</code>, estabelecendo o ponto de entrada:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>jar -cvfe Arquivo.jar &lt;MainClass&gt; Arquivo.class
+</code></pre></div>
+
+<h3 id="comando-d">Comando -d<a class="headerlink" href="#comando-d" title="Permanent link">&para;</a></h3>
+<p>O comando <code>-d</code> indicação do destino de onde o .class será gerado.</p>
+<div class="highlight"><pre><span></span><code>javac -d bin Arquivo.java <span class="c1"># Arquivo.class será gerado no diretório bin</span>
+</code></pre></div>
+
+<h3 id="comando-ch">Comando -ch<a class="headerlink" href="#comando-ch" title="Permanent link">&para;</a></h3>
+<p><em>Classpaths</em> são variáveis de localização de um diretório que podem conter as classes que serão necessárias para a execução do sistema.</p>
+<div class="highlight"><pre><span></span><code>-ch /src/teste1/dir1:/src/teste2/dir2
+</code></pre></div>
+
+<p>No exemplo, será feita uma busca nos diretórios <code>/src/teste1/dir1</code> e <code>/src/teste2/dir2</code> para procurar as classes necessárias para a execução do comando.</p>
+<h2 id="execucao">Execução<a class="headerlink" href="#execucao" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Execução do arquivo <code>.class</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code>java Arquivo
+</code></pre></div>
+
+<ul>
+<li>Execução do arquivo <code>.jar</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code>java Arquivo.jar
+</code></pre></div>
+
+<h2 id="package">Package<a class="headerlink" href="#package" title="Permanent link">&para;</a></h2>
+<h3 id="nomenclatura">Nomenclatura<a class="headerlink" href="#nomenclatura" title="Permanent link">&para;</a></h3>
+<p>Os nomes dos pacotes são escritos em letras minúsculas para evitar conflito com os nomes de classes ou interfaces.</p>
+<p>As empresas usam seu nome de domínio da Internet invertida para começar seus nomes de pacotes - por exemplo, <code>com.example.mypackage</code> para um pacote chamado <code>mypackage</code> criado por um programador em <code>example.com</code>.</p>
+<p>As colisões de nomes que ocorrem dentro de uma única empresa precisam ser tratadas por convenção dentro dessa empresa, talvez incluindo a região ou o nome do projeto após o nome da empresa (por exemplo, <code>com.example.region.mypackage</code>).</p>
+<p>Pacotes na própria linguagem Java começam com java. ou javax.</p>
+<p>Em alguns casos, o nome de domínio da Internet pode não ser um nome de pacote válido. Isso pode ocorrer se o nome do domínio contiver um hífen ou outro caractere especial, se o nome do pacote começar com um dígito ou outro caractere ilegal para usar como o início de um nome Java ou se o nome do pacote contiver uma palavra-chave reservada Java como "int". Nesse caso, a convenção sugerida é adicionar um sublinhado. Por exemplo:</p>
+<table>
+<thead>
+<tr>
+<th>Nome do domínio</th>
+<th>Nome do prefixo do pacote</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hyphenated-name.example.org</code></td>
+<td>org.example.hyphenated_name</td>
+</tr>
+<tr>
+<td><code>example.int</code></td>
+<td>int_.example</td>
+</tr>
+<tr>
+<td><code>123name.example.com</code></td>
+<td>com.example._123name</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wrappers">Wrappers<a class="headerlink" href="#wrappers" title="Permanent link">&para;</a></h2>
+<p>O uso de classes <em>wrappers</em> é importante quando precisamos encapsular tipos primitivos, de modo que eles possam participar de funcionalidades relacionadas à orientação a objetos. Um exemplo disso é seu uso em operações com <em>collections</em>.</p>
+<p>Tipos primitivos em Java a tornam uma linguagem híbrida. Porém, as classes <em>wrappers</em> contornam esse problema, pois permitem que tipos primitivos sejam encapsulados e possam ser empregados em operações que exijam o uso de objetos, tais como em <em>collections</em>.</p>
+<p>Cada tipo primitivo em Java possui uma classe empacotadora correspondente:</p>
+<table>
+<thead>
+<tr>
+<th>Primitivo</th>
+<th>Classe Wrapper</th>
+<th>Argumentos do construtor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean</td>
+<td>Boolean</td>
+<td>boolean, String</td>
+</tr>
+<tr>
+<td>Byte</td>
+<td>Byte</td>
+<td>byte, String</td>
+</tr>
+<tr>
+<td>Char</td>
+<td>Character</td>
+<td>char</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+<td>double, String</td>
+</tr>
+<tr>
+<td>Float</td>
+<td>Float</td>
+<td>float, double, String</td>
+</tr>
+<tr>
+<td>Int</td>
+<td>Integer</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<p>Convertendo um <em>wrapper</em> em um tipo primitivo:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="n">Integer</span> <span class="n">iw</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="c1">// ou</span>
+<span class="n">Integer</span> <span class="n">iw</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Convertendo um tipo primitivo em <em>wrapper</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Integer</span> <span class="n">iw</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">iw</span><span class="p">);</span>
+<span class="c1">// ou</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">iw</span><span class="p">.</span><span class="na">intValue</span><span class="p">();</span>
+</code></pre></div>
+
+<p>A comparação entre <em>wrappers</em> é feita usando o método <code>equals()</code>. O operador <code>==</code> compara apenas a referência do objeto (endereço de memória).</p>
+<div class="highlight"><pre><span></span><code><span class="n">Integer</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="n">Integer</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>   <span class="c1">// true</span>
+<span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">;</span>        <span class="c1">// false</span>
+</code></pre></div>
+
+<h2 id="termos">Termos<a class="headerlink" href="#termos" title="Permanent link">&para;</a></h2>
+<h3 id="campo">Campo<a class="headerlink" href="#campo" title="Permanent link">&para;</a></h3>
+<p>Campo (em inglês, field) algumas vezes chamado também de variável de classe ou de instância, é o que guarda um estado do objeto. É uma das formas de se criar um campo. Essencialmente é uma variável. É um mecanismo concreto e existente nas implementações das linguagens e outras ferramentas.</p>
+<p>Um campo Java é um bloco de memória que possui um nome, tipo e tamanho que correspondem a ele.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">private</span> <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Marcin&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+<h3 id="campo_1">Campo<a class="headerlink" href="#campo_1" title="Permanent link">&para;</a></h3>
+<p>Define qualidade (característica) de alguma parte ou característica de um objeto (uma parte do código, por exemplo). É um metadado (adjetivo) e não o dado, como o campo.</p>
+<p>É uma característica em específico que um objeto terá, mas não se define bem como esta característica será disponível no objeto. Não importa se será um campo, uma propriedade, um método, ou outra coisa, ou até um conjunto desses mecanismos.</p>
+<p>Por exemplo, uma pessoa pode ter como campos, um nome e um endereço. Já os campos poderiam ser: nome, sobrenome, rua, bairro, número, etc.</p>
+<h3 id="propriedade">Propriedade<a class="headerlink" href="#propriedade" title="Permanent link">&para;</a></h3>
+<p>É um membro de uma classe que fornece uma informação sobre o objeto/classe.</p>
+<p>Uma propriedade Java também é muito parecida com um campo. A diferença real está no escopo pretendido. Os campos devem ser privados ou protegidos no escopo, o que significa que o acesso é restrito. As propriedades devem ter escopo público, o que significa que o acesso não é restrito. Podemos pensar que em Java a propriedade em si é um método (geralmente getters e setters). Muitas vezes ela acessa o estado que está efetivamente em um campo.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">private</span> <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Marcin&quot;</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">name</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="variavel">Variável<a class="headerlink" href="#variavel" title="Permanent link">&para;</a></h3>
+<p>Uma variável é o nome dado a um local de memória. É a unidade básica de armazenamento em um programa. Pode ser sinônimo de campo.</p>
+<h3 id="parametro">Parâmetro<a class="headerlink" href="#parametro" title="Permanent link">&para;</a></h3>
+<p>Parâmetro é a variável que irá receber um valor em uma função (ou método). O parâmetro faz parte da assinatura do método.</p>
+<div class="highlight"><pre><span></span><code>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">metodo</span><span class="p">(</span><span class="n">String</span> <span class="n">parametroA</span><span class="p">,</span> <span class="n">String</span> <span class="n">parametroB</span><span class="p">,</span> <span class="n">String</span> <span class="n">parametroC</span><span class="p">)</span> <span class="p">{}</span>
+</code></pre></div>
+
+<h3 id="argumento">Argumento<a class="headerlink" href="#argumento" title="Permanent link">&para;</a></h3>
+<p>Argumento é o valor (que pode originar de uma variável ou expressão) que é passado para a função (ou método) durante a sua chamada.</p>
+<div class="highlight"><pre><span></span><code>  <span class="n">String</span> <span class="n">argumentoA</span><span class="p">;</span>
+  <span class="n">String</span> <span class="n">argumentoB</span><span class="p">;</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   * Passando 3 argumentos para o método</span>
+<span class="cm">   */</span>
+  <span class="n">metodo</span><span class="p">(</span><span class="n">argumentoA</span><span class="p">,</span> <span class="n">argumentoB</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">arguemntoC</span><span class="err">&#39;</span><span class="p">)</span> <span class="p">{}</span>
+</code></pre></div>
+
+<h3 id="variancia">Variância<a class="headerlink" href="#variancia" title="Permanent link">&para;</a></h3>
+<p>No contexto da programação, variância descreve as propriedades de uma estrutura variar dentro de uma hierarquia de tipos.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">X</span> <span class="p">{</span>
+    <span class="n">Object</span> <span class="nf">getValue</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Y</span> <span class="kd">extends</span> <span class="n">X</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="nf">getValue</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Existem três tipos de variância:</p>
+<ul>
+<li>
+<p><strong>Covariância</strong>: significa que se a classe <code>Y</code> é mais específica que <code>X</code> (<code>Y</code> &lt; <code>X</code>) então qualquer método de <code>Y</code> que faça override a um método de <code>X</code> tem de retornar um tipo <strong>igual ou mais específico</strong>. Neste caso, o tipo de retorno do método que faz override é <code>String</code>, que é mais específico que <code>Object</code>.</p>
+</li>
+<li>
+<p><strong>Contravariância</strong>: contravariância é efetivamente o inverso de covariância. Significa que se a classe <code>Y</code> é mais específica que <code>X</code> (<code>Y</code> &lt; <code>X</code>) então qualquer método de <code>Y</code> que faça override a um método de <code>X</code> tem de retornar um tipo <strong>igual ou mais genérico</strong>.</p>
+</li>
+</ul>
+<p>Em Java não há contravariância e <em>overriding</em> de métodos é sempre invariante. No entanto possível ter contravariância usando <em>wildcards</em> de <em>generics</em> (<code>&lt;? super Classe&gt;</code>).</p>
+<ul>
+<li><strong>Invariância</strong>: não há flexão de tipos. Em Java <em>overriding</em> de métodos é invariante, ou seja, para se redefinir um método numa subclasse, os parâmetros têm de ser exatamente do mesmo tipo da superclasse.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">A</span> <span class="p">{</span>
+
+    <span class="kt">boolean</span> <span class="nf">equals</span><span class="p">(</span><span class="n">A</span> <span class="n">object</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Como o <em>overriding</em> é invariante, não estamos na realidade fazendo <em>override</em> do método <code>boolean equals(Object o)</code> mas sim <em>overload</em>, adicionando um novo método com outra assinatura.</p>
+<p>A solução desde Java 5 é adicionar a anotação <code>@Override</code> que vai permitir que o compilador detecte estes casos e informe que não estamos redefinindo um método.</p>
+<h3 id="pojo">POJO<a class="headerlink" href="#pojo" title="Permanent link">&para;</a></h3>
+<p>Plain Old Java Object (tradução, Velho e Simples Objeto Java) é um referencia a objetos que não dependem da herança de interfaces ou classes de <em>frameworks</em> externos.</p>
+<p>De maneira ideal, um POJO é um objeto Java não vinculado a nenhuma restrição além daquelas impostas pela <em>Java Language Specification</em>; ou seja, um POJO <strong>não</strong> deve ter que:</p>
+<ul>
+<li>
+<p>Estenda classes pré-especificadas, como em:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foo</span> <span class="kd">extends</span> <span class="n">javax</span><span class="p">.</span><span class="na">servlet</span><span class="p">.</span><span class="na">http</span><span class="p">.</span><span class="na">HttpServlet</span> <span class="p">{</span> <span class="p">...</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Implemente interfaces pré-especificadas, como em:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Bar</span> <span class="kd">implements</span> <span class="n">javax</span><span class="p">.</span><span class="na">ejb</span><span class="p">.</span><span class="na">EntityBean</span> <span class="p">{</span> <span class="p">...</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Contêm anotações pré-especificadas, como em:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@javax.persistence.Entity</span> <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Baz</span> <span class="p">{</span> <span class="p">...</span>
+</code></pre></div>
+
+</li>
+</ul>
+<p>O código abaixo exemplifica um POJO que segue o padrão JavaBean:</p>
+<div class="highlight"><pre><span></span><code> <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Carro</span> <span class="kd">implements</span> <span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">Serializable</span> <span class="p">{</span>  
+
+    <span class="kd">private</span> <span class="n">String</span>  <span class="n">nome</span><span class="p">;</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">cor</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Carro</span><span class="p">()</span> <span class="p">{}</span>
+
+    <span class="kd">public</span> <span class="nf">Carro</span><span class="p">(</span><span class="n">String</span> <span class="n">nome</span><span class="p">,</span> <span class="n">String</span> <span class="n">cor</span><span class="p">)</span> <span class="p">{</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">nome</span> <span class="o">=</span> <span class="n">nome</span><span class="p">;</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">cor</span> <span class="o">=</span> <span class="n">cor</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getCor</span><span class="p">()</span> <span class="p">{</span>
+         <span class="k">return</span> <span class="n">cor</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setCor</span><span class="p">(</span><span class="n">String</span> <span class="n">cor</span><span class="p">)</span> <span class="p">{</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">cor</span> <span class="o">=</span> <span class="n">cor</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getNome</span><span class="p">()</span> <span class="p">{</span>
+         <span class="k">return</span> <span class="n">nome</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setNome</span><span class="p">(</span><span class="n">String</span> <span class="n">nome</span><span class="p">)</span> <span class="p">{</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">nome</span> <span class="o">=</span> <span class="n">nome</span><span class="p">;</span>
+    <span class="p">}</span>
+ <span class="p">}</span>
+</code></pre></div>
+
+<h3 id="javabean">JavaBean<a class="headerlink" href="#javabean" title="Permanent link">&para;</a></h3>
+<p>Um JavaBean (ou Bean) é um POJO que é serializável, possui um construtor sem argumento e permite acesso a propriedades usando métodos <em>getter</em> e <em>setter</em> que seguem uma convenção de nomenclatura simples.</p>
+<h3 id="topicos-para-o-estudo-da-linguagem">Tópicos para o estudo da linguagem<a class="headerlink" href="#topicos-para-o-estudo-da-linguagem" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Concepts from core Java</strong></p>
+</li>
+<li>
+<p>OOPS concepts (Data Abstraction, Encapsulation, Inheritance, Polymorphism)</p>
+</li>
+<li>Basic Java constructs like loops and data types</li>
+<li>String handling</li>
+<li>Collection framework</li>
+<li>Multithreading</li>
+<li>Exception handling</li>
+<li>Generics</li>
+<li>Synchronisation</li>
+<li>Serialization &amp; De-serialization</li>
+<li>
+<p>Concurrent collection</p>
+</li>
+<li>
+<p><strong>Core Java Programming Introduction of Java</strong></p>
+</li>
+<li>Introduction to Java; features of Java</li>
+<li>Comparison with C and C++</li>
+<li>Download and install JDK/JRE (Environment variables set up)</li>
+<li>The JDK Directory Structure</li>
+<li>First Java Program through command prompt</li>
+<li>
+<p>First Java Program through Eclipse/IntelliJ/whatever-editor-you-want</p>
+</li>
+<li>
+<p><strong>Data types and Operators</strong></p>
+</li>
+<li>Primitive Datatypes, Declarations, Ranges</li>
+<li>Variable Names Conventions</li>
+<li>Numeric Literals, Character Literals</li>
+<li>String Literals</li>
+<li>Arrays(One dimensional; two- dimensional)</li>
+<li>Array of Object References</li>
+<li>Accessing arrays, manipulating arrays</li>
+<li>Enumerated Data Types</li>
+<li>Non-Primitive Datatypes</li>
+<li>Defining a class, variable and method in Java</li>
+<li>Method Signature; method calls</li>
+<li>Expressions in Java; introduction to various operators</li>
+<li>Assignment Operator</li>
+<li>Arithmetic Operators</li>
+<li>Relational Operators</li>
+<li>Logical Operators</li>
+<li>Conditional Operators</li>
+<li>Operator Precedence</li>
+<li>Implicit Type Conversions</li>
+<li>Upcasting and downcasting</li>
+<li>Strict typing</li>
+<li>
+<p>Type conversion</p>
+</li>
+<li>
+<p><strong>Control Flow statements</strong></p>
+</li>
+<li>Statements and it's various categories in Java</li>
+<li>if, if-else, if-else-if</li>
+<li>switch case</li>
+<li>for statement(old vs enhanced)</li>
+<li>while and do-while loops</li>
+<li>The continue Statement; labelled continue statement</li>
+<li>The break Statement; labelled break statement</li>
+<li>
+<p>return statement</p>
+</li>
+<li>
+<p><strong>OOPS and its application in Java</strong></p>
+</li>
+<li>Classes and Objects</li>
+<li>Defining a class;Defining instance variables and methods</li>
+<li>Creating objects out of a class</li>
+<li>Method calls via object references</li>
+<li>Abstraction</li>
+<li>Interfaces and Abstract classes</li>
+<li>Abstract and non-abstract methods</li>
+<li>Inheritance</li>
+<li>extends and implements keywords in Java</li>
+<li>Super class and Sub class</li>
+<li>this keyword, super keyword in Java for inheritance</li>
+<li>Concrete classes in Java</li>
+<li>Polymorphism</li>
+<li>Compile time polymorphism -- Overloading of methods</li>
+<li>Run time polymorphism -- Overriding of methods</li>
+<li>Method Overriding rules and method overloading rules</li>
+<li>Introduction to Object class and it's methods</li>
+<li>Encapsulation</li>
+<li>Protection of data</li>
+<li>Java Bean, POJO</li>
+<li>Getters/Setters</li>
+<li>Memory management in Java</li>
+<li>Heap</li>
+<li>
+<p>Stack</p>
+</li>
+<li>
+<p><strong>Packages</strong></p>
+<ul>
+<li>Need for packages</li>
+<li>What are packages; package declaration in Java</li>
+<li>Import statement in Java</li>
+<li>How do packages resolve name clashes?</li>
+</ul>
+</li>
+<li>
+<p><strong>Access Modifiers in Java</strong></p>
+<ul>
+<li>What are access modifiers?</li>
+<li>Default</li>
+<li>Protected</li>
+<li>Private</li>
+<li>Public</li>
+</ul>
+</li>
+<li>
+<p><strong>Miscellaneous</strong></p>
+<ul>
+<li>Var-Args</li>
+<li>Reference variables, local variables, instance variables</li>
+<li>Memory allocations to variables</li>
+<li>Double equals operator(==) operator for primitives and objects</li>
+<li>toString() method on an object</li>
+</ul>
+</li>
+<li>
+<p><strong>Statics</strong></p>
+<ul>
+<li>Static variables and methods</li>
+<li>Static imports</li>
+<li>Static initialization blocks; instance initialization blocks</li>
+<li>Static concept in inheritance</li>
+</ul>
+</li>
+<li>
+<p><strong>Constructors</strong></p>
+<ul>
+<li>What are Constructors?</li>
+<li>Properties of Constructors</li>
+<li>Default and Parameterized Constructors</li>
+<li>Rules for constructor implementation</li>
+<li>Constructor Chaining</li>
+<li>this call; super call for constructors</li>
+<li>Constructors for Enumerated Data Types</li>
+<li>Constructors concept for Abstract classes and interfaces</li>
+</ul>
+</li>
+<li>
+<p><strong>Exceptions in Java</strong></p>
+<ul>
+<li>What are Exceptions?</li>
+<li>Need for exceptions</li>
+<li>How can Exceptions be coded in Java?</li>
+<li>API heirarchy for Exceptions</li>
+<li>Types of Exceptions</li>
+<li>Keywords in Exception API: <code>try</code>, <code>catch</code>, <code>finally</code>, <code>throw</code>, <code>throws</code></li>
+<li>Rules for coding Exceptions</li>
+<li>Declaring Exceptions</li>
+<li>Defining and Throwing Exceptions</li>
+<li>Errors and Runtime Exceptions</li>
+<li>Custom Exception</li>
+</ul>
+</li>
+<li>
+<p><strong>Strings in Java</strong></p>
+<ul>
+<li>What are Strings?</li>
+<li>String heap memory and Constant Pool memory</li>
+<li>Immutability in Strings</li>
+<li>String creation on heap and constant pool</li>
+<li>Method APIs on String; operations on Strings</li>
+<li>Mutability of String Objects - StringBuilder and StringBuffer</li>
+</ul>
+</li>
+<li>
+<p><strong>Collection Framework in Java</strong></p>
+<ul>
+<li>The Collections Framework</li>
+<li>The Set Interface</li>
+<li>Set Implementation Classes</li>
+<li>The List Interface</li>
+<li>List Implementation Classes</li>
+<li>The Map Interface</li>
+<li>Map Implementation Classes</li>
+<li>Queue Interface</li>
+<li>Queue Implementation classes</li>
+<li>Sorting collections using utility methods</li>
+<li>equals() and hashCode contract in Java collections</li>
+</ul>
+</li>
+<li>
+<p><strong>Generics</strong></p>
+<ul>
+<li>Generics for Collections</li>
+<li>Generics for class</li>
+<li>Generics for methods</li>
+</ul>
+</li>
+<li>
+<p><strong>Input-Output in Java</strong></p>
+<ul>
+<li>What is a stream?</li>
+<li>Overview of Streams</li>
+<li>Bytes vs. Characters</li>
+<li>Overview of the entire Java IO API</li>
+<li>Reading a file; writing to a file using various APIs</li>
+<li>Reading User input from console</li>
+<li>PrintWriter Class</li>
+</ul>
+</li>
+<li>
+<p><strong>Serialization</strong></p>
+<ul>
+<li>Object Serialization</li>
+<li>Serializable Interface</li>
+<li>Serialization API</li>
+<li>ObjectInputStream and ObjectOutput</li>
+<li>Transient Fields</li>
+<li>readObject and writeObject</li>
+</ul>
+</li>
+<li>
+<p><strong>Inner Classes</strong></p>
+<ul>
+<li>Inner Classes</li>
+<li>Member Classes</li>
+<li>Local Classes</li>
+<li>Anonymous Classes</li>
+<li>Static Nested Classes</li>
+</ul>
+</li>
+<li>
+<p><strong>Threads in Java</strong></p>
+<ul>
+<li>Non-Threaded Applications</li>
+<li>Threaded Applications</li>
+<li>Process based multitasking Vs Thread based multitasking</li>
+<li>Thread API in Java</li>
+<li>Creating Threads</li>
+<li>States of a Thread</li>
+<li>Synchronization for threads; static and non-static synchronized methods; blocks; concept - of object and class locks</li>
+<li>Coordination between threads - wait, notify and notifyAll methods for inter-thread - communication</li>
+</ul>
+</li>
+<li>
+<p><strong>JDBC</strong></p>
+<ul>
+<li>What is JDBC; introduction; everything about JDBC</li>
+<li>create database and a schema</li>
+<li>Writing JDBC code to connect to DB</li>
+<li>CRUD Operations with JDBC</li>
+</ul>
+</li>
+<li>
+<p><strong>Java 8 Features</strong></p>
+</li>
+<li>Java Lambda Expressions</li>
+<li>Java Method References</li>
+<li>Java Functional Interfaces</li>
+<li>Java Stream Tutorial</li>
+<li>Java Stream Filter Tutorial</li>
+<li>Java Interface changes – introduction of default and static methods</li>
+<li>Java forEach</li>
+<li>Java Stream Collectors class</li>
+<li>Java StringJoiner class</li>
+<li>Java Optional class</li>
+<li>
+<p>Java Arrays Parallel Sort</p>
+</li>
+<li>
+<p><strong>Java 9 Features</strong></p>
+</li>
+<li>Java 9 – REPL (JShell)</li>
+<li>Factory methods to create immutable List, Set and Map</li>
+<li>Introduction of Private methods in interfaces</li>
+<li>Try with resources enhancements</li>
+<li>Anonymous inner class and diamond operator</li>
+<li>SafeVarargs Annotation (with examples)</li>
+<li>Java 9 – Stream API Enhancements (With Examples)</li>
+<li>Java 9 Modules</li>
+</ul>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Linguagem Java</li>
+<li>
+<p><a href="https://www.javatpoint.com/java-tutorial">https://www.javatpoint.com/java-tutorial</a></p>
+</li>
+<li>
+<p>Projetos em Java em destaque</p>
+</li>
+<li><a href="https://github.com/Vedenin/useful-java-links">https://github.com/Vedenin/useful-java-links</a></li>
+<li><a href="https://githublists.com/lists/akullpp/awesome-java">https://githublists.com/lists/akullpp/awesome-java</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+      Guia Rápido - 2020
+      </div>
+
+      <!-- Social links -->
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1159 @@
+
+
+
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+      
+      
+        <link rel="canonical" href="https://kustavo.github.io/guia-rapido/dotnet/linguagem/instrucoes-e-expressoes-e-operadores/">
+      
+      
+        <meta name="author" content="Gustavo Araujo">
+      
+      <link rel="shortcut icon" href="../../../favicon.svg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.14">
+    
+    
+      
+        <title>Instruções, expressões e operadores - Guia Rápido</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.d3202873.min.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ff0a5ce4.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4051b5">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>body,input{font-family:"Ubuntu",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../extra.css">
+    
+    
+  
+      
+    
+  <script>document.addEventListener("DOMContentLoaded",function(){document.body.addEventListener("click",function(e){if(e.target instanceof HTMLElement){var t=e.target.closest("a[href^=http]");t&&ga("send","event","outbound","click",t.href)}})})</script>
+
+    
+  
+  
+    
+  
+  
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Guia Rápido - Instruções, expressões e operadores">
+    <meta property="og:description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+    <meta property="og:url" content="https://kustavo.github.io/guia-rapido/dotnet/linguagem/instrucoes-e-expressoes-e-operadores/">
+    <meta property="og:image" content="https://kustavo.github.io/guia-rapido/assets/images/banner.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="568">
+    <link rel="stylesheet" href="../../../assets/stylesheets/home.css">
+
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#instrucoes-expressoes-e-operadores" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-header-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../../logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Guia Rápido
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Instruções, expressões e operadores
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../../logo.svg" alt="logo">
+
+    </a>
+    Guia Rápido
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      .Net
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label=".Net" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        .Net
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../erros-solucoes/" title="Erros e soluções" class="md-nav__link">
+      Erros e soluções
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Linux
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Shell
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Shell" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        <span class="md-nav__icon md-icon"></span>
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/linux-shell/" title="Linux shell" class="md-nav__link">
+      Linux shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/bash/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/dash/" title="Dash" class="md-nav__link">
+      Dash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/zsh/" title="Z-shell" class="md-nav__link">
+      Z-shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/gnome-terminal/" title="Gnome terminal" class="md-nav__link">
+      Gnome terminal
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Markdown
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Markdown" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Markdown
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      MkDocs
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="MkDocs" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon"></span>
+        MkDocs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../markdown/mkdocs/" title="MkDocs" class="md-nav__link">
+      MkDocs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instrucoes" class="md-nav__link">
+    Instruções
+  </a>
+  
+    <nav class="md-nav" aria-label="Instruções">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instrucoes-de-declaracao" class="md-nav__link">
+    Instruções de declaração
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instrucoes-de-expressao" class="md-nav__link">
+    Instruções de expressão
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instrucoes-de-selecao" class="md-nav__link">
+    Instruções de seleção
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instrucoes-de-iteracao" class="md-nav__link">
+    Instruções de iteração
+  </a>
+  
+    <nav class="md-nav" aria-label="Instruções de iteração">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foreach" class="md-nav__link">
+    foreach
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#while" class="md-nav__link">
+    while
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instrucoes-de-salto" class="md-nav__link">
+    Instruções de salto
+  </a>
+  
+    <nav class="md-nav" aria-label="Instruções de salto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#yield" class="md-nav__link">
+    yield
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instrucoes-para-tratamento-de-excecoes" class="md-nav__link">
+    Instruções para tratamento de exceções
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instrucoes-checked-e-unchecked" class="md-nav__link">
+    Instruções checked e unchecked
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instrucao-await" class="md-nav__link">
+    Instrução await
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instrucao-yield-return" class="md-nav__link">
+    Instrução yield return
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instrucao-fixed" class="md-nav__link">
+    Instrução fixed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instrucao-lock" class="md-nav__link">
+    Instrução lock
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instrucoes-rotuladas" class="md-nav__link">
+    Instruções rotuladas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instrucao-vazia" class="md-nav__link">
+    Instrução vazia
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operadores" class="md-nav__link">
+    Operadores
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+                  <a href="https://github.com/kustavo/guia-rapido/edit/master/docs/dotnet/linguagem/instrucoes-e-expressoes-e-operadores.md" title="Editar esta página" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="instrucoes-expressoes-e-operadores">Instruções, expressões e operadores<a class="headerlink" href="#instrucoes-expressoes-e-operadores" title="Permanent link">&para;</a></h1>
+<div class="toc">
+<ul>
+<li><a href="#instrucoes-expressoes-e-operadores">Instruções, expressões e operadores</a><ul>
+<li><a href="#instrucoes">Instruções</a><ul>
+<li><a href="#instrucoes-de-declaracao">Instruções de declaração</a></li>
+<li><a href="#instrucoes-de-expressao">Instruções de expressão</a></li>
+<li><a href="#instrucoes-de-selecao">Instruções de seleção</a></li>
+<li><a href="#instrucoes-de-iteracao">Instruções de iteração</a><ul>
+<li><a href="#foreach">foreach</a></li>
+<li><a href="#while">while</a></li>
+</ul>
+</li>
+<li><a href="#instrucoes-de-salto">Instruções de salto</a><ul>
+<li><a href="#yield">yield</a></li>
+</ul>
+</li>
+<li><a href="#instrucoes-para-tratamento-de-excecoes">Instruções para tratamento de exceções</a></li>
+<li><a href="#instrucoes-checked-e-unchecked">Instruções checked e unchecked</a></li>
+<li><a href="#instrucao-await">Instrução await</a></li>
+<li><a href="#instrucao-yield-return">Instrução yield return</a></li>
+<li><a href="#instrucao-fixed">Instrução fixed</a></li>
+<li><a href="#instrucao-lock">Instrução lock</a></li>
+<li><a href="#instrucoes-rotuladas">Instruções rotuladas</a></li>
+<li><a href="#instrucao-vazia">Instrução vazia</a></li>
+</ul>
+</li>
+<li><a href="#operadores">Operadores</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>[[<em>TOC</em>]]</p>
+<p>O código C# que compõe um aplicativo consiste em instruções (em inglês, <em>statements</em>) compostas por palavras-chave, expressões e operadores.</p>
+<h2 id="instrucoes">Instruções<a class="headerlink" href="#instrucoes" title="Permanent link">&para;</a></h2>
+<p>As ações que um programa realiza são expressas em instruções (em inglês, <em>statements</em>). Ações comuns incluem declarar variáveis, atribuir valores, chamar métodos, lações de repetição em coleções e execução de um ou outro bloco de código, dependendo de uma determinada condição. A ordem na qual as instruções são executadas em um programa é chamada de fluxo de controle ou fluxo de execução. O fluxo de controle pode variar sempre que um programa é executado, dependendo de como o programa reage às entradas que recebe em tempo de execução.</p>
+<p>Uma instrução pode consistir em uma única linha de código que termina em (<code>;</code>) ou uma série de instruções de uma linha em um bloco. Um bloco de instrução é colocado entre (<code>{}</code>) e pode conter blocos aninhados.</p>
+<h3 id="instrucoes-de-declaracao">Instruções de declaração<a class="headerlink" href="#instrucoes-de-declaracao" title="Permanent link">&para;</a></h3>
+<p>Uma declaração de instrução introduz uma nova variável ou constante. Uma declaração variável pode, opcionalmente, atribuir um valor à variável. Uma declaração constante, a atribuição é obrigatória.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Instrução de declaração variável.</span>
+<span class="kt">double</span> <span class="n">area</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">radius</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+
+<span class="c1">// Instrução de declaração constante.</span>
+<span class="k">const</span> <span class="kt">double</span> <span class="n">pi</span> <span class="p">=</span> <span class="m">3.14159</span><span class="p">;</span>
+</code></pre></div>
+
+<h3 id="instrucoes-de-expressao">Instruções de expressão<a class="headerlink" href="#instrucoes-de-expressao" title="Permanent link">&para;</a></h3>
+<p>Uma expressão é uma sequência de um ou mais operandos e zero ou mais operadores que podem ser avaliados como um valor, objeto, método ou namespace único. As expressões podem consistir de um valor literal, uma invocação de método, um operador e seus operandos ou um nome simples. Os nomes simples podem ser o nome de uma variável, um membro de tipo, um parâmetro de método, um namespace ou um tipo.</p>
+<p><a href="https://docs.microsoft.com/pt-br/dotnet/csharp/programming-guide/statements-expressions-operators/expressions">Leia mais aqui</a></p>
+<h3 id="instrucoes-de-selecao">Instruções de seleção<a class="headerlink" href="#instrucoes-de-selecao" title="Permanent link">&para;</a></h3>
+<p>Instruções de seleção permitem que você ramifique para diferentes seções de código, dependendo de uma ou mais condições especificadas.</p>
+<p>Palavras-chave: <code>if</code>, <code>else</code>, <code>switch</code>, <code>case</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Exemplo 1: </span>
+<span class="c1">// if, else</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">condicaoA</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// A</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="c1">// #</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Exemplo 2</span>
+<span class="c1">// if, else</span>
+<span class="c1">// Para uma única instrução, as chaves são opcionais, mas recomendadas</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">condicaoA</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">condicaoB</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// A e B</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="c1">// A e #</span>
+    <span class="p">}</span>
+
+
+<span class="c1">// Exemplo 3</span>
+<span class="c1">// if, else if, else</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">condicaoA</span><span class="p">)</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">condicaoB</span><span class="p">)</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">condicaoC</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">condicaoD</span><span class="p">)</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+
+
+<span class="c1">// Exemplo 4</span>
+<span class="c1">// switch, case</span>
+<span class="k">switch</span> <span class="p">(</span><span class="n">valor</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">case</span> <span class="m">1</span><span class="p">:</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Valor 1&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="m">2</span><span class="p">:</span>
+    <span class="k">case</span> <span class="m">3</span><span class="p">:</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="err">$</span><span class="s">&quot;Valor {caseSwitch}&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="err">$</span><span class="s">&quot;Valor não esperado ({caseSwitch})&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="instrucoes-de-iteracao">Instruções de iteração<a class="headerlink" href="#instrucoes-de-iteracao" title="Permanent link">&para;</a></h3>
+<p>Instruções de iteração permitem que você percorra coleções como matrizes ou execute o mesmo conjunto de instruções repetidamente até que uma determinada condição seja atendida.</p>
+<p>Palavras-chave: <code>do</code>, <code>for</code>, <code>foreach</code>, <code>in</code>, <code>while</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Exemplo 1</span>
+<span class="c1">// do</span>
+<span class="kt">int</span> <span class="n">n</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="k">do</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+    <span class="n">n</span><span class="p">++;</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="p">&lt;</span> <span class="m">5</span><span class="p">);</span>
+
+
+<span class="c1">// Exemplo 2</span>
+<span class="c1">// for</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">5</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Exemplo 3</span>
+<span class="c1">// for</span>
+<span class="c1">// Loop infinito</span>
+<span class="k">for</span> <span class="p">(</span> <span class="p">;</span> <span class="p">;</span> <span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="foreach">foreach<a class="headerlink" href="#foreach" title="Permanent link">&para;</a></h4>
+<p>Em qualquer ponto dentro do bloco de instrução foreach, você pode sair do loop usando a instrução <code>break</code> ou seguir para a próxima iteração no loop usando a instrução <code>continue</code>. Você também pode sair de um loop foreach com a instrução <code>goto</code>, <code>return</code> ou <code>throw</code>.</p>
+<p>Se a instrução foreach for aplicada a <code>null</code>, uma <code>NullReferenceException</code> será lançada. Se a coleção de origem da instrução foreach estiver vazia, o corpo do loop foreach não será executado e será ignorado.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Exemplo 1</span>
+<span class="c1">// foreach, in</span>
+<span class="kt">var</span> <span class="n">fibNumbers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">13</span> <span class="p">};</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">element</span> <span class="k">in</span> <span class="n">fibNumbers</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="while">while<a class="headerlink" href="#while" title="Permanent link">&para;</a></h4>
+<p>A qualquer momento dentro do bloco de instruções while, interrompa o loop usando a instrução <code>break</code>.</p>
+<p>Você pode seguir diretamente para a avaliação da expressão while usando a instrução <code>continue</code>. Se a expressão for avaliada como <code>true</code>, a execução continuará na primeira instrução do loop. Caso contrário, a execução continuará na primeira instrução após o loop.</p>
+<p>Você também pode sair de um loop while com a instrução <code>goto</code>, <code>return</code> ou <code>throw</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Exemplo 1</span>
+<span class="c1">// while</span>
+<span class="kt">int</span> <span class="n">n</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="p">&lt;</span> <span class="m">5</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+    <span class="n">n</span><span class="p">++;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="instrucoes-de-salto">Instruções de salto<a class="headerlink" href="#instrucoes-de-salto" title="Permanent link">&para;</a></h3>
+<p>Instruções de salto transferem o controle para outra seção de código.</p>
+<p>Palavras-chave: <code>break</code>, <code>continue</code>, <code>default</code>, <code>goto</code>, <code>return</code>, <code>yield</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Exemplo 1</span>
+<span class="c1">// goto</span>
+<span class="k">switch</span> <span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">case</span> <span class="m">1</span><span class="p">:</span>
+        <span class="n">cost</span> <span class="p">+=</span> <span class="m">25</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="m">2</span><span class="p">:</span>
+        <span class="n">cost</span> <span class="p">+=</span> <span class="m">25</span><span class="p">;</span>
+        <span class="k">goto</span> <span class="k">case</span> <span class="m">1</span><span class="p">;</span>
+    <span class="k">case</span> <span class="m">3</span><span class="p">:</span>
+        <span class="n">cost</span> <span class="p">+=</span> <span class="m">50</span><span class="p">;</span>
+        <span class="k">goto</span> <span class="k">case</span> <span class="m">1</span><span class="p">;</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Invalid selection.&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Exemplo 1</span>
+<span class="c1">// goto</span>
+<span class="kt">var</span> <span class="n">achei</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">achei</span> <span class="p">&lt;</span> <span class="m">10</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">goto</span> <span class="n">Found</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">goto</span> <span class="n">Finish</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Found</span><span class="p">:</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Achei&quot;</span><span class="p">);</span>
+
+<span class="n">Finish</span><span class="p">:</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Fim&quot;</span><span class="p">);</span>
+
+<span class="c1">// Saida:</span>
+<span class="c1">// Achei</span>
+<span class="c1">// Fim</span>
+</code></pre></div>
+
+<h4 id="yield">yield<a class="headerlink" href="#yield" title="Permanent link">&para;</a></h4>
+<p>Quando você usa o <code>yield</code> (palavra-chave contextual em uma instrução), você indica que o método, operador ou acessador de <code>get</code> no qual ele aparece é um iterador. Usar <code>yield</code> para definir um iterador elimina a necessidade de uma classe adicional explícita (a classe que mantém o estado de uma enumeração) ao implementar o padrão <code>IEnumerable</code> e <code>IEnumerator</code> para um tipo de coleção personalizado.</p>
+<p>Você usa uma instrução <code>yield return</code> para retornar cada elemento individualmente.</p>
+<p>A sequência retornada de um método iterador pode ser consumida usando uma instrução <code>foreach</code> ou uma consulta LINQ. Cada iteração do loop <code>foreach</code> chama o método iterador. Quando uma instrução <code>yield return</code> é atingida no método iterador, expression é retornado e o local atual no código é retido. A execução será reiniciada desse local na próxima vez que a função iteradora for chamada.</p>
+<p>Você pode usar uma instrução <code>yield break</code> para terminar a iteração.</p>
+<p>O exemplo a seguir contém uma instrução <code>yield return</code> dentro de um loop <code>for</code>. Cada iteração do corpo da instrução <code>foreach</code> no método <code>Main</code> cria uma chamada à função iteradora <code>Power</code>. Cada chamada à função iteradora prossegue para a próxima execução da instrução <code>yield return</code> que ocorre durante a próxima iteração do loop <code>for</code>.</p>
+<p>O tipo de retorno do método iterador é <code>IEnumerable</code> que é um tipo de interface de iterador. Quando o método iterador é chamado, ele retorna um objeto enumerável que contém as potências de um número.</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">PowersOf2</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Exibe potências de 2 até o expoente de 8</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="k">in</span> <span class="n">Power</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">8</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&quot;{0} &quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">Power</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">,</span> <span class="kt">int</span> <span class="n">exponent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">exponent</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+        <span class="p">{</span>
+            <span class="n">result</span> <span class="p">=</span> <span class="n">result</span> <span class="p">*</span> <span class="n">number</span><span class="p">;</span>
+            <span class="k">yield</span> <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Saida: 2 4 8 16 32 64 128 256</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="instrucoes-para-tratamento-de-excecoes">Instruções para tratamento de exceções<a class="headerlink" href="#instrucoes-para-tratamento-de-excecoes" title="Permanent link">&para;</a></h3>
+<p>Instruções para tratamento de exceções permitem que você se recupere normalmente de condições excepcionais que ocorrem em tempo de execução. Para mais informações, consulte os seguintes tópicos:</p>
+<p>Palavras-chave: <code>throw</code>, <code>try-catch</code>, <code>try-finally</code>, <code>try-catch-finally</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Exemplo 1</span>
+<span class="c1">// throw</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="p">&lt;</span> <span class="m">0</span> <span class="p">||</span> <span class="n">index</span> <span class="p">&gt;=</span> <span class="n">numbers</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">IndexOutOfRangeException</span><span class="p">();</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Exemplo 2</span>
+<span class="c1">// try, catch, throw</span>
+<span class="k">try</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Value</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="k">catch</span> <span class="p">(</span><span class="n">NullReferenceException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span><span class="p">;</span>   
+<span class="p">}</span>
+
+
+<span class="c1">// Exemplo 3</span>
+<span class="c1">// try, catch, finally</span>
+<span class="k">try</span>
+<span class="p">{</span>
+    <span class="n">file</span><span class="p">.</span><span class="n">ReadBlock</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">buffer</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">catch</span> <span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Error reading from {0}. Message = {1}&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">finally</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">file</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">file</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="instrucoes-checked-e-unchecked">Instruções checked e unchecked<a class="headerlink" href="#instrucoes-checked-e-unchecked" title="Permanent link">&para;</a></h3>
+<p>As instruções <code>checked</code> e <code>unchecked</code> permitem que você especifique se operações numéricas podem causar um estouro quando o resultado for armazenado em uma variável que é muito pequena para conter o valor resultante.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Causes erro em tempo de compilação porque 2147483647 é o limite para inteiros.</span>
+<span class="kt">int</span> <span class="n">i1</span> <span class="p">=</span> <span class="m">2147483647</span> <span class="p">+</span> <span class="m">10</span><span class="p">;</span>
+
+<span class="c1">// Causa erro em tempo de execução.</span>
+<span class="kt">int</span> <span class="n">ten</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">i2</span> <span class="p">=</span> <span class="m">2147483647</span> <span class="p">+</span> <span class="n">ten</span><span class="p">;</span>
+
+<span class="c1">// Expresão Checked.</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="k">checked</span><span class="p">(</span><span class="m">2147483647</span> <span class="p">+</span> <span class="n">ten</span><span class="p">));</span>
+
+<span class="c1">// Bloco Checked.</span>
+<span class="k">checked</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i3</span> <span class="p">=</span> <span class="m">2147483647</span> <span class="p">+</span> <span class="n">ten</span><span class="p">;</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i3</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>A palavra-chave <code>unchecked</code> pode ser usada para impedir a verificação de estouro.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Expresão Unchecked.</span>
+<span class="n">int1</span> <span class="p">=</span> <span class="k">unchecked</span><span class="p">(</span><span class="n">ConstantMax</span> <span class="p">+</span> <span class="m">10</span><span class="p">);</span>
+
+<span class="c1">// Bloco Unchecked.</span>
+<span class="k">unchecked</span>
+<span class="p">{</span>
+    <span class="c1">// Não ocorrerá erro de compilação, o resultado será &quot;-2,147,483,639&quot;</span>
+    <span class="n">int1</span> <span class="p">=</span> <span class="m">2147483647</span> <span class="p">+</span> <span class="m">10</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="instrucao-await">Instrução await<a class="headerlink" href="#instrucao-await" title="Permanent link">&para;</a></h3>
+<p>Se marcar um método com o modificador <code>async</code>, você poderá usar o operador <code>await</code> no método. Quando o controle atinge uma expressão <code>await</code> no método assíncrono, ele retorna para o chamador e o progresso no método é suspenso até a tarefa aguardada ser concluída. Quando a tarefa for concluída, a execução poderá ser retomada no método.</p>
+<h3 id="instrucao-yield-return">Instrução yield return<a class="headerlink" href="#instrucao-yield-return" title="Permanent link">&para;</a></h3>
+<p>Um iterador realiza uma iteração personalizada em uma coleção, como uma lista ou uma matriz. Um iterador usa a instrução <code>yield return</code> para retornar um elemento de cada vez. Quando uma instrução <code>yield return</code> for atingida, o local atual no código será lembrado. A execução será reiniciada desse local quando o iterador for chamado na próxima vez.</p>
+<h3 id="instrucao-fixed">Instrução fixed<a class="headerlink" href="#instrucao-fixed" title="Permanent link">&para;</a></h3>
+<p>A instrução <code>fixed</code> impede que o coletor de lixo faça a realocação de uma variável móvel.</p>
+<p>A instrução <code>fixed</code> impede que o coletor de lixo faça a realocação de uma variável móvel. A instrução <code>fixed</code> é permitida somente em um contexto não seguro. Você também pode usar a palavra-chave <code>fixed</code> para criar buffers de tamanho fixo.</p>
+<p>A instrução <code>fixed</code> define um ponteiro para uma variável gerenciada e "fixa" essa variável durante a execução da instrução. Os ponteiros móveis gerenciados são úteis apenas em um contexto <code>fixed</code>. Sem um contexto <code>fixed</code>, a coleta de lixo poderia realocar as variáveis de forma imprevisível. O compilador do C# só permite que você atribua um ponteiro a uma variável gerenciada em uma instrução <code>fixed</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Point</span> 
+<span class="p">{</span> 
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">y</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="k">unsafe</span> <span class="k">private</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">ModifyFixedStorage</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// A variável pt é uma variável gerenciada, sujeita a coleta de lixo.</span>
+    <span class="n">Point</span> <span class="n">pt</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">();</span>
+
+    <span class="c1">// O uso de Fixed permite que o endereço dos membros pt seja &quot;fixo&quot; e não será realocado.</span>
+    <span class="k">fixed</span> <span class="p">(</span><span class="kt">int</span><span class="p">*</span> <span class="n">p</span> <span class="p">=</span> <span class="p">&amp;</span><span class="n">pt</span><span class="p">.</span><span class="n">x</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="p">*</span><span class="n">p</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="instrucao-lock">Instrução lock<a class="headerlink" href="#instrucao-lock" title="Permanent link">&para;</a></h3>
+<p>A instrução <code>lock</code> permite limitar o acesso a blocos de código a apenas um thread por vez.</p>
+<p>A instrução <code>lock</code> obtém o bloqueio de exclusão mútua para um determinado objeto, executa um bloco de instruções e, em seguida, libera o bloqueio. Embora um bloqueio seja mantido, o thread que mantém o bloqueio pode adquiri-lo novamente e liberá-lo. Qualquer outro thread é impedido de adquirir o bloqueio e aguarda até que ele seja liberado.</p>
+<div class="highlight"><pre><span></span><code><span class="k">lock</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Instruções...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="instrucoes-rotuladas">Instruções rotuladas<a class="headerlink" href="#instrucoes-rotuladas" title="Permanent link">&para;</a></h3>
+<p>Você pode atribuir um rótulo a uma instrução e, em seguida, usar a palavra-chave <code>goto</code> para ir diretamente para a instrução rotulada.</p>
+<h3 id="instrucao-vazia">Instrução vazia<a class="headerlink" href="#instrucao-vazia" title="Permanent link">&para;</a></h3>
+<p>A instrução vazia consiste em um único (<code>;</code>). Ela não faz nada e pode ser usada em locais em que uma instrução é necessária, mas nenhuma ação precisa ser executada.</p>
+<div class="highlight"><pre><span></span><code><span class="k">void</span> <span class="nf">ProcessMessages</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">ProcessMessage</span><span class="p">())</span>
+        <span class="p">;</span> <span class="c1">// Instrução vazia.</span>
+<span class="p">}</span>
+
+<span class="k">void</span> <span class="nf">F</span><span class="p">()</span>
+<span class="p">{</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">done</span><span class="p">)</span> <span class="k">goto</span> <span class="n">exit</span><span class="p">;</span>
+
+    <span class="n">exit</span><span class="p">:</span>
+        <span class="p">;</span> <span class="c1">// Instrução vazia.</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="operadores">Operadores<a class="headerlink" href="#operadores" title="Permanent link">&para;</a></h2>
+<p>O C# oferece vários operadores predefinidos, compatíveis com os tipos internos. Por exemplo, os operadores aritméticos executam operações aritméticas com operandos numéricos, já os operadores lógicos boolianos executam operações lógicas com operandos bool. Determinados operadores podem ser sobrecarregados. Com a sobrecarga de operador, você pode especificar o comportamento do operador para os operandos de um tipo definido pelo usuário.</p>
+<p>Em uma expressão, a precedência e a associação dos operadores determinam a ordem na qual as operações são executadas. Você pode usar parênteses para alterar a ordem de avaliação imposta pela prioridade e pela associação dos operadores.</p>
+<table>
+<thead>
+<tr>
+<th>Operadores</th>
+<th>Categoria ou nome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x.y</code>, <code>x?.y</code>, <code>x?[y]</code>, <code>f(x)</code>, <code>a[i]</code>, <code>x++</code>, <code>x--</code>, <code>new</code>, <code>typeof</code>, <code>checked</code>, <code>unchecked</code>, <code>default</code>, <code>nameof</code>, <code>delegate</code>, <code>sizeof</code>, <code>stackalloc</code>, <code>x-&gt;y</code></td>
+<td>Primária</td>
+</tr>
+<tr>
+<td><code>+x</code>, <code>-x</code>, <code>!x</code>, <code>~x</code>, <code>++x</code>, <code>--x</code>, <code>^x</code>, <code>(T)x</code>, <code>await</code>, <code>&amp;x</code>, <code>*x</code>, <code>true</code>, <code>false</code></td>
+<td>Unário</td>
+</tr>
+<tr>
+<td><code>X.. Y</code></td>
+<td>Intervalo</td>
+</tr>
+<tr>
+<td><code>x * y</code>, <code>x / y</code>, <code>x % y</code></td>
+<td>Multiplicativo</td>
+</tr>
+<tr>
+<td><code>x + y</code>, <code>x – y</code></td>
+<td>Aditiva</td>
+</tr>
+<tr>
+<td><code>&lt; x &lt; y</code>, <code>x &gt;&gt; y</code></td>
+<td>Turno</td>
+</tr>
+<tr>
+<td><code>x &lt; y</code>, <code>x &gt; y</code>, <code>x &lt;= y</code>, <code>x &gt;= y</code>, <code>is</code>, <code>as</code></td>
+<td>Teste de tipo e relacional</td>
+</tr>
+<tr>
+<td><code>x == y</code>, <code>x != y</code></td>
+<td>Igualitário</td>
+</tr>
+<tr>
+<td><code>x &amp; y</code></td>
+<td>AND lógico booliano ou AND lógico bit a bit</td>
+</tr>
+<tr>
+<td><code>x ^ y</code></td>
+<td>XOR lógico booliano ou XOR lógico bit a bit</td>
+</tr>
+<tr>
+<td><code>x \| y</code></td>
+<td>OR lógico booliano ou OR lógico bit a bit</td>
+</tr>
+<tr>
+<td><code>x &amp;&amp; y</code></td>
+<td>AND condicional</td>
+</tr>
+<tr>
+<td><code>x \|\| y</code></td>
+<td>OR condicional</td>
+</tr>
+<tr>
+<td><code>x ?? y</code></td>
+<td>Operador de coalescência nula</td>
+</tr>
+<tr>
+<td><code>c ? t : f</code></td>
+<td>Operador condicional</td>
+</tr>
+<tr>
+<td><code>x = y</code>, <code>x += y</code>, <code>x -= y</code>, <code>x *= y</code>, <code>x /= y</code>, <code>x % = y</code>, <code>x &amp;= y</code>, <code>x \|= y</code>, <code>x ^ y</code>, <code>x &lt;&lt;= y</code>, <code>x &gt;&gt;= y</code>, <code>x ?? = y</code>,<code>=&gt;</code></td>
+<td>Declaração de atribuição e lambda</td>
+</tr>
+</tbody>
+</table>
+<p>Use <code>()</code> para alterar a ordem de avaliação imposta pela associação de operador:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">13</span> <span class="p">/</span> <span class="m">5</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="p">=</span> <span class="m">13</span> <span class="p">/</span> <span class="p">(</span><span class="m">5</span> <span class="p">/</span> <span class="m">2</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="err">$</span><span class="s">&quot;a = {a}, b = {b}&quot;</span><span class="p">);</span>  <span class="c1">// saída: a = 1, b = 6</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+      Guia Rápido - 2020
+      </div>
+
+      <!-- Social links -->
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

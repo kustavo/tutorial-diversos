@@ -1,0 +1,1968 @@
+
+
+
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+      
+      
+        <link rel="canonical" href="https://kustavo.github.io/guia-rapido/dotnet/linguagem/coding-guidelines/">
+      
+      
+        <meta name="author" content="Gustavo Araujo">
+      
+      <link rel="shortcut icon" href="../../../favicon.svg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.14">
+    
+    
+      
+        <title>Convenções de codificação - Guia Rápido</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.d3202873.min.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ff0a5ce4.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4051b5">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>body,input{font-family:"Ubuntu",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../extra.css">
+    
+    
+  
+      
+    
+  <script>document.addEventListener("DOMContentLoaded",function(){document.body.addEventListener("click",function(e){if(e.target instanceof HTMLElement){var t=e.target.closest("a[href^=http]");t&&ga("send","event","outbound","click",t.href)}})})</script>
+
+    
+  
+  
+    
+  
+  
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Guia Rápido - Convenções de codificação">
+    <meta property="og:description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+    <meta property="og:url" content="https://kustavo.github.io/guia-rapido/dotnet/linguagem/coding-guidelines/">
+    <meta property="og:image" content="https://kustavo.github.io/guia-rapido/assets/images/banner.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="568">
+    <link rel="stylesheet" href="../../../assets/stylesheets/home.css">
+
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#convencoes-de-codificacao" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-header-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../../logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Guia Rápido
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Convenções de codificação
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../../logo.svg" alt="logo">
+
+    </a>
+    Guia Rápido
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      .Net
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label=".Net" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        .Net
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../erros-solucoes/" title="Erros e soluções" class="md-nav__link">
+      Erros e soluções
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Linux
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Shell
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Shell" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        <span class="md-nav__icon md-icon"></span>
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/linux-shell/" title="Linux shell" class="md-nav__link">
+      Linux shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/bash/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/dash/" title="Dash" class="md-nav__link">
+      Dash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/zsh/" title="Z-shell" class="md-nav__link">
+      Z-shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/gnome-terminal/" title="Gnome terminal" class="md-nav__link">
+      Gnome terminal
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Markdown
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Markdown" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Markdown
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      MkDocs
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="MkDocs" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon"></span>
+        MkDocs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../markdown/mkdocs/" title="MkDocs" class="md-nav__link">
+      MkDocs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    Introdução
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout" class="md-nav__link">
+    Layout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nomeacoes" class="md-nav__link">
+    Nomeações
+  </a>
+  
+    <nav class="md-nav" aria-label="Nomeações">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geral" class="md-nav__link">
+    Geral
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos" class="md-nav__link">
+    Métodos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propriedades" class="md-nav__link">
+    Propriedades
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#campos" class="md-nav__link">
+    Campos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-locais" class="md-nav__link">
+    Variáveis locais
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametros" class="md-nav__link">
+    Parâmetros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eventos" class="md-nav__link">
+    Eventos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namespaces" class="md-nav__link">
+    Namespaces
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodos_1" class="md-nav__link">
+    Métodos
+  </a>
+  
+    <nav class="md-nav" aria-label="Métodos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metodos-de-extensao" class="md-nav__link">
+    Métodos de extensão
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propriedades_1" class="md-nav__link">
+    Propriedades
+  </a>
+  
+    <nav class="md-nav" aria-label="Propriedades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#propriedade-indexada" class="md-nav__link">
+    Propriedade indexada
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#construtor" class="md-nav__link">
+    Construtor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comentarios" class="md-nav__link">
+    Comentários
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strings" class="md-nav__link">
+    Strings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variaveis-locais_1" class="md-nav__link">
+    Variáveis Locais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matrizes" class="md-nav__link">
+    Matrizes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delegados" class="md-nav__link">
+    Delegados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-catch-finally" class="md-nav__link">
+    Try-catch-finally
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operadores" class="md-nav__link">
+    Operadores
+  </a>
+  
+    <nav class="md-nav" aria-label="Operadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operador-e" class="md-nav__link">
+    Operador &amp;&amp; e ||
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador-new" class="md-nav__link">
+    Operador new
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sobrecargas-de-operador" class="md-nav__link">
+    Sobrecargas de operador
+  </a>
+  
+    <nav class="md-nav" aria-label="Sobrecargas de operador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operadores-de-conversao" class="md-nav__link">
+    Operadores de conversão
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametros_1" class="md-nav__link">
+    Parâmetros
+  </a>
+  
+    <nav class="md-nav" aria-label="Parâmetros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#membros-com-numero-variavel-de-parametros" class="md-nav__link">
+    Membros com número variável de parâmetros
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eventos_1" class="md-nav__link">
+    Eventos
+  </a>
+  
+    <nav class="md-nav" aria-label="Eventos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eventos-personalizados" class="md-nav__link">
+    Eventos personalizados
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linq" class="md-nav__link">
+    LINQ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+                  <a href="https://github.com/kustavo/guia-rapido/edit/master/docs/dotnet/linguagem/coding-guidelines.md" title="Editar esta página" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="convencoes-de-codificacao">Convenções de codificação<a class="headerlink" href="#convencoes-de-codificacao" title="Permanent link">&para;</a></h1>
+<div class="toc">
+<ul>
+<li><a href="#convencoes-de-codificacao">Convenções de codificação</a><ul>
+<li><a href="#introducao">Introdução</a></li>
+<li><a href="#layout">Layout</a></li>
+<li><a href="#nomeacoes">Nomeações</a><ul>
+<li><a href="#geral">Geral</a></li>
+<li><a href="#metodos">Métodos</a></li>
+<li><a href="#propriedades">Propriedades</a></li>
+<li><a href="#campos">Campos</a></li>
+<li><a href="#variaveis-locais">Variáveis locais</a></li>
+<li><a href="#parametros">Parâmetros</a></li>
+<li><a href="#eventos">Eventos</a></li>
+<li><a href="#namespaces">Namespaces</a></li>
+</ul>
+</li>
+<li><a href="#metodos_1">Métodos</a><ul>
+<li><a href="#metodos-de-extensao">Métodos de extensão</a></li>
+</ul>
+</li>
+<li><a href="#propriedades_1">Propriedades</a><ul>
+<li><a href="#propriedade-indexada">Propriedade indexada</a></li>
+</ul>
+</li>
+<li><a href="#construtor">Construtor</a></li>
+<li><a href="#comentarios">Comentários</a></li>
+<li><a href="#strings">Strings</a></li>
+<li><a href="#variaveis-locais_1">Variáveis Locais</a></li>
+<li><a href="#matrizes">Matrizes</a></li>
+<li><a href="#delegados">Delegados</a></li>
+<li><a href="#try-catch-finally">Try-catch-finally</a></li>
+<li><a href="#operadores">Operadores</a><ul>
+<li><a href="#operador-e">Operador &amp;&amp; e ||</a></li>
+<li><a href="#operador-new">Operador new</a></li>
+<li><a href="#sobrecargas-de-operador">Sobrecargas de operador</a><ul>
+<li><a href="#operadores-de-conversao">Operadores de conversão</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#parametros_1">Parâmetros</a><ul>
+<li><a href="#membros-com-numero-variavel-de-parametros">Membros com número variável de parâmetros</a></li>
+</ul>
+</li>
+<li><a href="#eventos_1">Eventos</a><ul>
+<li><a href="#eventos-personalizados">Eventos personalizados</a></li>
+</ul>
+</li>
+<li><a href="#linq">LINQ</a></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>[[<em>TOC</em>]]</p>
+<h2 id="introducao">Introdução<a class="headerlink" href="#introducao" title="Permanent link">&para;</a></h2>
+<p>As convenções de codificação atendem às seguintes finalidades:</p>
+<ul>
+<li>
+<p>Criam uma aparência consistente para o código, para que os leitores possam se concentrar no conteúdo e não no layout.</p>
+</li>
+<li>
+<p>Permitem que os leitores entendam o código com mais rapidez, fazendo suposições com base na experiência anterior.</p>
+</li>
+<li>
+<p>Facilitam a cópia, a alteração e a manutenção do código.</p>
+</li>
+<li>
+<p>Demonstram as práticas recomendadas do C#.</p>
+</li>
+</ul>
+<p>As diretrizes neste artigo são usadas pela Microsoft para desenvolver exemplos e documentação.</p>
+<h2 id="layout">Layout<a class="headerlink" href="#layout" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Recuo e tabulação de quatro espaços.</p>
+</li>
+<li>
+<p>Uma instrução por linha.</p>
+</li>
+<li>
+<p>Uma declaração por linha.</p>
+</li>
+<li>
+<p>Para a quebra de linhas logas, recue-as uma tabulação (quatro espaços).</p>
+</li>
+<li>
+<p>Adicione pelo menos uma linha em branco entre as definições de método e de propriedade.</p>
+</li>
+<li>
+<p>Use parênteses para criar cláusulas em uma expressão aparente.</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">((</span><span class="n">val1</span> <span class="p">&gt;</span> <span class="n">val2</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="p">(</span><span class="n">val1</span> <span class="p">&gt;</span> <span class="n">val3</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="c1">// Instruções...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Nomes qualificados podem ser interrompidos após um ponto (.) se forem muito longos para uma única linha.</p>
+<p><div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">currentPerformanceCounterCategory</span> <span class="p">=</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span>
+    <span class="n">PerformanceCounterCategory</span><span class="p">();</span>
+</code></pre></div>
+- As seguintes quebras de linha e alinhamentos são os mais indicadas para métodos com muitos parâmetros.</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">void</span> <span class="nf">Metodo</span><span class="p">(</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">b</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">c</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">d</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">foo</span> <span class="p">=</span> <span class="s">&quot;foo&quot;</span>
+    <span class="kt">var</span> <span class="n">bar</span> <span class="p">=</span> <span class="s">&quot;bar&quot;</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">void</span> <span class="nf">Metodo</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span>
+                   <span class="kt">int</span> <span class="n">b</span><span class="p">,</span>
+                   <span class="kt">int</span> <span class="n">c</span><span class="p">,</span>
+                   <span class="kt">int</span> <span class="n">d</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">foo</span> <span class="p">=</span> <span class="s">&quot;foo&quot;</span>
+    <span class="kt">var</span> <span class="n">bar</span> <span class="p">=</span> <span class="s">&quot;bar&quot;</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">void</span> <span class="nf">Metodo</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">b</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">c</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">d</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">foo</span> <span class="p">=</span> <span class="s">&quot;foo&quot;</span>
+    <span class="kt">var</span> <span class="n">bar</span> <span class="p">=</span> <span class="s">&quot;bar&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>As seguintes quebras de linha e alinhamentos são os mais indicadas para cadeias de chamadas longas.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">s</span> <span class="p">=</span> <span class="n">variavel</span><span class="p">.</span><span class="n">chamadaA</span><span class="p">()</span>
+    <span class="p">.</span><span class="n">chamadaB</span><span class="p">()</span>
+    <span class="p">.</span><span class="n">chamadaC</span><span class="p">()</span>
+    <span class="p">.</span><span class="n">chamadaD</span><span class="p">();</span>
+
+<span class="kt">string</span> <span class="n">s</span> <span class="p">=</span> <span class="n">variavel</span><span class="p">.</span><span class="n">chamadaA</span><span class="p">()</span>
+                   <span class="p">.</span><span class="n">chamadaB</span><span class="p">()</span>
+                   <span class="p">.</span><span class="n">chamadaC</span><span class="p">()</span>
+                   <span class="p">.</span><span class="n">chamadaD</span><span class="p">();</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>As seguinte quebra de linha e alinhamento é o mais indicadas para expressões binárias longas.</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">!=</span> <span class="n">b</span>
+    <span class="p">&amp;&amp;</span> <span class="n">b</span> <span class="p">!=</span> <span class="n">c</span>
+    <span class="p">&amp;&amp;</span> <span class="n">c</span> <span class="p">==</span> <span class="n">d</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="nomeacoes">Nomeações<a class="headerlink" href="#nomeacoes" title="Permanent link">&para;</a></h2>
+<h3 id="geral">Geral<a class="headerlink" href="#geral" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Não use abreveações</p>
+</li>
+<li>
+<p>Não use sublinhados em identificadores, hifens ou quaisquer outros caracteres não alfanuméricos.</p>
+</li>
+<li>
+<p>Identificadores, <strong>exceto nomes de parâmetro</strong>, usa a convenção <strong>PascalCasin</strong>. Ou seja, coloca em maiúscula o primeiro caractere de cada palavra (incluindo acrônimos com duas letras). </p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Exemplos.</span>
+<span class="n">PropertyDescriptor</span>
+<span class="n">HtmlTag</span>
+<span class="n">IOStream</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Usar identificadores descritivos, em vez de curtos.</p>
+</li>
+<li>
+<p>Usar um nome de tipo CLR genérico, em vez de um nome específico de idioma, nos casos raros em que um identificador não tem um significado semântico além de seu tipo.</p>
+<ul>
+<li>Por exemplo, um método que converte para <code>Int64</code> deve ser nomeado <code>ToInt64</code>, não <code>ToLong</code> (porque <code>Int64</code> é o nome CLR para o alias específico <code>long</code>)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>C#</th>
+<th>CLR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sbyte</td>
+<td>SByte</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>short</td>
+<td>Int16</td>
+</tr>
+<tr>
+<td>ushort</td>
+<td>UInt16</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Int32</td>
+</tr>
+<tr>
+<td>uint</td>
+<td>UInt32</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Int64</td>
+</tr>
+<tr>
+<td>ulong</td>
+<td>UInt64</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Single</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>char</td>
+<td>Char</td>
+</tr>
+<tr>
+<td>string</td>
+<td>String</td>
+</tr>
+<tr>
+<td>object</td>
+<td>Object</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h3 id="metodos">Métodos<a class="headerlink" href="#metodos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Usar a convenção <strong>PascalCasin</strong></p>
+</li>
+<li>
+<p>Nomes devem ser verbos ou frases de verbo.</p>
+</li>
+</ul>
+<h3 id="propriedades">Propriedades<a class="headerlink" href="#propriedades" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Usar a convenção <strong>PascalCasin</strong></p>
+</li>
+<li>
+<p>Nomes devem ser um substantivo, uma frase de substantivo ou um adjetivo.</p>
+</li>
+<li>
+<p>Nomes de propriedades de coleção devem ser uma frase plural que descreve os itens na coleção em vez de usar uma frase singular seguida de "List" ou "Collection".</p>
+</li>
+<li>
+<p>Nomes de propriedades booleanas devem ser uma frase afirmativo (CanSeek em vez de CantSeek). Opcionalmente, você também pode prefixar propriedades booleanas com "Is", "Can" ou "Has", mas apenas onde ele agrega valor.</p>
+</li>
+<li>
+<p>Considere atribuir uma propriedade com o mesmo nome que o seu tipo.</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">enum</span> <span class="n">Color</span> <span class="p">{...}</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Control</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="n">Color</span> <span class="n">Color</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{...}</span> <span class="k">set</span> <span class="p">{...}</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</li>
+</ul>
+<h3 id="campos">Campos<a class="headerlink" href="#campos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>As diretrizes de nomenclatura de campo se aplicam a campos <code>public</code> e <code>protected</code> <strong>estáticos</strong>. Campos internos e <code>private</code> Não são cobertos pela convenção, e campos <code>public</code> e <code>protected</code> não estáticos, não são permitidos.</p>
+</li>
+<li>
+<p>Usar a convenção <strong>PascalCasin</strong></p>
+</li>
+<li>
+<p>Nomes devem ser um substantivo, uma frase de substantivo ou um adjetivo.</p>
+</li>
+</ul>
+<h3 id="variaveis-locais">Variáveis locais<a class="headerlink" href="#variaveis-locais" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Usar a convenção <strong>camelCasing</strong></li>
+</ul>
+<h3 id="parametros">Parâmetros<a class="headerlink" href="#parametros" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Usar a convenção <strong>camelCasing</strong>. Ou seja coloca em maiúscula o primeiro caractere de cada palavra, exceto a primeira palavra.</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1">// Exemplos.</span>
+<span class="n">propertyDescriptor</span>
+<span class="n">htmlTag</span>
+<span class="n">ioStream</span>
+</code></pre></div>
+- Em sobrecarga de métodos, evitar nomes de parâmetro diferentes casa um parâmetro em uma sobrecarga representa a mesma entrada que um parâmetro em outra sobrecarga.</p>
+</li>
+<li>
+<p>Em sobrecarga de métodos, os parâmetros com o mesmo nome devem aparecer na mesma posição em todas as sobrecargas.</p>
+</li>
+</ul>
+<h3 id="eventos">Eventos<a class="headerlink" href="#eventos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Usar a convenção <strong>PascalCasin</strong></p>
+</li>
+<li>
+<p>Nomes devem ser um verbo ou uma frase verbal.</p>
+<ul>
+<li>Exemplos: Clicked, Painting, DroppedDown, etc.</li>
+</ul>
+</li>
+<li>
+<p>Manipuladores de eventos de nome (delegados usados como tipos de eventos) com o sufixo "EventHandler".</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">delegate</span> <span class="k">void</span> <span class="nf">ClickedEventHandler</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">ClickedEventArgs</span> <span class="n">e</span><span class="p">);</span>
+</code></pre></div>
+- Use dois parâmetros chamados <code>sender</code> e <code>e</code> em manipuladores de eventos</p>
+</li>
+<li>
+<p>Nomes de classes de argumento de evento devem ter o sufixo "EventArgs".</p>
+</li>
+</ul>
+<h3 id="namespaces">Namespaces<a class="headerlink" href="#namespaces" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Usar a convenção <strong>PascalCasin</strong> e separar componentes de namespace com pontos.</p>
+<ul>
+<li>Por exemplo, <code>Microsoft.Office.PowerPoint</code>.</li>
+</ul>
+</li>
+<li>
+<p>Usar prefixos namespace com um nome de empresa para impedir que os namespaces de diferentes empresas tenham o mesmo nome.</p>
+</li>
+<li>
+<p>Não use o mesmo nome para um namespace e um tipo nesse namespace.</p>
+<ul>
+<li>Por exemplo, não use Debug como um nome de namespace e, em seguida, forneça uma classe chamada Debug no mesmo namespace. Vários compiladores exigem que esses tipos sejam totalmente qualificados.</li>
+</ul>
+</li>
+</ul>
+<h2 id="metodos_1">Métodos<a class="headerlink" href="#metodos_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Permitir que null sejam passados para argumentos opcionais.</p>
+</li>
+<li>
+<p>Usar a sobrecarga de membros em vez de definir membros com argumentos padrão.</p>
+</li>
+<li>
+<p>Não use os modificadores <code>ref</code> ou <code>out</code> para sobrecarregar os membros.</p>
+</li>
+</ul>
+<h3 id="metodos-de-extensao">Métodos de extensão<a class="headerlink" href="#metodos-de-extensao" title="Permanent link">&para;</a></h3>
+<p><a href="https://docs.microsoft.com/pt-br/dotnet/standard/design-guidelines/extension-methods">Leia mais aqui</a></p>
+<h2 id="propriedades_1">Propriedades<a class="headerlink" href="#propriedades_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Criar propriedades somente com opção <code>get</code> se o chamador não puder alterar o valor da propriedade.</p>
+<ul>
+<li>Se o tipo da propriedade for um tipo de referência mutável, o valor da propriedade poderá ser alterado mesmo se a propriedade for somente <code>get</code>.</li>
+</ul>
+</li>
+<li>
+<p>O acesso ao <code>set</code> não deve ser mais restrito que <code>get</code>.</p>
+</li>
+<li>
+<p>Preservar o valor anterior se um <code>ters</code> da propriedade lançar uma exceção.</p>
+</li>
+<li>
+<p>Evitar lançar exceções de <code>getters</code> da propriedade.</p>
+</li>
+<li>
+<p>Os <code>getters</code> de propriedade devem ser operações simples e não devem ter nenhuma condição.</p>
+</li>
+<li>
+<p>Permitir que as propriedades sejam definidas em qualquer ordem, mesmo se isso resultar em um estado temporário inválido do objeto.</p>
+</li>
+</ul>
+<h3 id="propriedade-indexada">Propriedade indexada<a class="headerlink" href="#propriedade-indexada" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Usar indexadores para fornecer acesso aos dados armazenados em uma matriz interna.</p>
+</li>
+<li>
+<p>Fornecer indexadores em tipos que representam coleções de itens.</p>
+</li>
+<li>
+<p>Evitar o uso de propriedades indexadas com mais de um parâmetro.</p>
+</li>
+<li>
+<p>Use o nome <code>Item</code> para propriedades indexadas, a menos que haja um nome obviamente melhor.</p>
+</li>
+<li>
+<p>Não fornecer um indexador e métodos que são semanticamente equivalentes.</p>
+</li>
+</ul>
+<h2 id="construtor">Construtor<a class="headerlink" href="#construtor" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Considere fornecer construtores simples. Ou seja, poucos parâmetros e todos os parâmetros são primitivos ou enums.</p>
+</li>
+<li>
+<p>Usar o mesmo nome para parâmetros de construtor e uma propriedade se os parâmetros do construtor forem usados para simplesmente definir a propriedade.</p>
+</li>
+<li>
+<p>Executar o mínimo de trabalho no construtor.</p>
+</li>
+<li>
+<p>Gerar exceções de construtores de instância, se apropriado.</p>
+</li>
+<li>
+<p>Declarar explicitamente o construtor público sem parâmetros em classes, se esse construtor for necessário ou haja um outro construtor com parâmetros.</p>
+</li>
+<li>
+<p>Evitar definir explicitamente construtores sem parâmetros em structs.</p>
+<ul>
+<li>Isso torna a criação de matriz mais rápida, porque se o construtor sem parâmetros não estiver definido, ele não precisará ser executado em todos os slots na matriz.</li>
+</ul>
+</li>
+<li>
+<p>Evitar chamar membros virtuais em um objeto dentro de seu construtor.</p>
+<ul>
+<li>Chamar um membro virtual fará com que a sobrecarga mais derivada seja chamada, mesmo que o construtor do tipo mais derivado ainda não tenha sido totalmente executado.</li>
+</ul>
+</li>
+<li>
+<p>Tornar os construtores estáticos privados.</p>
+</li>
+<li>
+<p>Não lançar exceções de construtores estáticos.</p>
+</li>
+<li>
+<p>Considere a inicialização de campos estáticos <em>inline</em>  em vez de usar construtores estáticos explicitamente, pois o tempo de execução é capaz de otimizar o desempenho dos tipos que não têm um construtor estático explicitamente definido.</p>
+</li>
+</ul>
+<h2 id="comentarios">Comentários<a class="headerlink" href="#comentarios" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Coloque o comentário em uma linha separada, não no final de uma linha de código.</p>
+</li>
+<li>
+<p>Comece o texto do comentário com uma letra maiúscula.</p>
+</li>
+<li>
+<p>Termine o texto do comentário com um ponto final.</p>
+</li>
+<li>
+<p>Insira um espaço entre o delimitador de comentário (//) e o texto do comentário</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// The following declaration creates a query. It does not run</span>
+<span class="c1">// the query.</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Não crie blocos de asteriscos formatados em torno dos comentários.</p>
+</li>
+</ul>
+<h2 id="strings">Strings<a class="headerlink" href="#strings" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Use a interpolação de cadeia de caracteres para concatenar cadeias de caracteres curtas.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">displayName</span> <span class="p">=</span> <span class="err">$</span><span class="s">&quot;{nameList[n].LastName}, {nameList[n].FirstName}&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Para acrescentar cadeias de caracteres em loops, especialmente quando você estiver trabalhando com grandes quantidades de texto, use um objeto <code>StringBuilder</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">phrase</span> <span class="p">=</span> <span class="s">&quot;lalala&quot;</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">manyPhrases</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">();</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">10000</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="n">manyPhrases</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="n">phrase</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;tra&quot;</span> <span class="p">+</span> <span class="n">manyPhrases</span><span class="p">);</span>
+</code></pre></div>
+
+</li>
+</ul>
+<h2 id="variaveis-locais_1">Variáveis Locais<a class="headerlink" href="#variaveis-locais_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Use a tipagem implícita para variáveis locais quando o tipo da variável for óbvio do lado direito da atribuição ou quando o tipo exato não for importante.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">var1</span> <span class="p">=</span> <span class="s">&quot;This is clearly a string.&quot;</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">var2</span> <span class="p">=</span> <span class="m">27</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">var3</span> <span class="p">=</span> <span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">());</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Não use var quando o tipo não estiver aparente no lado direito da atribuição.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">var4</span> <span class="p">=</span> <span class="n">ExampleClass</span><span class="p">.</span><span class="n">ResultSoFar</span><span class="p">();</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Não se baseie no nome da variável para especificar o tipo dela. Ele pode não estar correto.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">inputInt</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">inputInt</span><span class="p">);</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Evite o uso de <code>var</code> em vez de <code>dynamic</code>.</p>
+</li>
+<li>
+<p>Use a tipagem implícita para determinar o tipo da variável de loop nos <code>loops for</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">10000</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="c1">// Instruções...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Não use a tipagem implícita para determinar o tipo da variável de loop em <code>loops foreach</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// O exemplo a seguir usa a tipagem explícita em uma instrução foreach.</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">ch</span> <span class="k">in</span> <span class="n">laugh</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="p">==</span> <span class="sc">&#39;h&#39;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">ch</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+</code></pre></div>
+
+<p><div class='importante' markdown='1'>
+Tenha cuidado para não alterar acidentalmente um tipo de elemento da coleção iterável. Por exemplo, é fácil mudar de <code>System.Linq.IQueryable</code> para <code>System.Collections.IEnumerable</code> em uma instrução foreach, que altera a execução de uma consulta.
+</div></p>
+</li>
+</ul>
+<h2 id="matrizes">Matrizes<a class="headerlink" href="#matrizes" title="Permanent link">&para;</a></h2>
+<p>Use a sintaxe concisa ao inicializar matrizes na linha da declaração.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Sintaxe preferencial. Var não pode ser usada aqui.</span>
+<span class="kt">string</span><span class="p">[]</span> <span class="n">vowels1</span> <span class="p">=</span> <span class="p">{</span> <span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="p">,</span> <span class="s">&quot;i&quot;</span><span class="p">,</span> <span class="s">&quot;o&quot;</span><span class="p">,</span> <span class="s">&quot;u&quot;</span> <span class="p">};</span>
+
+<span class="c1">// Se você usar a instanciação explícita, você pode usar var.</span>
+<span class="kt">var</span> <span class="n">vowels2</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span> <span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="p">,</span> <span class="s">&quot;i&quot;</span><span class="p">,</span> <span class="s">&quot;o&quot;</span><span class="p">,</span> <span class="s">&quot;u&quot;</span> <span class="p">};</span>
+
+<span class="c1">// Se o tamanho do array for especificado, os elementos são inicializados um por vez.</span>
+<span class="kt">var</span> <span class="n">vowels3</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[</span><span class="m">5</span><span class="p">];</span>
+<span class="n">vowels3</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;a&quot;</span><span class="p">;</span>
+<span class="n">vowels3</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;e&quot;</span><span class="p">;</span>
+<span class="c1">// ...</span>
+</code></pre></div>
+
+<h2 id="delegados">Delegados<a class="headerlink" href="#delegados" title="Permanent link">&para;</a></h2>
+<p>Use a sintaxe concisa ao criar instâncias de um tipo delegado.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Primeiramente, na Classe defina o delegado e o método que casa com a assinatura.</span>
+
+<span class="c1">// Defina o tipo.</span>
+<span class="k">public</span> <span class="k">delegate</span> <span class="k">void</span> <span class="nf">Del</span><span class="p">(</span><span class="kt">string</span> <span class="n">message</span><span class="p">);</span>
+
+<span class="c1">// Defina o método que casa com a assinatura</span>
+<span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">DelMethod</span><span class="p">(</span><span class="kt">string</span> <span class="n">str</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;DelMethod argument: {0}&quot;</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">// Posteriormente, como contéudo do método, é criado uma instância de Del.</span>
+
+<span class="c1">// Preferencial: Criar a instância de Del usando a sintaxe concisa.</span>
+<span class="n">Del</span> <span class="n">exampleDel2</span> <span class="p">=</span> <span class="n">DelMethod</span><span class="p">;</span>
+
+<span class="c1">// Usando a sintaxe verbosa.</span>
+<span class="n">Del</span> <span class="n">exampleDel1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Del</span><span class="p">(</span><span class="n">DelMethod</span><span class="p">);</span>
+</code></pre></div>
+
+<h2 id="try-catch-finally">Try-catch-finally<a class="headerlink" href="#try-catch-finally" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Use uma instrução try-catch para a maioria da manipulação de exceções.</p>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="kt">string</span> <span class="nf">GetValueFromArray</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">array</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">try</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">catch</span> <span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">IndexOutOfRangeException</span> <span class="n">ex</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Index is out of range: {0}&quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">);</span>
+        <span class="k">throw</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Simplifique o código usando a instrução <code>using</code>. Se você tiver uma instrução <code>try-finally</code> na qual o único código do bloco finally é uma chamada para o método <code>Dispose</code>, use, em vez disso, uma instrução using.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Try-finally somente chama Dispose no bloco finally.</span>
+<span class="n">Font</span> <span class="n">font1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Font</span><span class="p">(</span><span class="s">&quot;Arial&quot;</span><span class="p">,</span> <span class="m">10.0f</span><span class="p">);</span>
+<span class="k">try</span>
+<span class="p">{</span>
+    <span class="kt">byte</span> <span class="n">charset</span> <span class="p">=</span> <span class="n">font1</span><span class="p">.</span><span class="n">GdiCharSet</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">finally</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">font1</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="p">((</span><span class="n">IDisposable</span><span class="p">)</span><span class="n">font1</span><span class="p">).</span><span class="n">Dispose</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Preferencial: Podemos fazer a mesma coisa usando using.</span>
+<span class="k">using</span> <span class="p">(</span><span class="n">Font</span> <span class="n">font2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Font</span><span class="p">(</span><span class="s">&quot;Arial&quot;</span><span class="p">,</span> <span class="m">10.0f</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="kt">byte</span> <span class="n">charset</span> <span class="p">=</span> <span class="n">font2</span><span class="p">.</span><span class="n">GdiCharSet</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</li>
+</ul>
+<h2 id="operadores">Operadores<a class="headerlink" href="#operadores" title="Permanent link">&para;</a></h2>
+<h3 id="operador-e">Operador &amp;&amp; e ||<a class="headerlink" href="#operador-e" title="Permanent link">&para;</a></h3>
+<p>Para evitar exceções e aumentar o desempenho ignorando comparações desnecessárias, use <code>&amp;&amp;</code> em vez de <code>&amp;</code> e <code>||</code> em vez de <code>|</code> ao executar comparações.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Usando &amp;&amp;, se o primeira expressão for falsa a segunda já não será avaliada.</span>
+<span class="k">if</span> <span class="p">((</span><span class="n">divisor</span> <span class="p">!=</span> <span class="m">0</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="p">(</span><span class="n">dividend</span> <span class="p">/</span> <span class="n">divisor</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Quotient: {0}&quot;</span><span class="p">,</span> <span class="n">dividend</span> <span class="p">/</span> <span class="n">divisor</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Attempted division by 0 ends up here.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="operador-new">Operador new<a class="headerlink" href="#operador-new" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Use a forma concisa de instanciação de objeto com tipagem implícita.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Preferencial</span>
+<span class="kt">var</span> <span class="n">instance1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ExampleClass</span><span class="p">();</span>
+
+<span class="c1">// Usando tipagem explícita</span>
+<span class="n">ExampleClass</span> <span class="n">instance2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ExampleClass</span><span class="p">();</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Use iniciadores de objeto para simplificar a criação do objeto.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Preferencial: Usando iniciadores de objetos </span>
+<span class="kt">var</span> <span class="n">instance3</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ExampleClass</span> <span class="p">{</span> <span class="n">Name</span> <span class="p">=</span> <span class="s">&quot;Desktop&quot;</span><span class="p">,</span> <span class="n">ID</span> <span class="p">=</span> <span class="m">37414</span><span class="p">,</span> 
+    <span class="n">Location</span> <span class="p">=</span> <span class="s">&quot;Redmond&quot;</span><span class="p">,</span> <span class="n">Age</span> <span class="p">=</span> <span class="m">2.3</span> <span class="p">};</span>
+
+<span class="c1">// Usando constrtutor padrão</span>
+<span class="kt">var</span> <span class="n">instance4</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ExampleClass</span><span class="p">();</span>
+<span class="n">instance4</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s">&quot;Desktop&quot;</span><span class="p">;</span>
+<span class="n">instance4</span><span class="p">.</span><span class="n">ID</span> <span class="p">=</span> <span class="m">37414</span><span class="p">;</span>
+<span class="n">instance4</span><span class="p">.</span><span class="n">Location</span> <span class="p">=</span> <span class="s">&quot;Redmond&quot;</span><span class="p">;</span>
+<span class="n">instance4</span><span class="p">.</span><span class="n">Age</span> <span class="p">=</span> <span class="m">2.3</span><span class="p">;</span>
+</code></pre></div>
+
+</li>
+</ul>
+<h3 id="sobrecargas-de-operador">Sobrecargas de operador<a class="headerlink" href="#sobrecargas-de-operador" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Evitar definir sobrecargas de operador, exceto em tipos que devem se sentir como tipos primitivos (internos).</p>
+</li>
+<li>
+<p>Definir sobrecargas de operador em structs que representam números (como System.Decimal).</p>
+</li>
+<li>
+<p>Defina operadores de sobrecarga de maneira simétrica</p>
+<ul>
+<li>Por exemplo, se você sobrecarregar o operator <code>==</code>, também deverá sobrecarregar o operator <code>!=</code>. Da mesma forma, se você sobrecarregar o operator <code>&lt;</code>, também deverá sobrecarregar o operator <code>&gt;</code> e assim por diante.</li>
+</ul>
+</li>
+<li>
+<p>Considere fornecer métodos com nomes amigáveis que correspondam a cada operador sobrecarregado.</p>
+<ul>
+<li>Muitas linguagens não dão suporte à sobrecarga de operador. Por esse motivo, é recomendável que os tipos que sobrecarregam operadores incluam um método secundário com um nome específico de domínio apropriado que forneça funcionalidade equivalente.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Símbolo de operador</th>
+<th>Nome de metadados</th>
+<th>Nome Amigável</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>op_Implicit</td>
+<td>To<TypeName>/From<TypeName></td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>op_Explicit</td>
+<td>To<TypeName>/From<TypeName></td>
+</tr>
+<tr>
+<td>+ (binary)</td>
+<td>op_Addition</td>
+<td>Add</td>
+</tr>
+<tr>
+<td>- (binary)</td>
+<td>op_Subtraction</td>
+<td>Subtract</td>
+</tr>
+<tr>
+<td>* (binary)</td>
+<td>op_Multiply</td>
+<td>Multiply</td>
+</tr>
+<tr>
+<td>\/</td>
+<td>op_Division</td>
+<td>Divide</td>
+</tr>
+<tr>
+<td>\%</td>
+<td>op_Modulus</td>
+<td>Mod or Remainder</td>
+</tr>
+<tr>
+<td>\^</td>
+<td>op_ExclusiveOr</td>
+<td>Xor</td>
+</tr>
+<tr>
+<td>\&amp; (binary)</td>
+<td>op_BitwiseAnd</td>
+<td>BitwiseAnd</td>
+</tr>
+<tr>
+<td>|</td>
+<td>op_BitwiseOr</td>
+<td>BitwiseOr</td>
+</tr>
+<tr>
+<td>\&amp;&amp;</td>
+<td>op_LogicalAnd</td>
+<td>And</td>
+</tr>
+<tr>
+<td>|</td>
+<td></td>
+<td>op_LogicalOr</td>
+</tr>
+<tr>
+<td>\=</td>
+<td>op_Assign</td>
+<td>Assign</td>
+</tr>
+<tr>
+<td>\&lt;&lt;</td>
+<td>op_LeftShift</td>
+<td>LeftShift</td>
+</tr>
+<tr>
+<td>>&gt;</td>
+<td>op_RightShift</td>
+<td>RightShift</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>op_SignedRightShift</td>
+<td>SignedRightShift</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>op_UnsignedRightShift</td>
+<td>UnsignedRightShift</td>
+</tr>
+<tr>
+<td>\==</td>
+<td>op_Equality</td>
+<td>Equals</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>op_Inequality</td>
+<td>Equals</td>
+</tr>
+<tr>
+<td>></td>
+<td>op_GreaterThan</td>
+<td>CompareTo</td>
+</tr>
+<tr>
+<td>\&lt;</td>
+<td>op_LessThan</td>
+<td>CompareTo</td>
+</tr>
+<tr>
+<td>>=</td>
+<td>op_GreaterThanOrEqual</td>
+<td>CompareTo</td>
+</tr>
+<tr>
+<td>\&lt;=</td>
+<td>op_LessThanOrEqual</td>
+<td>CompareTo</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>op_MultiplicationAssignment</td>
+<td>Multiply</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>op_SubtractionAssignment</td>
+<td>Subtract</td>
+</tr>
+<tr>
+<td>\^=</td>
+<td>op_ExclusiveOrAssignment</td>
+<td>Xor</td>
+</tr>
+<tr>
+<td>\&lt;&lt;=</td>
+<td>op_LeftShiftAssignment</td>
+<td>LeftShift</td>
+</tr>
+<tr>
+<td>\%=</td>
+<td>op_ModulusAssignment</td>
+<td>Mod</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>op_AdditionAssignment</td>
+<td>Add</td>
+</tr>
+<tr>
+<td>\&amp;=</td>
+<td>op_BitwiseAndAssignment</td>
+<td>BitwiseAnd</td>
+</tr>
+<tr>
+<td>|=</td>
+<td>op_BitwiseOrAssignment</td>
+<td>BitwiseOr</td>
+</tr>
+<tr>
+<td>\,</td>
+<td>op_Comma</td>
+<td>Comma</td>
+</tr>
+<tr>
+<td>\/=</td>
+<td>op_DivisionAssignment</td>
+<td>Divide</td>
+</tr>
+<tr>
+<td>--</td>
+<td>op_Decrement</td>
+<td>Decrement</td>
+</tr>
+<tr>
+<td>++</td>
+<td>op_Increment</td>
+<td>Increment</td>
+</tr>
+<tr>
+<td>- (unary)</td>
+<td>op_UnaryNegation</td>
+<td>Negate</td>
+</tr>
+<tr>
+<td>+ (unary)</td>
+<td>op_UnaryPlus</td>
+<td>Plus</td>
+</tr>
+<tr>
+<td>\~</td>
+<td>op_OnesComplement</td>
+<td>OnesComplement</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>O sobrecarregamento de operator <code>==</code> é bastante complicado. A semântica do operador precisa ser compatível com vários outros membros, como <code>Object.Equals</code>.</p>
+</li>
+</ul>
+<h4 id="operadores-de-conversao">Operadores de conversão<a class="headerlink" href="#operadores-de-conversao" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Não definir operadores de conversão fora do domínio de um tipo.</p>
+<ul>
+<li>Por exemplo, <code>Int32</code>, <code>Double</code> e <code>Decimal</code> são todos os tipos numéricos, enquanto DateTime não é. Portanto, não deve haver nenhum operador de conversão para converter um <code>Double(long)</code> em um <code>DateTime</code>. Um construtor é preferencial nesse caso.</li>
+</ul>
+</li>
+<li>
+<p>Não fornecer um operador de conversão implícita se a conversão tiver potencialmente perda.</p>
+<ul>
+<li>Por exemplo, não deve haver uma conversão implícita de <code>Double</code> para <code>Int32</code> porque <code>Double</code> tem um intervalo maior do que <code>Int32</code>. Um operador de conversão explícita pode ser fornecido mesmo que a conversão tenha potencialmente perda.</li>
+</ul>
+</li>
+<li>
+<p>Não lançar exceções de conversões implícitas.</p>
+<ul>
+<li>É muito difícil para os usuários finais entenderem o que está acontecendo, pois eles podem não estar cientes de que uma conversão está ocorrendo.</li>
+</ul>
+</li>
+<li>
+<p>Lançar <code>System.InvalidCastException</code> se uma chamada para um operador de conversão resultar em uma conversão com perdas e o contrato do operador não permitir conversões com perdas.</p>
+</li>
+</ul>
+<h2 id="parametros_1">Parâmetros<a class="headerlink" href="#parametros_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Usar o tipo de parâmetro menos derivado que fornece a funcionalidade exigida pelo membro.</p>
+<ul>
+<li>Por exemplo, suponha que você queira criar um método que enumere uma coleção e imprima cada item no console. Esse método deve levar <code>IEnumerable</code> como o parâmetro, não <code>ArrayList</code> ou <code>IList</code>, por exemplo.</li>
+</ul>
+</li>
+<li>
+<p>Não use parâmetros reservados.</p>
+<ul>
+<li>Se mais entradas para um membro forem necessárias em alguma versão futura, uma nova sobrecarga poderá ser adicionada.</li>
+</ul>
+</li>
+<li>
+<p>Não tenha métodos publicamente expostos que usam ponteiros, matrizes de ponteiros ou matrizes multidimensionais como parâmetros.</p>
+<ul>
+<li>Ponteiros e matrizes multidimensionais são relativamente difíceis de usar corretamente. Em quase todos os casos, as APIs podem ser reprojetadas para evitar a criação desses tipos como parâmetros.</li>
+</ul>
+</li>
+<li>
+<p>Coloque todos os parâmetros de <code>out</code> após todos os parâmetros por valor e <code>ref</code> (excluindo matrizes de parâmetros), mesmo que resultem em uma inconsistência na ordenação de parâmetros entre sobrecargas.</p>
+<ul>
+<li>Os parâmetros de <code>out</code> podem ser vistos como valores de retorno extras, e agrupá-los juntos torna a assinatura do método mais fácil de entender.</li>
+</ul>
+</li>
+<li>
+<p>Prefira <code>enums</code> ao invés de boleanos, a menos que tenha certeza de que nunca haverá necessidade de mais de dois valores.</p>
+</li>
+<li>
+<p>Considere usar boleanos para parâmetros de construtor que são verdadeiramente valores de dois estados e são simplesmente usados para inicializar propriedades booleanas.</p>
+</li>
+<li>
+<p>Validar argumentos passados para membros públicos, protegidos ou explicitamente implementados. Lance <code>System.ArgumentException</code>, ou uma de suas subclasses, se a validação falhar.</p>
+<ul>
+<li>Observe que a validação real não precisa necessariamente acontecer no próprio membro público ou protegido. Isso pode acontecer em um nível inferior em alguma rotina privada ou interna. O ponto principal é que toda a área de superfície exposta aos usuários finais verifica os argumentos.</li>
+</ul>
+</li>
+<li>
+<p>Lançar <code>ArgumentNullException</code> se um argumento nulo for passado e o membro não oferecer suporte a argumentos nulos.</p>
+</li>
+<li>
+<p>Esteja ciente de que argumentos mutáveis podem ter sido alterados depois de serem validados.</p>
+<ul>
+<li>Se o membro for sensível à segurança, você será incentivado a fazer uma cópia e, em seguida, validar e processar o argumento.</li>
+</ul>
+</li>
+</ul>
+<h3 id="membros-com-numero-variavel-de-parametros">Membros com número variável de parâmetros<a class="headerlink" href="#membros-com-numero-variavel-de-parametros" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Considere adicionar a palavra-chave <code>params</code> aos parâmetros de matriz se você espera que os usuários finais passem matrizes com um pequeno número de elementos. Se for esperado que muitos elementos sejam passados em cenários comuns, os usuários provavelmente não passarão esses elementos embutidos de qualquer forma e, portanto, a palavra-chave <code>params</code> não será necessária.</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">String</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="nf">Format</span><span class="p">(</span><span class="kt">string</span> <span class="n">format</span><span class="p">,</span> <span class="k">params</span> <span class="kt">object</span><span class="p">[]</span> <span class="n">parameters</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Evitar o uso de matrizes <code>params</code> se o chamador quase sempre tiver a entrada já em uma matriz.</p>
+<ul>
+<li>Por exemplo, os membros com parâmetros de matriz de bytes quase nunca seriam chamados passando bytes individuais. Por esse motivo, os parâmetros de matriz de bytes no .NET Framework não usam a palavra-chave <code>params</code>.</li>
+</ul>
+</li>
+<li>
+<p>Não use matrizes <code>params</code> se a matriz for modificada pelo membro. Modificaçôes na matriz pode ser perdida.</p>
+<ul>
+<li>Compiladores transformam os argumentos para o membro em uma matriz temporária no local de chamada, a matriz pode ser um objeto temporário e, portanto, qualquer modificação na matriz será perdida.</li>
+</ul>
+</li>
+<li>
+<p>Considere usar a palavra-chave <code>params</code> em uma sobrecarga simples, mesmo se uma sobrecarga mais complexa não puder usá-la.</p>
+<ul>
+<li>Pergunte-se se os usuários teriam valor com a matriz <code>params</code> em uma sobrecarga, mesmo que não estivesse em todas as sobrecargas.</li>
+</ul>
+</li>
+<li>
+<p>Tente ordenar os parâmetros para tornar possível usar a palavra-chave <code>params</code>.</p>
+</li>
+<li>
+<p>Esteja ciente de que <code>NULL</code> pode ser passado como um argumento de matriz <code>params</code>.</p>
+</li>
+<li>
+<p>Não usar os métodos de <code>varargs</code>, também conhecidos como reticências.</p>
+</li>
+</ul>
+<h2 id="eventos_1">Eventos<a class="headerlink" href="#eventos_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Usar o termo "Raise" para eventos em vez de "Fire" ou "Trigger".</p>
+</li>
+<li>
+<p>Usar <code>System.EventHandler&lt;TEventArgs&gt;</code> em vez de criar manualmente novos delegados para serem usados como manipuladores de eventos.</p>
+</li>
+<li>
+<p>Considere o uso de uma subclasse de <code>EventArgs</code> como o argumento de evento, a menos que você tenha certeza absoluta de que o evento nunca precisará transportar dados para o método de manipulação de eventos; nesse caso, você pode usar o tipo de <code>EventArgs</code> diretamente.</p>
+</li>
+<li>
+<p>Não passe nulo como o <em>sender</em> ao gerar um evento não estático.</p>
+</li>
+<li>
+<p>Passar nulo como o <em>sender</em> ao gerar um evento estático.</p>
+</li>
+<li>
+<p>Não passar nulo como o parâmetro de dados de evento ao gerar um evento.</p>
+<ul>
+<li>Você deve passar <code>EventArgs.Empty</code> se não quiser passar dados para o método de manipulação de eventos.</li>
+</ul>
+</li>
+<li>
+<p>Considere a geração de eventos que o usuário final pode cancelar.</p>
+<ul>
+<li>Use <code>System.ComponentModel.CancelEventArgs</code> ou sua subclasse como o argumento de evento para permitir que o usuário final cancele eventos.</li>
+</ul>
+</li>
+<li>
+<p>Se você estiver definindo um manipulador de eventos que não necessita ser removido posteriormente, use uma expressão lambda.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Preferencial: Usando expressão lambda para definir um manipulador de eventos.</span>
+<span class="k">public</span> <span class="nf">Form2</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Click</span> <span class="p">+=</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="p">=&gt;</span>
+        <span class="p">{</span>
+            <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(((</span><span class="n">MouseEventArgs</span><span class="p">)</span><span class="n">e</span><span class="p">).</span><span class="n">Location</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+        <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">// Forma tradicional.</span>
+<span class="k">public</span> <span class="nf">Form1</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">Click</span> <span class="p">+=</span> <span class="k">new</span> <span class="n">EventHandler</span><span class="p">(</span><span class="n">Form1_Click</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">void</span> <span class="nf">Form1_Click</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(((</span><span class="n">MouseEventArgs</span><span class="p">)</span><span class="n">e</span><span class="p">).</span><span class="n">Location</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</li>
+</ul>
+<h3 id="eventos-personalizados">Eventos personalizados<a class="headerlink" href="#eventos-personalizados" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Usar um tipo de retorno de void para manipuladores de eventos.</p>
+<ul>
+<li>Um manipulador de eventos pode invocar vários métodos de manipulação de eventos, possivelmente em vários objetos. Se os métodos de manipulação de eventos tivessem permissão para retornar um valor, haveria vários valores de retorno para cada invocação de evento.</li>
+</ul>
+</li>
+<li>
+<p>Usar <code>object</code> como o tipo do primeiro parâmetro do manipulador de eventos e chamá-lo <code>sender</code>.</p>
+</li>
+<li>
+<p>Usar <code>System.EventArgs</code> ou sua subclasse como o tipo do segundo parâmetro do manipulador de eventos e chamá-lo <code>e</code>.</p>
+<ul>
+<li>Não tem mais de dois parâmetros em manipuladores de eventos.</li>
+</ul>
+</li>
+</ul>
+<h2 id="linq">LINQ<a class="headerlink" href="#linq" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Use nomes significativos para variáveis de consulta. </p>
+<div class="highlight"><pre><span></span><code><span class="c1">// seattleCustomers para os clientes que estão localizados em Seattle.</span>
+<span class="kt">var</span> <span class="n">seattleCustomers</span> <span class="p">=</span> <span class="k">from</span> <span class="n">customer</span> <span class="k">in</span> <span class="n">customers</span>
+                       <span class="k">where</span> <span class="n">customer</span><span class="p">.</span><span class="n">City</span> <span class="p">==</span> <span class="s">&quot;Seattle&quot;</span>
+                       <span class="k">select</span> <span class="n">customer</span><span class="p">.</span><span class="n">Name</span><span class="p">;</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Use a tipagem implícita na declaração de variáveis de consulta e de intervalo.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">seattleCustomers</span> <span class="p">=</span> <span class="k">from</span> <span class="n">customer</span> <span class="k">in</span> <span class="n">customers</span>
+                       <span class="k">where</span> <span class="n">customer</span><span class="p">.</span><span class="n">City</span> <span class="p">==</span> <span class="s">&quot;Seattle&quot;</span>
+                       <span class="k">select</span> <span class="n">customer</span><span class="p">.</span><span class="n">Name</span><span class="p">;</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Alinhe cláusulas de consulta na cláusula <code>from</code>. Use cláusulas <code>where</code> <strong>antes de outras cláusulas de consulta</strong> para garantir que cláusulas de consulta posteriores operem no conjunto de dados filtrado e reduzido.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">seattleCustomers2</span> <span class="p">=</span> <span class="k">from</span> <span class="n">customer</span> <span class="k">in</span> <span class="n">customers</span>
+                        <span class="k">where</span> <span class="n">customer</span><span class="p">.</span><span class="n">City</span> <span class="p">==</span> <span class="s">&quot;Seattle&quot;</span>
+                        <span class="k">orderby</span> <span class="n">customer</span><span class="p">.</span><span class="n">Name</span>
+                        <span class="k">select</span> <span class="n">customer</span><span class="p">;</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Use aliases para se certificar de que os nomes de propriedades de tipos anônimos sejam colocados corretamente em maiúsculas, usando o padrão Pascal-Case.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">localDistributors</span> <span class="p">=</span>
+    <span class="k">from</span> <span class="n">customer</span> <span class="k">in</span> <span class="n">customers</span>
+    <span class="k">join</span> <span class="n">distributor</span> <span class="k">in</span> <span class="n">distributors</span> <span class="k">on</span> <span class="n">customer</span><span class="p">.</span><span class="n">City</span> <span class="k">equals</span> <span class="n">distributor</span><span class="p">.</span><span class="n">City</span>
+    <span class="k">select</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Customer</span> <span class="p">=</span> <span class="n">customer</span><span class="p">,</span> <span class="n">Distributor</span> <span class="p">=</span> <span class="n">distributor</span> <span class="p">};</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Renomeie propriedades quando os nomes de propriedades no resultado forem ambíguos. Por exemplo, se a sua consulta retornar um nome de cliente e uma ID de distribuidor, em vez de deixá-los como <code>Name</code> e <code>ID</code> no resultado, renomeie-os para esclarecer que <code>Name</code> é o nome de um cliente, e <code>ID</code> é a identificação de um distribuidor.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">localDistributors2</span> <span class="p">=</span>
+    <span class="k">from</span> <span class="n">customer</span> <span class="k">in</span> <span class="n">customers</span>
+    <span class="k">join</span> <span class="n">distributor</span> <span class="k">in</span> <span class="n">distributors</span> <span class="k">on</span> <span class="n">customer</span><span class="p">.</span><span class="n">City</span> <span class="k">equals</span> <span class="n">distributor</span><span class="p">.</span><span class="n">City</span>
+    <span class="k">select</span> <span class="k">new</span> <span class="p">{</span> <span class="n">CustomerName</span> <span class="p">=</span> <span class="n">customer</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">DistributorID</span> <span class="p">=</span> <span class="n">distributor</span><span class="p">.</span><span class="n">ID</span> <span class="p">};</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Use várias cláusulas <code>from</code> <strong>em vez de uma cláusula</strong> <code>join</code> para acessar coleções internas. Por exemplo, cada coleção de objetos <code>Student</code> pode conter um conjunto de pontuações no teste. Quando a próxima consulta for executada, ela retorna cada pontuação que seja acima de 90, juntamente com o sobrenome do estudante que recebeu a pontuação.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">scoreQuery</span> <span class="p">=</span> <span class="k">from</span> <span class="n">student</span> <span class="k">in</span> <span class="n">students</span>
+                 <span class="k">from</span> <span class="n">score</span> <span class="k">in</span> <span class="n">student</span><span class="p">.</span><span class="n">Scores</span>
+                 <span class="k">where</span> <span class="n">score</span> <span class="p">&gt;</span> <span class="m">90</span>
+                 <span class="k">select</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Last</span> <span class="p">=</span> <span class="n">student</span><span class="p">.</span><span class="n">LastName</span><span class="p">,</span> <span class="n">score</span> <span class="p">};</span>
+</code></pre></div>
+
+</li>
+</ul>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<ul>
+<li>https://docs.microsoft.com/pt-br/dotnet/standard/design-guidelines/</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+      Guia Rápido - 2020
+      </div>
+
+      <!-- Social links -->
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

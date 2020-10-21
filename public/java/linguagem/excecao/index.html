@@ -1,0 +1,953 @@
+
+
+
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+      
+      
+        <link rel="canonical" href="https://kustavo.github.io/guia-rapido/java/linguagem/excecao/">
+      
+      
+        <meta name="author" content="Gustavo Araujo">
+      
+      <link rel="shortcut icon" href="../../../favicon.svg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.14">
+    
+    
+      
+        <title>Exceções - Guia Rápido</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.d3202873.min.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ff0a5ce4.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4051b5">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>body,input{font-family:"Ubuntu",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../extra.css">
+    
+    
+  
+      
+    
+  <script>document.addEventListener("DOMContentLoaded",function(){document.body.addEventListener("click",function(e){if(e.target instanceof HTMLElement){var t=e.target.closest("a[href^=http]");t&&ga("send","event","outbound","click",t.href)}})})</script>
+
+    
+  
+  
+    
+  
+  
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Guia Rápido - Exceções">
+    <meta property="og:description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+    <meta property="og:url" content="https://kustavo.github.io/guia-rapido/java/linguagem/excecao/">
+    <meta property="og:image" content="https://kustavo.github.io/guia-rapido/assets/images/banner.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="568">
+    <link rel="stylesheet" href="../../../assets/stylesheets/home.css">
+
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#excecoes" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-header-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../../logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Guia Rápido
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Exceções
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../../logo.svg" alt="logo">
+
+    </a>
+    Guia Rápido
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      .Net
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label=".Net" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        .Net
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../dotnet/erros-solucoes/" title="Erros e soluções" class="md-nav__link">
+      Erros e soluções
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Linux
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Shell
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Shell" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        <span class="md-nav__icon md-icon"></span>
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/linux-shell/" title="Linux shell" class="md-nav__link">
+      Linux shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/bash/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/dash/" title="Dash" class="md-nav__link">
+      Dash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/zsh/" title="Z-shell" class="md-nav__link">
+      Z-shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/gnome-terminal/" title="Gnome terminal" class="md-nav__link">
+      Gnome terminal
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Markdown
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Markdown" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Markdown
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      MkDocs
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="MkDocs" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon"></span>
+        MkDocs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../markdown/mkdocs/" title="MkDocs" class="md-nav__link">
+      MkDocs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    Introdução
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hierarquia" class="md-nav__link">
+    Hierarquia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos" class="md-nav__link">
+    Tipos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrucao-throws" class="md-nav__link">
+    Instrução throws
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrucao-throw" class="md-nav__link">
+    Instrução throw
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrucoes-try-catch-finally" class="md-nav__link">
+    Instruções try-catch-finally
+  </a>
+  
+    <nav class="md-nav" aria-label="Instruções try-catch-finally">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try" class="md-nav__link">
+    try
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#catch" class="md-nav__link">
+    catch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finally" class="md-nav__link">
+    finally
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+                  <a href="https://github.com/kustavo/guia-rapido/edit/master/docs/java/linguagem/excecao.md" title="Editar esta página" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="excecoes">Exceções<a class="headerlink" href="#excecoes" title="Permanent link">&para;</a></h1>
+<div class="toc">
+<ul>
+<li><a href="#excecoes">Exceções</a><ul>
+<li><a href="#introducao">Introdução</a></li>
+<li><a href="#hierarquia">Hierarquia</a></li>
+<li><a href="#tipos">Tipos</a></li>
+<li><a href="#instrucao-throws">Instrução throws</a></li>
+<li><a href="#instrucao-throw">Instrução throw</a></li>
+<li><a href="#instrucoes-try-catch-finally">Instruções try-catch-finally</a><ul>
+<li><a href="#try">try</a></li>
+<li><a href="#catch">catch</a></li>
+<li><a href="#finally">finally</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="introducao">Introdução<a class="headerlink" href="#introducao" title="Permanent link">&para;</a></h2>
+<p>Exceções são objetos que sinalizam que ocorreu algum problema no tempo de execução de um programa. Tais problemas podem ocorrer ao acessar um índice de vetor que esteja além de seu tamanho, ao tentar acessar algum membro de uma referência nula, ao dividir um número por zero, entre outros.</p>
+<p>Ao ocorrer uma exceção, a JVM cria uma instância de um objeto da classe <strong>Exception</strong> ou de uma de suas subclasses (o que é chamado de lançamento de exceção) e encerra a execução da aplicação caso essa exceção não seja tratada (o que é chamado de captura de exceção).</p>
+<h2 id="hierarquia">Hierarquia<a class="headerlink" href="#hierarquia" title="Permanent link">&para;</a></h2>
+<p>A classe <code>Throwable</code> é a superclasse de <code>Exception</code> e <code>Error</code> e indiretamente de <code>RuntimeException</code>.</p>
+<div class='imagem' markdown='1'>
+
+![java-throwable-hierarquia](_excecao/java-throwable-hierarquia.png)
+
+</div>
+
+<h2 id="tipos">Tipos<a class="headerlink" href="#tipos" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Exceções não checadas:</strong></p>
+</li>
+<li>
+<p>Representam defeitos no programa (bugs). Geralmente ocorrem de problemas na construção da lógica do algoritmo e são evitáveis.</p>
+</li>
+<li>
+<p>São subclasses de <code>RuntimeException</code>,</p>
+</li>
+<li>
+<p>Um método não é obrigado a estabelecer uma política para as exceções não checadas lançadas por sua <strong>execução</strong> (e quase sempre nunca o fazem).</p>
+</li>
+<li>
+<p>Exemplos:</p>
+<ul>
+<li><code>ArithmeticException</code>,</li>
+<li><code>ArrayIndexOutOfBoundsException</code>,</li>
+<li><code>NullPointerException</code>,</li>
+<li><code>NumberFormatException</code>,</li>
+<li><code>IllegalArgumentException</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Exceções checadas:</strong></p>
+</li>
+<li>
+<p>Representam condições inválidas em áreas fora do controle imediato do programa (problemas de entradas inválidas do usuário, banco de dados, falhas de rede, arquivos ausentes).</p>
+</li>
+<li>
+<p>São subclasses de <code>Exception</code>.</p>
+</li>
+<li>
+<p>Um método não é obrigado a estabelecer uma política para os erros (não checado).</p>
+</li>
+<li>
+<p>Um método é obrigado a estabelecer uma política para todas as exceções checadas lançadas por sua <strong>implementação</strong> (ou passar a exceção checada mais acima na pilha, ou manipulá-la de alguma forma).</p>
+</li>
+<li>
+<p>Exemplos:</p>
+<ul>
+<li><code>SQLException</code>,</li>
+<li><code>IOException</code>,</li>
+<li><code>ParseException</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Erros:</strong></p>
+</li>
+<li>
+<p>Além das exceções, há também a possibilidade de lançamento de erros. Embora a ocorrência de erros seja muito mais remota, no geral, são irreparáveis e causam o término abrupto da execução de um programa.</p>
+</li>
+<li>
+<p>São subclasses de <code>Error</code>.</p>
+</li>
+<li>
+<p>Exemplos:</p>
+<ul>
+<li>estouro da memória.</li>
+</ul>
+</li>
+</ul>
+<h2 id="instrucao-throws">Instrução throws<a class="headerlink" href="#instrucao-throws" title="Permanent link">&para;</a></h2>
+<p>A palavra-chave <code>throws</code> declarada na assinatura do método indica que há a possibilidade de ser lançada uma exceção em seu bloco de instruções. <code>Throwable</code> e qualquer outra de suas subclasses podem ser utilizadas. São opcionais para exceções não checadas e erros.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">exemplo_excecao_throws</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">Exemplo</span> <span class="p">{</span>
+
+    <span class="kt">void</span> <span class="nf">metodoA</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;throws Throwable&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">metodoB</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;throws Exception&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * O metodoC deve utilizar &quot;throws Throwable&quot; para passar a resolução das</span>
+<span class="cm">     * exceções de metodoA e metodoB para acima da pilha. Utilizar</span>
+<span class="cm">     * &quot;throws Throwable, Exception&quot; não é necessário já que Exception é subclasse</span>
+<span class="cm">     * de Throwable. Outra solução seria não utilizar &quot;throws Throwable&quot; mas ser</span>
+<span class="cm">     * obrigado a tratar a exceção.</span>
+<span class="cm">     */</span>
+    <span class="kt">void</span> <span class="nf">metodoC</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="p">{</span>
+
+        <span class="n">metodoA</span><span class="p">();</span>
+        <span class="n">metodoB</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="instrucao-throw">Instrução throw<a class="headerlink" href="#instrucao-throw" title="Permanent link">&para;</a></h2>
+<p>A palavra-chave <code>throw</code> lança uma instância de uma exceção e interrompe o fluxo normal de execução do programa. Qualquer subclasse de <code>Throwable</code> pode ser utilizada.</p>
+<p>O lançamento de exceções não checadas e erros não exige que elas sejam declaradas na assinatura do método. A utilização de <code>throws</code>, então, é opcional. Enquanto que para exceções checadas a declaração é obrigatória.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Exececao</span> <span class="p">{</span>
+
+    <span class="kt">void</span> <span class="nf">metodoA</span><span class="p">()</span> <span class="p">{</span>  <span class="c1">// throws opcional</span>
+
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="p">();</span>
+    <span class="p">}</span>
+
+
+    <span class="kt">void</span> <span class="nf">metodoB</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span> <span class="c1">// throws obrigatório</span>
+
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">Exception</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Para exceções não checadas e erros o compilador não verifica se a classe da exceção declarada é <a href="https://pt.wikipedia.org/wiki/en:Covariant_return_type">covariante</a> com a classe da exceção lançada.</p>
+<p>Já para exceções checadas é exigido pelo compilador que a exceção lançada seja covariante da exceção declarada.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">exemplo_excecao_throw</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">Excecao</span> <span class="p">{</span>
+
+    <span class="kt">void</span> <span class="nf">metodoA</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+
+        <span class="cm">/*</span>
+<span class="cm">         * Covariantes. Exception é superclasse de IOException.</span>
+<span class="cm">         */</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">IOException</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">metodoB</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Error</span> <span class="p">{</span>
+
+        <span class="cm">/*</span>
+<span class="cm">         * Não Covariantes. RuntimeException não é subclasse de Error. Entretanto é uma</span>
+<span class="cm">         * exceção NÃO checada.</span>
+<span class="cm">         */</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="p">();</span> <span class="c1">// ERRO!</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">metodoC</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+
+        <span class="cm">/*</span>
+<span class="cm">         * Não Covariantes. Exception não é subclasse de IOException e sim superclasse.</span>
+<span class="cm">         * É uma exceção checada.</span>
+<span class="cm">         */</span>
+        <span class="c1">// throw new Exception(); // ERRO!</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="instrucoes-try-catch-finally">Instruções try-catch-finally<a class="headerlink" href="#instrucoes-try-catch-finally" title="Permanent link">&para;</a></h2>
+<p>As palavras-chave <code>try</code>, <code>catch</code> ou <code>finally</code> são utilizadas para controlar o fluxo de um trecho do programa que pode lançar exceção, e no caso de uma exceção ser lançada executar determinados blocos de instruções. Podemos dizer que estas palavras-chave são usadas para tratar a exceção.</p>
+<h3 id="try">try<a class="headerlink" href="#try" title="Permanent link">&para;</a></h3>
+<p>A palavra-chave <code>try</code> é utilizada para delimitar um bloco em que métodos chamados podem lançar exceções a serem tratadas. Essas exceções lançadas podem ser capturadas por uma cláusula <code>catch</code>, e em seu bloco pode ser chamado instruções para tratamento das exceções lançadas.</p>
+<div class='importante' markdown='1'>
+
+Encadeado à `try` deve sempre haver o `catch` ou `finally`. Caso após `try` haja `catch` e `finally` a ordem sempre deve ser `try-catch-finally`
+
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">// try {} // ERRO!</span>
+
+<span class="k">try</span> <span class="p">{}</span> <span class="k">catch</span><span class="p">(</span><span class="n">Throwable</span> <span class="n">t</span><span class="p">){}</span>
+
+<span class="k">try</span> <span class="p">{}</span> <span class="k">finally</span> <span class="p">{}</span>
+
+<span class="k">try</span> <span class="p">{}</span> <span class="k">catch</span><span class="p">(</span><span class="n">Throwable</span> <span class="n">t</span><span class="p">){}</span> <span class="k">finally</span> <span class="p">{}</span>
+
+<span class="c1">// try {} finally{} catch(Throwable t){} // ERRO!</span>
+</code></pre></div>
+
+<h3 id="catch">catch<a class="headerlink" href="#catch" title="Permanent link">&para;</a></h3>
+<p>A instrução <code>catch</code> captura exceções e erros lançados dentro de <code>try</code> e possibilita o desenvolvimento de instruções para tratá-los.</p>
+<p>Métodos que declarem exceções checadas devem sempre ser chamados ou dentro de <code>try</code> e ter uma cláusula <code>catch</code> com um tipo covariante ou dentro de métodos utilizando <code>throws</code> para repassar o tratamento da exceção para quem chamar o método.</p>
+<p>No caso do método chamador relançar a exceção, quando chamado deverá estar dentro de <code>try-catch</code> ou dentro de outro método que também relance a exceção.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">exemplo_excecao_try_catch_finally</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">Exemplo</span> <span class="p">{</span>
+
+    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">metodoLancaExcecao</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">Exception</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * Obrigatório utilizar &quot;throws Exception&quot; na chamada da função.</span>
+<span class="cm">     */</span>
+    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">metodoRepassaExcecao</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+
+        <span class="n">metodoLancaExcecao</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * Como a exceção será tratada pelo método, não é necessário utilizar</span>
+<span class="cm">     * &quot;throws Exception&quot; na chamada do método.</span>
+<span class="cm">     */</span>
+    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">metodoTrataExcecao</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="k">try</span> <span class="p">{</span>
+
+            <span class="n">metodoLancaExcecao</span><span class="p">();</span>
+
+            <span class="cm">/*</span>
+<span class="cm">             * Não será chamado, pois foi redirecionado para o catch()</span>
+<span class="cm">             */</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Não será executado&quot;</span><span class="p">);</span>
+
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">RuntimeException</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;RuntimeException: &quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">);</span>
+
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="cm">/*</span>
+<span class="cm">             * Como a exceção foi capturada, o programa pode continuar sua execução a partir</span>
+<span class="cm">             * do try, e não necessariamente após a instrução que lançou a exceção.</span>
+<span class="cm">             */</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Exception: &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">);</span>
+
+        <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Finally&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Fim método&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="n">metodoTrataExcecao</span><span class="p">();</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Fim programa&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Saida</span>
+<span class="c1">// &gt; Exceção Exception: java.lang.Exception</span>
+<span class="c1">// &gt; Finally</span>
+<span class="c1">// &gt; Fim método</span>
+<span class="c1">// &gt; Fim programa</span>
+</code></pre></div>
+
+<p>Se há mais de uma cláusula <code>catch</code> elas deverão ser dispostas da subclasse mais específica até a subclasse mais abrangente, caso contrário haverá erro na compilação.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span> <span class="p">{}</span>
+<span class="k">catch</span> <span class="p">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span> <span class="c1">// subclasse de RuntimeException.</span>
+<span class="k">catch</span> <span class="p">(</span><span class="n">RuntimeException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>         <span class="c1">// subclasse de Exception.</span>
+<span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+</code></pre></div>
+
+<h3 id="finally">finally<a class="headerlink" href="#finally" title="Permanent link">&para;</a></h3>
+<p>A instrução <code>finally</code> permite que um bloco seja sempre executado após a execução de um bloco de <code>catch</code> e/ou de <code>try</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">Exception</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Dentro de catch&quot;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Dentro de finally&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Saida:</span>
+<span class="c1">// &gt; Dentro de catch</span>
+<span class="c1">// &gt; Dentro de finally</span>
+</code></pre></div>
+
+<p>No código abaixo, o rastreamento de pilha da exceção lançada por catch() é exibido após o <code>println()</code> devido à prioridade característica de <code>finally</code> em sempre ser executado.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">Exception</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;É exibido ainda que catch lance uma exceção.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Saida:</span>
+<span class="c1">// &gt; É exibido ainda que catch lance uma exceção.</span>
+<span class="c1">// &gt; Exception in thread &quot;main&quot; java.lang.RuntimeException</span>
+</code></pre></div>
+
+<p>Como <code>finally</code> sempre executa, caso ocorra uma exceção dentro do <code>finally</code> há a possibilidade de uma exceção lançada em <code>catch</code> não ser executada.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">Exception</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="p">(</span><span class="s">&quot;dentro de catch&quot;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="p">(</span><span class="s">&quot;dentro de finally&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Saida:</span>
+<span class="c1">// &gt; Exception in thread &quot;main&quot; java.lang.RuntimeException: dentro de finally</span>
+</code></pre></div>
+
+<p>Há uma <strong>exceção</strong> na regra de finally sempre executar após catch que ocorre quando em <code>catch</code> é chamado o método <code>System.exit()</code>. Esse método executa o encerramento da JVM.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">Exception</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Última execução antes da JVM desligar&quot;</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Não será executado&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Saida:</span>
+<span class="c1">// &gt; Última execução antes da JVM desligar</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+      Guia Rápido - 2020
+      </div>
+
+      <!-- Social links -->
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,815 @@
+
+
+
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+      
+      
+        <link rel="canonical" href="https://kustavo.github.io/guia-rapido/java/boas-praticas/estrutura-projeto/">
+      
+      
+        <meta name="author" content="Gustavo Araujo">
+      
+      <link rel="shortcut icon" href="../../../favicon.svg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.14">
+    
+    
+      
+        <title>Estrutura de projetos - Guia Rápido</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.d3202873.min.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ff0a5ce4.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4051b5">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>body,input{font-family:"Ubuntu",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../extra.css">
+    
+    
+  
+      
+    
+  <script>document.addEventListener("DOMContentLoaded",function(){document.body.addEventListener("click",function(e){if(e.target instanceof HTMLElement){var t=e.target.closest("a[href^=http]");t&&ga("send","event","outbound","click",t.href)}})})</script>
+
+    
+  
+  
+    
+  
+  
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Guia Rápido - Estrutura de projetos">
+    <meta property="og:description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+    <meta property="og:url" content="https://kustavo.github.io/guia-rapido/java/boas-praticas/estrutura-projeto/">
+    <meta property="og:image" content="https://kustavo.github.io/guia-rapido/assets/images/banner.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="568">
+    <link rel="stylesheet" href="../../../assets/stylesheets/home.css">
+
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#estrutura-de-projetos" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-header-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../../logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Guia Rápido
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Estrutura de projetos
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../../logo.svg" alt="logo">
+
+    </a>
+    Guia Rápido
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      .Net
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label=".Net" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        .Net
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../dotnet/erros-solucoes/" title="Erros e soluções" class="md-nav__link">
+      Erros e soluções
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Linux
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Shell
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Shell" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        <span class="md-nav__icon md-icon"></span>
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/linux-shell/" title="Linux shell" class="md-nav__link">
+      Linux shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/bash/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/dash/" title="Dash" class="md-nav__link">
+      Dash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/zsh/" title="Z-shell" class="md-nav__link">
+      Z-shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/gnome-terminal/" title="Gnome terminal" class="md-nav__link">
+      Gnome terminal
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Markdown
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Markdown" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Markdown
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      MkDocs
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="MkDocs" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon"></span>
+        MkDocs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../markdown/mkdocs/" title="MkDocs" class="md-nav__link">
+      MkDocs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#camadas" class="md-nav__link">
+    Camadas
+  </a>
+  
+    <nav class="md-nav" aria-label="Camadas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controller" class="md-nav__link">
+    Controller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    Service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository" class="md-nav__link">
+    Repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    View
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value-objects" class="md-nav__link">
+    Value Objects
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#organizacao-de-pacotes" class="md-nav__link">
+    Organização de pacotes
+  </a>
+  
+    <nav class="md-nav" aria-label="Organização de pacotes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organizacao-por-camadas" class="md-nav__link">
+    Organização por camadas
+  </a>
+  
+    <nav class="md-nav" aria-label="Organização por camadas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pros" class="md-nav__link">
+    Prós
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contras" class="md-nav__link">
+    Contras
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizacao-por-features" class="md-nav__link">
+    Organização por features
+  </a>
+  
+    <nav class="md-nav" aria-label="Organização por features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pros_1" class="md-nav__link">
+    Prós
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contras_1" class="md-nav__link">
+    Contras
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+                  <a href="https://github.com/kustavo/guia-rapido/edit/master/docs/java/boas-praticas/estrutura-projeto.md" title="Editar esta página" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="estrutura-de-projetos">Estrutura de projetos<a class="headerlink" href="#estrutura-de-projetos" title="Permanent link">&para;</a></h1>
+<div class="toc">
+<ul>
+<li><a href="#estrutura-de-projetos">Estrutura de projetos</a><ul>
+<li><a href="#camadas">Camadas</a><ul>
+<li><a href="#controller">Controller</a></li>
+<li><a href="#model">Model</a></li>
+<li><a href="#service">Service</a></li>
+<li><a href="#repository">Repository</a></li>
+<li><a href="#view">View</a></li>
+<li><a href="#value-objects">Value Objects</a></li>
+</ul>
+</li>
+<li><a href="#organizacao-de-pacotes">Organização de pacotes</a><ul>
+<li><a href="#organizacao-por-camadas">Organização por camadas</a><ul>
+<li><a href="#pros">Prós</a></li>
+<li><a href="#contras">Contras</a></li>
+</ul>
+</li>
+<li><a href="#organizacao-por-features">Organização por features</a><ul>
+<li><a href="#pros_1">Prós</a></li>
+<li><a href="#contras_1">Contras</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="camadas">Camadas<a class="headerlink" href="#camadas" title="Permanent link">&para;</a></h2>
+<h3 id="controller">Controller<a class="headerlink" href="#controller" title="Permanent link">&para;</a></h3>
+<p>A camada de controle (em inglês, controller) gerencia e orquestra o trabalho, mas não faz o trabalho. Em outras palavras, faz alguma verificação/validação para descobrir para quais serviços os dados da requisição HTTP devem ser enviados e orquestra essas chamadas de serviço.</p>
+<p>Atribuições:</p>
+<ul>
+<li>Gerencia as requisições HTTP recebidas</li>
+<li>Decide qual serviço deve fazer o trabalho</li>
+<li>Divide o trabalho em unidades consideráveis</li>
+<li>Passa os dados necessários das requisições HTTP para o(s) serviço(s)</li>
+<li>Se o trabalho exigir vários serviços trabalhando em várias coisas, orquestra as chamadas dos serviços.</li>
+<li>O controlador não deve estar fazendo o trabalho.</li>
+</ul>
+<h3 id="model">Model<a class="headerlink" href="#model" title="Permanent link">&para;</a></h3>
+<p>A camada de modelo (em inglês, model) representa o domínio do problema, mantém o estado e fornecer métodos para acessar e alterar o estado da aplicação.</p>
+<h3 id="service">Service<a class="headerlink" href="#service" title="Permanent link">&para;</a></h3>
+<p>A camada de serviço (em inglês, service) é responsável por concluir o trabalho e devolvê-lo ao <em>controller</em>. Ele contém a lógica de negócio necessária para realmente atender aos requisitos e retornar o que o consumidor da API está solicitando.</p>
+<p>Atribuições:</p>
+<ul>
+<li>Recebe os dados de que precisa do gerente para executar suas tarefas</li>
+<li>Descobre os algoritmos, lógica de negócios, chamadas ao banco de dados, etc envolvidos na conclusão da solicitação.</li>
+<li>Geralmente se preocupa apenas com as tarefas que ele deve concluir</li>
+<li>Não é responsável por orquestrar as diferentes chamadas de serviço</li>
+<li>Realiza o trabalho real necessário para concluir as tarefas/solicitação</li>
+<li>Retorna uma resposta para o <em>controller</em></li>
+</ul>
+<p>A camada de serviço (em inglês, service) é um padrão interessante para aplicações que possuem regras de negócio/fluxos de funcionamento complexos e, além disso, para aplicações que possuem diferentes interfaces para um mesmo conjunto de dados (aplicações web, web services, desktop, etc). Ao usar esse padrão passamos a ter um ponto bem claro na arquitetura em que vamos codificar regras de negócio complexas, como aquelas que envolvem várias entidades e ações distintas.</p>
+<p>Por exemplo, imagine um sistema de gerenciamento escolar que conta com a funcionalidade de "trancamento de curso". Ao trancar o curso algumas regras devem ser aplicadas:</p>
+<ul>
+<li>O status do aluno deve ser alterado para INATIVO;</li>
+<li>Todas as disciplinas em que o aluno está matriculado devem ser também trancadas;</li>
+<li>O coordenador deve ser notificado do trancamento via e-mail.</li>
+</ul>
+<p>Perceba que são regras que envolvem várias entidades (diferente de um simples CRUD) e ações específicas (enviar e-mail). Se tivéssemos uma aplicação MVC apenas, a parte de acesso a dados já estaria no model, mas as regras de negócio talvez acabassem sendo implementadas no <em>controller</em>. Posteriormente, quando precisássemos criar um web servisse para permitir que essa funcionalidade seja acessada via app mobile, a lógica seria repetida e aí já teríamos um problema de duplicação de código. Como essa funcionalidade é comum para as diversas "interfaces" do sistema, podemos codifica-la na camada de serviço, que passaria a ser consumida pelas camadas superiores (camada de apresentação - web, serviços).</p>
+<h3 id="repository">Repository<a class="headerlink" href="#repository" title="Permanent link">&para;</a></h3>
+<p>O <em>Repository</em> é considerado um padrão de domínio e faz parte das regras de negócios de uma aplicação. É uma interface que não sabe nada da infra-estrutura. Ele não conhece o banco de dados. O que ele conhece é o domínio da aplicação. O <em>Repository</em> acessa o DAO que por sua vez devolve os dados de uma consulta. Portanto, <em>Repository</em> se torna apenas um "repositório de domínio".</p>
+<p>O padrão <em>Repository</em> tem o objetivo de dar apoio ao domínio (modelo) fornecendo persistência ou não. Ao contrário do DAO, que é um objeto de infra-estrutura da aplicação e faz parte da camada de persistência. O <em>Repository</em> faz parte do modelo de domínio que é parte da camada de negócios. O <em>Repository</em> inclusive não precisa apenas ser usado em acesso a dados que venham de uma base de dados, podem servir para outros tipos de operações.</p>
+<h3 id="view">View<a class="headerlink" href="#view" title="Permanent link">&para;</a></h3>
+<p>A camada de visualização (em inglês, view) converte dados em uma renderização visual para resposta ao cliente (por exemplo, navegador da Web ou outro consumidor). Os dados serão fornecidos principalmente pelo <em>controller</em>; no entanto, a <em>view</em> também pode ter um auxiliar que pode recuperar dados associados à renderização e não necessariamente à solicitação atual (por exemplo, dados <em>aside</em>, dados de rodapé).</p>
+<p>Atribuições:</p>
+<ul>
+<li>É a camada que exibe uma representação dos dados.</li>
+<li>É camada de interface com usuário (<em>client-side</em>).</li>
+<li>Faz a exibição dos dados, utilizando-se de HTML, XML, etc.</li>
+</ul>
+<h3 id="value-objects">Value Objects<a class="headerlink" href="#value-objects" title="Permanent link">&para;</a></h3>
+<p>As entidades têm identidades (ID), os <em>value objects</em> não. Se as identidades de duas entidades forem diferentes, elas serão consideradas objetos/entidades diferentes, mesmo que todas as propriedades dessas entidades sejam iguais. Imagine duas pessoas diferentes que têm o mesmo nome, sobrenome e idade, mas são pessoas diferentes (seus números de identidade são diferentes). Para uma classe Endereço (que é um <em>value object</em> clássico), se os dois endereços tiverem o mesmo país, cidade e número da rua, etc., eles serão considerados o mesmo endereço.</p>
+<p>No <em>DDD - Domain Driven Design</em> (Design Orientado a Domínio), o <em>value object</em> é outro tipo de objeto de domínio que pode incluir lógica de negócios e é uma parte essencial do domínio.</p>
+<h2 id="organizacao-de-pacotes">Organização de pacotes<a class="headerlink" href="#organizacao-de-pacotes" title="Permanent link">&para;</a></h2>
+<p>Da perspectiva da linguagem, os pacotes em Java fornecem dois <em>features</em> importantes, que são utilizados pelo compilador.</p>
+<ul>
+<li>
+<p>Definição de namespace para classes. Várias classes com o mesmo nome podem ser usadas em um único projeto, desde que pertençam a pacotes diferentes que distinguem uma classe da outra.</p>
+</li>
+<li>
+<p>Permitir definir modificadores de acesso para membros específicos de um projeto. A acessibilidade de uma classe, interface, campos ou métodos, pode ser limitada ou completamente proibida para membros de pacotes diferentes.</p>
+</li>
+</ul>
+<h3 id="organizacao-por-camadas">Organização por camadas<a class="headerlink" href="#organizacao-por-camadas" title="Permanent link">&para;</a></h3>
+<p>Organiza a estrutura de classes por camadas.</p>
+<div class='imagem' markdown='1' style="width: 100%">
+
+![organizar_pacote_camada](_estrutura-projeto/organizar_pacote_camada.png)
+
+</div>
+
+<h4 id="pros">Prós<a class="headerlink" href="#pros" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Encontrar o lugar certo para uma nova classe em um aplicativo como esse é realmente uma operação fácil. A estrutura é criada no início do desenvolvimento e mantida inalterada durante toda a existência do projeto. A simplicidade permite manter o projeto em ordem, mesmo por desenvolvedores menos experientes, pois a estrutura é facilmente compreensível.</li>
+</ul>
+<h4 id="contras">Contras<a class="headerlink" href="#contras" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Uma grande desvantagem da abordagem do pacote por camada é o uso excessivo do modificador de acesso público. A exposição de um repositório apenas a uma única classe de serviço requer que o repositório seja público. Como efeito colateral, o repositório é acessível a todas as outras classes do projeto, mesmo a partir de camadas que não devem se comunicar diretamente com ele. Essa abordagem incentiva a criação de código espaguete não sustentável e resulta em alto acoplamento entre pacotes.</p>
+</li>
+<li>
+<p>Mais difícil avaliar a complexidade de um <em>feature</em> apenas observando o código à medida que as classes se espalham por vários diretórios.</p>
+</li>
+<li>
+<p>O nome de um pacote deveria fornecer detalhes adicionais sobre seu conteúdo. Na abordagem pacote por camada, todos os pacotes descrevem a arquitetura da solução, mas, separadamente, eles não fornecem informações úteis. Na verdade, em muitos casos, eles duplicam as informações presentes nos nomes das classes de seus membros.</p>
+</li>
+</ul>
+<h3 id="organizacao-por-features">Organização por <em>features</em><a class="headerlink" href="#organizacao-por-features" title="Permanent link">&para;</a></h3>
+<p>Organiza a estrutura de classes em torno de <em>features</em> (funcionalidades) ou modelos de domínio.</p>
+<div class='imagem' markdown='1' style="width: 100%">
+
+![organizar_pacote_dominio](_estrutura-projeto/organizar_pacote_dominio.png)
+
+</div>
+
+<h4 id="pros_1">Prós<a class="headerlink" href="#pros_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Quando todas as classes de <em>features</em> estão em um único pacote, o modificador de acesso público é muito mais expressivo, pois permite descrever qual parte de um <em>feature</em> deve ser acessível por outras partes da aplicação. Dentro de um pacote, você deve favorecer o uso do modificador privado do pacote para melhorar a modularização. Tornar algo público deve ser uma decisão consciente. Menos conexões entre classes de pacotes diferentes levarão a uma base de código mais limpa e mais sustentável.</p>
+</li>
+<li>
+<p>Os pacotes têm nomes muito mais significativos que descrevem sua finalidade funcional. Apenas olhando a estrutura do projeto, você provavelmente pode adivinhar o que os usuários podem fazer com a aplicação. A abordagem também expressa conexões hierárquicas entre <em>features</em>. As raízes agregadas do domínio podem ser facilmente identificadas, pois existem no nível mais baixo da árvore de pacotes. A estrutura do pacote documenta o aplicativo.</p>
+</li>
+<li>
+<p>Com a crescente popularidade da arquitetura de microsserviço, é muito mais fácil converter em um serviço monolítico que já é cortado por <em>features</em>, muito mais fácil de converter em serviços separados do que em um projeto que organiza classes por camadas. A adoção do pacote por abordagem de <em>features</em> prepara seu aplicativo para um crescimento escalável.</p>
+</li>
+</ul>
+<h4 id="contras_1">Contras<a class="headerlink" href="#contras_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Juntamente com o desenvolvimento do projeto, a estrutura dos pacotes requer mais cuidado. É importante entender que a árvore de pacotes evolui com o tempo à medida que o aplicativo se torna mais complexo. De tempos em tempos, você terá que parar um pouco e considerar mover um pacote para um nó diferente ou dividi-lo em outros menores. A clareza da estrutura não é de graça. A equipe é responsável por manter uma boa forma com o alinhamento ao conhecimento sobre o domínio.</p>
+</li>
+<li>
+<p>Compreender o domínio é o elemento chave da estrutura limpa do projeto. A escolha do local certo para um novo <em>feature</em> pode ser problemática, especialmente para os recém-chegados da equipe, pois requer conhecimento sobre os negócios por trás do seu aplicativo. Algumas pessoas podem considerar isso uma vantagem, pois a abordagem incentiva o compartilhamento de conhecimento entre os membros da equipe. A introdução de um novo desenvolvedor no projeto consome um pouco mais de tempo, mas pode ser vista como um investimento.</p>
+</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+      Guia Rápido - 2020
+      </div>
+
+      <!-- Social links -->
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

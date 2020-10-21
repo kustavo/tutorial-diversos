@@ -1,0 +1,774 @@
+
+
+
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+      
+      
+        <link rel="canonical" href="https://kustavo.github.io/guia-rapido/java/jpa/">
+      
+      
+        <meta name="author" content="Gustavo Araujo">
+      
+      <link rel="shortcut icon" href="../../favicon.svg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.14">
+    
+    
+      
+        <title>JPA - Guia Rápido</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d3202873.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ff0a5ce4.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4051b5">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>body,input{font-family:"Ubuntu",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    
+  
+      
+    
+  <script>document.addEventListener("DOMContentLoaded",function(){document.body.addEventListener("click",function(e){if(e.target instanceof HTMLElement){var t=e.target.closest("a[href^=http]");t&&ga("send","event","outbound","click",t.href)}})})</script>
+
+    
+  
+  
+    
+  
+  
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Guia Rápido - JPA">
+    <meta property="og:description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+    <meta property="og:url" content="https://kustavo.github.io/guia-rapido/java/jpa/">
+    <meta property="og:image" content="https://kustavo.github.io/guia-rapido/assets/images/banner.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="568">
+    <link rel="stylesheet" href="../../assets/stylesheets/home.css">
+
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jpa" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-header-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Guia Rápido
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              JPA
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../logo.svg" alt="logo">
+
+    </a>
+    Guia Rápido
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      .Net
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label=".Net" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        .Net
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dotnet/erros-solucoes/" title="Erros e soluções" class="md-nav__link">
+      Erros e soluções
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Linux
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Shell
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Shell" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        <span class="md-nav__icon md-icon"></span>
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/shell/linux-shell/" title="Linux shell" class="md-nav__link">
+      Linux shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/shell/bash/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/shell/dash/" title="Dash" class="md-nav__link">
+      Dash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/shell/zsh/" title="Z-shell" class="md-nav__link">
+      Z-shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/shell/gnome-terminal/" title="Gnome terminal" class="md-nav__link">
+      Gnome terminal
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Markdown
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Markdown" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Markdown
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      MkDocs
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="MkDocs" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon"></span>
+        MkDocs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../markdown/mkdocs/" title="MkDocs" class="md-nav__link">
+      MkDocs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    Introdução
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anotacoes" class="md-nav__link">
+    Anotações
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entitymanager" class="md-nav__link">
+    EntityManager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquivo-de-configuracao" class="md-nav__link">
+    Arquivo de configuração
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquivo de configuração">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+                  <a href="https://github.com/kustavo/guia-rapido/edit/master/docs/java/jpa.md" title="Editar esta página" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="jpa">JPA<a class="headerlink" href="#jpa" title="Permanent link">&para;</a></h1>
+<div class="toc">
+<ul>
+<li><a href="#jpa">JPA</a><ul>
+<li><a href="#introducao">Introdução</a></li>
+<li><a href="#anotacoes">Anotações</a></li>
+<li><a href="#entitymanager">EntityManager</a></li>
+<li><a href="#arquivo-de-configuracao">Arquivo de configuração</a><ul>
+<li><a href="#links">Links</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="introducao">Introdução<a class="headerlink" href="#introducao" title="Permanent link">&para;</a></h2>
+<p>A JPA ( <strong><em>Java Persistence API</em></strong>) é a API do Java que dita como os frameworks ORM (<strong><em>Object-relational mapping</em></strong>) devem ser implementados para prover a persistência de dados em bancos relacionais. Construída tendo como base a <strong>JDBC</strong>, a JPA abstrai detalhes dessa API base, simplificando o código de persistência.</p>
+<p>Até a criação da JPA, a solução padrão do Java utilizada diretamente para realizar a persistência de dados era a JDBC. É a partir da JDBC que conseguimos nos conectar ao banco de dados e executar comandos SQL para inserção, atualização, remoção e consulta a dados.</p>
+<p>Uma das principais limitações dessa API é que ao lidar com ela precisamos nos preocupar com a conversão dos dados recuperados no formato relacional, utilizado no banco de dados, para o formato orientado a objetos, utilizado no código de nosso programa, e vice-versa.</p>
+<p>A essa diferença damos o nome de impedância objeto-relacional. Ela simboliza o motivo central de vários problemas, prejudicando a produtividade dos programadores e, também, levando a um aumento na quantidade de erros ao longo do desenvolvimento do software.</p>
+<p>Com as limitações da JDBC, muitas empresas e programadores mais experientes começaram a criar soluções próprias que buscavam simplificar a persistência de dados. O principal objetivo desses inventos era reduzir o código necessário para mapear as tabelas do banco às classes Java, atendendo assim a um dos pontos mais críticos naquela época: o mapeamento objeto-relacional.</p>
+<p>Em pouco tempo já existiam muitas soluções para abstrair as principais dificuldades de se trabalhar com a JDBC. Porém, com todas essas soluções, outro problema acabou surgindo. Qual desses tantos inventos adotar em um projeto para facilitar a programação da persistência de dados?</p>
+<p>Sabendo que não havia uma padronização entre essas soluções, o programador ou o arquiteto tentava escolher a opção mais madura, pois sabia que com ela as chances de precisar migrar de uma solução de persistência para outra eram mínimas.</p>
+<p>Ainda assim, essa necessidade se tornou real em muitos projetos. Sem a padronização, como cada solução resolvia cada problema de uma forma, era necessário reescrever grande parte da camada de acesso a dados quando a troca de tecnologia se fazia necessária.</p>
+<p>Observando esse problema, a comunidade Java optou pela criação de uma especificação que ditasse esse padrão, e assim foi criada a JPA, ou Java Persistence API.</p>
+<p>A API JPA é a especificação que determina como os frameworks de mapeamento objeto-relacional Java devem ser implementados. Com ela, temos um padrão para:</p>
+<ol>
+<li>Realizar o mapeamento objeto-relacional entre as classes Java e as tabelas do banco de dados;</li>
+<li>Escrever consultas SQL independentemente dos detalhes de implementação da linguagem de cada banco de dados;</li>
+<li>E, por fim, temos uma referência, a qual deve ser seguida por todas as soluções de persistência relacional. Assim, caso seja necessário adotar outra opção ORM, não será necessário realizar muitas mudanças no código.</li>
+</ol>
+<p>Para concluir, é importante informar que a JPA é uma especificação e, como tal, não podemos programar diretamente com ela. Isto é, precisamos de uma solução que a implemente. Atualmente, a implementação mais famosa é o <strong><em>Hibernate</em></strong>. Além dele, no entanto, você também encontrará outras soluções, como a <strong><em>OpenJPA</em></strong>, da Fundação Apache, o <strong><em>EclipseLink JPA</em></strong>, da fundação Eclipse, entre outras.</p>
+<h2 id="anotacoes">Anotações<a class="headerlink" href="#anotacoes" title="Permanent link">&para;</a></h2>
+<p><strong>@Entity:</strong> informa que a classe é uma entidade no banco de dados (tabela).</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Lembrete</span>
+</code></pre></div>
+
+<p><strong>@Id</strong>: define qual campo da classe deve ser utilizado como chave primária.</p>
+<p><strong>@GeneratedValue</strong>: indica como a chave primária será persistida.</p>
+<ul>
+<li><strong>Strategy</strong>: indica qual estratégia usada para gerenciar a sequência das chaves primárias.</li>
+<li><strong>GenerationType.IDENTITY</strong>: usa as colunas especiais IDENTITY no banco de dados para atribuir automaticamente um id. Neste caso a sequencia é gerenciada pelo próprio banco de dados. São suportadas em muitos bancos de dados, como <strong>MySQL</strong>, <strong>DB2</strong>, <strong>SQL</strong> <strong>Server</strong>, <strong>Sybase</strong> e <strong>Postgres</strong>. O Oracle não suporta colunas IDENTITY.</li>
+<li><strong>GenerationType.SEQUENCE*<em>: usa objetos especiais SEQUENCE para gerar os ids. Geralmente um objeto SEQUENCE possui um nome, um INCREMENT e outros objetos de configurações. Neste caso o ORM (</em></strong>Object-relational mapping<strong><em>), como o Hibernate, será responsável por obter e inserir o próximo valor da sequência. Suportado nos bancos </em>*Oracle</strong>, <strong>DB2</strong>, e <strong>Postgres</strong></li>
+<li><strong>GenerationType.AUTO</strong>: deixa com o provedor de persistência a escolha da estratégia mais adequada de acordo com o banco de dados.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nd">@Id</span>
+<span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="p">.</span><span class="na">IDENTITY</span><span class="p">)</span>      
+<span class="kd">private</span> <span class="kt">long</span> <span class="n">id</span><span class="p">;</span>
+</code></pre></div>
+
+<p><strong>@Column</strong>: indica que o campo será uma coluna na tabela.</p>
+<ul>
+<li><strong>nullable</strong>: indica se a coluna aceita valores mulos.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nd">@Column</span><span class="p">(</span><span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">titulo</span><span class="p">;</span>
+</code></pre></div>
+
+<h2 id="entitymanager">EntityManager<a class="headerlink" href="#entitymanager" title="Permanent link">&para;</a></h2>
+<p>Na JPA utilizamos a classe <strong>EntityManager</strong> para interagir com o contexto de persistência. Um contexto de persistência mantém sob seu conhecimento as diferentes entidades que contêm dados a serem persistidos. Sendo assim, é através do EntityManager que podemos manipular as entidades mapeadas e realizar ações relacionadas aos registros da tabela para a qual a entidade aponta.</p>
+<p>Através do EntityManager conseguimos adicionar, buscar, remover e realizar diferentes consultas no banco de dados.</p>
+<p>Um EntityManager é criado a partir de uma <strong>EntityManagerFactory</strong>. Cada EntityManager é criado para <strong>acesso a um único banco de dados</strong>. As configurações transmitidas pelo EntityManagerFactory vêm do arquivo <code>persistence.xml</code> e são lidas pela classe Persistence. Por isso iniciamos o EntityManagerFactory usando o método <code>Persistence.createEntityManagerFactory</code>, que recebe como parâmetro o nome da unidade de persistência.</p>
+<p>Uma vez criada uma nova instância da entidade, podemos associá-la ao <strong>EntityManager</strong> para torná-la persistente com o método <code>persist</code>. Com isso, a partir da estratégia definida para a chave primária, um novo identificador será gerado. Para atualizar é utilizado o método <code>merge</code> e para excluir <code>remove</code>.</p>
+<p>Uma entidade pode ter diferentes estados. Quando uma entidade é criada, para a JPA seu estado é <strong>new</strong>. Ao utilizar os métodos <code>persist</code>, <code>merge</code> ou <code>find</code>, estamos alterando o estado dessa entidade para <strong>managed</strong>. Esse estado se mantém até que a entidade seja removida, quando ela se torna <strong>removed</strong>, ou deliberadamente retirada do contexto de persistência, momento em que ela se torna <strong>detached</strong>.</p>
+<p>No estado managed, a JPA passa a observar as alterações realizadas nesta entidade, permitindo que seus dados sejam atualizados ou removidos. Assim sendo, para atualizar um registro precisamos obter a instância da entidade a partir de uma consulta gerenciada pelo framework, como por exemplo, pelo método <code>find</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">javax.persistence.EntityManager</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.EntityManagerFactory</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Persistence</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">EntityManagerFactory</span> <span class="n">entityManagerFactory</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="c1">// Leitura do persistence.xml</span>
+        <span class="n">entityManagerFactory</span> <span class="o">=</span> <span class="n">Persistence</span><span class="p">.</span><span class="na">createEntityManagerFactory</span><span class="p">(</span><span class="s">&quot;hibernatejpa&quot;</span><span class="p">);</span>
+        <span class="c1">// Cria um EntityManager</span>
+        <span class="n">EntityManager</span> <span class="n">em</span> <span class="o">=</span> <span class="n">entityManagerFactory</span><span class="p">.</span><span class="na">createEntityManager</span><span class="p">();</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Lembrete</span><span class="o">&gt;</span> <span class="n">lembretesSalvos</span><span class="p">;</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Lembrete</span><span class="o">&gt;</span> <span class="n">lembretes</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">Lembrete</span> <span class="n">lembreteSalvo</span><span class="p">;</span>
+
+        <span class="n">lembretes</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Lembrete</span><span class="p">(</span><span class="s">&quot;Comprar leite&quot;</span><span class="p">,</span> <span class="s">&quot;Hoje, 10h30&quot;</span><span class="p">));</span>
+        <span class="n">lembretes</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Lembrete</span><span class="p">(</span><span class="s">&quot;Comprar maça&quot;</span><span class="p">,</span> <span class="s">&quot;Hoje, 12h00&quot;</span><span class="p">));</span>
+        <span class="n">lembretes</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Lembrete</span><span class="p">(</span><span class="s">&quot;Estudar&quot;</span><span class="p">,</span> <span class="s">&quot;Amanhã, 08h15&quot;</span><span class="p">));</span>
+
+        <span class="k">try</span> <span class="p">{</span>
+
+            <span class="c1">// -- PERSISTENCIA</span>
+
+            <span class="c1">// Abrir uma nova transação com o banco</span>
+            <span class="n">em</span><span class="p">.</span><span class="na">getTransaction</span><span class="p">().</span><span class="na">begin</span><span class="p">();</span>
+            <span class="c1">// Envia a instrução de INSERT</span>
+            <span class="n">lembretes</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">lembrete</span> <span class="o">-&gt;</span> <span class="n">em</span><span class="p">.</span><span class="na">persist</span><span class="p">(</span><span class="n">lembrete</span><span class="p">));</span>
+            <span class="c1">// Encerra a transação, gravando os dados no banco</span>
+            <span class="n">em</span><span class="p">.</span><span class="na">getTransaction</span><span class="p">().</span><span class="na">commit</span><span class="p">();</span>
+
+
+            <span class="c1">// -- UPDATE</span>
+
+            <span class="c1">// Usando o método find para pegar id=2</span>
+            <span class="n">lembreteSalvo</span> <span class="o">=</span> <span class="n">em</span><span class="p">.</span><span class="na">find</span><span class="p">(</span><span class="n">Lembrete</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="mi">2L</span><span class="p">);</span>
+
+            <span class="n">lembreteSalvo</span><span class="p">.</span><span class="na">setTitulo</span><span class="p">(</span><span class="s">&quot;Comprar café&quot;</span><span class="p">);</span>
+            <span class="n">lembreteSalvo</span><span class="p">.</span><span class="na">setDescricao</span><span class="p">(</span><span class="s">&quot;Segunda, 15h20&quot;</span><span class="p">);</span>
+
+            <span class="n">em</span><span class="p">.</span><span class="na">getTransaction</span><span class="p">().</span><span class="na">begin</span><span class="p">();</span>
+            <span class="c1">// Envia a instrução de UPDATE</span>
+            <span class="n">em</span><span class="p">.</span><span class="na">merge</span><span class="p">(</span><span class="n">lembreteSalvo</span><span class="p">);</span>
+            <span class="n">em</span><span class="p">.</span><span class="na">getTransaction</span><span class="p">().</span><span class="na">commit</span><span class="p">();</span>
+
+
+            <span class="c1">// -- CONSULTAS</span>
+
+            <span class="c1">// Usando JPQL + TypedQuery para buscar todos</span>
+            <span class="n">TypedQuery</span><span class="o">&lt;</span><span class="n">Lembrete</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="n">em</span><span class="p">.</span><span class="na">createQuery</span><span class="p">(</span><span class="s">&quot;from Lembrete&quot;</span><span class="p">,</span> <span class="n">Lembrete</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+            <span class="n">lembretesSalvos</span> <span class="o">=</span> <span class="n">query</span><span class="p">.</span><span class="na">getResultList</span><span class="p">();</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">lembretesSalvos</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">lembretesSalvos</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+            <span class="p">}</span>
+
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="c1">// Rollback em caso de erro</span>
+            <span class="n">em</span><span class="p">.</span><span class="na">getTransaction</span><span class="p">().</span><span class="na">rollback</span><span class="p">();</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;ERRO: &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+
+        <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+
+            <span class="c1">// Encerra a conexão</span>
+            <span class="n">em</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="arquivo-de-configuracao">Arquivo de configuração<a class="headerlink" href="#arquivo-de-configuracao" title="Permanent link">&para;</a></h2>
+<p>Arquivo de configuração <code>persistence.xml</code>. Geralmente situado em: <code>src/main/resources/META-INF/persistence.xml</code></p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;persistence</span> <span class="na">xmlns=</span><span class="s">&quot;http://java.sun.com/xml/ns/persistence&quot;</span>
+             <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+             <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd&quot;</span>
+             <span class="na">version=</span><span class="s">&quot;2.0&quot;</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- Identificador da unidade de persistência --&gt;</span>
+    <span class="nt">&lt;persistence-unit</span> <span class="na">name=</span><span class="s">&quot;helloworld&quot;</span> <span class="na">transaction-type=</span><span class="s">&quot;RESOURCE_LOCAL&quot;</span><span class="nt">&gt;</span>
+
+        <span class="c">&lt;!-- Indica qual a implementacao do JPA usada --&gt;</span>
+        <span class="nt">&lt;provider&gt;</span>org.hibernate.jpa.HibernatePersistenceProvider<span class="nt">&lt;/provider&gt;</span>
+
+        <span class="c">&lt;!-- Entidade(s) mapeada(s). O Hiberbate faz o mapeamento automático, portanto é opcional --&gt;</span>
+        <span class="nt">&lt;class&gt;</span>br.com.devmedia.java.hibernate.Lembrete<span class="nt">&lt;/class&gt;</span>
+
+        <span class="nt">&lt;properties&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;javax.persistence.jdbc.url&quot;</span> <span class="na">value=</span><span class="s">&quot;jdbc:postgresql://localhost/jpa-exemplo&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;javax.persistence.jdbc.user&quot;</span> <span class="na">value=</span><span class="s">&quot;postgres&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;javax.persistence.jdbc.password&quot;</span> <span class="na">value=</span><span class="s">&quot;postgres&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;javax.persistence.jdbc.driver&quot;</span> <span class="na">value=</span><span class="s">&quot;org.postgresql.Driver&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;hibernate.dialect&quot;</span> <span class="na">value=</span><span class="s">&quot;org.hibernate.dialect.PostgreSQL94Dialect&quot;</span><span class="nt">/&gt;</span>
+            <span class="c">&lt;!-- Mostrar SQL no console --&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;hibernate.show_sql&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+            <span class="c">&lt;!-- Mostrar SQL formatado --&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;hibernate.format_sql&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+            <span class="c">&lt;!--  Atualiza a estrutura do banco, gera as tabelas se for preciso --&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;hibernate.hbm2ddl.auto&quot;</span> <span class="na">value=</span><span class="s">&quot;update&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/properties&gt;</span>
+    <span class="nt">&lt;/persistence-unit&gt;</span>
+<span class="nt">&lt;/persistence&gt;</span>
+</code></pre></div>
+
+<h3 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Curso introdutório: <a href="https://www.devmedia.com.br/view/viewaula.php?idcomp=38575">https://www.devmedia.com.br/view/viewaula.php?idcomp=38575</a></li>
+<li>JPA 2.0: <a href="https://www.devmedia.com.br/jpa-2-0-persistencia-a-toda-prova/17437">https://www.devmedia.com.br/jpa-2-0-persistencia-a-toda-prova/17437</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+      Guia Rápido - 2020
+      </div>
+
+      <!-- Social links -->
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

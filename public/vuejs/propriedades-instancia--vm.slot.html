@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<!-- 
+DESCRIÇÃO:
+Propriedades de Instância - vm.$slot
+
+TAGS:
+slot
+
+JSFIDDLE:
+https://jsfiddle.net/kustavo/8ym8mtvd/
+-->
+
+<html>
+
+<head>
+  <title>slot</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+
+  <!-- Só pode haver um único slot sem nomeção, que será o slot padrão. Se o pai não informar conteúdo para o slot padrão, será usado o conteúdo informado pelo filho -->
+
+  <div id="app">
+    Sobre Slots
+    <componente-filho>
+       <span slot="slotUm">Conteúdo slot 1</span>
+       <p>Conteúdo slot padrão</p>
+       <span slot="slotDois">Conteúdo slot 2</span>
+    </componente-filho>
+  </div>
+
+  <script>
+    Vue.component('componente-filho', {
+      template: 
+      `<div>
+          <p>Slot 1</p>
+          <h1><slot name="slotUm"></slot></h1>
+
+          <p>Slot padrão</p>
+          <h2><slot>Sou conteúdo do slot padrão informado pelo filho, caso o pai não informe um conteúdo</slot></h2>
+          
+          <p>Slot 2</p>
+          <h3><slot name="slotDois"></slot></h3>
+      </div>`
+    });
+
+    new Vue({
+      el: '#app'
+    });
+
+  </script>
+</body>
+
+</html>

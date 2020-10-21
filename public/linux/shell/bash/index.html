@@ -1,0 +1,1871 @@
+
+
+
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+      
+      
+        <link rel="canonical" href="https://kustavo.github.io/guia-rapido/linux/shell/bash/">
+      
+      
+        <meta name="author" content="Gustavo Araujo">
+      
+      <link rel="shortcut icon" href="../../../favicon.svg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.14">
+    
+    
+      
+        <title>Bash - Guia Rápido</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.d3202873.min.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ff0a5ce4.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4051b5">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>body,input{font-family:"Ubuntu",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../extra.css">
+    
+    
+  
+      
+    
+  <script>document.addEventListener("DOMContentLoaded",function(){document.body.addEventListener("click",function(e){if(e.target instanceof HTMLElement){var t=e.target.closest("a[href^=http]");t&&ga("send","event","outbound","click",t.href)}})})</script>
+
+    
+  
+  
+    
+  
+  
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Guia Rápido - Bash">
+    <meta property="og:description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+    <meta property="og:url" content="https://kustavo.github.io/guia-rapido/linux/shell/bash/">
+    <meta property="og:image" content="https://kustavo.github.io/guia-rapido/assets/images/banner.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="568">
+    <link rel="stylesheet" href="../../../assets/stylesheets/home.css">
+
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bash" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-header-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../../logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Guia Rápido
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Bash
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../../logo.svg" alt="logo">
+
+    </a>
+    Guia Rápido
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      .Net
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label=".Net" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        .Net
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../dotnet/erros-solucoes/" title="Erros e soluções" class="md-nav__link">
+      Erros e soluções
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Linux
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" checked>
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Shell
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Shell" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        <span class="md-nav__icon md-icon"></span>
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../linux-shell/" title="Linux shell" class="md-nav__link">
+      Linux shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Bash
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Bash" class="md-nav__link md-nav__link--active">
+      Bash
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arquivos-de-ambiente" class="md-nav__link">
+    Arquivos de ambiente
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estruturas-da-linguagem" class="md-nav__link">
+    Estruturas da linguagem
+  </a>
+  
+    <nav class="md-nav" aria-label="Estruturas da linguagem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comentarios" class="md-nav__link">
+    Comentários
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aspas" class="md-nav__link">
+    Aspas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quebra-de-linha" class="md-nav__link">
+    Quebra de linha
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expansao-de-nomes-de-arquivos" class="md-nav__link">
+    Expansão de nomes de arquivos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variaveis" class="md-nav__link">
+    Variáveis
+  </a>
+  
+    <nav class="md-nav" aria-label="Variáveis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    String
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inteiro" class="md-nav__link">
+    Inteiro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#float" class="md-nav__link">
+    Float
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comando" class="md-nav__link">
+    Comando
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vetor" class="md-nav__link">
+    Vetor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcao" class="md-nav__link">
+    Função
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-especiais" class="md-nav__link">
+    Variáveis especiais
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#impressao" class="md-nav__link">
+    Impressão
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcoes-e-escopo-de-variaveis" class="md-nav__link">
+    Funções e escopo de variáveis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxos-de-entrada-saida-e-erro" class="md-nav__link">
+    Fluxos de entrada, saída e erro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#here-document" class="md-nav__link">
+    Here document
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passagem-de-parametros" class="md-nav__link">
+    Passagem de parâmetros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estrutura-condicional" class="md-nav__link">
+    Estrutura Condicional
+  </a>
+  
+    <nav class="md-nav" aria-label="Estrutura Condicional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operadores-condicionais" class="md-nav__link">
+    Operadores condicionais
+  </a>
+  
+    <nav class="md-nav" aria-label="Operadores condicionais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operadores-condicionais-para-arquivos" class="md-nav__link">
+    Operadores condicionais para arquivos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadores-condicionais-para-inteiros" class="md-nav__link">
+    Operadores condicionais para inteiros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadores-condicionais-para-strings" class="md-nav__link">
+    Operadores condicionais para strings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadores-condicionais-para-boleanos" class="md-nav__link">
+    Operadores condicionais para boleanos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadores-condicionais-io" class="md-nav__link">
+    Operadores condicionais I/O
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estrutura-de-repeticao" class="md-nav__link">
+    Estrutura de repetição
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcoes-shell" class="md-nav__link">
+    Funções Shell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subshell" class="md-nav__link">
+    Subshell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interacao-com-o-usuario" class="md-nav__link">
+    Interação com o usuário
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referências
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dash/" title="Dash" class="md-nav__link">
+      Dash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../zsh/" title="Z-shell" class="md-nav__link">
+      Z-shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gnome-terminal/" title="Gnome terminal" class="md-nav__link">
+      Gnome terminal
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Markdown
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Markdown" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Markdown
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      MkDocs
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="MkDocs" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon"></span>
+        MkDocs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../markdown/mkdocs/" title="MkDocs" class="md-nav__link">
+      MkDocs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arquivos-de-ambiente" class="md-nav__link">
+    Arquivos de ambiente
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estruturas-da-linguagem" class="md-nav__link">
+    Estruturas da linguagem
+  </a>
+  
+    <nav class="md-nav" aria-label="Estruturas da linguagem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comentarios" class="md-nav__link">
+    Comentários
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aspas" class="md-nav__link">
+    Aspas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quebra-de-linha" class="md-nav__link">
+    Quebra de linha
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expansao-de-nomes-de-arquivos" class="md-nav__link">
+    Expansão de nomes de arquivos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variaveis" class="md-nav__link">
+    Variáveis
+  </a>
+  
+    <nav class="md-nav" aria-label="Variáveis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    String
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inteiro" class="md-nav__link">
+    Inteiro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#float" class="md-nav__link">
+    Float
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comando" class="md-nav__link">
+    Comando
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vetor" class="md-nav__link">
+    Vetor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcao" class="md-nav__link">
+    Função
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-especiais" class="md-nav__link">
+    Variáveis especiais
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#impressao" class="md-nav__link">
+    Impressão
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcoes-e-escopo-de-variaveis" class="md-nav__link">
+    Funções e escopo de variáveis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxos-de-entrada-saida-e-erro" class="md-nav__link">
+    Fluxos de entrada, saída e erro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#here-document" class="md-nav__link">
+    Here document
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passagem-de-parametros" class="md-nav__link">
+    Passagem de parâmetros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estrutura-condicional" class="md-nav__link">
+    Estrutura Condicional
+  </a>
+  
+    <nav class="md-nav" aria-label="Estrutura Condicional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operadores-condicionais" class="md-nav__link">
+    Operadores condicionais
+  </a>
+  
+    <nav class="md-nav" aria-label="Operadores condicionais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operadores-condicionais-para-arquivos" class="md-nav__link">
+    Operadores condicionais para arquivos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadores-condicionais-para-inteiros" class="md-nav__link">
+    Operadores condicionais para inteiros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadores-condicionais-para-strings" class="md-nav__link">
+    Operadores condicionais para strings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadores-condicionais-para-boleanos" class="md-nav__link">
+    Operadores condicionais para boleanos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadores-condicionais-io" class="md-nav__link">
+    Operadores condicionais I/O
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estrutura-de-repeticao" class="md-nav__link">
+    Estrutura de repetição
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcoes-shell" class="md-nav__link">
+    Funções Shell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subshell" class="md-nav__link">
+    Subshell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interacao-com-o-usuario" class="md-nav__link">
+    Interação com o usuário
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referências
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+                  <a href="https://github.com/kustavo/guia-rapido/edit/master/docs/linux/shell/bash.md" title="Editar esta página" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="bash">Bash<a class="headerlink" href="#bash" title="Permanent link">&para;</a></h1>
+<p>Lançado originalmente em 1989, Bash (acrônimo para "Bourne-Again SHell") é uma evolução retro-compatível muito mais interativa do Bourne Shell (sh). O Bash é amplamente compatível com o shell sh, e incorpora características úteis do Korn shell (ksh), e do shell C (csh). Ele oferece melhorias funcionais em relação ao sh tanto para uso interativo como para programação.</p>
+<p>O Bash apresenta recursos e características de uma linguagem de programação alto nível. É compatível por configuração com as normas POSIX, de forma que os scripts Bash podem ser executados em diversos sistemas tipo Unix. Desta forma, o Bash cresceu e se tornou facilmente o shell mais usado em todo o mundo Linux/Unix.</p>
+<p>Com o passar do tempo, Bash adquiriu muitas extensões incompatíveis com o padrão POSIX. Porém, é possível executar o Bash de forma compatível com POSIX utilizando o parâmetro <code>--posix</code>:</p>
+<div class="highlight"><pre><span></span><code>bash --posix
+</code></pre></div>
+
+<h2 id="arquivos-de-ambiente">Arquivos de ambiente<a class="headerlink" href="#arquivos-de-ambiente" title="Permanent link">&para;</a></h2>
+<p>Você pode customizar seu ambiente do Bash utilizando alguns arquivos como:</p>
+<dl>
+<dt><code>.bash_profile</code></dt>
+<dd>Este arquivo fica localizado no diretório pessoal de cada usuário. É executado por shells que usam autenticação (nome e senha). Ele contém comandos que são executados para o usuário no momento do login no sistema após o <code>/etc/profile</code>.</dd>
+<dt><code>.bashrc</code></dt>
+<dd>Possui as mesmas características do <code>.bash_profile</code> mas é executado por shells que <strong>não requerem autenticação</strong> (como uma seção de terminal no modo gráfico)</dd>
+<dt><code>/etc/profile</code></dt>
+<dd>
+<p>Este arquivo contém comandos que são executados para todos os usuários do sistema no momento de autenticação. Somente o usuário root pode ter permissão para modificar este arquivo.</p>
+<p>Este arquivo é lido antes do arquivo de configuração pessoal de cada usuário (.bash_profile ou .profile ). Pode ser utilizado caso seja necessário fazer alguma personalização do ambiente para todos os usuários que utilizam o computador.</p>
+<p>Quando é carregado através de um shell que requer autenticação (nome e senha), o Bash procura estes arquivos em sequência e executa os comandos contidos, caso existam:</p>
+<ol>
+<li>/etc/profile</li>
+<li>~/.bash_profile</li>
+<li>~/.bash_login</li>
+<li>~/.profile</li>
+</ol>
+<p>A pesquisa será interrompida assim que localiza o primeiro arquivo no diretório do usuário. Por exemplo, se tem o arquivo <code>~/.bash_login</code> e <code>~/.bash_profile</code> no seu diretório de usuário, processará o <code>/etc/profile</code> e  <code>~/.bash_profile</code>, mas nunca processará o <code>~/.bash_login</code>.</p>
+<p>Caso o Bash seja carregado através de um shell que não requer autenticação (um terminal no modo gráfico), o seguinte arquivo é executado: ~/.bashrc.</p>
+</dd>
+</dl>
+<h2 id="estruturas-da-linguagem">Estruturas da linguagem<a class="headerlink" href="#estruturas-da-linguagem" title="Permanent link">&para;</a></h2>
+<h3 id="comentarios">Comentários<a class="headerlink" href="#comentarios" title="Permanent link">&para;</a></h3>
+<p>Comentário de uma linha.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Comentário de uma linha</span>
+</code></pre></div>
+
+<p>Não há suporte para comentário de bloco, mas uma alternativa seria usar <strong>here document</strong>.</p>
+<div class="highlight"><pre><span></span><code>: &lt;&lt; <span class="s2">&quot;END&quot;</span>
+Conteúdo <span class="k">do</span> bloco.
+Tudo aqui será tratado como um bloco de comandos que será enviado para :
+END
+</code></pre></div>
+
+<h3 id="aspas">Aspas<a class="headerlink" href="#aspas" title="Permanent link">&para;</a></h3>
+<p>Aspas são usadas para delimitar uma string ou um parâmetro. Sem o uso de aspas é necessários usar a barra invertida para escapar os espaços.</p>
+<div class="highlight"><pre><span></span><code>COMANDO <span class="s2">&quot;arquivo de teste.txt&quot;</span>
+COMANDO <span class="s1">&#39;arquivo de teste.txt&#39;</span>  <span class="c1"># Equivalente</span>
+COMANDO arquivo<span class="se">\ </span>de<span class="se">\ </span>teste.txt  <span class="c1"># Equivalente</span>
+</code></pre></div>
+
+<p>Aspas duplas são usadas se o conteúdo possui variáveis que serão substituídas por seu valor.</p>
+<h3 id="quebra-de-linha">Quebra de linha<a class="headerlink" href="#quebra-de-linha" title="Permanent link">&para;</a></h3>
+<p>Quebrar linhas para comandos grandes.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">printf</span> <span class="s2">&quot;Imprimindo: %s %s\n&quot;</span> <span class="se">\</span>
+        <span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;Olá&quot;</span><span class="k">)</span> <span class="se">\</span>
+        <span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;Mundo!&quot;</span><span class="k">)</span>
+<span class="c1"># Imprimindo: Olá Mundo!</span>
+</code></pre></div>
+
+<h3 id="expansao-de-nomes-de-arquivos">Expansão de nomes de arquivos<a class="headerlink" href="#expansao-de-nomes-de-arquivos" title="Permanent link">&para;</a></h3>
+<p>O Bash suporta uma série de notações especiais, conhecidas como expansões, para passar tipos de argumentos comumente usados em programas.</p>
+<div class="highlight"><pre><span></span><code>COMANDO arquivo1.txt arquivo2.txt arquivo3.txt
+COMANDO arquivo<span class="o">{</span><span class="m">1</span>,2,3<span class="o">}</span>.txt  <span class="c1"># Equivalente</span>
+COMANDO arquivo<span class="o">{</span><span class="m">1</span>..3<span class="o">}</span>.txt   <span class="c1"># Equivalente</span>
+</code></pre></div>
+
+<h3 id="variaveis">Variáveis<a class="headerlink" href="#variaveis" title="Permanent link">&para;</a></h3>
+<p>Para atribuir um valor para uma variável é utilizado o sinal "<strong>=</strong>" e não deve haver espaços nem antes nem depois.</p>
+<h4 id="string">String<a class="headerlink" href="#string" title="Permanent link">&para;</a></h4>
+<p>As aspas duplas são usadas se o conteúdo da string contém variáveis que devem retornar seu valor. Sem o uso de aspas é necessários escapar os espaços.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">VAR</span><span class="o">=</span><span class="s1">&#39;string simples&#39;</span>
+<span class="nv">VAR</span><span class="o">=</span><span class="s2">&quot;string com variável </span><span class="nv">$VAR</span><span class="s2">&quot;</span>
+<span class="nv">VAR</span><span class="o">=</span>string<span class="se">\ </span>simples
+<span class="nv">VAR</span><span class="o">=</span>string<span class="se">\ </span>com<span class="se">\ </span>variável<span class="se">\ </span><span class="s2">&quot;</span><span class="nv">$VAR</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<p>Concatenar strings.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">VAR</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span>
+<span class="nv">VAR</span><span class="o">+=</span><span class="s2">&quot; World&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$VAR</span><span class="s2">&quot;</span> <span class="c1"># Hello World</span>
+</code></pre></div>
+
+<p>Concatenar valor de duas variáveis string.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">VAR1</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span>
+<span class="nv">VAR2</span><span class="o">=</span><span class="s2">&quot;World&quot;</span>
+<span class="nv">VAR3</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$VAR1</span><span class="s2"> </span><span class="nv">$VAR2</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$VAR3</span><span class="s2">&quot;</span> <span class="c1"># Hello World</span>
+
+<span class="c1"># ou</span>
+
+<span class="nv">VAR1</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span>
+<span class="nv">VAR2</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$VAR1</span><span class="s2"> World&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$VAR2</span><span class="s2">&quot;</span> <span class="c1"># Hello World</span>
+</code></pre></div>
+
+<p>Retornar o tamanho de uma variável string.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">VAR</span><span class="o">=</span><span class="s1">&#39;Hello World&#39;</span>
+<span class="nb">echo</span> <span class="si">${#</span><span class="nv">VAR</span><span class="si">}</span> <span class="c1"># 11</span>
+</code></pre></div>
+
+<p>Para retornar uma substrings segue-se o padrão "<strong>${string:posicao:tamanho}</strong>". Se a posição for negativa (informada a partir do fim), deve usar parênteses ou um espaço após "<strong>:</strong>" dois pontos. Se não for informado o tamanho, será considerado até o final da string. Se não for informado a posição, será considerado a posição inicial.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">VAR</span><span class="o">=</span><span class="m">0123456789</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">VAR</span><span class="p">: -3</span><span class="si">}</span>   <span class="c1"># 789</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">VAR</span><span class="p">:(-3)</span><span class="si">}</span>  <span class="c1"># 789</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">VAR</span><span class="k">:-</span><span class="nv">3</span><span class="si">}</span>    <span class="c1"># 0123456789 (não funciona)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">VAR</span><span class="p">: -3:</span><span class="nv">1</span><span class="si">}</span> <span class="c1"># 7</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">VAR</span><span class="p">:</span><span class="nv">3</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span>   <span class="c1"># 34</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">VAR</span><span class="p">:</span><span class="nv">5</span><span class="si">}</span>     <span class="c1"># 56789</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">VAR</span><span class="p">::</span><span class="nv">3</span><span class="si">}</span>    <span class="c1"># 012</span>
+</code></pre></div>
+
+<p>Para substituir caracteres em strings segue-se o padrão "<strong>${string/substring/substituicao}</strong>" para substituir somente a primeira substring encontrada ou "<strong>${string//substring/substituicao}</strong>" para substituir todas as ocorrências encontradas.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">VAR</span><span class="o">=</span>abcb
+<span class="nv">VAR</span><span class="o">=</span><span class="si">${</span><span class="nv">VAR</span><span class="p">/b/x</span><span class="si">}</span> <span class="c1"># axcb</span>
+<span class="nb">echo</span> <span class="nv">$VAR</span>
+
+<span class="nv">VAR</span><span class="o">=</span>abcb
+<span class="nv">VAR</span><span class="o">=</span><span class="si">${</span><span class="nv">VAR</span><span class="p">//b/x</span><span class="si">}</span> <span class="c1"># axcx</span>
+<span class="nb">echo</span> <span class="nv">$VAR</span>
+</code></pre></div>
+
+<h4 id="inteiro">Inteiro<a class="headerlink" href="#inteiro" title="Permanent link">&para;</a></h4>
+<p>Operações de inteiros, usando parênteses duplos.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="k">$((</span> <span class="m">3</span> <span class="o">+</span> <span class="m">4</span> <span class="o">*</span> <span class="o">(</span><span class="m">5</span> <span class="o">-</span> <span class="m">1</span><span class="o">)</span> <span class="k">))</span> <span class="c1"># 19</span>
+
+<span class="nb">echo</span> <span class="k">$((</span> <span class="m">10</span> <span class="o">**</span> <span class="m">2</span> <span class="k">))</span> <span class="c1"># 100</span>
+
+<span class="nv">VAR</span><span class="o">=</span><span class="m">1</span>
+<span class="o">((</span><span class="nv">VAR</span><span class="o">+=</span><span class="m">2</span><span class="o">))</span>
+<span class="nb">echo</span> <span class="nv">$VAR</span> <span class="c1"># 3</span>
+</code></pre></div>
+
+<p>Usando o comando "<strong>bc</strong>" para valores grandes.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="m">2</span>^100 <span class="p">|</span> bc
+
+<span class="c1"># ou atribuir para uma variável</span>
+
+<span class="nv">VAR</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s1">&#39;2^100&#39;</span> <span class="p">|</span> bc -l<span class="k">)</span>
+<span class="nb">echo</span> <span class="nv">$VAR</span>
+</code></pre></div>
+
+<p>Ou simplesmente usando a função Bash "<strong>let</strong>". Não pode haver espaço entre os operadores, a não ser se escapar o espaço ou usar aspas.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">let</span> <span class="nv">VAR</span><span class="o">=</span><span class="m">5</span>+4
+<span class="nb">echo</span> <span class="nv">$VAR</span>       <span class="c1"># 9</span>
+<span class="nb">let</span> VAR++
+<span class="nb">echo</span> <span class="nv">$VAR</span>       <span class="c1"># 10</span>
+<span class="nb">let</span> <span class="nv">VAR</span><span class="o">=</span>VAR**2
+<span class="nb">echo</span> <span class="nv">$VAR</span>       <span class="c1"># 100</span>
+<span class="nb">let</span> <span class="nv">VAR</span><span class="o">=</span><span class="s2">&quot;5 - 2&quot;</span> <span class="c1"># 3</span>
+</code></pre></div>
+
+<p>A função Bash "<strong>expr</strong>" é semelhante a "<strong>let</strong>" mas apenas imprime o resultado. Precisa haver espaço entre os operadores.</p>
+<div class="highlight"><pre><span></span><code>expr <span class="m">5</span> + <span class="m">4</span> <span class="c1"># 9</span>
+</code></pre></div>
+
+<h4 id="float">Float<a class="headerlink" href="#float" title="Permanent link">&para;</a></h4>
+<p>Para realizar operações com ponto flutuante geralmente utiliza o comando "<strong>bc</strong>". O parâmetro "<strong>-l</strong>" é passado para usar a biblioteca matemática para manipular float se não for soma ou subtração. Por padrão o parâmetro usa precisão de 20 casas, portanto para outros valores é necessário informar a escala.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s1">&#39;3.4 + 2.2&#39;</span> <span class="p">|</span> bc  <span class="c1"># 5.6</span>
+<span class="nb">echo</span> <span class="s1">&#39;5.5 / 2&#39;</span> <span class="p">|</span> bc    <span class="c1"># 2</span>
+<span class="nb">echo</span> <span class="s1">&#39;scale=2; 5.5 / 2&#39;</span> <span class="p">|</span> bc -l <span class="c1"># 2.75</span>
+
+<span class="c1"># ou atribuir para uma variável</span>
+
+<span class="nv">VAR</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s1">&#39;5.5 / 2&#39;</span> <span class="p">|</span> bc -l<span class="k">)</span>
+<span class="nb">echo</span> <span class="nv">$VAR</span>
+</code></pre></div>
+
+<h4 id="comando">Comando<a class="headerlink" href="#comando" title="Permanent link">&para;</a></h4>
+<p>Atribuição de comandos.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">VAR</span><span class="o">=</span><span class="sb">`</span>comando -parametro<span class="sb">`</span>
+<span class="c1"># ou</span>
+<span class="nv">VAR</span><span class="o">=</span><span class="k">$(</span>comando -parametro<span class="k">)</span>
+</code></pre></div>
+
+<p>Executar um comando armazenado em variável.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">VAR</span><span class="o">=</span><span class="s2">&quot;ls -l&quot;</span>
+<span class="nb">eval</span> <span class="s2">&quot;</span><span class="nv">$VAR</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<h4 id="vetor">Vetor<a class="headerlink" href="#vetor" title="Permanent link">&para;</a></h4>
+<p>Concatenação em vetores. Para imprimir todos valores do vetor pode-se usar "<strong>*</strong>" ou "<strong>@</strong>". O espaço separa os elementos de um vetor.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">ARRAY</span><span class="o">=(</span><span class="m">1</span> <span class="m">2</span><span class="o">)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">ARRAY</span><span class="p">[@]</span><span class="si">}</span> <span class="c1"># 1 2</span>
+<span class="nv">ARRAY</span><span class="o">+=(</span><span class="m">3</span><span class="o">)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">ARRAY</span><span class="p">[@]</span><span class="si">}</span> <span class="c1"># 1 2 3</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">ARRAY</span><span class="p">[0]</span><span class="si">}</span> <span class="c1"># 1</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">ARRAY</span><span class="p">[1]</span><span class="si">}</span> <span class="c1"># 2</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">ARRAY</span><span class="p">[2]</span><span class="si">}</span> <span class="c1"># 3</span>
+</code></pre></div>
+
+<p>Remover elemento do vetor.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">ARRAY</span><span class="o">=(</span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span><span class="o">)</span>
+<span class="nb">unset</span> ARRAY<span class="o">[</span><span class="m">1</span><span class="o">]</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">ARRAY</span><span class="p">[@]</span><span class="si">}</span> <span class="c1"># 1 3</span>
+</code></pre></div>
+
+<p>Criar vetor associativo usando "<strong>declare -A</strong>".</p>
+<div class="highlight"><pre><span></span><code><span class="nb">declare</span> -A VAR
+<span class="nv">VAR</span><span class="o">=([</span>a<span class="o">]=</span><span class="m">0</span> <span class="o">[</span>b<span class="o">]=</span><span class="m">1</span> <span class="o">[</span>c<span class="o">]=</span><span class="m">2</span><span class="o">)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">VAR</span><span class="p">[b]</span><span class="si">}</span>           <span class="c1"># 1</span>
+VAR<span class="o">[</span>d<span class="o">]=</span><span class="m">3</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">VAR</span><span class="p">[c]</span><span class="si">}</span> <span class="si">${</span><span class="nv">VAR</span><span class="p">[d]</span><span class="si">}</span> <span class="c1"># 2 3</span>
+<span class="nb">unset</span> VAR<span class="o">[</span>b<span class="o">]</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">VAR</span><span class="p">[*]</span><span class="si">}</span>           <span class="c1"># 0 2 3</span>
+</code></pre></div>
+
+<h4 id="funcao">Função<a class="headerlink" href="#funcao" title="Permanent link">&para;</a></h4>
+<p>Para obter o retorno de uma função é usado "<strong>$( )</strong>".</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span> funcao <span class="o">{</span>
+    <span class="nb">echo</span> Olá
+<span class="o">}</span>
+<span class="nv">VAR</span><span class="o">=</span><span class="k">$(</span>funcao<span class="k">)</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$VAR</span><span class="s2">&quot;</span> <span class="c1"># Olá</span>
+</code></pre></div>
+
+<h4 id="variaveis-especiais">Variáveis especiais<a class="headerlink" href="#variaveis-especiais" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Variável</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$0</td>
+<td>O nome do script Bash.</td>
+</tr>
+<tr>
+<td>$1 - $9</td>
+<td>Os primeiros 9 argumentos passados para o script.</td>
+</tr>
+<tr>
+<td>$#</td>
+<td>Quantos argumentos foram passados para o script.</td>
+</tr>
+<tr>
+<td>$@</td>
+<td>Todos os argumentos passados para o script.</td>
+</tr>
+<tr>
+<td>$?</td>
+<td>O status de saída da última função ou processo executado.</td>
+</tr>
+<tr>
+<td>$$</td>
+<td>Id do processo do script atual.</td>
+</tr>
+<tr>
+<td>$USER</td>
+<td>Usuário que está executando o script.</td>
+</tr>
+<tr>
+<td>$HOSTNAME</td>
+<td>Hostname da máquina que está executando o script.</td>
+</tr>
+<tr>
+<td>$SECONDS</td>
+<td>Quantos segundos o script está executando.</td>
+</tr>
+<tr>
+<td>$RANDOM</td>
+<td>Retorna um número randômico.</td>
+</tr>
+<tr>
+<td>$LINENO</td>
+<td>Retorna a linha que está sendo executada.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="impressao">Impressão<a class="headerlink" href="#impressao" title="Permanent link">&para;</a></h3>
+<p>Imprimir o conteúdo de uma variável.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="nv">$VAR</span>
+</code></pre></div>
+
+<p>Se a variável é uma string que possui quebra de linha ou tabulações é necessário usar aspas duplas.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">VAR</span><span class="o">=</span><span class="s2">&quot;Olá</span>
+<span class="s2">Mundo&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$VAR</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<p>O comando "<strong>tput</strong>" pode ser usado para imprimir em uma posição específica da tela.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">colunas</span><span class="o">=</span><span class="k">$(</span>tput cols<span class="k">)</span> <span class="c1"># número colunas terminal</span>
+<span class="nv">linhas</span><span class="o">=</span><span class="k">$(</span>tput lines<span class="k">)</span> <span class="c1"># número linhas terminal</span>
+<span class="nv">mensagem</span><span class="o">=</span><span class="nv">$@</span>
+
+<span class="nv">tamanho_mensagem</span><span class="o">=</span><span class="si">${#</span><span class="nv">mensagem</span><span class="si">}</span>
+<span class="nv">metade_tamanho_mensagem</span><span class="o">=</span><span class="k">$((</span><span class="nv">$tamanho_mensagem</span> <span class="o">/</span> <span class="m">2</span><span class="k">))</span>
+<span class="nv">metade_linhas</span><span class="o">=</span><span class="k">$((</span><span class="nv">$linhas</span> <span class="o">/</span> <span class="m">2</span><span class="k">))</span>
+<span class="nv">metade_colunas</span><span class="o">=</span><span class="k">$((</span><span class="o">(</span><span class="nv">$colunas</span> <span class="o">/</span> <span class="m">2</span><span class="o">)</span> <span class="o">-</span> <span class="nv">$metade_tamanho_mensagem</span><span class="k">))</span>
+
+tput clear <span class="c1"># limpar terminal</span>
+tput cup <span class="nv">$metade_linhas</span> <span class="nv">$metade_colunas</span> <span class="c1"># local de impressão</span>
+tput bold
+<span class="nb">echo</span> <span class="nv">$@</span>
+tput sgr0
+tput cup <span class="k">$(</span> tput lines <span class="k">)</span> <span class="m">0</span>
+</code></pre></div>
+
+<h3 id="funcoes-e-escopo-de-variaveis">Funções e escopo de variáveis<a class="headerlink" href="#funcoes-e-escopo-de-variaveis" title="Permanent link">&para;</a></h3>
+<p>Para declarar variáveis locais é usado a palavra-chave "<strong>local</strong>". Parênteses em funções são opcionais.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">VAR</span><span class="o">=</span><span class="s1">&#39;Variável Global&#39;</span>
+
+<span class="k">function</span> funcao <span class="o">{</span>
+    <span class="nb">local</span> <span class="nv">VAR</span><span class="o">=</span><span class="s1">&#39;Varável Local&#39;</span>
+    <span class="nb">echo</span> <span class="nv">$VAR</span>
+<span class="o">}</span>
+
+<span class="nb">echo</span> <span class="nv">$VAR</span> <span class="c1"># &#39;Variável Global&#39;</span>
+funcao    <span class="c1"># &#39;Varável Local&#39;</span>
+<span class="nb">echo</span> <span class="nv">$VAR</span> <span class="c1"># &#39;Variável Global&#39;</span>
+</code></pre></div>
+
+<p>Os parâmetros passados para as funções são acessados da mesma forma que os parâmetros passados para executar o script "<strong>$ + número</strong>".</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span> funcao <span class="o">{</span>
+    <span class="nb">echo</span> <span class="nv">$1</span>  <span class="c1"># oi</span>
+<span class="o">}</span>
+funcao oi
+</code></pre></div>
+
+<p>O "<strong>return</strong>" também pode ser usado, mas serve apenar para retornar valores numéricos que podem ser usados como status da execução. Para obter o valor retornado pela última função é usado "<strong>$?</strong>". Normalmente, um status de retorno de 0 indica que tudo foi feito com sucesso. Um valor não zero indica que ocorreu um erro.</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span> funcao <span class="o">{</span>
+    <span class="k">return</span> <span class="m">5</span>
+<span class="o">}</span>
+funcao
+<span class="nb">echo</span> <span class="nv">$?</span> <span class="c1"># 5</span>
+</code></pre></div>
+
+<p>Para retornar algum valor, é usado o próprio "<strong>echo"</strong> que pode ser capturado por "<strong>$( )"</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span> funcao <span class="o">{</span>
+    <span class="nb">echo</span> Olá
+<span class="o">}</span>
+<span class="nv">VAR</span><span class="o">=</span><span class="k">$(</span>funcao<span class="k">)</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$VAR</span><span class="s2">&quot;</span> <span class="c1"># Olá</span>
+</code></pre></div>
+
+<p>Para criar uma função com o mesmo nome de um comando é usado a palavra-chave "<strong>command</strong>".</p>
+<div class="highlight"><pre><span></span><code>ls <span class="o">{</span>
+    <span class="nb">command</span> ls -lh <span class="c1"># chamará o comando ls</span>
+<span class="o">}</span>
+ls
+</code></pre></div>
+
+<h3 id="fluxos-de-entrada-saida-e-erro">Fluxos de entrada, saída e erro<a class="headerlink" href="#fluxos-de-entrada-saida-e-erro" title="Permanent link">&para;</a></h3>
+<p>Os fluxos padrão são canais de entrada/saída entre um programa de computador e o seu ambiente (tipicamente um terminal de texto) que são pré-conectados no início da execução.</p>
+<ul>
+<li>
+<p><strong>Entrada padrão (stdin):</strong>\
+    A entrada padrão indica que o dado (frequentemente texto) está indo para um programa.</p>
+</li>
+<li>
+<p><strong>Saída padrão (stdout):</strong>\
+    A saída padrão é um fluxo onde o programa escreve dados de saída.</p>
+</li>
+<li>
+<p><strong>Erro padrão (stderr):</strong>\
+    O erro padrão é um outro tipo de saída padrão, é utilizada pelos programas para envio de mensagens de erro ou de diagnóstico.</p>
+</li>
+</ul>
+<p>Formas de capturar os fluxos padrões de I/O dos processos executados:</p>
+<ul>
+<li>
+<p>arquivo para stdin</p>
+<div class="highlight"><pre><span></span><code>COMANDO &lt; ARQUIVO
+</code></pre></div>
+
+</li>
+<li>
+<p>stdout para arquivo</p>
+<div class="highlight"><pre><span></span><code>COMANDO &gt; ARQUIVO
+<span class="c1"># ou</span>
+COMANDO <span class="m">1</span>&gt; ARQUIVO
+</code></pre></div>
+
+</li>
+<li>
+<p>stderr para arquivo</p>
+<div class="highlight"><pre><span></span><code>COMANDO <span class="m">2</span>&gt; ARQUIVO
+</code></pre></div>
+
+</li>
+<li>
+<p>stdout e stderr para arquivo</p>
+<div class="highlight"><pre><span></span><code>COMANDO <span class="p">&amp;</span>&gt; ARQUIVO
+</code></pre></div>
+
+</li>
+<li>
+<p>stdout para o stderr</p>
+<div class="highlight"><pre><span></span><code>COMANDO <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>stderr para o stdout</p>
+<div class="highlight"><pre><span></span><code>COMANDO <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</code></pre></div>
+
+</li>
+</ul>
+<p><strong>Obs:</strong> Para anexar a saída ao final do arquivo, ao invés de sobreescrevê-lo é usado <strong>&gt;&gt;</strong> ao invés de <strong>&gt;</strong>.</p>
+<h3 id="here-document">Here document<a class="headerlink" href="#here-document" title="Permanent link">&para;</a></h3>
+<p>Um here document é um bloco de código de propósito especial. Ele usa uma forma de redirecionamento de I/O para alimentar um programa interativo ou um comando.</p>
+<p>Passar o conteúdo de uma variável como entrada para outro comando.</p>
+<div class="highlight"><pre><span></span><code>    COMANDO &lt;&lt; <span class="s2">&quot;</span><span class="nv">$VARIAVEL</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<p>Passar uma lista de comandos como entrada parar outro comando.</p>
+<div class="highlight"><pre><span></span><code>COMANDO <span class="s">&lt;&lt; DELIMITADOR</span>
+<span class="s">    comando1 &quot;$VAR&quot;</span>
+<span class="s">    comando2</span>
+<span class="s">DELIMITADOR</span>
+</code></pre></div>
+
+<p>Para não substituir $VAR pelo valor da variável, basta usar aspas no delimitador inicial.</p>
+<div class="highlight"><pre><span></span><code>COMANDO &lt;&lt; <span class="s2">&quot;DELIMITADOR&quot;</span>
+    comando1 <span class="s2">&quot;</span><span class="nv">$VAR</span><span class="s2">&quot;</span>
+    comando2
+DELIMITADOR
+</code></pre></div>
+
+<h3 id="passagem-de-parametros">Passagem de parâmetros<a class="headerlink" href="#passagem-de-parametros" title="Permanent link">&para;</a></h3>
+<p>São usados os caracteres especiais <strong>$ + número</strong>.</p>
+<div class="highlight"><pre><span></span><code>$ ./script.sh a b c
+
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="c1"># a</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span> <span class="c1"># b</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$3</span><span class="s2">&quot;</span> <span class="c1"># c</span>
+</code></pre></div>
+
+<p>"<strong>Obs:</strong>" As aspas duplas são usadas para obter quebra de linhas ou tabulações caso sejam fornecidas.</p>
+<h3 id="estrutura-condicional">Estrutura Condicional<a class="headerlink" href="#estrutura-condicional" title="Permanent link">&para;</a></h3>
+<p>O teste condicional pode ser definido entre os delimitadores [], [[ ]] e (( )). Deve haver um espaço ente o teste condicional e os delimitadores. Os colchetes simples [ ] permitem comandos condicionais mais limitado, compatíveis com o POSIX. Enquanto que os colchetes duplos [[ ]] é uma extensão mais completa que foi adotada do <em>ksh88</em> e possui algumas vantagens como:</p>
+<ul>
+<li>
+<p>Não é necessário escapar uma varável que contenha quebra de linhas ou espaços.</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span> <span class="o">]</span>
+<span class="c1"># contra</span>
+<span class="k">if</span> <span class="o">[[</span> -f <span class="nv">$file</span> <span class="o">]]</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Permite o uso de &amp;&amp; ou || para comparações boleanas e uso de parênteses.</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="o">[</span> INTEIRO -eq <span class="m">1</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> INTEIRO -eq <span class="m">2</span> <span class="o">]</span>
+<span class="c1"># contra</span>
+<span class="k">if</span> <span class="o">[[</span> INTEIRO -eq <span class="m">1</span> <span class="o">||</span> INTEIRO -eq <span class="m">2</span> <span class="o">]]</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>O uso de  &lt; ou &gt; sem escape para comparações com strings.</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="o">[</span> STRING1 <span class="se">\&gt;</span> STRING2 <span class="o">]</span>
+<span class="c1"># contra</span>
+<span class="k">if</span> <span class="o">[[</span> STRING1 &gt; STRING2 <span class="o">]]</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Permite a comparação com expressões regulares</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="o">[[</span> <span class="nv">$RESPOSTA</span> <span class="o">=</span>~ ^s<span class="o">(</span>im<span class="o">)</span>?$ <span class="o">]]</span>
+<span class="c1"># ou</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$RESPOSTA</span> <span class="o">=</span> y* <span class="o">]]</span>
+</code></pre></div>
+
+</li>
+</ul>
+<p>Os parênteses duplos (( )) permitem o uso dos operadores para as operações aritméticas de forma mais simples ( &lt;, &gt;, &gt;=, &lt;=, !=, ==).</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="o">[[</span> <span class="nv">$VAR1</span> -ge <span class="m">5</span> <span class="o">||</span> <span class="nv">$VAR2</span> -eq -1 <span class="o">]]</span>
+<span class="c1"># contra</span>
+<span class="k">if</span> <span class="o">((</span> <span class="nv">$VAR1</span> &gt;<span class="o">=</span> <span class="m">5</span> <span class="o">||</span> <span class="nv">$VAR2</span> <span class="o">==</span> -1 <span class="o">))</span>
+
+<span class="o">[[</span> <span class="m">01</span> -eq <span class="m">1</span> <span class="o">]]</span> e <span class="o">((</span> <span class="nv">01</span> <span class="o">==</span> <span class="m">1</span> <span class="o">))</span> <span class="c1"># ambos verdadeiros (inteiros)</span>
+<span class="o">[[</span> <span class="nv">01</span> <span class="o">==</span> <span class="m">1</span> <span class="o">]]</span> e <span class="o">[</span> <span class="nv">01</span> <span class="o">=</span> <span class="m">1</span> <span class="o">]</span>     <span class="c1"># ambos falsos (string)</span>
+<span class="o">((</span> <span class="m">01</span> -eq <span class="m">1</span> <span class="o">))</span> e <span class="o">((</span> <span class="nv">01</span> <span class="o">=</span> <span class="m">1</span> <span class="o">))</span>  <span class="c1"># ambos retornam erro</span>
+</code></pre></div>
+
+<p>Para o teste das condições, será retornado o estado de saída zero (sucesso) se a condição é verdadeira e estado de saída não zero (falha) se a condição é falsa.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">T1</span><span class="o">=</span><span class="s2">&quot;a&quot;</span>
+<span class="nv">T2</span><span class="o">=</span><span class="s2">&quot;b&quot;</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$T1</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="nv">$T2</span><span class="s2">&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> Expressão verdadeira
+<span class="k">elif</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$T1</span><span class="s2">&quot;</span> &gt; <span class="s2">&quot;</span><span class="nv">$T2</span><span class="s2">&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> Expressão verdadeira
+<span class="k">else</span>
+    <span class="nb">echo</span> Expressão falsa <span class="c1"># entra aqui</span>
+<span class="k">fi</span>
+</code></pre></div>
+
+<p>Condicionais combinadas.</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="o">[[</span> -e origem.txt <span class="o">]]</span> <span class="o">&amp;&amp;</span> ! <span class="o">[[</span> -e destino.txt <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
+  <span class="c1"># Se origem.txt existe e destino.txt não existe</span>
+<span class="k">fi</span>
+</code></pre></div>
+
+<p><strong>Obs:</strong> Para usar mais de um comando na mesma linha, é usado o "<strong>;</strong>".</p>
+<p>Estrutura "case".</p>
+<div class="highlight"><pre><span></span><code><span class="nv">VAR</span><span class="o">=</span>segundo
+
+<span class="k">case</span> <span class="nv">$VAR</span> in
+primeiro<span class="o">)</span>
+<span class="nb">echo</span> <span class="m">1</span>
+<span class="p">;;</span>
+segundo<span class="o">)</span>
+<span class="nb">echo</span> <span class="m">2</span> <span class="c1"># 2</span>
+<span class="p">;;</span>
+terceiro<span class="o">)</span>
+<span class="nb">echo</span> <span class="m">3</span>
+<span class="p">;;</span>
+*<span class="o">)</span>
+<span class="nb">echo</span> desconhecido
+<span class="p">;;</span>
+<span class="k">esac</span>
+</code></pre></div>
+
+<h4 id="operadores-condicionais">Operadores condicionais<a class="headerlink" href="#operadores-condicionais" title="Permanent link">&para;</a></h4>
+<h5 id="operadores-condicionais-para-arquivos">Operadores condicionais para arquivos<a class="headerlink" href="#operadores-condicionais-para-arquivos" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th>Expressão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-e ARQUIVO</td>
+<td>Se o arquivo existe.</td>
+</tr>
+<tr>
+<td>-d ARQUIVO</td>
+<td>Se o arquivo existe e é um diretório.</td>
+</tr>
+<tr>
+<td>-f ARQUIVO</td>
+<td>Se o arquivo existe e é um arquivo comum.</td>
+</tr>
+<tr>
+<td>-s ARQUIVO</td>
+<td>Se o arquivo não possui tamanho 0 (zero).</td>
+</tr>
+<tr>
+<td>-r ARQUIVO</td>
+<td>Se o arquivo possui permissão de leitura para o usuário.</td>
+</tr>
+<tr>
+<td>-w ARQUIVO</td>
+<td>Se o arquivo possui permissão de escrita para o usuário.</td>
+</tr>
+<tr>
+<td>-w ARQUIVO</td>
+<td>Se o arquivo possui permissão de execução para o usuário.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="operadores-condicionais-para-inteiros">Operadores condicionais para inteiros<a class="headerlink" href="#operadores-condicionais-para-inteiros" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th>Expressão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INTEIRO1 -lt INTEIRO2</td>
+<td>Se INTEIRO1 &lt; INTEIRO2.</td>
+</tr>
+<tr>
+<td>INTEIRO1 -gt INTEIRO2</td>
+<td>Se INTEIRO1 &gt; INTEIRO2.</td>
+</tr>
+<tr>
+<td>INTEIRO1 -le INTEIRO2</td>
+<td>Se INTEIRO1 &lt;= INTEIRO2.</td>
+</tr>
+<tr>
+<td>INTEIRO1 -ge INTEIRO2</td>
+<td>Se INTEIRO1 &gt;= INTEIRO2.</td>
+</tr>
+<tr>
+<td>INTEIRO1 -eq INTEIRO2</td>
+<td>Se INTEIRO1 == INTEIRO2.</td>
+</tr>
+<tr>
+<td>INTEIRO1 -ne INTEIRO2</td>
+<td>Se INTEIRO1 != INTEIRO2.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Obs:</strong> Usando Parênteses duplos (( )) é possível usar os operadores tradicionais &lt;, &gt;, &gt;=, &lt;=, !=, ==.</p>
+<h5 id="operadores-condicionais-para-strings">Operadores condicionais para strings<a class="headerlink" href="#operadores-condicionais-para-strings" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th>Expressão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STRING1 == STRING2</td>
+<td>Se STRING1 == STRING2.</td>
+</tr>
+<tr>
+<td>STRING1 != STRING2</td>
+<td>Se STRING1 != STRING2.</td>
+</tr>
+<tr>
+<td>STRING1 \&lt; STRING2</td>
+<td>Se STRING1 &lt; STRING2 ordem ASCII.</td>
+</tr>
+<tr>
+<td>STRING1 \&gt; STRING2</td>
+<td>Se STRING1 &gt; STRING2  ordem ASCII.</td>
+</tr>
+<tr>
+<td>STRING =~ PADRAO</td>
+<td>Se a string casa com o padrão.</td>
+</tr>
+<tr>
+<td>-n STRING</td>
+<td>Se a string não é vazia.</td>
+</tr>
+<tr>
+<td>-z STRING</td>
+<td>Se a string é vazia.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="operadores-condicionais-para-boleanos">Operadores condicionais para boleanos<a class="headerlink" href="#operadores-condicionais-para-boleanos" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th>Expressão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BOLEANO &amp;&amp;</td>
+<td>valor lógico "e"</td>
+</tr>
+<tr>
+<td>BOLEANO ||</td>
+<td>valor lógico "ou"</td>
+</tr>
+</tbody>
+</table>
+<h5 id="operadores-condicionais-io">Operadores condicionais I/O<a class="headerlink" href="#operadores-condicionais-io" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th>Expressão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-t &lt;0, 1&gt;</td>
+<td>Se o stdin [-t 0] ou o stdout [-t 1] está sendo feito pelo terminal.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="estrutura-de-repeticao">Estrutura de repetição<a class="headerlink" href="#estrutura-de-repeticao" title="Permanent link">&para;</a></h3>
+<p>Usando "<strong>for</strong>"</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> file in <span class="k">$(</span>ls<span class="k">)</span> <span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="s2">&quot;item: </span><span class="nv">$file</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+
+<span class="k">for</span> i in <span class="o">{</span><span class="m">1</span>..20<span class="o">}</span> <span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+
+<span class="nv">CORES</span><span class="o">=(</span><span class="s1">&#39;rosa&#39;</span> <span class="s1">&#39;verde lima&#39;</span> <span class="s1">&#39;amarelo&#39;</span><span class="o">)</span>
+<span class="k">for</span> COR in <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CORES</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$COR</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</code></pre></div>
+
+<p>Usando "<strong>while</strong>". Realiza o comando enquanto a condição for verdadeira.</p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="o">[[</span> -e arquivo.txt <span class="o">]]</span> <span class="p">;</span> <span class="k">do</span>
+  sleep <span class="m">3</span>
+<span class="k">done</span>
+</code></pre></div>
+
+<p>Usando "<strong>until</strong>". Realiza o comando enquanto a condição for falsa. O mesmo que usar o  "<strong>while</strong>" com "<strong>!</strong>".</p>
+<div class="highlight"><pre><span></span><code><span class="k">until</span> <span class="o">[[</span> -e arquivo.txt <span class="o">]]</span> <span class="p">;</span> <span class="k">do</span>
+  sleep <span class="m">3</span>
+<span class="k">done</span>
+</code></pre></div>
+
+<p>Todas as estruturas de repetição suporta "continue" e "break".</p>
+<p>A estrutura "<strong>select</strong>" pode ser usada para criar menus.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">names</span><span class="o">=</span><span class="s1">&#39;Maria José Pedro Laura *Sair&#39;</span>
+<span class="nv">PS3</span><span class="o">=</span><span class="s1">&#39;Selecione uma pessoa: &#39;</span>
+<span class="k">select</span> name in <span class="nv">$names</span>
+<span class="k">do</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="nv">$name</span> <span class="o">==</span> <span class="s1">&#39;Sair&#39;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> Bye
+        <span class="nb">break</span>
+    <span class="k">fi</span>
+    <span class="nb">echo</span> Olá <span class="nv">$name</span>
+<span class="k">done</span>
+</code></pre></div>
+
+<h3 id="funcoes-shell">Funções Shell<a class="headerlink" href="#funcoes-shell" title="Permanent link">&para;</a></h3>
+<p>Esse recurso permite agrupar uma sequência de comandos em um único comando.</p>
+<div class="highlight"><pre><span></span><code>get<span class="o">()</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">[[</span> -t <span class="m">0</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
+    <span class="nb">read</span> -r -p <span class="s1">&#39;Password:&#39;</span> -s <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span>
+  <span class="k">else</span>
+    <span class="k">return</span> <span class="m">1</span>
+  <span class="k">fi</span>
+<span class="o">}</span>
+
+get PASSWORD <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$PASSWORD</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<p>O comando "<strong>read</strong>" armazena a entrada do usuário em variáveis. A variável "PASSWORD" é passada como parâmetro ("$1")e "<strong>read</strong>" irá armazenar a entrada do usuário na variável.</p>
+<h3 id="subshell">Subshell<a class="headerlink" href="#subshell" title="Permanent link">&para;</a></h3>
+<p>Um subshell recebe uma cópia do "ambiente de execução" do contexto circundante, que inclui quaisquer variáveis, entre outras coisas; mas as alterações que o subshell faz para o ambiente de execução não são copiadas de volta quando o subshell é concluído.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">VAR1</span><span class="o">=</span>olá
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$VAR1</span><span class="s2">&quot;</span> <span class="c1"># olá</span>
+
+<span class="o">(</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$VAR1</span><span class="s2">&quot;</span> <span class="c1"># olá</span>
+  <span class="nv">VAR2</span><span class="o">=</span>mundo
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$VAR2</span><span class="s2">&quot;</span> <span class="c1"># mundo</span>
+  <span class="nv">VAR1</span><span class="o">=</span>cruel
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$VAR1</span><span class="s2">&quot;</span> <span class="c1"># cruel</span>
+<span class="o">)</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$VAR2</span><span class="s2">&quot;</span> <span class="c1"># nada, pois não existe</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$VAR1</span><span class="s2">&quot;</span> <span class="c1"># olá</span>
+</code></pre></div>
+
+<h3 id="interacao-com-o-usuario">Interação com o usuário<a class="headerlink" href="#interacao-com-o-usuario" title="Permanent link">&para;</a></h3>
+<p>Para obter a entrada do usuário, pode-se usar o comando "<strong>read</strong>".</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> Entre com seu primeiro e último nome:
+<span class="nb">read</span> FN LN
+<span class="nb">echo</span> <span class="s2">&quot;Olá </span><span class="nv">$LN</span><span class="s2"> </span><span class="nv">$FN</span><span class="s2">!&quot;</span>
+</code></pre></div>
+
+<h3 id="referencias">Referências<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://pt.wikipedia.org/wiki/Bash">https://pt.wikipedia.org/wiki/Bash</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">https://en.wikipedia.org/wiki/Bash_(Unix_shell)</a></li>
+<li><a href="https://devhints.io/bash">https://devhints.io/bash</a></li>
+<li><a href="http://tldp.org/LDP/abs/html/index.html">http://tldp.org/LDP/abs/html/index.html</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav
+        class="md-footer-nav__inner md-grid"
+        aria-label="Footer"
+      >
+
+        <!-- Link to previous page -->
+        
+          <a
+            href="../linux-shell/"
+            class="md-footer-nav__link md-footer-nav__link--prev"
+            rel="prev"
+          >
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Anterior
+                </span>
+                Linux shell
+              </div>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          <a
+            href="../dash/"
+            class="md-footer-nav__link md-footer-nav__link--next"
+            rel="next"
+          >
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Próximo
+                </span>
+                Dash
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+      Guia Rápido - 2020
+      </div>
+
+      <!-- Social links -->
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

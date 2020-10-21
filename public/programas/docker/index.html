@@ -1,0 +1,1361 @@
+
+
+
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+      
+      
+        <link rel="canonical" href="https://kustavo.github.io/guia-rapido/programas/docker/">
+      
+      
+        <meta name="author" content="Gustavo Araujo">
+      
+      <link rel="shortcut icon" href="../../favicon.svg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.14">
+    
+    
+      
+        <title>Docker - Guia Rápido</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d3202873.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ff0a5ce4.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4051b5">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>body,input{font-family:"Ubuntu",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    
+  
+      
+    
+  <script>document.addEventListener("DOMContentLoaded",function(){document.body.addEventListener("click",function(e){if(e.target instanceof HTMLElement){var t=e.target.closest("a[href^=http]");t&&ga("send","event","outbound","click",t.href)}})})</script>
+
+    
+  
+  
+    
+  
+  
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Guia Rápido - Docker">
+    <meta property="og:description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+    <meta property="og:url" content="https://kustavo.github.io/guia-rapido/programas/docker/">
+    <meta property="og:image" content="https://kustavo.github.io/guia-rapido/assets/images/banner.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="568">
+    <link rel="stylesheet" href="../../assets/stylesheets/home.css">
+
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#docker" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-header-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Guia Rápido
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Docker
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../logo.svg" alt="logo">
+
+    </a>
+    Guia Rápido
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      .Net
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label=".Net" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        .Net
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dotnet/erros-solucoes/" title="Erros e soluções" class="md-nav__link">
+      Erros e soluções
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Linux
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Shell
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Shell" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        <span class="md-nav__icon md-icon"></span>
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/shell/linux-shell/" title="Linux shell" class="md-nav__link">
+      Linux shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/shell/bash/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/shell/dash/" title="Dash" class="md-nav__link">
+      Dash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/shell/zsh/" title="Z-shell" class="md-nav__link">
+      Z-shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/shell/gnome-terminal/" title="Gnome terminal" class="md-nav__link">
+      Gnome terminal
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Markdown
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Markdown" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Markdown
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      MkDocs
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="MkDocs" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon"></span>
+        MkDocs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../markdown/mkdocs/" title="MkDocs" class="md-nav__link">
+      MkDocs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    Introdução
+  </a>
+  
+    <nav class="md-nav" aria-label="Introdução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imagem" class="md-nav__link">
+    Imagem
+  </a>
+  
+    <nav class="md-nav" aria-label="Imagem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#camadas-e-controle-de-versao" class="md-nav__link">
+    Camadas e controle de versão
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volume" class="md-nav__link">
+    Volume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcionamento" class="md-nav__link">
+    Funcionamento
+  </a>
+  
+    <nav class="md-nav" aria-label="Funcionamento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vantagens" class="md-nav__link">
+    Vantagens
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desvantagens" class="md-nav__link">
+    Desvantagens
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacao" class="md-nav__link">
+    Instalação
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versao" class="md-nav__link">
+    Versão
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    Status
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servico" class="md-nav__link">
+    Serviço
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usuario" class="md-nav__link">
+    Usuário
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comandos" class="md-nav__link">
+    Comandos
+  </a>
+  
+    <nav class="md-nav" aria-label="Comandos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trabalhando-com-imagens-docker" class="md-nav__link">
+    Trabalhando com imagens Docker
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabalhando com imagens Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verificar-acesso-ao-docker-hub" class="md-nav__link">
+    Verificar acesso ao Docker Hub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procurar-imagem" class="md-nav__link">
+    Procurar imagem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baixar-imagem" class="md-nav__link">
+    Baixar imagem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listar-imagens" class="md-nav__link">
+    Listar imagens
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remover-imagem" class="md-nav__link">
+    Remover imagem
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trabalhando-com-containers-docker" class="md-nav__link">
+    Trabalhando com containers Docker
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabalhando com containers Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criar-container" class="md-nav__link">
+    Criar container
+  </a>
+  
+    <nav class="md-nav" aria-label="Criar container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criar-container-com-nome-desejado" class="md-nav__link">
+    Criar container com nome desejado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criar-e-acessar-terminal-do-container" class="md-nav__link">
+    Criar e acessar terminal do container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criar-container-com-portas-mapeadas" class="md-nav__link">
+    Criar container com portas mapeadas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criar-container-auto-destrutivo" class="md-nav__link">
+    Criar container auto destrutivo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criar-container-em-segundo-plano" class="md-nav__link">
+    Criar container em segundo plano
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criar-container-com-volume" class="md-nav__link">
+    Criar container com volume
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-do-container" class="md-nav__link">
+    Status do container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informacoes-do-container" class="md-nav__link">
+    Informações do container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acessar-container" class="md-nav__link">
+    Acessar container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listar-containers" class="md-nav__link">
+    Listar containers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iniciar-container-parado" class="md-nav__link">
+    Iniciar container parado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parar-container" class="md-nav__link">
+    Parar container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remover-containers" class="md-nav__link">
+    Remover containers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variaveis-de-ambiente" class="md-nav__link">
+    Variáveis de ambiente
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-para-uma-imagem-docker" class="md-nav__link">
+    Commit para uma Imagem Docker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trabalhando-com-volumes-docker" class="md-nav__link">
+    Trabalhando com volumes Docker
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabalhando com volumes Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criar-volume-portavel" class="md-nav__link">
+    Criar volume portável
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criar-volume-nao-portavel" class="md-nav__link">
+    Criar volume não portável
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listar-volumes" class="md-nav__link">
+    Listar volumes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remover-volume" class="md-nav__link">
+    Remover volume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informacoes-do-volume" class="md-nav__link">
+    Informações do volume
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geral" class="md-nav__link">
+    Geral
+  </a>
+  
+    <nav class="md-nav" aria-label="Geral">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remover-recursos-nao-usados-ou-pendentes" class="md-nav__link">
+    Remover recursos não usados ou pendentes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+                  <a href="https://github.com/kustavo/guia-rapido/edit/master/docs/programas/docker.md" title="Editar esta página" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h1>
+<div class="toc">
+<ul>
+<li><a href="#docker">Docker</a><ul>
+<li><a href="#introducao">Introdução</a><ul>
+<li><a href="#imagem">Imagem</a><ul>
+<li><a href="#camadas-e-controle-de-versao">Camadas e controle de versão</a></li>
+</ul>
+</li>
+<li><a href="#volume">Volume</a></li>
+<li><a href="#funcionamento">Funcionamento</a><ul>
+<li><a href="#vantagens">Vantagens</a></li>
+<li><a href="#desvantagens">Desvantagens</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#instalacao">Instalação</a></li>
+<li><a href="#versao">Versão</a></li>
+<li><a href="#status">Status</a></li>
+<li><a href="#servico">Serviço</a></li>
+<li><a href="#usuario">Usuário</a></li>
+<li><a href="#comandos">Comandos</a><ul>
+<li><a href="#trabalhando-com-imagens-docker">Trabalhando com imagens Docker</a><ul>
+<li><a href="#verificar-acesso-ao-docker-hub">Verificar acesso ao Docker Hub</a></li>
+<li><a href="#procurar-imagem">Procurar imagem</a></li>
+<li><a href="#baixar-imagem">Baixar imagem</a></li>
+<li><a href="#listar-imagens">Listar imagens</a></li>
+<li><a href="#remover-imagem">Remover imagem</a></li>
+</ul>
+</li>
+<li><a href="#trabalhando-com-containers-docker">Trabalhando com containers Docker</a><ul>
+<li><a href="#criar-container">Criar container</a><ul>
+<li><a href="#criar-container-com-nome-desejado">Criar container com nome desejado</a></li>
+<li><a href="#criar-e-acessar-terminal-do-container">Criar e acessar terminal do container</a></li>
+<li><a href="#criar-container-com-portas-mapeadas">Criar container com portas mapeadas</a></li>
+<li><a href="#criar-container-auto-destrutivo">Criar container auto destrutivo</a></li>
+<li><a href="#criar-container-em-segundo-plano">Criar container em segundo plano</a></li>
+<li><a href="#criar-container-com-volume">Criar container com volume</a></li>
+</ul>
+</li>
+<li><a href="#status-do-container">Status do container</a></li>
+<li><a href="#informacoes-do-container">Informações do container</a></li>
+<li><a href="#acessar-container">Acessar container</a></li>
+<li><a href="#listar-containers">Listar containers</a></li>
+<li><a href="#iniciar-container-parado">Iniciar container parado</a></li>
+<li><a href="#parar-container">Parar container</a></li>
+<li><a href="#remover-containers">Remover containers</a></li>
+<li><a href="#variaveis-de-ambiente">Variáveis de ambiente</a></li>
+<li><a href="#commit-para-uma-imagem-docker">Commit para uma Imagem Docker</a></li>
+</ul>
+</li>
+<li><a href="#trabalhando-com-volumes-docker">Trabalhando com volumes Docker</a><ul>
+<li><a href="#criar-volume-portavel">Criar volume portável</a></li>
+<li><a href="#criar-volume-nao-portavel">Criar volume não portável</a></li>
+<li><a href="#listar-volumes">Listar volumes</a></li>
+<li><a href="#remover-volume">Remover volume</a></li>
+<li><a href="#informacoes-do-volume">Informações do volume</a></li>
+</ul>
+</li>
+<li><a href="#geral">Geral</a><ul>
+<li><a href="#remover-recursos-nao-usados-ou-pendentes">Remover recursos não usados ou pendentes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#links">Links</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="introducao">Introdução<a class="headerlink" href="#introducao" title="Permanent link">&para;</a></h2>
+<p>A Conteinerização é o processo de distribuição e implantação de aplicativos de uma forma portátil e previsível. Ele faz isso empacotando componentes e suas dependências em um ambiente de processos padronizado, isolado e leve chamado contêiner.</p>
+<p>A tecnologia Docker usa o kernel do Linux e recursos do kernel como <em>Cgroups</em> e <em>namespaces</em> para segregar processos. Assim, eles podem ser executados de maneira independente. O objetivo dos containers é criar essa independência: a habilidade de executar diversos processos e aplicações separadamente para utilizar melhor a infraestrutura e, ao mesmo tempo, manter a segurança que você teria em sistemas separados.</p>
+<p>As ferramentas de container, incluindo o Docker, fornecem um modelo de implantação com base em <strong>imagem</strong>. Isso facilita o compartilhamento de uma aplicação ou conjunto de serviços, incluindo todas as dependências deles em vários ambientes. O Docker também automatiza a implantação da aplicação (ou de conjuntos de processos que constituem uma aplicação) dentro desse ambiente de container.</p>
+<p>Essas ferramentas baseadas nos containers Linux (o que faz com que o Docker seja exclusivo e fácil de usar) oferecem aos usuários acesso sem precedentes a aplicações, além da habilidade de implantar com rapidez e de ter total controle sobre as versões e distribuição.</p>
+<h3 id="imagem">Imagem<a class="headerlink" href="#imagem" title="Permanent link">&para;</a></h3>
+<p>Pense em imagens como um template compostas por um sistema de camadas que ficam uma sobre as outras para rodar um container, elas são a nossa base para construção de nossas aplicações.</p>
+<p>Em uma imagem temos um sistema de inicialização chamado <em>bootfs</em>, que é muito parecido com o sistema de boot do Linux, a partir de imagens conseguimos criar nossos containers e com facilidade fazer a migração de sistema operacional ou ambiente de trabalho.</p>
+<p>Você precisa baixar as imagens de algum repositório ou criá-las, as imagens ficam armazenados no <em>Dockerhub</em>.</p>
+<p>Containers são instâncias criadas à partir de imagens Docker.</p>
+<h4 id="camadas-e-controle-de-versao">Camadas e controle de versão<a class="headerlink" href="#camadas-e-controle-de-versao" title="Permanent link">&para;</a></h4>
+<p>Cada arquivo de imagem Docker é composto por uma série de camadas. Elas são combinadas em uma única imagem. Uma nova camada é criada quando há alteração na imagem. Toda vez que um usuário especifica um comando, como executar ou copiar, uma nova camada é criada.</p>
+<p>O Docker reutiliza essas camadas para a construção de novos containers, o que torna o processo de criação muito mais rápido. As alterações intermediárias são compartilhadas entre imagens, o que melhora ainda mais a velocidade, o tamanho e a eficiência. O controle de versões é inerente ao uso de camadas. Sempre que é realizada uma nova alteração, é gerado um <em>changelog</em> integrado, o que fornece controle total sobre as imagens do container.</p>
+<div class='imagem' markdown='1' style="width: 100%">
+
+![exemplo-camadas](_docker/exemplo-camadas.png)
+
+</div>
+
+<p>Na imagem acima, você pode começar a ver (em uma visão simplificada) como os contêineres se relacionam com o sistema host. Os contêineres isolam aplicações individuais e utilizam recursos do sistema operacional que foram abstraídos pelo Docker. Na visão explodida na direita, podemos ver que os contêineres podem ser construídos por "camadas", com vários contêineres compartilhando camadas subjacentes, diminuindo o uso de recursos.</p>
+<h3 id="volume">Volume<a class="headerlink" href="#volume" title="Permanent link">&para;</a></h3>
+<p>Quando um container é removido todas as suas informações são perdidas, portanto queremos criar uma cópia dos dados que estão no container para a nossa máquina. Caso o container venha a cair ou seja removido, podemos falar para ele onde está os dados. Dessa forma, nossas informações ficam salvas independente do estado do container.</p>
+<p>Ou seja, queremos falar para o Docker criar um repositório de dados para os containers, ou, como é chamado <strong>volume</strong>.</p>
+<h3 id="funcionamento">Funcionamento<a class="headerlink" href="#funcionamento" title="Permanent link">&para;</a></h3>
+<p>A tecnologia Docker foi desenvolvida inicialmente com base na tecnologia <em>LXC</em>, que a maioria das pessoas associa aos containers Linux "tradicionais". No entanto, desde então, essa tecnologia tornou-se independente. O <em>LXC</em> era útil como uma virtualização leve, mas não oferecia uma boa experiência para usuários e desenvolvedores. A tecnologia Docker oferece mais do que a habilidade de executar containers: ela também facilita o processo de criação e construção de containers, o envio e o controle de versão de imagens, dentre outras coisas.</p>
+<div class='imagem' markdown='1' style="width: 100%">
+
+![traditional-linux-containers-vs-docker](_docker/traditional-linux-containers-vs-docker.png)
+
+</div>
+
+<p>Os containers Linux tradicionais usam um sistema <em>init</em> capaz de gerenciar vários processos. Isso significa que aplicações inteiras são executadas como uma. A tecnologia Docker incentiva que as aplicações sejam segregadas em processos separados e oferece as ferramentas para fazer isso. Essa abordagem granular tem algumas vantagens.</p>
+<h4 id="vantagens">Vantagens<a class="headerlink" href="#vantagens" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><strong>Utilização leve de recursos</strong>: Em vez da virtualização de um sistema operacional inteiro, os contêineres isolam no nível de processos e utilizam o kernel do host.</p>
+</li>
+<li>
+<p><strong>Portabilidade</strong>: Todas as dependências para uma aplicação conteinerizada são empacotadas dentro do contêiner, permitindo-a executar em qualquer host Docker.</p>
+</li>
+<li>
+<p><strong>Modularidade</strong>: A abordagem do Docker para a containerização se concentra na habilidade de desativar uma parte de uma aplicação, seja para reparo ou atualização, sem interrompê-la totalmente. Além dessa abordagem baseada em microsserviços, é possível compartilhar processos entre várias aplicações da mesma maneira como na arquitetura orientada a serviço (SOA).</p>
+</li>
+<li>
+<p><strong>Controle de versões</strong>:  O controle de versões é inerente ao uso de camadas. Sempre que é realizada uma nova alteração, é gerado um <em>changelog</em> integrado, o que fornece controle total sobre as imagens do container.</p>
+</li>
+<li>
+<p><strong>Reversão</strong>: Talvez a melhor vantagem da criação de camadas seja a habilidade de reverter quando necessário. Toda imagem possui camadas. Não gostou da iteração atual de uma imagem? Simples, basta reverter para a versão anterior. Esse processo é compatível com uma abordagem de desenvolvimento ágil e possibilita as práticas de integração e implantação contínuas (CI/CD) em relação às ferramentas.</p>
+</li>
+<li>
+<p><strong>Implantação rápida</strong> Antigamente, colocar novo hardware em funcionamento, provisionado e disponível, levava dias. E as despesas e esforço necessários para mantê-lo eram onerosos. Os containers baseados em docker podem reduzir o tempo de implantação de horas para segundos. Ao criar um container para cada processo, é possível compartilhar rapidamente esses processos similares com novos aplicativos. Como não é necessário inicializar um sistema operacional para adicionar ou mover um container, o tempo de implantação é substancialmente menor. Além disso, com a velocidade de implantação, é possível criar dados e destruir os criados pelos containers sem nenhuma preocupação e com facilidade e economia.</p>
+</li>
+</ul>
+<p>Em resumo, a tecnologia Docker é uma abordagem mais granular, controlável e baseada em microsserviços que valoriza a eficiência.</p>
+<h4 id="desvantagens">Desvantagens<a class="headerlink" href="#desvantagens" title="Permanent link">&para;</a></h4>
+<p>O Docker não fornece as mesmas funcionalidades parecidas com UNIX que os containers Linux tradicionais oferecem. Isso inclui a capacidade de usar processos como <em>cron</em> ou <em>syslog</em> dentro do container, junto à aplicação. O Docker também tem algumas limitações em questões como a limpeza de processos netos (<em>grandchild</em>) após o encerramento dos processos filhos (<em>child</em>), algo que é processado de forma natural nos containers Linux tradicionais. Essas desvantagens podem ser mitigadas ao modificar o arquivo de configuração e configurar essas funcionalidade desde o início, algo que não está imediatamente óbvio em um primeiro momento.</p>
+<p>Além disso, há outros subsistemas e dispositivos do Linux sem espaço de nomes. Incluindo os dispositivos <em>SELinux</em>, <em>Cgroups</em> e <code>/dev/sd*</code>. Isso significa que, se um invasor adquirir controle sobre esses subsistemas, o host será comprometido. Para manter-se leve, o compartilhamento do kernel do host com os containers gera a possibilidade dessa vulnerabilidade na segurança. Isso é diferente nas máquinas virtuais, que são mais firmemente segregadas a partir do sistema host.</p>
+<h2 id="instalacao">Instalação<a class="headerlink" href="#instalacao" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ubuntu</span>
+sudo apt install docker.io
+</code></pre></div>
+
+<h2 id="versao">Versão<a class="headerlink" href="#versao" title="Permanent link">&para;</a></h2>
+<p>Ver a versão instalada:</p>
+<div class="highlight"><pre><span></span><code>sudo docker -v
+</code></pre></div>
+
+<h2 id="status">Status<a class="headerlink" href="#status" title="Permanent link">&para;</a></h2>
+<p>Ver status do docker:</p>
+<div class="highlight"><pre><span></span><code>sudo systemctl status docker
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>● docker.service - Docker Application Container Engine
+   Loaded: loaded (/usr/lib/systemd/system/docker.service; disabled; vendor preset: disabled)
+   Active: inactive (dead)
+     Docs: https://docs.docker.com
+</code></pre></div>
+
+<h2 id="servico">Serviço<a class="headerlink" href="#servico" title="Permanent link">&para;</a></h2>
+<p>Iniciar serviço.</p>
+<div class="highlight"><pre><span></span><code>sudo systemctl start docker
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>● docker.service - Docker Application Container Engine
+   Loaded: loaded (/usr/lib/systemd/system/docker.service; disabled; vendor preset: disabled)
+   Active: active (running) since Wed 2019-09-11 16:35:29 -03; 29s ago
+     Docs: https://docs.docker.com
+ Main PID: 46625 (dockerd)
+    Tasks: 28
+   Memory: 57.5M
+   CGroup: /system.slice/docker.service
+           ├─46625 /usr/bin/dockerd -H fd://
+           └─46633 containerd --config /var/run/docker/containerd/containerd.toml --log-level info
+
+set 11 16:35:29 archlinux dockerd[46625]: time=&quot;2019-09-11T16:35:29.547513653-03:00&quot; level=warning msg=&quot;Your kernel does not support cgroup blkio weight&quot;
+set 11 16:35:29 archlinux dockerd[46625]: time=&quot;2019-09-11T16:35:29.547523446-03:00&quot; level=warning msg=&quot;Your kernel does not support cgroup blkio weight_device&quot;
+set 11 16:35:29 archlinux dockerd[46625]: time=&quot;2019-09-11T16:35:29.547724864-03:00&quot; level=info msg=&quot;Loading containers: start.&quot;
+set 11 16:35:29 archlinux dockerd[46625]: time=&quot;2019-09-11T16:35:29.687707718-03:00&quot; level=info msg=&quot;Default bridge (docker0) is assigned with an IP address 172.17.0.0/&gt;
+set 11 16:35:29 archlinux dockerd[46625]: time=&quot;2019-09-11T16:35:29.758083807-03:00&quot; level=info msg=&quot;Loading containers: done.&quot;
+set 11 16:35:29 archlinux dockerd[46625]: time=&quot;2019-09-11T16:35:29.792834766-03:00&quot; level=warning msg=&quot;Not using native diff for overlay2, this may cause degraded perf&gt;
+set 11 16:35:29 archlinux dockerd[46625]: time=&quot;2019-09-11T16:35:29.793107525-03:00&quot; level=info msg=&quot;Docker daemon&quot; commit=6a30dfca03 graphdriver(s)=overlay2 version=19&gt;
+set 11 16:35:29 archlinux dockerd[46625]: time=&quot;2019-09-11T16:35:29.793230539-03:00&quot; level=info msg=&quot;Daemon has completed initialization&quot;
+set 11 16:35:29 archlinux dockerd[46625]: time=&quot;2019-09-11T16:35:29.828163899-03:00&quot; level=info msg=&quot;API listen on /run/docker.sock&quot;
+set 11 16:35:29 archlinux systemd[1]: Started Docker Application Container Engine.
+</code></pre></div>
+
+<p>Habilitar serviço para iniciar após <em>boot</em></p>
+<div class="highlight"><pre><span></span><code>sudo systemctl <span class="nb">enable</span> docker
+</code></pre></div>
+
+<h2 id="usuario">Usuário<a class="headerlink" href="#usuario" title="Permanent link">&para;</a></h2>
+<p>Para adicionar o usuário no grupo <code>docker</code> e realizar o acesso sem utilizar <code>sudo</code>. Execute o comando abaixo:</p>
+<div class="highlight"><pre><span></span><code>sudo usermod -aG docker <span class="si">${</span><span class="nv">USER</span><span class="si">}</span>
+<span class="c1"># ou</span>
+sudo usermod -aG docker &lt;nome-usuario&gt;
+</code></pre></div>
+
+<p>Faça o <em>logout</em> ou execute:</p>
+<div class="highlight"><pre><span></span><code>su - <span class="si">${</span><span class="nv">USER</span><span class="si">}</span>
+</code></pre></div>
+
+<p>Confira os grupos do usuário:</p>
+<div class="highlight"><pre><span></span><code>id -nG
+</code></pre></div>
+
+<h2 id="comandos">Comandos<a class="headerlink" href="#comandos" title="Permanent link">&para;</a></h2>
+<p>Um comando docker segue o formato:</p>
+<div class="highlight"><pre><span></span><code>docker <span class="o">[</span>option<span class="o">]</span> <span class="o">[</span>command<span class="o">]</span> <span class="o">[</span>arguments<span class="o">]</span>
+</code></pre></div>
+
+<p>Para ver a lista de opções e comandos:</p>
+<div class="highlight"><pre><span></span><code>docker --help
+</code></pre></div>
+
+<p>Para ver mais informações de um comando:</p>
+<div class="highlight"><pre><span></span><code>docker &lt;comando&gt; --help
+</code></pre></div>
+
+<p>Para especificar se um comando será executado sobre um volume ou um container, podemos usar:</p>
+<div class="highlight"><pre><span></span><code>docker container &lt;comando&gt;
+docker volume  &lt;comando&gt;
+</code></pre></div>
+
+<h3 id="trabalhando-com-imagens-docker">Trabalhando com imagens Docker<a class="headerlink" href="#trabalhando-com-imagens-docker" title="Permanent link">&para;</a></h3>
+<h4 id="verificar-acesso-ao-docker-hub">Verificar acesso ao Docker Hub<a class="headerlink" href="#verificar-acesso-ao-docker-hub" title="Permanent link">&para;</a></h4>
+<p>Verificar se você pode acessar e baixar imagens do Docker Hub:</p>
+<div class="highlight"><pre><span></span><code>docker run hello-world
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Unable to find image &#39;hello-world:latest&#39; locally
+latest: Pulling from library/hello-world
+9bb5a5d4561a: Pull complete
+Digest: sha256:3e1764d0f546ceac4565547df2ac4907fe46f007ea229fd7ef2718514bcec35d
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+</code></pre></div>
+
+<h4 id="procurar-imagem">Procurar imagem<a class="headerlink" href="#procurar-imagem" title="Permanent link">&para;</a></h4>
+<p>Procurar imagem no Docker Hub:</p>
+<div class="highlight"><pre><span></span><code>docker search &lt;imagem&gt;
+</code></pre></div>
+
+<h4 id="baixar-imagem">Baixar imagem<a class="headerlink" href="#baixar-imagem" title="Permanent link">&para;</a></h4>
+<p>Baixar imagem do Docker Hub:</p>
+<div class="highlight"><pre><span></span><code>docker pull &lt;imagem&gt;
+</code></pre></div>
+
+<h4 id="listar-imagens">Listar imagens<a class="headerlink" href="#listar-imagens" title="Permanent link">&para;</a></h4>
+<p>Listar todas imagens:</p>
+<div class="highlight"><pre><span></span><code>docker images
+<span class="c1"># ou</span>
+docker images --all
+<span class="c1"># ou</span>
+docker images -a
+</code></pre></div>
+
+<h4 id="remover-imagem">Remover imagem<a class="headerlink" href="#remover-imagem" title="Permanent link">&para;</a></h4>
+<p>Remover imagem:</p>
+<div class="highlight"><pre><span></span><code>docker rmi &lt;imagem&gt;
+</code></pre></div>
+
+<p>Remover imagens pendentes:</p>
+<div class="highlight"><pre><span></span><code>docker images purge
+</code></pre></div>
+
+<h3 id="trabalhando-com-containers-docker">Trabalhando com containers Docker<a class="headerlink" href="#trabalhando-com-containers-docker" title="Permanent link">&para;</a></h3>
+<h4 id="criar-container">Criar container<a class="headerlink" href="#criar-container" title="Permanent link">&para;</a></h4>
+<p>Criar e inicia um container.</p>
+<div class="highlight"><pre><span></span><code>docker run &lt;imagem&gt;
+</code></pre></div>
+
+<h5 id="criar-container-com-nome-desejado" ignore="true">Criar container com nome desejado<a class="headerlink" href="#criar-container-com-nome-desejado" title="Permanent link">&para;</a></h5>
+<p>Criar e inicia um container com nome definido pelo usuário.</p>
+<div class="highlight"><pre><span></span><code>docker run --name &lt;nome&gt; &lt;imagem&gt;
+</code></pre></div>
+
+<h5 id="criar-e-acessar-terminal-do-container" ignore="true">Criar e acessar terminal do container<a class="headerlink" href="#criar-e-acessar-terminal-do-container" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>docker run -it &lt;imagem&gt;
+<span class="c1"># -i: iteratividade</span>
+<span class="c1"># -t: link com o terminal do container</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>root@d9b100f2f636:/#
+</code></pre></div>
+
+<p>Onde <code>d9b100f2f636</code> é o id do container.</p>
+<p>É possível mudar o nome de um container com a chave <code>--name</code></p>
+<h5 id="criar-container-com-portas-mapeadas" ignore="true">Criar container com portas mapeadas<a class="headerlink" href="#criar-container-com-portas-mapeadas" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>docker run -it -p &lt;porta-host&gt;:&lt;porta-container&gt; &lt;imagem&gt; /bin/bash
+<span class="c1"># -p: portas</span>
+</code></pre></div>
+
+<h5 id="criar-container-auto-destrutivo" ignore="true">Criar container auto destrutivo<a class="headerlink" href="#criar-container-auto-destrutivo" title="Permanent link">&para;</a></h5>
+<p>Ao usar um exit para sair do Terminal do SO rodando no container, o mesmo será removido.</p>
+<div class="highlight"><pre><span></span><code>docker run -it --rm &lt;imagem&gt; /bin/bash
+<span class="c1"># --rm: remover container</span>
+</code></pre></div>
+
+<h5 id="criar-container-em-segundo-plano" ignore="true">Criar container em segundo plano<a class="headerlink" href="#criar-container-em-segundo-plano" title="Permanent link">&para;</a></h5>
+<p>Cria e inicia o container em segundo plano.</p>
+<div class="highlight"><pre><span></span><code>docker run -d -p &lt;porta-host&gt;:&lt;porta-container&gt; &lt;imagem&gt; &lt;comando&gt;
+<span class="c1"># -d: executar em segundo plano</span>
+</code></pre></div>
+
+<h5 id="criar-container-com-volume" ignore="true">Criar container com volume<a class="headerlink" href="#criar-container-com-volume" title="Permanent link">&para;</a></h5>
+<p>Cria e inicia o container com volume mapeado. Se o volume não existe, ele será criado automaticamente.</p>
+<div class="highlight"><pre><span></span><code>docker run -d --name &lt;nome&gt; -v &lt;volume&gt;:&lt;path-container&gt; &lt;imagem&gt;
+<span class="c1"># -v: volume</span>
+</code></pre></div>
+
+<h4 id="status-do-container">Status do container<a class="headerlink" href="#status-do-container" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>docker stats &lt;id-ou-nome&gt;
+</code></pre></div>
+
+<h4 id="informacoes-do-container">Informações do container<a class="headerlink" href="#informacoes-do-container" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>docker inspect &lt;id-ou-nome&gt;
+</code></pre></div>
+
+<p><a href="https://docs.docker.com/engine/reference/commandline/inspect/">Veja mais</a></p>
+<h4 id="acessar-container">Acessar container<a class="headerlink" href="#acessar-container" title="Permanent link">&para;</a></h4>
+<p>Acessar terminal de um container ativo. O comando <code>exec</code> executa o comando passado, portando poderia executar qualquer comando dentro do container além de <code>bash</code>.</p>
+<div class="highlight"><pre><span></span><code>docker <span class="nb">exec</span> -it &lt;id-container&gt; bash
+<span class="c1"># ou</span>
+docker <span class="nb">exec</span> -it &lt;id-container&gt; /bin/bash
+</code></pre></div>
+
+<h4 id="listar-containers">Listar containers<a class="headerlink" href="#listar-containers" title="Permanent link">&para;</a></h4>
+<p>Listar somente containers ativos:</p>
+<div class="highlight"><pre><span></span><code>docker ps
+</code></pre></div>
+
+<p>Listar todos containers ativos e inativos:</p>
+<div class="highlight"><pre><span></span><code>docker ps -a
+<span class="c1"># ou</span>
+docker ps --all
+</code></pre></div>
+
+<p>Listar último container criado:</p>
+<div class="highlight"><pre><span></span><code>docker ps -l
+</code></pre></div>
+
+<h4 id="iniciar-container-parado">Iniciar container parado<a class="headerlink" href="#iniciar-container-parado" title="Permanent link">&para;</a></h4>
+<p>Para iniciar um container parado:</p>
+<div class="highlight"><pre><span></span><code>docker start &lt;id-ou-nome&gt;
+</code></pre></div>
+
+<h4 id="parar-container">Parar container<a class="headerlink" href="#parar-container" title="Permanent link">&para;</a></h4>
+<p>Para parar um container ativo:</p>
+<div class="highlight"><pre><span></span><code>docker stop &lt;id-ou-nome&gt;
+</code></pre></div>
+
+<h4 id="remover-containers">Remover containers<a class="headerlink" href="#remover-containers" title="Permanent link">&para;</a></h4>
+<p>Remover container:</p>
+<div class="highlight"><pre><span></span><code>docker rm &lt;id-ou-nome&gt;
+</code></pre></div>
+
+<p>As mudanças feitas no container serão perdidas para sempre.</p>
+<h4 id="variaveis-de-ambiente">Variáveis de ambiente<a class="headerlink" href="#variaveis-de-ambiente" title="Permanent link">&para;</a></h4>
+<p>Definindo valor para as variáveis de ambiente presentes no container.</p>
+<div class="highlight"><pre><span></span><code>docker run -d -e &lt;variavel&gt;<span class="o">=</span>&lt;valor&gt; -e &lt;variavel&gt;<span class="o">=</span>&lt;valor&gt; &lt;imagem&gt;
+</code></pre></div>
+
+<h4 id="commit-para-uma-imagem-docker">Commit para uma Imagem Docker<a class="headerlink" href="#commit-para-uma-imagem-docker" title="Permanent link">&para;</a></h4>
+<p>Quando você inicia uma imagem Docker, você pode criar, modificar e excluir arquivos da mesma forma que você faz em máquinas virtuais. As alterações que você fizer serão aplicadas apenas a esse container. Você pode iniciá-lo ou pará-lo, mas uma vez que você o destrua com o comando <code>docker rm</code>, as mudanças serão perdidas para sempre.</p>
+<p>Salvar o estado de um container como uma nova imagem do Docker localmente:</p>
+<div class="highlight"><pre><span></span><code>docker commit -m <span class="s2">&quot;MENSAGEM&quot;</span> -a <span class="s2">&quot;NOME-AUTOR&quot;</span> ID-CONTAINER USUARIO/&lt;novo-nome-imagem&gt;
+<span class="c1"># -m: mensagem de commit</span>
+<span class="c1"># -a: especificar o autor</span>
+</code></pre></div>
+
+<p>Para enviar a imagem para Docker Hub:</p>
+<div class="highlight"><pre><span></span><code>docker login -u &lt;usuario-dockerhub&gt;
+</code></pre></div>
+
+<p>Se seu nome de usuário do registro do Docker for diferente do nome de usuário local usado para criar a imagem, você terá que marcar sua imagem com o nome de usuário do registro:</p>
+<div class="highlight"><pre><span></span><code>docker tag USUARIO/&lt;novo-nome-imagem&gt; &lt;usuario-dockerhub&gt;/&lt;novo-nome-imagem&gt;
+</code></pre></div>
+
+<p>Enviar imagem:</p>
+<div class="highlight"><pre><span></span><code>docker push &lt;usuario-dockerhub&gt;/&lt;novo-nome-imagem&gt;
+</code></pre></div>
+
+<p>Agora estará disponível para baixar:</p>
+<div class="highlight"><pre><span></span><code>docker pull &lt;usuario-dockerhub&gt;/&lt;novo-nome-imagem&gt;
+</code></pre></div>
+
+<h3 id="trabalhando-com-volumes-docker">Trabalhando com volumes Docker<a class="headerlink" href="#trabalhando-com-volumes-docker" title="Permanent link">&para;</a></h3>
+<h4 id="criar-volume-portavel">Criar volume portável<a class="headerlink" href="#criar-volume-portavel" title="Permanent link">&para;</a></h4>
+<p>Criar um volume portável, sem a necessidade de associá-lo a um container especial. O volume pode ser consumido por qualquer container.</p>
+<div class="highlight"><pre><span></span><code>docker volume create &lt;nome&gt;
+</code></pre></div>
+
+<p>Iniciar container com volume criado.</p>
+<div class="highlight"><pre><span></span><code>docker run -d -v &lt;volume&gt;:&lt;path-container&gt; &lt;imagem&gt;
+<span class="c1"># -v: volume</span>
+</code></pre></div>
+
+<p>Iniciar container com volume criado com permissão de somente para leitura.</p>
+<div class="highlight"><pre><span></span><code>docker run -d -v &lt;volume&gt;:&lt;path-container&gt;:ro &lt;imagem&gt;
+<span class="c1"># -ro: somente leitura</span>
+</code></pre></div>
+
+<h4 id="criar-volume-nao-portavel">Criar volume não portável<a class="headerlink" href="#criar-volume-nao-portavel" title="Permanent link">&para;</a></h4>
+<p>O volume será atrelado ao container.</p>
+<p>Inicia container e cria e mapeia o volume para o <em>path</em> do container. O <em>path</em> do host será o padrão definido pelo docker. No Ubuntu o path padrão é <code>/var/lib/docker/volumes</code></p>
+<div class="highlight"><pre><span></span><code>docker run -d --name &lt;nome-container&gt; -v &lt;path-container&gt; &lt;imagem&gt;
+</code></pre></div>
+
+<p>Iniciar container e também cria e mapeia o volume definindo o <em>path</em> do <em>host</em> e container.</p>
+<div class="highlight"><pre><span></span><code>docker run -d --name &lt;nome-container&gt; -v &lt;path-host&gt;:&lt;path-container&gt; &lt;imagem&gt;
+</code></pre></div>
+
+<h4 id="listar-volumes">Listar volumes<a class="headerlink" href="#listar-volumes" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>docker volume ls
+</code></pre></div>
+
+<h4 id="remover-volume">Remover volume<a class="headerlink" href="#remover-volume" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>docker volume rm &lt;volume&gt;
+</code></pre></div>
+
+<p>Remover volumes não usados</p>
+<div class="highlight"><pre><span></span><code>docker volume prune
+</code></pre></div>
+
+<h4 id="informacoes-do-volume">Informações do volume<a class="headerlink" href="#informacoes-do-volume" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>docker volume inspect &lt;volume&gt;
+</code></pre></div>
+
+<h3 id="geral">Geral<a class="headerlink" href="#geral" title="Permanent link">&para;</a></h3>
+<h4 id="remover-recursos-nao-usados-ou-pendentes">Remover recursos não usados ou pendentes<a class="headerlink" href="#remover-recursos-nao-usados-ou-pendentes" title="Permanent link">&para;</a></h4>
+<p>Remover imagens, containers, volumes e redes não usadas ou pendentes.</p>
+<div class="highlight"><pre><span></span><code>docker system prune
+</code></pre></div>
+
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><a href="https://docs.docker.com/compose/compose-file">https://docs.docker.com/compose/compose-file</a></p>
+</li>
+<li>
+<p><a href="https://www.digitalocean.com/community/tutorials/o-ecossistema-do-docker-uma-introducao-aos-componentes-comuns-pt">https://www.digitalocean.com/community/tutorials/o-ecossistema-do-docker-uma-introducao-aos-componentes-comuns-pt</a></p>
+</li>
+<li>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes">https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes</a></p>
+</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+      Guia Rápido - 2020
+      </div>
+
+      <!-- Social links -->
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

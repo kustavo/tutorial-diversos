@@ -1,0 +1,1272 @@
+
+
+
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+      
+      
+        <link rel="canonical" href="https://kustavo.github.io/guia-rapido/dotnet/introducao/">
+      
+      
+        <meta name="author" content="Gustavo Araujo">
+      
+      <link rel="shortcut icon" href="../../favicon.svg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.14">
+    
+    
+      
+        <title>Introdução - Guia Rápido</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d3202873.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ff0a5ce4.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4051b5">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>body,input{font-family:"Ubuntu",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    
+  
+      
+    
+  <script>document.addEventListener("DOMContentLoaded",function(){document.body.addEventListener("click",function(e){if(e.target instanceof HTMLElement){var t=e.target.closest("a[href^=http]");t&&ga("send","event","outbound","click",t.href)}})})</script>
+
+    
+  
+  
+    
+  
+  
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Guia Rápido - Introdução">
+    <meta property="og:description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+    <meta property="og:url" content="https://kustavo.github.io/guia-rapido/dotnet/introducao/">
+    <meta property="og:image" content="https://kustavo.github.io/guia-rapido/assets/images/banner.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="568">
+    <link rel="stylesheet" href="../../assets/stylesheets/home.css">
+
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introducao" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-header-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Guia Rápido
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Introdução
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../logo.svg" alt="logo">
+
+    </a>
+    Guia Rápido
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      .Net
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label=".Net" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        .Net
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../erros-solucoes/" title="Erros e soluções" class="md-nav__link">
+      Erros e soluções
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Linux
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Shell
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Shell" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        <span class="md-nav__icon md-icon"></span>
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/shell/linux-shell/" title="Linux shell" class="md-nav__link">
+      Linux shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/shell/bash/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/shell/dash/" title="Dash" class="md-nav__link">
+      Dash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/shell/zsh/" title="Z-shell" class="md-nav__link">
+      Z-shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/shell/gnome-terminal/" title="Gnome terminal" class="md-nav__link">
+      Gnome terminal
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Markdown
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Markdown" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Markdown
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      MkDocs
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="MkDocs" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon"></span>
+        MkDocs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../markdown/mkdocs/" title="MkDocs" class="md-nav__link">
+      MkDocs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instalacao" class="md-nav__link">
+    Instalação
+  </a>
+  
+    <nav class="md-nav" aria-label="Instalação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-da-instalacao" class="md-nav__link">
+    Local da instalação
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurar-variaveis-de-sistema" class="md-nav__link">
+    Configurar variáveis de sistema
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquivos-de-configuracao" class="md-nav__link">
+    Arquivos de configuração
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquivos de configuração">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launchsettingsjson" class="md-nav__link">
+    launchSettings.json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launchjson" class="md-nav__link">
+    launch.json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appsettingsjson" class="md-nav__link">
+    appsettings.json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webconfig" class="md-nav__link">
+    web.config
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criar-solucao" class="md-nav__link">
+    Criar solução
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criar-projeto" class="md-nav__link">
+    Criar projeto
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criar-pasta-de-projeto" class="md-nav__link">
+    Criar pasta de projeto
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#associar-projetos" class="md-nav__link">
+    Associar projetos
+  </a>
+  
+    <nav class="md-nav" aria-label="Associar projetos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#associar-projeto-a-solucao" class="md-nav__link">
+    Associar projeto a solução
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desassociar-projeto-a-solucao" class="md-nav__link">
+    Desassociar projeto a solução
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#associar-projeto-a-outro-projeto" class="md-nav__link">
+    Associar projeto a outro projeto
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desassociar-projeto-de-outro-projeto" class="md-nav__link">
+    Desassociar projeto de outro projeto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listar-projetos-da-solucao" class="md-nav__link">
+    Listar projetos da solução
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compilar-solucao-ou-projeto" class="md-nav__link">
+    Compilar solução ou projeto
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publicar-solucao" class="md-nav__link">
+    Publicar solução
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rodar-a-solucao-ou-projeto-publicado" class="md-nav__link">
+    Rodar a solução ou projeto publicado
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalar-as-dependencias-pacotes-do-projeto" class="md-nav__link">
+    Instalar as dependências (pacotes) do projeto
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#banco-de-dados" class="md-nav__link">
+    Banco de dados
+  </a>
+  
+    <nav class="md-nav" aria-label="Banco de dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalar-o-cli-do-ef" class="md-nav__link">
+    Instalar o CLI do EF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicionar-o-pacote-do-ef" class="md-nav__link">
+    Adicionar o pacote do EF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalar-o-provedor-do-banco-para-o-ef" class="md-nav__link">
+    Instalar o provedor do banco para o EF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criar-uma-migration" class="md-nav__link">
+    Criar uma migration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remover-migration" class="md-nav__link">
+    Remover migration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reverter-uma-migration" class="md-nav__link">
+    Reverter uma migration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lista-as-migrations" class="md-nav__link">
+    Lista as migrations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gerar-scripts-sql" class="md-nav__link">
+    Gerar scripts SQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualizar-o-banco" class="md-nav__link">
+    Atualizar o banco
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aplicar-migracoes-em-runtime" class="md-nav__link">
+    Aplicar migrações em runtime
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pacotes-nuget" class="md-nav__link">
+    Pacotes Nuget
+  </a>
+  
+    <nav class="md-nav" aria-label="Pacotes Nuget">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalar" class="md-nav__link">
+    Instalar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remover" class="md-nav__link">
+    Remover
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restaurar" class="md-nav__link">
+    Restaurar
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros" class="md-nav__link">
+    Erros
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#it-is-being-used-by-another-process" class="md-nav__link">
+    It is being used by another process
+  </a>
+  
+    <nav class="md-nav" aria-label="It is being used by another process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-required-library-libhostfxrso-could-not-be-found" class="md-nav__link">
+    The required library libhostfxr.so could not be found
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#couldnt-find-a-valid-icu-package-installed-on-the-system" class="md-nav__link">
+    Couldn't find a valid ICU package installed on the system
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+                  <a href="https://github.com/kustavo/guia-rapido/edit/master/docs/dotnet/introducao.md" title="Editar esta página" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="introducao">Introdução<a class="headerlink" href="#introducao" title="Permanent link">&para;</a></h1>
+<div class="toc">
+<ul>
+<li><a href="#introducao">Introdução</a><ul>
+<li><a href="#instalacao">Instalação</a><ul>
+<li><a href="#local-da-instalacao">Local da instalação</a></li>
+<li><a href="#configurar-variaveis-de-sistema">Configurar variáveis de sistema</a></li>
+</ul>
+</li>
+<li><a href="#arquivos-de-configuracao">Arquivos de configuração</a><ul>
+<li><a href="#launchsettingsjson">launchSettings.json</a></li>
+<li><a href="#launchjson">launch.json</a></li>
+<li><a href="#appsettingsjson">appsettings.json</a></li>
+<li><a href="#webconfig">web.config</a></li>
+</ul>
+</li>
+<li><a href="#criar-solucao">Criar solução</a></li>
+<li><a href="#criar-projeto">Criar projeto</a></li>
+<li><a href="#criar-pasta-de-projeto">Criar pasta de projeto</a></li>
+<li><a href="#associar-projetos">Associar projetos</a><ul>
+<li><a href="#associar-projeto-a-solucao">Associar projeto a solução</a></li>
+<li><a href="#desassociar-projeto-a-solucao">Desassociar projeto a solução</a></li>
+<li><a href="#associar-projeto-a-outro-projeto">Associar projeto a outro projeto</a></li>
+<li><a href="#desassociar-projeto-de-outro-projeto">Desassociar projeto de outro projeto</a></li>
+</ul>
+</li>
+<li><a href="#listar-projetos-da-solucao">Listar projetos da solução</a></li>
+<li><a href="#compilar-solucao-ou-projeto">Compilar solução ou projeto</a></li>
+<li><a href="#publicar-solucao">Publicar solução</a></li>
+<li><a href="#rodar-a-solucao-ou-projeto-publicado">Rodar a solução ou projeto publicado</a></li>
+<li><a href="#instalar-as-dependencias-pacotes-do-projeto">Instalar as dependências (pacotes) do projeto</a></li>
+<li><a href="#banco-de-dados">Banco de dados</a><ul>
+<li><a href="#instalar-o-cli-do-ef">Instalar o CLI do EF</a></li>
+<li><a href="#adicionar-o-pacote-do-ef">Adicionar o pacote do EF</a></li>
+<li><a href="#instalar-o-provedor-do-banco-para-o-ef">Instalar o provedor do banco para o EF</a></li>
+<li><a href="#criar-uma-migration">Criar uma migration</a></li>
+<li><a href="#remover-migration">Remover migration</a></li>
+<li><a href="#reverter-uma-migration">Reverter uma migration</a></li>
+<li><a href="#lista-as-migrations">Lista as migrations</a></li>
+<li><a href="#gerar-scripts-sql">Gerar scripts SQL</a></li>
+<li><a href="#atualizar-o-banco">Atualizar o banco</a></li>
+<li><a href="#aplicar-migracoes-em-runtime">Aplicar migrações em runtime</a></li>
+</ul>
+</li>
+<li><a href="#pacotes-nuget">Pacotes Nuget</a><ul>
+<li><a href="#instalar">Instalar</a></li>
+<li><a href="#remover">Remover</a></li>
+<li><a href="#restaurar">Restaurar</a></li>
+</ul>
+</li>
+<li><a href="#erros">Erros</a></li>
+<li><a href="#it-is-being-used-by-another-process">It is being used by another process</a><ul>
+<li><a href="#the-required-library-libhostfxrso-could-not-be-found">The required library libhostfxr.so could not be found</a></li>
+<li><a href="#couldnt-find-a-valid-icu-package-installed-on-the-system">Couldn't find a valid ICU package installed on the system</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>[[<em>TOC</em>]]</p>
+<h2 id="instalacao">Instalação<a class="headerlink" href="#instalacao" title="Permanent link">&para;</a></h2>
+<p>Página de download: <a href="https://dotnet.microsoft.com/download/dotnet-core">https://dotnet.microsoft.com/download/dotnet-core</a></p>
+<p>Adicionar repositório e instalação.</p>
+<div class="highlight"><pre><span></span><code>wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo sdpkg -i packages-microsoft-prod.deb
+
+sudo apt-get update
+sudo apt-get install apt-transport-https
+sudo apt-get update
+sudo apt-get install dotnet-sdk-3.1
+</code></pre></div>
+
+<h3 id="local-da-instalacao">Local da instalação<a class="headerlink" href="#local-da-instalacao" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>/usr/share/dotnet
+</code></pre></div>
+
+<h3 id="configurar-variaveis-de-sistema">Configurar variáveis de sistema<a class="headerlink" href="#configurar-variaveis-de-sistema" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">DOTNET_ROOT</span><span class="o">=</span><span class="k">$(</span>dirname <span class="k">$(</span>realpath <span class="k">$(</span>which dotnet<span class="k">)))</span>
+<span class="nb">export</span> <span class="nv">DOTNET_SYSTEM_GLOBALIZATION_INVARIANT</span><span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+
+<h2 id="arquivos-de-configuracao">Arquivos de configuração<a class="headerlink" href="#arquivos-de-configuracao" title="Permanent link">&para;</a></h2>
+<h3 id="launchsettingsjson">launchSettings.json<a class="headerlink" href="#launchsettingsjson" title="Permanent link">&para;</a></h3>
+<p>O arquivo <code>launchSettings.json</code> é usado apenas pelo <code>Visual Studio</code> para o usuário escolher o <em>environment</em> atual.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;iisSettings&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;windowsAuthentication&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;anonymousAuthentication&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;iisExpress&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;applicationUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://localhost:53836/&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;sslPort&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;profiles&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;IIS Express&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;commandName&quot;</span><span class="p">:</span> <span class="s2">&quot;IISExpress&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;launchBrowser&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;environmentVariables&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;ASPNETCORE_ENVIRONMENT&quot;</span><span class="p">:</span> <span class="s2">&quot;Development&quot;</span> <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;Gustavo&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;commandName&quot;</span><span class="p">:</span> <span class="s2">&quot;Project&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;launchBrowser&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nt">&quot;environmentVariables&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;ASPNETCORE_ENVIRONMENT&quot;</span><span class="p">:</span> <span class="s2">&quot;Gustavo&quot;</span> <span class="p">},</span>
+      <span class="nt">&quot;applicationUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://localhost:5000/&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="launchjson">launch.json<a class="headerlink" href="#launchjson" title="Permanent link">&para;</a></h3>
+<p>O arquivo <code>launch.json</code> é usando pelo <code>Visual Studio Code</code>. O <em>environment</em> é definido pela chave <code>env</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;configurations&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;.NET Core Launch (web)&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;coreclr&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;preLaunchTask&quot;</span><span class="p">:</span> <span class="s2">&quot;build&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;program&quot;</span><span class="p">:</span> <span class="s2">&quot;${workspaceRoot}/bin/Debug/netcoreapp1.0/TestApp.dll&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;args&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="nt">&quot;cwd&quot;</span><span class="p">:</span> <span class="s2">&quot;${workspaceRoot}&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;launchBrowser&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nt">&quot;args&quot;</span><span class="p">:</span> <span class="s2">&quot;${auto-detect-url}&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;windows&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;cmd.exe&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;args&quot;</span><span class="p">:</span> <span class="s2">&quot;/C start ${auto-detect-url}&quot;</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;osx&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;open&quot;</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;linux&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;xdg-open&quot;</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;env&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;ASPNETCORE_ENVIRONMENT&quot;</span><span class="p">:</span> <span class="s2">&quot;Development&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;sourceFileMap&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;/Views&quot;</span><span class="p">:</span> <span class="s2">&quot;${workspaceRoot}/Views&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="appsettingsjson">appsettings.json<a class="headerlink" href="#appsettingsjson" title="Permanent link">&para;</a></h3>
+<p>O arquivo <code>appsettings.json</code> define as configurações da aplicação e pode ser definida específica para um ambiente. Basta criar um arquivo <code>appsettings.&lt;environment&gt;.json</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;Logging&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;LogLevel&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;Default&quot;</span><span class="p">:</span> <span class="s2">&quot;Information&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Microsoft&quot;</span><span class="p">:</span> <span class="s2">&quot;Warning&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Microsoft.Hosting.Lifetime&quot;</span><span class="p">:</span> <span class="s2">&quot;Information&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;AllowedHosts&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="webconfig">web.config<a class="headerlink" href="#webconfig" title="Permanent link">&para;</a></h3>
+<p>O arquivo <code>web.config</code> é usado apenas pelo IIS (Windows).</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;configuration&gt;</span>
+  <span class="nt">&lt;location</span> <span class="na">path=</span><span class="s">&quot;.&quot;</span> <span class="na">inheritInChildApplications=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;system.webServer&gt;</span>
+      <span class="nt">&lt;handlers&gt;</span>
+        <span class="nt">&lt;add</span> <span class="na">name=</span><span class="s">&quot;aspNetCore&quot;</span> <span class="na">path=</span><span class="s">&quot;*&quot;</span> <span class="na">verb=</span><span class="s">&quot;*&quot;</span> <span class="na">modules=</span><span class="s">&quot;AspNetCoreModuleV2&quot;</span> <span class="na">resourceType=</span><span class="s">&quot;Unspecified&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/handlers&gt;</span>
+      <span class="nt">&lt;aspNetCore</span> <span class="na">processPath=</span><span class="s">&quot;.\MeuConsultorio.Api&quot;</span> <span class="na">stdoutLogEnabled=</span><span class="s">&quot;true&quot;</span> <span class="na">stdoutLogFile=</span><span class="s">&quot;.\logs\stdout&quot;</span> <span class="na">hostingModel=</span><span class="s">&quot;OutOfProcess&quot;</span> <span class="nt">&gt;</span>
+        <span class="nt">&lt;environmentVariables&gt;</span>
+          <span class="nt">&lt;environmentVariable</span> <span class="na">name=</span><span class="s">&quot;ASPNETCORE_ENVIRONMENT&quot;</span> <span class="na">value=</span><span class="s">&quot;ProducaoLinux&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/environmentVariables&gt;</span>
+      <span class="nt">&lt;/aspNetCore&gt;</span>
+    <span class="nt">&lt;/system.webServer&gt;</span>
+  <span class="nt">&lt;/location&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</code></pre></div>
+
+<h2 id="criar-solucao">Criar solução<a class="headerlink" href="#criar-solucao" title="Permanent link">&para;</a></h2>
+<p>Criar nova solução</p>
+<div class="highlight"><pre><span></span><code>dotnet new sln -n &lt;nome-solucao&gt;
+
+<span class="c1"># Parâmetros</span>
+<span class="c1"># -n: Por padrão usa o nome do diretório</span>
+</code></pre></div>
+
+<h2 id="criar-projeto">Criar projeto<a class="headerlink" href="#criar-projeto" title="Permanent link">&para;</a></h2>
+<p>Criar projeto tipo <code>console</code>.</p>
+<div class="highlight"><pre><span></span><code>dotnet new console -o &lt;projeto&gt;
+</code></pre></div>
+
+<p>Criar projeto tipo <code>biblioteca de classes</code>.</p>
+<div class="highlight"><pre><span></span><code>dotnet new classlib -f &lt;framework&gt; -o &lt;diretorio&gt; -n &lt;nome-projeto&gt;
+<span class="c1"># Exemplo:</span>
+dotnet new classlib -f netcoreapp3.1 -o NerdStore.Catalogo.Domain
+</code></pre></div>
+
+<p>Criar projeto tipo <code>ASP.NET Core vazio</code>.</p>
+<div class="highlight"><pre><span></span><code>dotnet new web -o &lt;projeto&gt;
+</code></pre></div>
+
+<p>Criar projeto tipo <code>API Web do ASP.NET Core</code>.</p>
+<div class="highlight"><pre><span></span><code>dotnet new webapi -o &lt;projeto&gt;
+</code></pre></div>
+
+<p>Criar projeto tipo <code>Aplicativo Web ASP.NET Core</code>.</p>
+<div class="highlight"><pre><span></span><code>dotnet new webapp -o &lt;projeto&gt;
+</code></pre></div>
+
+<p>Criar projeto tipo <code>Aplicativo Web ASP.NET Core MVC</code>.</p>
+<div class="highlight"><pre><span></span><code>dotnet new mvc -o &lt;projeto&gt; -au Individual
+
+<span class="c1"># Parâmetros</span>
+<span class="c1"># -au: Autenticação individual do identity</span>
+</code></pre></div>
+
+<p>Criar projeto tipo <code>Xunit</code>.</p>
+<div class="highlight"><pre><span></span><code>dotnet new xunit -o &lt;projeto&gt;
+</code></pre></div>
+
+<h2 id="criar-pasta-de-projeto">Criar pasta de projeto<a class="headerlink" href="#criar-pasta-de-projeto" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>dotnet new &lt;typeproj&gt; -o &lt;pasta-solucao&gt; -n &lt;nome-pasta&gt;
+
+<span class="c1"># Exemplo</span>
+dotnet new &lt;typeproj&gt; -o <span class="s2">&quot;Services/Catalogo&quot;</span> -n <span class="s2">&quot;Catalogo&quot;</span>
+</code></pre></div>
+
+<h2 id="associar-projetos">Associar projetos<a class="headerlink" href="#associar-projetos" title="Permanent link">&para;</a></h2>
+<h3 id="associar-projeto-a-solucao">Associar projeto a solução<a class="headerlink" href="#associar-projeto-a-solucao" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dotnet sln add -s &lt;pasta-solucao&gt; &lt;diretorio-projeto&gt;/&lt;arquivo&gt;.csproj
+
+<span class="c1"># Exemplo</span>
+dotnet sln add -s Services/Catalogo src/NerdStore.Catalogo.Domain/NerdStore.Catalogo.Domain.csproj
+</code></pre></div>
+
+<h3 id="desassociar-projeto-a-solucao">Desassociar projeto a solução<a class="headerlink" href="#desassociar-projeto-a-solucao" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dotnet sln remove -s &lt;pasta-solucao&gt; &lt;diretorio-projeto&gt;/&lt;arquivo&gt;.csproj
+
+<span class="c1"># Exemplo</span>
+dotnet sln remove src/NerdStore.Catalogo.Domain/NerdStore.Catalogo.Domain.csproj
+</code></pre></div>
+
+<h3 id="associar-projeto-a-outro-projeto">Associar projeto a outro projeto<a class="headerlink" href="#associar-projeto-a-outro-projeto" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dotnet add &lt;diretorio-projeto&gt; reference &lt;diretorio-projeto-referenciado&gt;
+</code></pre></div>
+
+<h3 id="desassociar-projeto-de-outro-projeto">Desassociar projeto de outro projeto<a class="headerlink" href="#desassociar-projeto-de-outro-projeto" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dotnet remove &lt;diretorio-projeto&gt; reference &lt;diretorio-projeto-referenciado&gt;
+
+<span class="c1"># Exemplo</span>
+dotnet remove Projeto.csproj reference src/NerdStore.Catalogo.Domain/NerdStore.Catalogo.Domain.csproj
+</code></pre></div>
+
+<h2 id="listar-projetos-da-solucao">Listar projetos da solução<a class="headerlink" href="#listar-projetos-da-solucao" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>dotnet sln list 
+</code></pre></div>
+
+<h2 id="compilar-solucao-ou-projeto">Compilar solução ou projeto<a class="headerlink" href="#compilar-solucao-ou-projeto" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>dotnet build
+</code></pre></div>
+
+<h2 id="publicar-solucao">Publicar solução<a class="headerlink" href="#publicar-solucao" title="Permanent link">&para;</a></h2>
+<p>Gerar o build para produção.</p>
+<p>As implantações de aplicativo autocontatidas do .NET Core incluem as bibliotecas e o runtime do .NET Core. A partir do SDK do .NET Core 2.1 (.NET Core 2.1.300), uma implantação de aplicativo autocontida publica o runtime de patch mais recente no computador.</p>
+<p><a href="https://github.com/dotnet/runtime/blob/master/src/libraries/pkg/Microsoft.NETCore.Platforms/runtime.json">Lista de runtimes</a></p>
+<div class="highlight"><pre><span></span><code>dotnet publish -f &lt;framework&gt; -c &lt;configuracao&gt; -o &lt;diretorio-saida&gt; --self-contained <span class="nb">true</span> -r &lt;rid-runtime-id&gt; -p:&lt;propriedade-nome&gt;<span class="o">=</span>&lt;valor&gt;
+
+<span class="c1"># Exemplo</span>
+dotnet publish -f netcoreapp2.2 -o ~/MeuDeploy --self-contained <span class="nb">true</span> -r ubuntu.18.04-x64 p:EnvironmentName<span class="o">=</span>ProducaoLinux
+</code></pre></div>
+
+<h2 id="rodar-a-solucao-ou-projeto-publicado">Rodar a solução ou projeto publicado<a class="headerlink" href="#rodar-a-solucao-ou-projeto-publicado" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>dotnet &lt;nome-solucao-ou-projeto&gt;.dll --environment &lt;nome-environment&gt; --server.urls http://0.0.0.0:5000
+</code></pre></div>
+
+<h2 id="instalar-as-dependencias-pacotes-do-projeto">Instalar as dependências (pacotes) do projeto<a class="headerlink" href="#instalar-as-dependencias-pacotes-do-projeto" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>dotnet restore
+</code></pre></div>
+
+<h2 id="banco-de-dados">Banco de dados<a class="headerlink" href="#banco-de-dados" title="Permanent link">&para;</a></h2>
+<p>O EF Core (<code>Entity Framework Core</code>) é um O/RM (mapeador relacional de objeto) que permite que os desenvolvedores de .NET trabalhem com um banco de dados usando objetos .NET. Elimina a necessidade da maioria do código de acesso a dados que os desenvolvedores geralmente precisam gravar.</p>
+<h3 id="instalar-o-cli-do-ef">Instalar o CLI do EF<a class="headerlink" href="#instalar-o-cli-do-ef" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dotnet tool install --global dotnet-ef
+</code></pre></div>
+
+<h3 id="adicionar-o-pacote-do-ef">Adicionar o pacote do EF<a class="headerlink" href="#adicionar-o-pacote-do-ef" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.Design
+</code></pre></div>
+
+<h3 id="instalar-o-provedor-do-banco-para-o-ef">Instalar o provedor do banco para o EF<a class="headerlink" href="#instalar-o-provedor-do-banco-para-o-ef" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dotnet add &lt;projeto&gt; package &lt;pacote-provedor-banco&gt;
+
+<span class="c1"># Exemplo PostgreSQL:</span>
+<span class="c1"># dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL</span>
+</code></pre></div>
+
+<p>O argumento <code>&lt;projeto&gt;</code> é opcional. Pode basear no diretório corrente. Lista de provedores de bancos de dados: <a href="https://docs.microsoft.com/pt-br/ef/core/providers/index?tabs=dotnet-core-cli">Veja mais</a></p>
+<p>Exemplo de uso:</p>
+<div class="highlight"><pre><span></span><code>public class MeuContexto : DbContext {
+
+    // ...
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseNpgsql(&quot;Host=localhost;Port=5432;Database=exemplo-migrations2;Username=postgres;Password=postgres&quot;);
+    }
+}
+</code></pre></div>
+
+<h3 id="criar-uma-migration">Criar uma migration<a class="headerlink" href="#criar-uma-migration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dotnet ef migrations add &lt;nome&gt; -p &lt;caminho-projeto-migrations&gt; -s &lt;caminho-projeto-startup&gt; -c &lt;nome-contexto&gt; --framework &lt;netcoreapp#.#&gt;
+</code></pre></div>
+
+<h3 id="remover-migration">Remover migration<a class="headerlink" href="#remover-migration" title="Permanent link">&para;</a></h3>
+<p>Remove a última <em>migration</em> ainda <strong>não aplicada ao banco</strong>.</p>
+<div class="highlight"><pre><span></span><code>dotnet ef migrations remove
+</code></pre></div>
+
+<p>Remover todas migrations</p>
+<div class="highlight"><pre><span></span><code>dotnet ef database update <span class="m">0</span>
+dotnet ef migrations remove
+</code></pre></div>
+
+<h3 id="reverter-uma-migration">Reverter uma migration<a class="headerlink" href="#reverter-uma-migration" title="Permanent link">&para;</a></h3>
+<p>Reverter uma ou várias <em>migrations</em>, até a migrations informada.</p>
+<div class="highlight"><pre><span></span><code>dotnet ef database update &lt;nome&gt;
+</code></pre></div>
+
+<h3 id="lista-as-migrations">Lista as migrations<a class="headerlink" href="#lista-as-migrations" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dotnet ef migrations list
+</code></pre></div>
+
+<h3 id="gerar-scripts-sql">Gerar scripts SQL<a class="headerlink" href="#gerar-scripts-sql" title="Permanent link">&para;</a></h3>
+<p>Gera um script SQL das aplicações que serão feitas no banco.</p>
+<div class="highlight"><pre><span></span><code>dotnet ef migrations script -from &lt;nome&gt; -to &lt;nome&gt;
+</code></pre></div>
+
+<p>Os argumentos <code>&lt;from&gt;</code> e <code>&lt;to&gt;</code> são opcionais. Por padão será pego da primeira até a última <em>migration</em>.</p>
+<h3 id="atualizar-o-banco">Atualizar o banco<a class="headerlink" href="#atualizar-o-banco" title="Permanent link">&para;</a></h3>
+<p>Aplica as <em>migrations</em> no banco. Se o banco não existir, também será criado.</p>
+<div class="highlight"><pre><span></span><code>dotnet ef database update
+</code></pre></div>
+
+<h3 id="aplicar-migracoes-em-runtime">Aplicar migrações em runtime<a class="headerlink" href="#aplicar-migracoes-em-runtime" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>&lt;contexto&gt;.Database.Migrate();
+</code></pre></div>
+
+<p>Exemplo chamando no <code>Main</code>.</p>
+<div class="highlight"><pre><span></span><code>class Program
+    {
+        static void Main(string[] args)
+        {
+            // ...
+            using var context = new BloggingContext();
+            context.Database.Migrate();
+        }
+    }
+</code></pre></div>
+
+<p>Não chame <code>EnsureCreated()</code> antes de <code>Migrate()</code>. O <code>EnsureCreated()</code> ignora as Migrações para criar o esquema e causa falha no <code>Migrate()</code>.</p>
+<h2 id="pacotes-nuget">Pacotes Nuget<a class="headerlink" href="#pacotes-nuget" title="Permanent link">&para;</a></h2>
+<h3 id="instalar">Instalar<a class="headerlink" href="#instalar" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dotnet add &lt;projeto&gt; package &lt;pacote&gt; &lt;versao&gt;
+
+<span class="c1"># exemplo: dotnet add ~/ToDo.csproj package Microsoft.Azure.DocumentDB.Core -v 1.0.0</span>
+</code></pre></div>
+
+<p>Os argumento <code>&lt;projeto&gt;</code> e <code>&lt;versao&gt;</code> são opcionais. Pode basear no diretório corrente.</p>
+<h3 id="remover">Remover<a class="headerlink" href="#remover" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dotnet remove &lt;projeto&gt; package &lt;pacote&gt;
+</code></pre></div>
+
+<p>O argumento <code>&lt;projeto&gt;</code> é opcional. Pode basear no diretório corrente.</p>
+<h3 id="restaurar">Restaurar<a class="headerlink" href="#restaurar" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dotnet restore &lt;projeto<span class="p">|</span>solucao&gt;
+</code></pre></div>
+
+<p>O argumento <code>&lt;projeto|solucao&gt;</code> é opcional. Pode basear no diretório corrente.</p>
+<h2 id="erros">Erros<a class="headerlink" href="#erros" title="Permanent link">&para;</a></h2>
+<h2 id="it-is-being-used-by-another-process">It is being used by another process<a class="headerlink" href="#it-is-being-used-by-another-process" title="Permanent link">&para;</a></h2>
+<p>Erro de concorrencia de processos</p>
+<div class="highlight"><pre><span></span><code>dotnet build-server shutdown
+</code></pre></div>
+
+<p>Se não funcionar, matar todas os processos <code>dotnet</code></p>
+<div class="highlight"><pre><span></span><code>killall dotnet
+</code></pre></div>
+
+<p>Se o erro ocorrer em <code>dotnet publish</code>, pode ser que o arquivo já está sendo copiado por outra thread, basta ignorar o erro.</p>
+<h3 id="the-required-library-libhostfxrso-could-not-be-found">The required library libhostfxr.so could not be found<a class="headerlink" href="#the-required-library-libhostfxrso-could-not-be-found" title="Permanent link">&para;</a></h3>
+<p>Solução, definir a variável de sistema <code>DOTNET_ROOT</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">DOTNET_ROOT</span><span class="o">=</span><span class="k">$(</span>dirname <span class="k">$(</span>realpath <span class="k">$(</span>which dotnet<span class="k">)))</span>
+</code></pre></div>
+
+<h3 id="couldnt-find-a-valid-icu-package-installed-on-the-system">Couldn't find a valid ICU package installed on the system<a class="headerlink" href="#couldnt-find-a-valid-icu-package-installed-on-the-system" title="Permanent link">&para;</a></h3>
+<p>Solução, definir a variável de sistema <code>DOTNET_SYSTEM_GLOBALIZATION_INVARIANT</code>. <a href="https://github.com/dotnet/corefx/blob/8245ee1e8f6063ccc7a3a60cafe821d29e85b02f/Documentation/architecture/globalization-invariant-mode.md">Veja mais</a></p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">DOTNET_SYSTEM_GLOBALIZATION_INVARIANT</span><span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+      Guia Rápido - 2020
+      </div>
+
+      <!-- Social links -->
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

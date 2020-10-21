@@ -1,0 +1,887 @@
+
+
+
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+      
+      
+        <link rel="canonical" href="https://kustavo.github.io/guia-rapido/dotnet/linguagem/classes-e-structs/">
+      
+      
+        <meta name="author" content="Gustavo Araujo">
+      
+      <link rel="shortcut icon" href="../../../favicon.svg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.14">
+    
+    
+      
+        <title>Classes e structs - Guia Rápido</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.d3202873.min.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ff0a5ce4.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4051b5">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>body,input{font-family:"Ubuntu",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../extra.css">
+    
+    
+  
+      
+    
+  <script>document.addEventListener("DOMContentLoaded",function(){document.body.addEventListener("click",function(e){if(e.target instanceof HTMLElement){var t=e.target.closest("a[href^=http]");t&&ga("send","event","outbound","click",t.href)}})})</script>
+
+    
+  
+  
+    
+  
+  
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Guia Rápido - Classes e structs">
+    <meta property="og:description" content="Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.">
+    <meta property="og:url" content="https://kustavo.github.io/guia-rapido/dotnet/linguagem/classes-e-structs/">
+    <meta property="og:image" content="https://kustavo.github.io/guia-rapido/assets/images/banner.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="568">
+    <link rel="stylesheet" href="../../../assets/stylesheets/home.css">
+
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#classes-e-structs" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-header-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../../logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Guia Rápido
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Classes e structs
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://kustavo.github.io/guia-rapido/" title="Guia Rápido" class="md-nav__button md-logo" aria-label="Guia Rápido">
+      
+  <img src="../../../logo.svg" alt="logo">
+
+    </a>
+    Guia Rápido
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/kustavo/guia-rapido/" title="Ir ao repositório" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      .Net
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label=".Net" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        .Net
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../erros-solucoes/" title="Erros e soluções" class="md-nav__link">
+      Erros e soluções
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Linux
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Shell
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Shell" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        <span class="md-nav__icon md-icon"></span>
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/linux-shell/" title="Linux shell" class="md-nav__link">
+      Linux shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/bash/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/dash/" title="Dash" class="md-nav__link">
+      Dash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/zsh/" title="Z-shell" class="md-nav__link">
+      Z-shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/shell/gnome-terminal/" title="Gnome terminal" class="md-nav__link">
+      Gnome terminal
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Markdown
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Markdown" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Markdown
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      MkDocs
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="MkDocs" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon"></span>
+        MkDocs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../markdown/mkdocs/" title="MkDocs" class="md-nav__link">
+      MkDocs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    Introdução
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#membros" class="md-nav__link">
+    Membros
+  </a>
+  
+    <nav class="md-nav" aria-label="Membros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#campos" class="md-nav__link">
+    Campos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constantes" class="md-nav__link">
+    Constantes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propriedades" class="md-nav__link">
+    Propriedades
+  </a>
+  
+    <nav class="md-nav" aria-label="Propriedades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definicoes-de-corpo-de-expressao" class="md-nav__link">
+    Definições de corpo de expressão
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos" class="md-nav__link">
+    Métodos
+  </a>
+  
+    <nav class="md-nav" aria-label="Métodos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parametros-do-metodo-x-argumentos" class="md-nav__link">
+    Parâmetros do método x argumentos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passando-por-referencia-x-passando-por-valor" class="md-nav__link">
+    Passando por referência x passando por valor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valores-retornados" class="md-nav__link">
+    Valores retornados
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-assincronos" class="md-nav__link">
+    Métodos assíncronos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construtores" class="md-nav__link">
+    Construtores
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+                  <a href="https://github.com/kustavo/guia-rapido/edit/master/docs/dotnet/linguagem/classes-e-structs.md" title="Editar esta página" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="classes-e-structs">Classes e structs<a class="headerlink" href="#classes-e-structs" title="Permanent link">&para;</a></h1>
+<div class="toc">
+<ul>
+<li><a href="#classes-e-structs">Classes e structs</a><ul>
+<li><a href="#introducao">Introdução</a></li>
+<li><a href="#membros">Membros</a><ul>
+<li><a href="#campos">Campos</a></li>
+<li><a href="#constantes">Constantes</a></li>
+<li><a href="#propriedades">Propriedades</a><ul>
+<li><a href="#definicoes-de-corpo-de-expressao">Definições de corpo de expressão</a></li>
+</ul>
+</li>
+<li><a href="#metodos">Métodos</a><ul>
+<li><a href="#parametros-do-metodo-x-argumentos">Parâmetros do método x argumentos</a></li>
+<li><a href="#passando-por-referencia-x-passando-por-valor">Passando por referência x passando por valor</a></li>
+<li><a href="#valores-retornados">Valores retornados</a></li>
+<li><a href="#metodos-assincronos">Métodos assíncronos</a></li>
+</ul>
+</li>
+<li><a href="#construtores">Construtores</a></li>
+</ul>
+</li>
+<li><a href="#links">Links</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>[[<em>TOC</em>]]</p>
+<h2 id="introducao">Introdução<a class="headerlink" href="#introducao" title="Permanent link">&para;</a></h2>
+<p>Classes e <em>structs</em> são uma estrutura de dados que encapsula um conjunto de dados e os comportamentos que são uma unidade lógica. Os dados e os comportamentos são os membros da classe ou <em>struct</em>, e eles incluem seus métodos, propriedades e eventos, e etc.</p>
+<p>Uma classe é um tipo de <strong>referência</strong>. Quando um objeto da classe é criado, a variável à qual o objeto é atribuído armazena apenas uma referência na memória. Quando a referência de objeto é atribuída a uma nova variável, a nova variável refere-se ao objeto original. As alterações feitas por meio de uma variável são refletidas na outra variável porque ambas se referem aos mesmos dados.</p>
+<p>Um <em>struct</em> é um tipo de <strong>valor</strong>. Quando um <em>struct</em> é criado, a variável à qual o <em>struct</em> está atribuído contém os dados reais do <em>struct</em>. Quando o <em>struct</em> é atribuído a uma nova variável, ele é copiado. A nova variável e a variável original, portanto, contêm duas cópias separadas dos mesmos dados. As alterações feitas em uma cópia não afetam a outra cópia.</p>
+<p>Em geral, as classes são usadas para modelar o comportamento mais complexo ou dados que serão modificados depois que um objeto de classe for criado. Os <em>structs</em> são mais adequados para estruturas de dados pequenas que contêm principalmente dados que não serão modificados depois que o <em>struct</em> for criado.</p>
+<h2 id="membros">Membros<a class="headerlink" href="#membros" title="Permanent link">&para;</a></h2>
+<p>Todos os métodos, campos, constantes, propriedades e eventos devem ser declarados em um tipo. Eles são chamados de membros do tipo. No C#, não existem variáveis globais ou métodos como em algumas das outras linguagens. Até mesmo um ponto de entrada de um programa, o método <code>Main</code>, deve ser declarado em uma classe ou <em>struct</em>. A lista a seguir inclui todos os vários tipos de membros que podem ser declarados em uma classe ou <em>struct</em>.</p>
+<ul>
+<li>Campos</li>
+<li>Constantes</li>
+<li>Propriedades</li>
+<li>Métodos</li>
+<li>Construtores</li>
+<li>Eventos</li>
+<li>Finalizadores</li>
+<li>Indexadores</li>
+<li>Operadores</li>
+<li>Tipos aninhados</li>
+</ul>
+<h3 id="campos">Campos<a class="headerlink" href="#campos" title="Permanent link">&para;</a></h3>
+<p>Um campo é uma variável de qualquer tipo que é declarada diretamente em uma classe ou <em>struct</em>.</p>
+<p>Em geral, você só deve usar campos para variáveis que têm acessibilidade <code>private</code> ou <code>protected</code>. Os dados que sua classe expõe ao código do cliente devem ser fornecidos através de métodos, propriedades e indexadores.</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">CalendarEntry</span>
+<span class="p">{</span>
+    <span class="c1">// campo privado</span>
+    <span class="k">private</span> <span class="n">DateTime</span> <span class="n">date</span><span class="p">;</span>
+
+    <span class="c1">// campo público (geralmente não recomendado)</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">day</span><span class="p">;</span>
+
+    <span class="c1">// propriedade pública (expõe o campo data de forma segura)</span>
+    <span class="k">public</span> <span class="n">DateTime</span> <span class="n">Date</span> 
+    <span class="p">{</span>
+        <span class="k">get</span> 
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">date</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">set</span> 
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="k">value</span><span class="p">.</span><span class="n">Year</span> <span class="p">&gt;</span> <span class="m">1900</span> <span class="p">&amp;&amp;</span> <span class="k">value</span><span class="p">.</span><span class="n">Year</span> <span class="p">&lt;=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Today</span><span class="p">.</span><span class="n">Year</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">date</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentOutOfRangeException</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="constantes">Constantes<a class="headerlink" href="#constantes" title="Permanent link">&para;</a></h3>
+<p>As constantes são valores imutáveis que são conhecidos no tempo de compilação e não são alterados durante a vida útil do programa. Constantes são declaradas com o modificador <code>const</code>.</p>
+<p>Tipos definidos pelo usuário, incluindo classes, struct e matrizes, não podem ser constantes. Use o modificador <code>readonly</code> para criar uma classe, struct ou matriz que é inicializada uma vez em runtime (por exemplo, em um construtor) e, assim, não pode ser alterada.</p>
+<p>O C# não dá suporte aos métodos, propriedades ou eventos <code>const</code>.</p>
+<p>A expressão que é usada para inicializar uma constante poderá fazer referência a outra constante se ela não criar uma referência circular. Por exemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Calendar</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">Months</span> <span class="p">=</span> <span class="m">12</span><span class="p">;</span>
+    <span class="k">public</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">Weeks</span> <span class="p">=</span> <span class="m">52</span><span class="p">;</span>
+    <span class="k">public</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">Days</span> <span class="p">=</span> <span class="m">365</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">const</span> <span class="kt">double</span> <span class="n">DaysPerWeek</span> <span class="p">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">Days</span> <span class="p">/</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">Weeks</span><span class="p">;</span>
+    <span class="k">public</span> <span class="k">const</span> <span class="kt">double</span> <span class="n">DaysPerMonth</span> <span class="p">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">Days</span> <span class="p">/</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">Months</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>As constantes são acessadas como se fossem campos <code>static</code> porque o valor da constante é o mesmo para todas as instâncias do tipo.</p>
+<h3 id="propriedades">Propriedades<a class="headerlink" href="#propriedades" title="Permanent link">&para;</a></h3>
+<p>Uma propriedade é um membro que oferece um mecanismo flexível para ler, gravar ou calcular o valor de um campo particular. As propriedades podem ser usadas como se fossem membros de dados públicos, mas na verdade elas são <strong>métodos especiais chamados acessadores</strong>. Isso permite que os dados sejam acessados facilmente e ainda ajuda a promover a segurança e a flexibilidade dos métodos.</p>
+<p>Um acessador de propriedade <code>get</code> é usado para retornar o valor da propriedade e um acessador de propriedade <code>set</code> é usado para atribuir um novo valor.</p>
+<p>As propriedades podem ser de leitura/gravação (possui acessadores <code>get</code> e <code>set</code>), somente leitura (somente acessador <code>get</code>) ou somente gravação (somente acessador <code>set</code>).</p>
+<p>A palavra-chave <code>value</code> é usada para definir o valor que está sendo atribuído pelo acessador <code>set</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">TimePeriod</span>
+<span class="p">{</span>
+   <span class="k">private</span> <span class="kt">double</span> <span class="n">_seconds</span><span class="p">;</span>
+
+   <span class="k">public</span> <span class="kt">double</span> <span class="n">Hours</span>
+   <span class="p">{</span>
+       <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">_seconds</span> <span class="p">/</span> <span class="m">3600</span><span class="p">;</span> <span class="p">}</span>
+       <span class="k">set</span> <span class="p">{</span> 
+          <span class="k">if</span> <span class="p">(</span><span class="k">value</span> <span class="p">&lt;</span> <span class="m">0</span> <span class="p">||</span> <span class="k">value</span> <span class="p">&gt;</span> <span class="m">24</span><span class="p">)</span>
+             <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentOutOfRangeException</span><span class="p">(</span>
+                   <span class="err">$</span><span class="s">&quot;{nameof(value)} must be between 0 and 24.&quot;</span><span class="p">);</span>
+
+          <span class="n">_seconds</span> <span class="p">=</span> <span class="k">value</span> <span class="p">*</span> <span class="m">3600</span><span class="p">;</span> 
+       <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>As propriedades simples que não exigem nenhum código de acessador personalizado podem ser implementadas como definições de corpo da expressão ou como <strong>propriedades autoimplementadas</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Teste</span>
+<span class="p">{</span>
+   <span class="k">public</span> <span class="kt">int</span> <span class="n">Id</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="definicoes-de-corpo-de-expressao">Definições de corpo de expressão<a class="headerlink" href="#definicoes-de-corpo-de-expressao" title="Permanent link">&para;</a></h4>
+<p>Os acessadores de propriedade geralmente consistem em instruções de linha única que simplesmente atribuem ou retornam o resultado de uma expressão. Você pode implementar essas propriedades como membros aptos para expressão. As definições de corpo da expressão consistem no símbolo <code>=&gt;</code> seguido pela expressão à qual atribuir ou recuperar da propriedade.</p>
+<p>As propriedades <strong>somente leitura</strong> podem implementar o acessador <code>get</code> como um membro apto para expressão. Nesse caso, nem a palavra-chave do acessador <code>get</code> nem a palavra-chave return é usada.</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Person</span>
+<span class="p">{</span>
+   <span class="c1">// campos privados</span>
+   <span class="k">private</span> <span class="kt">string</span> <span class="n">_firstName</span><span class="p">;</span>
+   <span class="k">private</span> <span class="kt">string</span> <span class="n">_lastName</span><span class="p">;</span>
+
+   <span class="c1">// propriedade com apenas acessador get</span>
+   <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">=&gt;</span> <span class="err">$</span><span class="s">&quot;{_firstName} {_lastName}&quot;</span><span class="p">;</span>   
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Propriedade com acessadores <code>get</code> e <code>set</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">SaleItem</span>
+<span class="p">{</span>
+   <span class="kt">string</span> <span class="n">_name</span><span class="p">;</span>
+   <span class="kt">decimal</span> <span class="n">_cost</span><span class="p">;</span>
+
+   <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> 
+   <span class="p">{</span>
+      <span class="k">get</span> <span class="p">=&gt;</span> <span class="n">_name</span><span class="p">;</span>
+      <span class="k">set</span> <span class="p">=&gt;</span> <span class="n">_name</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="k">public</span> <span class="kt">decimal</span> <span class="n">Price</span>
+   <span class="p">{</span>
+      <span class="k">get</span> <span class="p">=&gt;</span> <span class="n">_cost</span><span class="p">;</span>
+      <span class="k">set</span> <span class="p">=&gt;</span> <span class="n">_cost</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span> 
+   <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="metodos">Métodos<a class="headerlink" href="#metodos" title="Permanent link">&para;</a></h3>
+<p>Um método é um bloco de código que contém uma série de instruções. Um programa faz com que as instruções sejam executadas chamando o método e especificando os argumentos de método necessários.</p>
+<p>Os métodos são declarados em uma classe, <em>estruct</em> ou interface especificando o nível de acesso, como <code>public</code> ou <code>private</code>, modificadores opcionais, como <code>abstract</code> ou <code>sealed</code>, o valor de retorno, o nome do método e quaisquer parâmetros do método. Juntas, essas partes são a assinatura do método.</p>
+<div class='importante' markdown='1'>
+
+Um tipo de retorno de um método não faz parte da assinatura do método para fins de sobrecarga de método.
+
+</div>
+
+<h4 id="parametros-do-metodo-x-argumentos">Parâmetros do método x argumentos<a class="headerlink" href="#parametros-do-metodo-x-argumentos" title="Permanent link">&para;</a></h4>
+<p>A definição do método especifica os nomes e tipos de quaisquer parâmetros obrigatórios. Quando o código de chamada chama o método, ele fornece valores concretos, chamados <strong>argumentos</strong>, para cada parâmetro. Os argumentos devem ser compatíveis com o tipo de parâmetro, mas o nome do argumento (se houver) usado no código de chamada não precisa ser o mesmo que o parâmetro nomeado definido no método.</p>
+<h4 id="passando-por-referencia-x-passando-por-valor">Passando por referência x passando por valor<a class="headerlink" href="#passando-por-referencia-x-passando-por-valor" title="Permanent link">&para;</a></h4>
+<p>Por padrão, quando uma instância de um tipo de valor é passada para um método, sua cópia é passada em vez da própria instância. Portanto, as alterações no argumento não têm efeito sobre a instância original no método de chamada. Para passar uma instância de tipo de valor por referência, use a palavra-chave <code>ref</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">void</span> <span class="nf">Method</span><span class="p">(</span><span class="k">ref</span> <span class="kt">int</span> <span class="n">refArgument</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">refArgument</span> <span class="p">=</span> <span class="n">refArgument</span> <span class="p">+</span> <span class="m">44</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">number</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+<span class="n">Method</span><span class="p">(</span><span class="k">ref</span> <span class="n">number</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">number</span><span class="p">);</span> <span class="c1">// Saida: 45</span>
+</code></pre></div>
+
+<p>Quando um objeto de tipo de referência é passado para um método, uma referência ao objeto é passada. Ou seja, o método recebe não o objeto em si, mas um argumento que indica o local do objeto. Se você alterar um membro do objeto usando essa referência, a alteração será refletida no argumento no método de chamada, ainda que você passe o objeto por valor.</p>
+<p>A palavra-chave <code>out</code> faz com que os argumentos sejam passados por referência. Ela torna o parâmetro formal um alias para o argumento, que deve ser uma variável. Em outras palavras, qualquer operação no parâmetro é feita no argumento. É como a palavra-chave <code>ref</code>, exceto pelo fato de que <code>ref</code> requer que a variável seja inicializada antes de ser passada. Também é como a palavra-chave <code>in</code>, exceto que <code>in</code> não permite que o método chamado modifique o valor do argumento. Para usar um parâmetro <code>out</code>, a definição do método e o método de chamada devem usar explicitamente a palavra-chave <code>out</code>. Por exemplo:</p>
+<p>A palavra-chave <code>out</code> também pode ser usada com um parâmetro de tipo genérico para especificar que o parâmetro de tipo é covariante.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">initializeInMethod</span><span class="p">;</span>
+<span class="n">OutArgExample</span><span class="p">(</span><span class="k">out</span> <span class="n">initializeInMethod</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">initializeInMethod</span><span class="p">);</span> <span class="c1">// valor é agora 44</span>
+
+<span class="k">void</span> <span class="nf">OutArgExample</span><span class="p">(</span><span class="k">out</span> <span class="kt">int</span> <span class="n">number</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">number</span> <span class="p">=</span> <span class="m">44</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Variáveis passadas como argumentos <code>out</code> não precisam ser inicializadas antes de serem passadas em uma chamada de método. No entanto, o método chamado é necessário para atribuir um valor antes que o método seja retornado.</p>
+<p>As palavras-chave <code>in</code>, <code>ref</code> e <code>out</code> não são consideradas parte da assinatura do método para fins de resolução de sobrecarga.</p>
+<h4 id="valores-retornados">Valores retornados<a class="headerlink" href="#valores-retornados" title="Permanent link">&para;</a></h4>
+<p>Os métodos podem retornar um valor para o chamador se o tipo de retorno não for <code>void</code>. O método poderá retornar o valor usando a palavra-chave <code>return</code>.</p>
+<p>O valor pode ser retornado ao chamador por valor ou, por referência. Valores são retornados ao chamador por referência se a palavra-chave <code>ref</code> for usada na assinatura do método e antes de <code>return</code>. Por exemplo, a instrução de retorno e a assinatura de método a seguir indicam que o método retorna uma variável chamada <code>estDistance</code> por referência para o chamador. </p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">ref</span> <span class="kt">double</span> <span class="nf">GetEstimatedDistance</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">ref</span> <span class="n">estDistance</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Neste outro exemplo, é retornado uma referência a um objeto <code>Person</code> chamado <code>p</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">ref</span> <span class="n">Person</span> <span class="nf">GetContactInformation</span><span class="p">(</span><span class="kt">string</span> <span class="n">fname</span><span class="p">,</span> <span class="kt">string</span> <span class="n">lname</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">ref</span> <span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="metodos-assincronos">Métodos assíncronos<a class="headerlink" href="#metodos-assincronos" title="Permanent link">&para;</a></h4>
+<p>Usando o recurso <code>async</code>, você pode invocar métodos assíncronos sem usar retornos de chamada explícitos ou dividir manualmente seu código entre vários métodos ou expressões lambda.</p>
+<p>Se marcar um método com o modificador <code>async</code>, você poderá usar o operador <code>await</code> no método. Quando o controle atinge uma expressão <code>await</code> no método assíncrono, ele retorna para o chamador e o progresso no método é suspenso até a tarefa aguardada ser concluída. Quando a tarefa for concluída, a execução poderá ser retomada no método.</p>
+<p>Um método assíncrono pode conter um tipo de retorno <code>Task&lt;TResult&gt;</code>, <code>Task</code> ou nulo. O tipo de retorno nulo é usado principalmente para definir manipuladores de eventos, em que um tipo de retorno nulo é necessário. Um método assíncrono que retorna nulo não pode ser aguardado e o chamador de um método de retorno nulo não pode capturar as exceções que esse método gera.</p>
+<p>Um método assíncrono não pode declarar nenhum parâmetro <code>ref</code> ou <code>out</code>, mas pode chamar métodos com tais parâmetros.</p>
+<h3 id="construtores">Construtores<a class="headerlink" href="#construtores" title="Permanent link">&para;</a></h3>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.microsoft.com/pt-br/dotnet/csharp/programming-guide/classes-and-structs">https://docs.microsoft.com/pt-br/dotnet/csharp/programming-guide/classes-and-structs</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+      Guia Rápido - 2020
+      </div>
+
+      <!-- Social links -->
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
