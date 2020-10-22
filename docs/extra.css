@@ -1,3 +1,7 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 /* Remover contador de estrlas e fork do github */
 .md-source__facts {
     display: none;
@@ -11,6 +15,6 @@
 /* Bloco do corpo do texto */
 .md-typeset {
     text-align: justify;
-    font-family: 'Roboto', sans-serif;
+
 }
  
