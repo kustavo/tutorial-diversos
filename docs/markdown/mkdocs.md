@@ -1,5 +1,7 @@
 # MkDocs
 
+[MkDocs](https://www.mkdocs.org) é um gerador de site estático (SSG – Static Site Generators) rápido e simples que é voltado para criar documentações. Os arquivos de origem são em Markdown e configurados com um único arquivo de configuração YAML.
+
 ## Erros e soluções
 
 Erros e soluções relacionados ao MkDocs.
