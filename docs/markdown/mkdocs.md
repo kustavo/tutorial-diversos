@@ -44,3 +44,4 @@ Por padrão a configuração `use_directory_urls` é `true`, ou seja, caso o arq
 ## Referências
 
 - <https://github.com/mkdocs/mkdocs/issues/1757>
+- <https://www.mkdocs.org/>
