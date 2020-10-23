@@ -30,8 +30,8 @@ theme:
     primary: indigo
     accent: indigo
   font:
-    text: Ubuntu
-    code: Ubuntu Mono
+    text: Roboto
+    code: Roboto Mono
   features:
     - navigation.tabs
   language: pt
