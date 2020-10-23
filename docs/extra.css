@@ -1,5 +1,6 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif !important;
+    color: #242A31;
 }
 
 /* Remover contador de estrlas e fork do github */
@@ -15,6 +16,11 @@ body {
 /* Bloco do corpo do texto */
 .md-typeset {
     text-align: justify;
-
+    /* font-size: 0.77rem; */
+    line-height: 1.625;
 }
  
+/* Linha menu direita */
+/* .md-sidebar--secondary .md-sidebar__scrollwrap {
+    border-left: 1px solid #d7d8de;
+} */
