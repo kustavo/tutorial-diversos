@@ -10,7 +10,7 @@ GNOME Terminal é um emulador de terminal para o ambiente GNOME escrito por Havo
 echo 'set completion-ignore-case On' >> ~/.inputrc
 ```
 
-### Informações Git (Shell Bash)
+### Informações do Git (Shell Bash)
 
 Editar o arquivo `~/.bashrc` e adicionar os comandos abaixo:
 

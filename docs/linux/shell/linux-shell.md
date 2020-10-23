@@ -19,7 +19,7 @@ file -h /bin/sh
 readlink -f -- /bin/sh
 ```
 
-Nas distribuições baseadas em Debian, `/bin/sh` é um link para o shell Dash, localizado em `/usr/bin/dash`. Entretanto, o shell dos emuladores de terminal nestas distribuições é o Bash, localizado em `/usr/bin/bash`.
+Nas distribuições baseadas em Debian, `/bin/sh` é um link para o shell Dash, localizado em `/usr/bin/dash`. Ele é usado como shell não iterativo, ou seja, usado para executar arquivos de scripts em shell com o shebang  `#!/bin/sh`. O shell iterativo nestas distribuições é o Bash, localizado em `/usr/bin/bash`.
 
 Os shells, embora pequenos em tamanho, são programas sofisticados e poderosos que são usados para: execução de programas, substituição de variáveis e de nomes de arquivo, entrada/saída (I/O), redirecionamento (ou seja, envio de saída de um programa para um destino diferente de seu destino padrão, incluindo para ser usado como entrada para outro programa), controle do ambiente do usuário (por exemplo, alterando o shell ou o prompt do shell) e servindo como uma linguagem de programação (ou seja, um linguagem que pode ser usada para escrever scripts em shell). Shells em sistemas tipo Unix são incomuns por serem tanto uma linguagem de comando interativa quanto uma linguagem de programação.
 
@@ -30,7 +30,7 @@ O shell é usado de forma iterativa pelo usuário através de um terminal. Um te
     <figcaption>Teletypewriter</figcaption>
 </figure>
 
-Na terminologia Unix, um tty é um tipo particular de arquivo de dispositivo que implementa uma série de comandos adicionais (*input/output control* - ioctls) além de leitura e escrita. Portanto, o arquivo que representa um terminal é, tradicionalmente, chamado de arquivo `tty` e são localizados no diretório `/dev`. De forma geral, podemos dizer que terminal é sinônimo de tty.
+Na terminologia Unix, um tty é um tipo particular de arquivo de dispositivo que implementa uma série de comandos adicionais (ioctls - *input/output control*) além de leitura e escrita. Portanto, o arquivo que representa um terminal é, tradicionalmente, chamado de arquivo `tty` e são localizados no diretório `/dev`. De forma geral, podemos dizer que terminal é sinônimo de tty.
 
 Alguns ttys são fornecidos pelo kernel para acesso a dispositivos de hardware, como por exemplo, uma interface serial. Outros ttys, são fornecidos para acesso a versões virtuais de um terminal físico. No modo de texto, onde temos somente interface de linha de comando (CLI), estes terminais virtuais costumam ser chamados de **consoles virtuais**. No modo gráfico (GUI), onte estes terminais estão sendo executados em janelas, estes terminais virtuais são chamados de **pseudo-ttys** e são fornecidos por programas denominados **emuladores de terminal**. Alguns exemplos de emuladores de terminal:
 
