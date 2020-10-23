@@ -5,7 +5,7 @@ site_author: 'Gustavo Araujo'
 site_url: https://kustavo.github.io/guia-rapido/
 site_dir: public
 docs_dir: docs
-repo_url: https://github.com/kustavo/guia-rapido/
+repo_url: https://github.com/kustavo/guia-rapido/blob/main/
 repo_name: 'GitHub'
 
 markdown_extensions:
