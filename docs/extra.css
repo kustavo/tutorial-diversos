@@ -24,3 +24,7 @@ body {
 /* .md-sidebar--secondary .md-sidebar__scrollwrap {
     border-left: 1px solid #d7d8de;
 } */
+
+.tx-hero {
+    text-align: unset;
+}
