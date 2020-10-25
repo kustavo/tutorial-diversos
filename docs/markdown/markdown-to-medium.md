@@ -4,14 +4,14 @@ Convertendo um arquivo markdown para ser publicado no Medium.
 
 1. Instalar python e pip.
 
-    === Debian/Ubuntu
+    === "Debian/Ubuntu"
 
         ```bash
         sudo apt update
         sudo apt install python3-pip
         ```
 
-    === Windows
+    === "Windows"
 
         - Baixar o python <https://www.python.org/downloads/> e instalar.
         - Baixara o pip <https://bootstrap.pypa.io/get-pip.py> e executar:
