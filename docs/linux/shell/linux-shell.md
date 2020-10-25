@@ -102,6 +102,10 @@ else
 fi
 ```
 
+## Conclusão
+
+Um emulador de terminal ou console virtual executa o shell que por sua vez oferece ao usuário meios de interagir com o sistema operacional através de comandos em forma de texto. Isto possibilita uma gama de possibilidades, desde redirecionar a saída de um comando como parâmetro de entrada para outro, até criar sequências de comandos ou até mesmo programas, permitindo que o usuário automatize até tarefas mais robustas. Podemos dizer que scripts em shell são a melhor maneira de automatizar tarefas diárias em sistemas tipo Unix.
+
 ## Referências
 
 - <http://www.linfo.org/shell.html>

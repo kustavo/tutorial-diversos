@@ -52,6 +52,7 @@ nav:
       - ./linux/shell/zsh.md
       - ./linux/shell/gnome-terminal.md
   - Markdown:
+    - ./markdown/markdown-to-medium.md
     - MkDocs:
       - ./markdown/mkdocs.md
       
