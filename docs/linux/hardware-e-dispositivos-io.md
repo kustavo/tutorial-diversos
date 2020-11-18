@@ -38,6 +38,10 @@ sudo pacman -S b43-firmware
 sudo pacman -S broadcom-wl
 ```
 
+Debian/Ubuntu
+
+Pacote bcmwl-kernel-source
+
 ## Teclado
 
 ### Mudança de Layout
