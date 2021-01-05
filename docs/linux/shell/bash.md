@@ -1,6 +1,6 @@
 # Bash
 
-Lançado originalmente em 1989, Bash (acrônimo para "Bourne-Again SHell") é uma evolução retro-compatível muito mais interativa do Bourne Shell (sh). O Bash é amplamente compatível com o shell sh, e incorpora características úteis do Korn shell (ksh), e do shell C (csh). Ele oferece melhorias funcionais em relação ao sh tanto para uso interativo como para programação.
+O shell Bash (acrônimo para "Bourne-Again SHell") é uma evolução retro-compatível muito mais interativa do Bourne Shell (sh). Lançado originalmente em 1989, o Bash é amplamente compatível com o shell sh, e incorpora características úteis do Korn shell (ksh), e do shell C (csh). Ele oferece melhorias funcionais em relação ao sh tanto para uso interativo como para programação.
 
 O Bash apresenta recursos e características de uma linguagem de programação alto nível. É compatível por configuração com as normas POSIX, de forma que os scripts Bash podem ser executados em diversos sistemas tipo Unix. Desta forma, o Bash cresceu e se tornou facilmente o shell mais usado em todo o mundo Linux/Unix.
 
@@ -42,13 +42,13 @@ Você pode customizar seu ambiente do Bash utilizando alguns arquivos como:
 
 Comentário de uma linha.
 
-```sh
+```bash
 # Comentário de uma linha
 ```
 
 Não há suporte para comentário de bloco, mas uma alternativa seria usar **here document**.
 
-```sh
+```bash
 : << "END"
 Conteúdo do bloco.
 Tudo aqui será tratado como um bloco de comandos que será enviado para :
@@ -59,7 +59,7 @@ END
 
 Aspas são usadas para delimitar uma string ou um parâmetro. Sem o uso de aspas é necessários usar a barra invertida para escapar os espaços.
 
-```sh
+```bash
 COMANDO "arquivo de teste.txt"
 COMANDO 'arquivo de teste.txt'  # Equivalente
 COMANDO arquivo\ de\ teste.txt  # Equivalente
@@ -71,7 +71,7 @@ Aspas duplas são usadas se o conteúdo possui variáveis que serão substituíd
 
 Quebrar linhas para comandos grandes.
 
-```sh
+```bash
 printf "Imprimindo: %s %s\n" \
         $(echo "Olá") \
         $(echo "Mundo!")
@@ -82,7 +82,7 @@ printf "Imprimindo: %s %s\n" \
 
 O Bash suporta uma série de notações especiais, conhecidas como expansões, para passar tipos de argumentos comumente usados em programas.
 
-```sh
+```bash
 COMANDO arquivo1.txt arquivo2.txt arquivo3.txt
 COMANDO arquivo{1,2,3}.txt  # Equivalente
 COMANDO arquivo{1..3}.txt   # Equivalente
@@ -96,7 +96,7 @@ Para atribuir um valor para uma variável é utilizado o sinal "**=**" e não de
 
 As aspas duplas são usadas se o conteúdo da string contém variáveis que devem retornar seu valor. Sem o uso de aspas é necessários escapar os espaços.
 
-```sh
+```bash
 VAR='string simples'
 VAR="string com variável $VAR"
 VAR=string\ simples
@@ -105,7 +105,7 @@ VAR=string\ com\ variável\ "$VAR"
 
 Concatenar strings.
 
-```sh
+```bash
 VAR="Hello"
 VAR+=" World"
 echo "$VAR" # Hello World
@@ -113,7 +113,7 @@ echo "$VAR" # Hello World
 
 Concatenar valor de duas variáveis string.
 
-```sh
+```bash
 VAR1="Hello"
 VAR2="World"
 VAR3="$VAR1 $VAR2"
@@ -128,14 +128,14 @@ echo "$VAR2" # Hello World
 
 Retornar o tamanho de uma variável string.
 
-```sh
+```bash
 VAR='Hello World'
 echo ${#VAR} # 11
 ```
 
 Para retornar uma substrings segue-se o padrão "**${string:posicao:tamanho}**". Se a posição for negativa (informada a partir do fim), deve usar parênteses ou um espaço após "**:**" dois pontos. Se não for informado o tamanho, será considerado até o final da string. Se não for informado a posição, será considerado a posição inicial.
 
-```sh
+```bash
 VAR=0123456789
 echo ${VAR: -3}   # 789
 echo ${VAR:(-3)}  # 789
@@ -148,7 +148,7 @@ echo ${VAR::3}    # 012
 
 Para substituir caracteres em strings segue-se o padrão "**${string/substring/substituicao}**" para substituir somente a primeira substring encontrada ou "**${string//substring/substituicao}**" para substituir todas as ocorrências encontradas.
 
-```sh
+```bash
 VAR=abcb
 VAR=${VAR/b/x} # axcb
 echo $VAR
@@ -162,7 +162,7 @@ echo $VAR
 
 Operações de inteiros, usando parênteses duplos.
 
-```sh
+```bash
 echo $(( 3 + 4 * (5 - 1) )) # 19
 
 echo $(( 10 ** 2 )) # 100
@@ -174,7 +174,7 @@ echo $VAR # 3
 
 Usando o comando "**bc**" para valores grandes.
 
-```sh
+```bash
 echo 2^100 | bc
 
 # ou atribuir para uma variável
@@ -185,7 +185,7 @@ echo $VAR
 
 Ou simplesmente usando a função Bash "**let**". Não pode haver espaço entre os operadores, a não ser se escapar o espaço ou usar aspas.
 
-```sh
+```bash
 let VAR=5+4
 echo $VAR       # 9
 let VAR++
@@ -197,7 +197,7 @@ let VAR="5 - 2" # 3
 
 A função Bash "**expr**" é semelhante a "**let**" mas apenas imprime o resultado. Precisa haver espaço entre os operadores.
 
-```sh
+```bash
 expr 5 + 4 # 9
 ```
 
@@ -205,7 +205,7 @@ expr 5 + 4 # 9
 
 Para realizar operações com ponto flutuante geralmente utiliza o comando "**bc**". O parâmetro "**-l**" é passado para usar a biblioteca matemática para manipular float se não for soma ou subtração. Por padrão o parâmetro usa precisão de 20 casas, portanto para outros valores é necessário informar a escala.
 
-```sh
+```bash
 echo '3.4 + 2.2' | bc  # 5.6
 echo '5.5 / 2' | bc    # 2
 echo 'scale=2; 5.5 / 2' | bc -l # 2.75
@@ -220,7 +220,7 @@ echo $VAR
 
 Atribuição de comandos.
 
-```sh
+```bash
 VAR=`comando -parametro`
 # ou
 VAR=$(comando -parametro)
@@ -228,7 +228,7 @@ VAR=$(comando -parametro)
 
 Executar um comando armazenado em variável.
 
-```sh
+```bash
 VAR="ls -l"
 eval "$VAR"
 ```
@@ -237,7 +237,7 @@ eval "$VAR"
 
 Concatenação em vetores. Para imprimir todos valores do vetor pode-se usar "**\***" ou "**@**". O espaço separa os elementos de um vetor.
 
-```sh
+```bash
 ARRAY=(1 2)
 echo ${ARRAY[@]} # 1 2
 ARRAY+=(3)
@@ -249,7 +249,7 @@ echo ${ARRAY[2]} # 3
 
 Remover elemento do vetor.
 
-```sh
+```bash
 ARRAY=(1 2 3)
 unset ARRAY[1]
 echo ${ARRAY[@]} # 1 3
@@ -257,7 +257,7 @@ echo ${ARRAY[@]} # 1 3
 
 Criar vetor associativo usando "**declare -A**".
 
-```sh
+```bash
 declare -A VAR
 VAR=([a]=0 [b]=1 [c]=2)
 echo ${VAR[b]}           # 1
@@ -271,7 +271,7 @@ echo ${VAR[*]}           # 0 2 3
 
 Para obter o retorno de uma função é usado "**$( )**".
 
-```sh
+```bash
 function funcao {
     echo Olá
 }
@@ -299,13 +299,13 @@ echo "$VAR" # Olá
 
 Imprimir o conteúdo de uma variável.
 
-```sh
+```bash
 echo $VAR
 ```
 
 Se a variável é uma string que possui quebra de linha ou tabulações é necessário usar aspas duplas.
 
-```sh
+```bash
 VAR="Olá
 Mundo"
 echo "$VAR"
@@ -313,7 +313,7 @@ echo "$VAR"
 
 O comando "**tput**" pode ser usado para imprimir em uma posição específica da tela.
 
-```sh
+```bash
 colunas=$(tput cols) # número colunas terminal
 linhas=$(tput lines) # número linhas terminal
 mensagem=$@
@@ -335,7 +335,7 @@ tput cup $( tput lines ) 0
 
 Para declarar variáveis locais é usado a palavra-chave "**local**". Parênteses em funções são opcionais.
 
-```sh
+```bash
 VAR='Variável Global'
 
 function funcao {
@@ -350,7 +350,7 @@ echo $VAR # 'Variável Global'
 
 Os parâmetros passados para as funções são acessados da mesma forma que os parâmetros passados para executar o script "**$ + número**".
 
-```sh
+```bash
 function funcao {
     echo $1  # oi
 }
@@ -359,7 +359,7 @@ funcao oi
 
 O "**return**" também pode ser usado, mas serve apenar para retornar valores numéricos que podem ser usados como status da execução. Para obter o valor retornado pela última função é usado "**$?**". Normalmente, um status de retorno de 0 indica que tudo foi feito com sucesso. Um valor não zero indica que ocorreu um erro.
 
-```sh
+```bash
 function funcao {
     return 5
 }
@@ -369,7 +369,7 @@ echo $? # 5
 
 Para retornar algum valor, é usado o próprio "**echo"** que pode ser capturado por "**$( )"**.
 
-```sh
+```bash
 function funcao {
     echo Olá
 }
@@ -379,7 +379,7 @@ echo "$VAR" # Olá
 
 Para criar uma função com o mesmo nome de um comando é usado a palavra-chave "**command**".
 
-```sh
+```bash
 ls {
     command ls -lh # chamará o comando ls
 }
@@ -403,13 +403,13 @@ Formas de capturar os fluxos padrões de I/O dos processos executados:
 
 - arquivo para stdin
 
-    ```sh
+    ```bash
     COMANDO < ARQUIVO
     ```
 
 - stdout para arquivo
 
-    ```sh
+    ```bash
     COMANDO > ARQUIVO
     # ou
     COMANDO 1> ARQUIVO
@@ -417,25 +417,25 @@ Formas de capturar os fluxos padrões de I/O dos processos executados:
 
 - stderr para arquivo
 
-    ```sh
+    ```bash
     COMANDO 2> ARQUIVO
     ```
 
 - stdout e stderr para arquivo
 
-    ```sh
+    ```bash
     COMANDO &> ARQUIVO
     ```
 
 - stdout para o stderr
 
-    ```sh
+    ```bash
     COMANDO 1>&2
     ```
 
 - stderr para o stdout
 
-    ```sh
+    ```bash
     COMANDO 2>&1
     ```
 
@@ -447,13 +447,13 @@ Um here document é um bloco de código de propósito especial. Ele usa uma form
 
 Passar o conteúdo de uma variável como entrada para outro comando.
 
-```sh
+```bash
     COMANDO << "$VARIAVEL"
 ```
 
 Passar uma lista de comandos como entrada parar outro comando.
 
-```sh
+```bash
 COMANDO << DELIMITADOR
     comando1 "$VAR"
     comando2
@@ -462,7 +462,7 @@ DELIMITADOR
 
 Para não substituir $VAR pelo valor da variável, basta usar aspas no delimitador inicial.
 
-```sh
+```bash
 COMANDO << "DELIMITADOR"
     comando1 "$VAR"
     comando2
@@ -473,7 +473,7 @@ DELIMITADOR
 
 São usados os caracteres especiais **$ + número**.
 
-```sh
+```bash
 $ ./script.sh a b c
 
 echo "$1" # a
@@ -489,7 +489,7 @@ O teste condicional pode ser definido entre os delimitadores [], [[ ]] e (( )). 
 
 - Não é necessário escapar uma varável que contenha quebra de linhas ou espaços.
 
-    ```sh
+    ```bash
     if [ -f "$file" ]
     # contra
     if [[ -f $file ]]
@@ -497,7 +497,7 @@ O teste condicional pode ser definido entre os delimitadores [], [[ ]] e (( )). 
 
 - Permite o uso de && ou || para comparações boleanas e uso de parênteses.
 
-    ```sh
+    ```bash
     if [ INTEIRO -eq 1 ] || [ INTEIRO -eq 2 ]
     # contra
     if [[ INTEIRO -eq 1 || INTEIRO -eq 2 ]]
@@ -505,7 +505,7 @@ O teste condicional pode ser definido entre os delimitadores [], [[ ]] e (( )). 
 
 - O uso de  < ou > sem escape para comparações com strings.
 
-    ```sh
+    ```bash
     if [ STRING1 \> STRING2 ]
     # contra
     if [[ STRING1 > STRING2 ]]
@@ -513,7 +513,7 @@ O teste condicional pode ser definido entre os delimitadores [], [[ ]] e (( )). 
 
 - Permite a comparação com expressões regulares
 
-    ```sh
+    ```bash
     if [[ $RESPOSTA =~ ^s(im)?$ ]]
     # ou
     if [[ $RESPOSTA = y* ]]
@@ -521,7 +521,7 @@ O teste condicional pode ser definido entre os delimitadores [], [[ ]] e (( )). 
 
 Os parênteses duplos (( )) permitem o uso dos operadores para as operações aritméticas de forma mais simples ( <, >, >=, <=, !=, ==).
 
-```sh
+```bash
 if [[ $VAR1 -ge 5 || $VAR2 -eq -1 ]]
 # contra
 if (( $VAR1 >= 5 || $VAR2 == -1 ))
@@ -533,7 +533,7 @@ if (( $VAR1 >= 5 || $VAR2 == -1 ))
 
 Para o teste das condições, será retornado o estado de saída zero (sucesso) se a condição é verdadeira e estado de saída não zero (falha) se a condição é falsa.
 
-```sh
+```bash
 T1="a"
 T2="b"
 
@@ -548,7 +548,7 @@ fi
 
 Condicionais combinadas.
 
-```sh
+```bash
 if [[ -e origem.txt ]] && ! [[ -e destino.txt ]] ; then
   # Se origem.txt existe e destino.txt não existe
 fi
@@ -558,7 +558,7 @@ fi
 
 Estrutura "case".
 
-```sh
+```bash
 VAR=segundo
 
 case $VAR in
@@ -633,7 +633,7 @@ esac
 
 Usando "**for**"
 
-```sh
+```bash
 for file in $(ls) ; do
   echo "item: $file"
 done
@@ -650,7 +650,7 @@ done
 
 Usando "**while**". Realiza o comando enquanto a condição for verdadeira.
 
-```sh
+```bash
 while [[ -e arquivo.txt ]] ; do
   sleep 3
 done
@@ -658,7 +658,7 @@ done
 
 Usando "**until**". Realiza o comando enquanto a condição for falsa. O mesmo que usar o  "**while**" com "**!**".
 
-```sh
+```bash
 until [[ -e arquivo.txt ]] ; do
   sleep 3
 done
@@ -668,7 +668,7 @@ Todas as estruturas de repetição suporta "continue" e "break".
 
 A estrutura "**select**" pode ser usada para criar menus.
 
-```sh
+```bash
 names='Maria José Pedro Laura *Sair'
 PS3='Selecione uma pessoa: '
 select name in $names
@@ -685,7 +685,7 @@ done
 
 Esse recurso permite agrupar uma sequência de comandos em um único comando.
 
-```sh
+```bash
 get() {
   if [[ -t 0 ]] ; then
     read -r -p 'Password:' -s "$1" && echo
@@ -703,7 +703,7 @@ O comando "**read**" armazena a entrada do usuário em variáveis. A variável "
 
 Um subshell recebe uma cópia do "ambiente de execução" do contexto circundante, que inclui quaisquer variáveis, entre outras coisas; mas as alterações que o subshell faz para o ambiente de execução não são copiadas de volta quando o subshell é concluído.
 
-```sh
+```bash
 VAR1=olá
 echo "$VAR1" # olá
 
@@ -723,7 +723,7 @@ echo "$VAR1" # olá
 
 Para obter a entrada do usuário, pode-se usar o comando "**read**".
 
-```sh
+```bash
 echo Entre com seu primeiro e último nome:
 read FN LN
 echo "Olá $LN $FN!"

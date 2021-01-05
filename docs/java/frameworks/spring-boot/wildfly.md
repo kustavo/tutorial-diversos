@@ -14,6 +14,6 @@ A partir da versão 8 o JBoss passou a se chamar Wildfly, além da troca de nome
 
 1. Executar o comando:
 
-```sh
+```bash
 CAMINHO\bin\standalone.sh --server-config=standalone-full.xml
 ```

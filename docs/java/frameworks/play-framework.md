@@ -6,13 +6,13 @@
 
 ### Criar uma aplicação
 
-```sh
+```bash
 play new <NOME>
 ```
 
 ### Executar aplicação
 
-```sh
+```bash
 play run
 ```
 
@@ -20,12 +20,12 @@ play run
 
 #### Verificar
 
-```sh
+```bash
 play evolutions
 ```
 
 #### Aplicar
 
-```sh
+```bash
 play evolutions:apply
 ```

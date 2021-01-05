@@ -1,7 +1,5 @@
 # Maven
 
-[TOC]
-
 ## Introdução
 
 Maven é uma ferramenta de gerenciamento e automação de construção (*build*) de projetos. Entretanto, por fornecer diversas funcionalidades adicionais através do uso de *plugins* e estimular o emprego de melhores práticas de organização, desenvolvimento e manutenção de projetos, é muito mais do que apenas uma ferramenta auxiliar.
@@ -16,13 +14,13 @@ Um desenvolvedor que seja alocado em um projeto Java EE que utilize o Maven corr
 
 1. Adicionar o diretório `bin` na variável de ambiente `$PATH`.
 
-    ```sh
+    ```bash
     PATH=$PATH:\CAMINHO\bin
     ```
 
 1. Conferir se foi configurado com sucesso.
 
-    ```sh
+    ```bash
     mvn -version
     ```
 
@@ -124,7 +122,7 @@ O Maven possui nativamente 3 ciclos de vida: *clean*, *site*, *default*. Esses c
 
 É possível invocar qualquer dessas fases na linha de comando, digitando:
 
-```sh
+```bash
 mvn [fase]
 ```
 

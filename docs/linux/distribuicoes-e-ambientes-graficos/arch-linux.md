@@ -1,56 +1,60 @@
 # Arch Linux
 
-[TOC]
+Arch Linux é uma distribuição Linux para computadores com arquitetura x86-64. O desenvolvimento é focado na elegância, minimalismo e simplicidade no código, e espera que o usuário faça alguns esforços para compreender o modo de funcionamento do sistema. O gerenciador de pacotes, Pacman, foi escrito especialmente para o Arch Linux e é usado para instalar, remover, pesquisar e atualizar os pacotes do sistema.
 
-##  Instalação da Distribuição
+O Arch Linux usa o modelo rolling release. Com esse sistema, os usuários podem ter acesso às últimas atualizações estáveis dos pacotes e também evita atualizações muito grandes que podem gerar erros nos componentes do sistema. As imagens de instalação lançadas pela equipe do Arch são apenas capturas instantâneas de imagens de disco atualizadas dos principais componentes do sistema.
 
-### Configuracao do instalador
+Usuários da distribuição podem criar facilmente seus próprios pacotes compatíveis com o pacman usando ferramentas como o "Arch Build System", funcionalidade esta que ajudou a sustentar o AUR, um repositório de pacotes criados por usuários que complementam os repositórios oficiais.
+
+## Instalação
+
+### Configuração do instalador
 
 #### Teclado
 
 Layout abnt2
 
-```sh
+```bash
 loadkeys br-abnt2
 ```
 
-####  Idioma da instalação
+#### Idioma da instalação
 
-```sh
+```bash
 nano /etc/locale.gen
 ```
 
 Descomentar as linhas:
 
-```sh
+```bash
 en_US.UTF-8 UTF-8
 pt_BR.UTF-8 UTF-8
 ```
 
 Executar os comandos:
 
-```sh
+```bash
 locale-gen
 export LANG=pt_BR.UTF-8
 ```
 
 #### Conectar na rede wireless
 
-```sh
-$ wifi-menu
+```bash
+wifi-menu
 ```
 
 Verificar conexão com a internet
 
-```sh
-$ ping -c 3 www.google.com
+```bash
+ping -c 3 www.google.com
 ```
 
 #### Particionamento
 
 Ver as partições
 
-```sh
+```bash
 fdisk -l
 ```
 
@@ -58,58 +62,58 @@ Criar os particionamentos
 
 É preciso criar a partição UEFI se ela não existe (>200MB)
 
-```sh
+```bash
 cfdisk /dev/sda
 ```
 
 Formatar as partições
 
-```sh
+```bash
 mkfs.ext4 /dev/sdaX
 ```
 
 Formatar a partição swap e ativá-lo
 
-```sh
+```bash
 mkswap /dev/sdaX
 swapon /dev/sdaX
 ```
 
 Verificar se o swap foi habilitado
 
-```sh
+```bash
 free -m
 ```
 
 Ver o layout do particionamento
 
-```sh
+```bash
 lsblk /dev/sda
 ```
 
 Montar as partições
 
-```sh
+```bash
 mount /dev/sdaX /mnt
 ```
 
 Opcional: Criar a pasta home em uma partição diferente
 
-```sh
+```bash
 mkdir /mnt/home
 mount /dev/sda4 /mnt/home
 ```
 
 Criar a pasta boot para o UEFI e montar. Sendo sdaX a partição do EFI.
 
-```sh
+```bash
 mkdir -p /mnt/boot/efi
 mount /dev/sdaX /mnt/boot/efi
 ```
 
 #### Instalar o sistema base
 
-```sh
+```bash
 pacstrap /mnt base base-devel
 ```
 
@@ -117,13 +121,13 @@ pacstrap /mnt base base-devel
 
 O arquivo fstab armazenar as configurações das partições
 
-```sh
+```bash
 genfstab -U -p /mnt >> /mnt/etc/fstab
 ```
 
 Ver o que está escrito nesse arquivo
 
-```sh
+```bash
 cat /mnt/etc/fstab
 ```
 
@@ -131,13 +135,13 @@ cat /mnt/etc/fstab
 
 #### Acesso ao sistema instalado
 
-```sh
+```bash
 arch-chroot /mnt
 ```
 
 #### Idioma do sistema
 
-```sh
+```bash
 nano /etc/locale.gen
 
 descomentar essas linhas:
@@ -150,20 +154,20 @@ locale-gen
 
 Armazenar no arquivo de configuração
 
-```sh
+```bash
 echo LANG=pt_BR.UTF-8 > /etc/locale.conf
 export LANG=pt_BR.UTF-8
 ```
 
 #### Teclado
 
-```sh
+```bash
 nano /etc/vconsole.conf
 ```
 
 Adicionar as linhas
 
-```sh
+```bash
 KEYMAP=br-abnt2
 FONT=Lat2-Terminus16
 FONT_MAP=
@@ -171,32 +175,32 @@ FONT_MAP=
 
 #### Fuso horário
 
-```sh
+```bash
 ls /usr/share/zoneinfo/America
 ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 ```
 
 #### Sincronização do relógio
 
-```sh
+```bash
 hwclock --systohc --utc
 ```
 
 #### Rede cabeada
 
-```sh
+```bash
 systemctl enable dhcpcd@eth0.service
 ```
 
 #### Rede wireless
 
-```sh
+```bash
 pacman -S wireless_tools wpa_supplicant wpa_actiond dialog
 ```
 
 #### Configurar os repositórios
 
-```sh
+```bash
 nano /etc/pacman.conf
 
 descomentar multilib
@@ -204,32 +208,32 @@ descomentar multilib
 
 Sincronizar os repositórios
 
-```sh
+```bash
 pacman -Sy
 ```
 
 #### Criar senha de root
 
-```sh
+```bash
 passwd
 ```
 
 #### Criar usuário e definir senha
 
-```sh
+```bash
 useradd -m -g users -G wheel,storage,power -s /bin/bash <USUARIO>
 passwd <USUARIO>
 ```
 
 #### Instalar o sudo
 
-```sh
+```bash
 pacman -S sudo
 ```
 
-Editar as propriedades para os usuarios do grupo ` wheel` terem permissoes de root.
+Editar as propriedades para os usuarios do grupo `wheel` terem permissoes de root.
 
-```sh
+```bash
 nano /etc/sudoers
 
 Descomentar a linha que mostra "%wheel ALL=(ALL) ALL"
@@ -237,103 +241,102 @@ Descomentar a linha que mostra "%wheel ALL=(ALL) ALL"
 
 #### Editor padrão para o terminal
 
-```sh
+```bash
 EDITOR=nano visudo
 ```
 
 #### Instalação do grub
 
-
 Baixar os pacotes
 
-```sh
+```bash
 pacman -S grub
 pacman -S efibootmgr
 ```
 
 Instalar o grub
 
-```sh
+```bash
 grub-install /dev/sda
 ```
 
 Gerar o RAM Disk inicial
 
-```sh
+```bash
 mkinitcpio -p linux
 ```
 
 Criar o arquivo de configuração do grub
 
-```sh
-grub-mkconfig -o /boot/grub/grub.cfg 
+```bash
+grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 Idioma das mensagens
 
-```sh
+```bash
 cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
 ```
 
 #### Sair do arch-chroot
 
-```sh
+```bash
 exit
 ```
 
 #### Desmontar as partições
 
-```sh
+```bash
 umount -a
 ```
 
 #### Reiniciar
 
-```sh
+```bash
 reboot
 ```
 
 #### Nome do host
 
-```sh
+```bash
 sudo hostnamectl set-hostname <HOSTNAME>
 ```
 
 #### Conexão com a internet
 
-```sh
+```bash
 dhcpcd
 ping -c 3 www.google.com
 ```
 
 Ativar o gerenciador de rede automaticamente
 
-```sh
+```bash
 systemctl start NetworkManager.service
 systemctl enable NetworkManager.service
 ```
 
 #### Instalar xorg
 
-```sh
+```bash
 sudo pacman -S xorg xorg-server
 ```
 
 #### Instalar driver de video da intel
 
-```sh
+```bash
 pacman -S xf86-video-intel
 ```
 
 #### Instalar audio
 
-```sh
+```bash
 sudo pacman -S pulseaudio pulseaudio-alsa
 ```
 
 #### Dual boot
 
-```sh
+```bash
 pacman -Syu os-prober
 
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -341,13 +344,13 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 #### Gnome
 
-```sh
+```bash
 sudo pacman -S gnome
 ```
 
 Habilitar o GDM
 
-```sh
+```bash
 sudo systemctl start gdm.service
 sudo systemctl enable gdm.service
 ```
@@ -358,7 +361,7 @@ sudo systemctl enable gdm.service
 
 #### Backup da lista de mirrors
 
-```sh
+```bash
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 ```
 
@@ -368,25 +371,25 @@ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 
 #### Descomentar a lista de mirrors
 
-```sh
+```bash
 sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist
 ```
 
 #### Atualizar a lista de pacotes
 
-```sh
+```bash
 pacman -Syyu
 ```
 
 #### Gerar os 6 mirrors com melhor conexão
 
-```sh
+```bash
 rankmirrors -n 6 /etc/pacman.d/mirrorlist
 ```
 
 ## Restauração do Grub
 
-```sh
+```bash
 mount /dev/sda7 /mnt          # partição linux
 mkdir -p /mnt/boot/efi
 mount /dev/sda2 /mnt/boot/efi # partição efi
@@ -398,83 +401,12 @@ grub-install /dev/sda
 
 Caso o comando "os-prober" não retorne o local do windows, o grub contará apenas com o linux. Neste caso entre no sistema linux e execute os comandos abaixo novamente:
 
-```sh
+```bash
 os-prober
 grub-mkconfig -o /boot/grub/grub.cfg
 grub-install /dev/sda
 ```
 
-## Yaourt
+## Referências
 
-O Yaourt (Yet AnOther User Repository Tool) é um gerenciador de pacotes desenvolvido para completar o conhecido pacman. Foi desenvolvido por Julien Mischkowitz e Tuxce; usuários da Comunidade Arch Linux Francês e tem como o diferencial conseguir pesquisar, atualizar e instalar pacotes do AUR.
-
-### Comandos
-
-- Instalar ou atualizar um pacote
-    ```sh
-    yaourt -S pacote --noconfirm
-    ```
-O parâmetro `--noconfirm` desabilita as perguntas durante de instalação.
-
-- Instale um pacote local ou a partir da web
-  ```sh
-  yaourt -U caminho_do_pacote --noconfirm
-  ```
-
-- Encontre um pacote
-    ```sh
-    yaourt pacote
-    ```
-
-- Informação sobre um pacote instalado
-    ```sh
-    yaourt -Qi pacote
-    ```
-
-- Obter informações sobre um pacote nos repositórios
-    ```sh
-    yaourt pacote -Si
-    ```
-
-- Remover um pacote
-    ```sh
-    yaourt -R pacote
-    ```
-
-- Remover um pacote e suas dependências que não são necessários a outro pacote instalado
-    ```sh
-    yaourt -Rs pacote
-    ```
-
-- Remover um pacote e suas dependências e todos os pacotes que dependem dele
-
-    **ATENÇÃO**: Esta operação é recursiva, e deve ser usado com muito cuidado, pois poderia eliminar um pacote principal e corromper o sistema.
-
-    ```sh
-    yaourt -Rsc pacote
-    ```
-
-- Remover um pacote que é exigido por outro, sem retirar suas dependências
-    ```sh
-    yaourt -Rdd pacote
-    ```
-
-- Atualizar os pacotes de banco de dados
-    ```sh
-    yaourt -Syy
-    ```
-
-- Limpar o cache de pacotes
-    ```sh
-    yaourt -Scc
-    ```
-
-- Atualizar o sistema
-    ```sh
-    yaourt -Syu
-    ```
-
-- A atualização do sistema, incluindo pacotes do AUR instalados
-    ```sh
-    yaourt -Syua
-    ```
+- <https://pt.wikipedia.org/wiki/Arch_Linux>

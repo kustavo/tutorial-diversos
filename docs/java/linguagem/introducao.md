@@ -12,7 +12,7 @@ A compilação dos arquivos `.java` deve ser feita a partir do diretório raiz d
 
 - Compilando arquivos já separados em diretórios referentes aos pacotes:
 
-  ```sh
+  ```bash
   javac pacote/Arquivo1.java pacote/Arquivo2.java
   ou
   javac pacote/*.java
@@ -20,7 +20,7 @@ A compilação dos arquivos `.java` deve ser feita a partir do diretório raiz d
 
 - Se os arquivos não tiverem separados em diretórios referentes ao pacotes, é usado o parâmetro `-d` que irá criar os diretórios automaticamente.
 
-   ```sh
+   ```bash
     javac -d . Arquivo1.java Arquivo2.java
     ou
     javac -d . *.java
@@ -38,13 +38,13 @@ Criação do arquivo executável `.jar`.
   SplashScreen-Image: logo.png
   ```
 
-  ```sh
+  ```bash
     jar -cvfm Arquivo.jar MANIFEST.mf Arquivo.class
   ```
 
 - Sem o arquivo `MANIFEST.mf`, estabelecendo o ponto de entrada:
 
-  ```sh
+  ```bash
   jar -cvfe Arquivo.jar <MainClass> Arquivo.class
   ```
 
@@ -52,7 +52,7 @@ Criação do arquivo executável `.jar`.
 
 O comando `-d` indicação do destino de onde o .class será gerado.
 
-```sh
+```bash
 javac -d bin Arquivo.java # Arquivo.class será gerado no diretório bin
 ```
 
@@ -60,7 +60,7 @@ javac -d bin Arquivo.java # Arquivo.class será gerado no diretório bin
 
 *Classpaths* são variáveis de localização de um diretório que podem conter as classes que serão necessárias para a execução do sistema.
 
-```sh
+```bash
 -ch /src/teste1/dir1:/src/teste2/dir2
 ```
 
@@ -70,13 +70,13 @@ No exemplo, será feita uma busca nos diretórios `/src/teste1/dir1` e `/src/tes
 
 - Execução do arquivo `.class`
 
-  ```sh
+  ```bash
   java Arquivo
   ```
 
 - Execução do arquivo `.jar`
 
-  ```sh
+  ```bash
   java Arquivo.jar
   ```
 

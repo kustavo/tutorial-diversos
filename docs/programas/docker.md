@@ -1,12 +1,10 @@
 # Docker
 
-[TOC]
-
 ## Introdução
 
-A Conteinerização é o processo de distribuição e implantação de aplicativos de uma forma portátil e previsível. Ele faz isso empacotando componentes e suas dependências em um ambiente de processos padronizado, isolado e leve chamado contêiner.
+A conteinerização é o processo de distribuição e implantação de aplicativos de uma forma portátil e previsível. Ele faz isso empacotando componentes e suas dependências em um ambiente de processos padronizado, isolado e leve chamado contêiner.
 
-A tecnologia Docker usa o kernel do Linux e recursos do kernel como *Cgroups* e *namespaces* para segregar processos. Assim, eles podem ser executados de maneira independente. O objetivo dos containers é criar essa independência: a habilidade de executar diversos processos e aplicações separadamente para utilizar melhor a infraestrutura e, ao mesmo tempo, manter a segurança que você teria em sistemas separados.
+A tecnologia Docker usa o kernel do Linux e recursos do kernel como *Cgroups* e *Namespaces* para segregar processos. Assim, eles podem ser executados de maneira independente. O objetivo dos containers é criar essa independência: a habilidade de executar diversos processos e aplicações separadamente para utilizar melhor a infraestrutura e, ao mesmo tempo, manter a segurança que você teria em sistemas separados.
 
 As ferramentas de container, incluindo o Docker, fornecem um modelo de implantação com base em **imagem**. Isso facilita o compartilhamento de uma aplicação ou conjunto de serviços, incluindo todas as dependências deles em vários ambientes. O Docker também automatiza a implantação da aplicação (ou de conjuntos de processos que constituem uma aplicação) dentro desse ambiente de container.
 
@@ -18,9 +16,7 @@ Pense em imagens como um template compostas por um sistema de camadas que ficam 
 
 Em uma imagem temos um sistema de inicialização chamado *bootfs*, que é muito parecido com o sistema de boot do Linux, a partir de imagens conseguimos criar nossos containers e com facilidade fazer a migração de sistema operacional ou ambiente de trabalho.
 
-Você precisa baixar as imagens de algum repositório ou criá-las, as imagens ficam armazenados no *Dockerhub*.
-
-Containers são instâncias criadas à partir de imagens Docker.
+Containers são instâncias criadas à partir de imagens Docker. As imagens podem ser criadas pelo usuário ou baixadas de algum repositório como o [*Dockerhub*](https://hub.docker.com/) por exemplo.
 
 #### Camadas e controle de versão
 
@@ -28,45 +24,47 @@ Cada arquivo de imagem Docker é composto por uma série de camadas. Elas são c
 
 O Docker reutiliza essas camadas para a construção de novos containers, o que torna o processo de criação muito mais rápido. As alterações intermediárias são compartilhadas entre imagens, o que melhora ainda mais a velocidade, o tamanho e a eficiência. O controle de versões é inerente ao uso de camadas. Sempre que é realizada uma nova alteração, é gerado um *changelog* integrado, o que fornece controle total sobre as imagens do container.
 
-<div class='imagem' markdown='1' style="width: 100%">
-
-![exemplo-camadas](_docker/exemplo-camadas.png)
-
-</div>
+<figure>
+    <img src="../_docker/exemplo-camadas.png" width="100%" title="Fonte: https://www.digitalocean.com/community/tutorials/the-docker-ecosystem-an-introduction-to-common-components"/>
+    <figcaption>Exemplo de camadas</figcaption>
+</figure>
 
 Na imagem acima, você pode começar a ver (em uma visão simplificada) como os contêineres se relacionam com o sistema host. Os contêineres isolam aplicações individuais e utilizam recursos do sistema operacional que foram abstraídos pelo Docker. Na visão explodida na direita, podemos ver que os contêineres podem ser construídos por "camadas", com vários contêineres compartilhando camadas subjacentes, diminuindo o uso de recursos.
 
 ### Volume
 
-Quando um container é removido todas as suas informações são perdidas, portanto queremos criar uma cópia dos dados que estão no container para a nossa máquina. Caso o container venha a cair ou seja removido, podemos falar para ele onde está os dados. Dessa forma, nossas informações ficam salvas independente do estado do container.
-
-Ou seja, queremos falar para o Docker criar um repositório de dados para os containers, ou, como é chamado **volume**.
+Quando um container é removido todas as suas informações são perdidas. Portanto para criar uma cópia dos dados que estão no container para a máquina hospedeira (host), o Docker pode criar um repositório de dados para os containers. Este repositório é chamado de **volume**. Dessa forma, caso o container seja removido e posteriormente recriado, podemos informar onde os dados estão armazenados.
 
 ### Funcionamento
 
 A tecnologia Docker foi desenvolvida inicialmente com base na tecnologia *LXC*, que a maioria das pessoas associa aos containers Linux "tradicionais". No entanto, desde então, essa tecnologia tornou-se independente. O *LXC* era útil como uma virtualização leve, mas não oferecia uma boa experiência para usuários e desenvolvedores. A tecnologia Docker oferece mais do que a habilidade de executar containers: ela também facilita o processo de criação e construção de containers, o envio e o controle de versão de imagens, dentre outras coisas.
 
-<div class='imagem' markdown='1' style="width: 100%">
+<figure>
+    <img src="../_docker/traditional-linux-containers-vs-docker.png" width="100%" title="Fonte: https://www.redhat.com/en/topics/containers/what-is-docker"/>
+    <figcaption>Diferença entre containers tradicional e docker </figcaption>
+</figure>
 
-![traditional-linux-containers-vs-docker](_docker/traditional-linux-containers-vs-docker.png)
-
-</div>
-
-Os containers Linux tradicionais usam um sistema *init* capaz de gerenciar vários processos. Isso significa que aplicações inteiras são executadas como uma. A tecnologia Docker incentiva que as aplicações sejam segregadas em processos separados e oferece as ferramentas para fazer isso. Essa abordagem granular tem algumas vantagens.
+Os containers Linux tradicionais usam um sistema *init* capaz de gerenciar vários processos. Isso significa que aplicações inteiras são executadas como um processo. A tecnologia Docker incentiva que as aplicações sejam segregadas em processos separados e oferece as ferramentas para fazer isso. Essa abordagem granular tem algumas vantagens e desvantagens.
 
 #### Vantagens
 
-- **Utilização leve de recursos**: Em vez da virtualização de um sistema operacional inteiro, os contêineres isolam no nível de processos e utilizam o kernel do host.
+`Utilização leve de recursos`
+:  Em vez da virtualização de um sistema operacional inteiro, os contêineres isolam no nível de processos e utilizam o kernel do host.
 
-- **Portabilidade**: Todas as dependências para uma aplicação conteinerizada são empacotadas dentro do contêiner, permitindo-a executar em qualquer host Docker.
+`Portabilidade`
+:  Todas as dependências para uma aplicação conteinerizada são empacotadas dentro do contêiner, permitindo-a executar em qualquer host Docker.
 
-- **Modularidade**: A abordagem do Docker para a containerização se concentra na habilidade de desativar uma parte de uma aplicação, seja para reparo ou atualização, sem interrompê-la totalmente. Além dessa abordagem baseada em microsserviços, é possível compartilhar processos entre várias aplicações da mesma maneira como na arquitetura orientada a serviço (SOA).
+`Modularidade`
+:  A abordagem do Docker para a containerização se concentra na habilidade de desativar uma parte de uma aplicação, seja para reparo ou atualização, sem interrompê-la totalmente. Além dessa abordagem baseada em microsserviços, é possível compartilhar processos entre várias aplicações da mesma maneira como na arquitetura orientada a serviço (SOA).
 
-- **Controle de versões**:  O controle de versões é inerente ao uso de camadas. Sempre que é realizada uma nova alteração, é gerado um *changelog* integrado, o que fornece controle total sobre as imagens do container.
+`Controle de versões`
+:  O controle de versões é inerente ao uso de camadas. Sempre que é realizada uma nova alteração, é gerado um *changelog* integrado, o que fornece controle total sobre as imagens do container.
 
-- **Reversão**: Talvez a melhor vantagem da criação de camadas seja a habilidade de reverter quando necessário. Toda imagem possui camadas. Não gostou da iteração atual de uma imagem? Simples, basta reverter para a versão anterior. Esse processo é compatível com uma abordagem de desenvolvimento ágil e possibilita as práticas de integração e implantação contínuas (CI/CD) em relação às ferramentas.
+`Reversão`
+:  Talvez a melhor vantagem da criação de camadas seja a habilidade de reverter quando necessário. Toda imagem possui camadas. Não gostou da iteração atual de uma imagem? Simples, basta reverter para a versão anterior. Esse processo é compatível com uma abordagem de desenvolvimento ágil e possibilita as práticas de integração e implantação contínuas (CI/CD) em relação às ferramentas.
 
-- **Implantação rápida** Antigamente, colocar novo hardware em funcionamento, provisionado e disponível, levava dias. E as despesas e esforço necessários para mantê-lo eram onerosos. Os containers baseados em docker podem reduzir o tempo de implantação de horas para segundos. Ao criar um container para cada processo, é possível compartilhar rapidamente esses processos similares com novos aplicativos. Como não é necessário inicializar um sistema operacional para adicionar ou mover um container, o tempo de implantação é substancialmente menor. Além disso, com a velocidade de implantação, é possível criar dados e destruir os criados pelos containers sem nenhuma preocupação e com facilidade e economia.
+`Implantação rápida`
+:  Antigamente, colocar novo hardware em funcionamento, provisionado e disponível, levava dias. E as despesas e esforço necessários para mantê-lo eram onerosos. Os containers baseados em docker podem reduzir o tempo de implantação de horas para segundos. Ao criar um container para cada processo, é possível compartilhar rapidamente esses processos similares com novos aplicativos. Como não é necessário inicializar um sistema operacional para adicionar ou mover um container, o tempo de implantação é substancialmente menor. Além disso, com a velocidade de implantação, é possível criar dados e destruir os criados pelos containers sem nenhuma preocupação e com facilidade e economia.
 
 Em resumo, a tecnologia Docker é uma abordagem mais granular, controlável e baseada em microsserviços que valoriza a eficiência.
 
@@ -78,24 +76,22 @@ Além disso, há outros subsistemas e dispositivos do Linux sem espaço de nomes
 
 ## Instalação
 
-```sh
-# Ubuntu
+```bash
+# Debian/Ubuntu
 sudo apt install docker.io
 ```
 
-## Versão
-
 Ver a versão instalada:
 
-```sh
+```bash
 sudo docker -v
 ```
 
-## Status
+## Serviço
 
-Ver status do docker:
+### Ver status do serviço
 
-```sh
+```bash
 sudo systemctl status docker
 ```
 
@@ -106,11 +102,9 @@ sudo systemctl status docker
      Docs: https://docs.docker.com
 ```
 
-## Serviço
+### Iniciar serviço
 
-Iniciar serviço.
-
-```sh
+```bash
 sudo systemctl start docker
 ```
 
@@ -138,9 +132,9 @@ set 11 16:35:29 archlinux dockerd[46625]: time="2019-09-11T16:35:29.828163899-03
 set 11 16:35:29 archlinux systemd[1]: Started Docker Application Container Engine.
 ```
 
-Habilitar serviço para iniciar após *boot*
+### Habilitar serviço para iniciar após o boot
 
-```sh
+```bash
 sudo systemctl enable docker
 ```
 
@@ -148,7 +142,7 @@ sudo systemctl enable docker
 
 Para adicionar o usuário no grupo `docker` e realizar o acesso sem utilizar `sudo`. Execute o comando abaixo:
 
-```sh
+```bash
 sudo usermod -aG docker ${USER}
 # ou
 sudo usermod -aG docker <nome-usuario>
@@ -156,13 +150,13 @@ sudo usermod -aG docker <nome-usuario>
 
 Faça o *logout* ou execute:
 
-```sh
+```bash
 su - ${USER}
 ```
 
 Confira os grupos do usuário:
 
-```sh
+```bash
 id -nG
 ```
 
@@ -170,55 +164,55 @@ id -nG
 
 Um comando docker segue o formato:
 
-```sh
+```bash
 docker [option] [command] [arguments]
 ```
 
 Para ver a lista de opções e comandos:
 
-```sh
+```bash
 docker --help
 ```
 
 Para ver mais informações de um comando:
 
-```sh
+```bash
 docker <comando> --help
 ```
 
 Para especificar se um comando será executado sobre um volume ou um container, podemos usar:
 
-```sh
+```bash
 docker container <comando>
 docker volume  <comando>
 ```
 
-### Trabalhando com imagens Docker
+### Comandos para imagens
 
 #### Verificar acesso ao Docker Hub
 
 Verificar se você pode acessar e baixar imagens do Docker Hub:
 
-```sh
+```bash
 docker run hello-world
 ```
 
-```txt
-Unable to find image 'hello-world:latest' locally
-latest: Pulling from library/hello-world
-9bb5a5d4561a: Pull complete
-Digest: sha256:3e1764d0f546ceac4565547df2ac4907fe46f007ea229fd7ef2718514bcec35d
-Status: Downloaded newer image for hello-world:latest
+!!! note "Saída"
 
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
-```
+    Unable to find image 'hello-world:latest' locally
+    latest: Pulling from library/hello-world
+    9bb5a5d4561a: Pull complete
+    Digest: sha256:3e1764d0f546ceac4565547df2ac4907fe46f007ea229fd7ef2718514bcec35d
+    Status: Downloaded newer image for hello-world:latest
+
+    Hello from Docker!
+    This message shows that your installation appears to be working correctly.
 
 #### Procurar imagem
 
 Procurar imagem no Docker Hub:
 
-```sh
+```bash
 docker search <imagem>
 ```
 
@@ -226,7 +220,7 @@ docker search <imagem>
 
 Baixar imagem do Docker Hub:
 
-```sh
+```bash
 docker pull <imagem>
 ```
 
@@ -234,7 +228,7 @@ docker pull <imagem>
 
 Listar todas imagens:
 
-```sh
+```bash
 docker images
 # ou
 docker images --all
@@ -242,97 +236,103 @@ docker images --all
 docker images -a
 ```
 
+Listar imagens pendentes.
+
+```bash
+docker images -f dangling=true
+```
+
+!!! note "Notas"
+    As imagens Docker consistem de várias camadas. As imagens pendentes são camadas que não têm relação com nenhuma imagem marcada. Elas não servem a um propósito e consomem espaço em disco.
+
 #### Remover imagem
 
 Remover imagem:
 
-```sh
+```bash
 docker rmi <imagem>
 ```
 
 Remover imagens pendentes:
 
-```sh
+```bash
 docker images purge
 ```
 
-### Trabalhando com containers Docker
+### Comandos para containers
 
 #### Criar container
 
 Criar e inicia um container.
 
-```sh
+```bash
 docker run <imagem>
 ```
 
-##### Criar container com nome desejado {ignore=true}
+##### Criar container com nome desejado
 
 Criar e inicia um container com nome definido pelo usuário.
 
-```sh
+```bash
 docker run --name <nome> <imagem>
 ```
 
-##### Criar e acessar terminal do container {ignore=true}
+##### Criar e acessar terminal do container
 
-```sh
+```bash
 docker run -it <imagem>
 # -i: iteratividade
 # -t: link com o terminal do container
 ```
 
-```txt
+!!! note "Saída"
 root@d9b100f2f636:/#
-```
 
 Onde `d9b100f2f636` é o id do container.
 
-É possível mudar o nome de um container com a chave `--name`
+##### Criar container com portas mapeadas
 
-##### Criar container com portas mapeadas {ignore=true}
-
-```sh
+```bash
 docker run -it -p <porta-host>:<porta-container> <imagem> /bin/bash
 # -p: portas
 ```
 
-##### Criar container auto destrutivo {ignore=true}
+##### Criar container auto destrutivo
 
-Ao usar um exit para sair do Terminal do SO rodando no container, o mesmo será removido.
+Ao usar um exit para sair do Terminal do S.O. rodando no container, o mesmo será removido.
 
-```sh
+```bash
 docker run -it --rm <imagem> /bin/bash
 # --rm: remover container
 ```
 
-##### Criar container em segundo plano {ignore=true}
+##### Criar container em segundo plano
 
 Cria e inicia o container em segundo plano.
 
-```sh
+```bash
 docker run -d -p <porta-host>:<porta-container> <imagem> <comando>
 # -d: executar em segundo plano
 ```
 
-##### Criar container com volume {ignore=true}
+##### Criar container com volume
 
 Cria e inicia o container com volume mapeado. Se o volume não existe, ele será criado automaticamente.
 
-```sh
+```bash
 docker run -d --name <nome> -v <volume>:<path-container> <imagem>
 # -v: volume
 ```
 
 #### Status do container
 
-```sh
+```bash
 docker stats <id-ou-nome>
 ```
 
 #### Informações do container
 
-```sh
+```bash
 docker inspect <id-ou-nome>
 ```
 
@@ -342,23 +342,25 @@ docker inspect <id-ou-nome>
 
 Acessar terminal de um container ativo. O comando `exec` executa o comando passado, portando poderia executar qualquer comando dentro do container além de `bash`.
 
-```sh
+```bash
 docker exec -it <id-container> bash
 # ou
 docker exec -it <id-container> /bin/bash
+# ou
+docker exec -it <id-container> /bin/sh
 ```
 
 #### Listar containers
 
 Listar somente containers ativos:
 
-```sh
+```bash
 docker ps
 ```
 
 Listar todos containers ativos e inativos:
 
-```sh
+```bash
 docker ps -a
 # ou
 docker ps --all
@@ -366,7 +368,7 @@ docker ps --all
 
 Listar último container criado:
 
-```sh
+```bash
 docker ps -l
 ```
 
@@ -374,7 +376,7 @@ docker ps -l
 
 Para iniciar um container parado:
 
-```sh
+```bash
 docker start <id-ou-nome>
 ```
 
@@ -382,7 +384,7 @@ docker start <id-ou-nome>
 
 Para parar um container ativo:
 
-```sh
+```bash
 docker stop <id-ou-nome>
 ```
 
@@ -390,7 +392,7 @@ docker stop <id-ou-nome>
 
 Remover container:
 
-```sh
+```bash
 docker rm <id-ou-nome>
 ```
 
@@ -400,7 +402,7 @@ As mudanças feitas no container serão perdidas para sempre.
 
 Definindo valor para as variáveis de ambiente presentes no container.
 
-```sh
+```bash
 docker run -d -e <variavel>=<valor> -e <variavel>=<valor> <imagem>
 ```
 
@@ -410,56 +412,56 @@ Quando você inicia uma imagem Docker, você pode criar, modificar e excluir arq
 
 Salvar o estado de um container como uma nova imagem do Docker localmente:
 
-```sh
-docker commit -m "MENSAGEM" -a "NOME-AUTOR" ID-CONTAINER USUARIO/<novo-nome-imagem>
+```bash
+docker commit -m "MENSAGEM" -a "NOME-AUTOR" <id-container> <usuario>/<novo-nome-imagem>
 # -m: mensagem de commit
 # -a: especificar o autor
 ```
 
-Para enviar a imagem para Docker Hub:
+Autenticar no Docker Hub:
 
-```sh
+```bash
 docker login -u <usuario-dockerhub>
 ```
 
 Se seu nome de usuário do registro do Docker for diferente do nome de usuário local usado para criar a imagem, você terá que marcar sua imagem com o nome de usuário do registro:
 
-```sh
-docker tag USUARIO/<novo-nome-imagem> <usuario-dockerhub>/<novo-nome-imagem>
+```bash
+docker tag <usuario>/<novo-nome-imagem> <usuario-dockerhub>/<novo-nome-imagem>
 ```
 
 Enviar imagem:
 
-```sh
+```bash
 docker push <usuario-dockerhub>/<novo-nome-imagem>
 ```
 
 Agora estará disponível para baixar:
 
-```sh
+```bash
 docker pull <usuario-dockerhub>/<novo-nome-imagem>
 ```
 
-### Trabalhando com volumes Docker
+### Comando para volumes
 
 #### Criar volume portável
 
 Criar um volume portável, sem a necessidade de associá-lo a um container especial. O volume pode ser consumido por qualquer container.
 
-```sh
+```bash
 docker volume create <nome>
 ```
 
 Iniciar container com volume criado.
 
-```sh
+```bash
 docker run -d -v <volume>:<path-container> <imagem>
 # -v: volume
 ```
 
 Iniciar container com volume criado com permissão de somente para leitura.
 
-```sh
+```bash
 docker run -d -v <volume>:<path-container>:ro <imagem>
 # -ro: somente leitura
 ```
@@ -470,37 +472,37 @@ O volume será atrelado ao container.
 
 Inicia container e cria e mapeia o volume para o *path* do container. O *path* do host será o padrão definido pelo docker. No Ubuntu o path padrão é `/var/lib/docker/volumes`
 
-```sh
+```bash
 docker run -d --name <nome-container> -v <path-container> <imagem>
 ```
 
 Iniciar container e também cria e mapeia o volume definindo o *path* do *host* e container.
 
-```sh
+```bash
 docker run -d --name <nome-container> -v <path-host>:<path-container> <imagem>
 ```
 
 #### Listar volumes
 
-```sh
+```bash
 docker volume ls
 ```
 
 #### Remover volume
 
-```sh
+```bash
 docker volume rm <volume>
 ```
 
 Remover volumes não usados
 
-```sh
+```bash
 docker volume prune
 ```
 
 #### Informações do volume
 
-```sh
+```bash
 docker volume inspect <volume>
 ```
 
@@ -510,14 +512,12 @@ docker volume inspect <volume>
 
 Remover imagens, containers, volumes e redes não usadas ou pendentes.
 
-```sh
+```bash
 docker system prune
 ```
 
-## Links
+## Referências
 
 - <https://docs.docker.com/compose/compose-file>
-
 - <https://www.digitalocean.com/community/tutorials/o-ecossistema-do-docker-uma-introducao-aos-componentes-comuns-pt>
-
 - <https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes>

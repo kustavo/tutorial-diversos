@@ -1,0 +1,38 @@
+/* Remover contador de estrlas e fork do github */
+.md-source__facts {
+    display: none;
+}
+
+/* Bloco de código dentro de admonitions */
+.md-typeset details code {
+    font-size: 1em;
+}
+
+/* Bloco do corpo do texto */
+.md-typeset {
+    text-align: justify;
+}
+
+.md-typeset pre > code,
+iframe {
+    border: 1px solid #e4e4e4;
+}
+
+/* Linha menu direita */
+/* .md-sidebar--secondary .md-sidebar__scrollwrap {
+    border-left: 1px solid #d7d8de;
+} */
+
+.tx-hero {
+    text-align: left;
+}
+
+/* iframes */
+iframe {
+    width: 100%;
+    overflow: hidden;
+}
+
+iframe body {
+    margin: 0;
+}

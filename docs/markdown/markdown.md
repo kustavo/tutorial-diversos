@@ -1,13 +1,24 @@
-# Markdown (GitHub Flavored Markdown)
+# Markdown
 
-[TOC]
+Markdown é uma linguagem de marcação com sintaxe de formatação de texto simples (*plain-text*), criada em 2004 por John Gruber e Aaron Swartz. Markdown é frequentemente usado para formatar arquivos *readme*, para escrever mensagens em fóruns de discussão e para criar textos com formatação (*rich text*) usando um editor de texto simples.
 
-## Links
+Não há uma especificação formal para Markdown. Com o passar do tempo, muitas implementações de Markdown apareceram principalmente pela necessidade de recursos adicionais sobre a sintaxe básica, como por exemplo, tabelas, notas de rodapé, listas de definição/descrição e Markdown dentro de blocos HTML. O comportamento de alguns deles diverge da implementação de referência. Ao mesmo tempo, uma série de ambiguidades na especificação informal têm levado ao desenvolvimento de ferramentas e *parsers* para criar uma padronização. No entanto, Gruber argumentou que a padronização completa seria um erro:
 
-- [Writing on GitLab](https://gitlab.com/help/user/markdown)
-- [Writing on GitHub](https://help.github.com/categories/writing-on-github/)
+!!! quote "Citação"
+    Diferentes sites (e pessoas) têm necessidades diferentes. Nenhuma sintaxe faria todos felizes.
 
-## Cabeçalhos
+Em março de 2016, foram publicadas duas RFCs informativas relevantes da Internet:
+
+- RFC 7763 introduziu MIME type `text/markdown` com a variação original.
+- RFC 7764 registrou as variantes: MultiMarkdown, GFM - GitHub Flavored Markdown, Pandoc, CommonMark e Markdown Extra entre outros.
+
+## GFM - GitHub Flavored Markdown
+
+Em 2017, o GitHub lançou uma especificação formal de seu GitHub Flavored Markdown (GFM) que é baseado no CommonMark (Uma especificação fortemente definida e altamente compatível de Markdown). É um superconjunto estrito do CommonMark, seguindo sua especificação exatamente, exceto para tabelas, tachado, autolinks e listas de tarefas, que GFM adiciona como extensões. GitHub também mudou o analisador usado em seus sites, o que exigiu que alguns documentos fossem alterados. Por exemplo, o GFM agora requer que o símbolo hash que cria um título seja separado do texto do título por um caractere de espaço. No entanto, muito da linguagem original é aceito pelo site.
+
+Veja a seguir algumas especificações para criar um documento markdown com a variante GFM.
+
+### Cabeçalhos
 
 ```md
 # Cabeçalho nível 1 (maior)
@@ -15,7 +26,7 @@
 ###### Cabeçalho nível 6 (menor)
 ```
 
-## Estilos
+### Estilos
 
 ```md
 Negrito: **Texto em negrito**, __Texto em negrito__
@@ -27,14 +38,14 @@ Tachado: ~~Texto tachado~~
 Negrito e itálico: **_Texto negrito e itálico_**, _**Texto negrito e itálico**_
 ```
 
-## Citações de texto
+### Citações de texto
 
 ```md
 Como diria o meu avô:
 > Água mole, pedra dura, tanto bate até que fura.
 ```
 
-## Citações de código
+### Citações de código
 
 ```md
 `# Texto sem formatação`
@@ -47,7 +58,7 @@ que pode ser usado em *blocos*
 `` `
 ```
 
-## Links
+### Links
 
 Somente link
 
@@ -67,7 +78,7 @@ Texto com link
 
 ```
 
-## Listas
+### Listas
 
 ```md
 - Primeiro
@@ -77,7 +88,7 @@ Texto com link
         - Primeiro neto
 ```
 
-## Listas numeradas
+### Listas numeradas
 
 ```md
 1. Primeiro
@@ -103,7 +114,7 @@ Se usar o modo antigo  com `markdownlint` habilitado, é necessário mudar a con
 }
 ```
 
-## Lista de tarefas
+### Lista de tarefas
 
 ```md
 - [x] Tarefa 1
@@ -112,7 +123,7 @@ Se usar o modo antigo  com `markdownlint` habilitado, é necessário mudar a con
 - [ ] \(Se iniciar com parênteses tem que escapar)
 ```
 
-## Parágrafos
+### Parágrafos
 
 Basta deixar uma linha em branco
 
@@ -122,13 +133,13 @@ Parágrafo 1
 Parágrafo 2
 ```
 
-## Escapar
+### Escapar
 
 ```md
 Basta usar a barra \*invertida\* para escapar
 ```
 
-## Quebra de Linha
+### Quebra de Linha
 
 ```md
 Basta quebrar a linha (ENTER) logo após a barra \*invertida\*
@@ -140,7 +151,7 @@ Evitar a separação de palavras durante uma quebra de linha.
 <nobr>Não serei quebrado</nobr>
 ```
 
-## Tabelas
+### Tabelas
 
 ```md
 | Primeiro cabeçalho | Segundo cabeçalho |
@@ -167,19 +178,19 @@ Tabela com alinhamento
 | Conteúdo             | Conteúdo           | Conteúdo            |
 ```
 
-## Vídeo (GitLab)
+### Vídeo (GitLab)
 
 ```md
 ![Amostra Vídeo](caminho/video.mp4)
 ```
 
-## Imagem (GitLab)
+### Imagem (GitLab)
 
 ```md
 ![alt text](caminho/img.png)
 ```
 
-## Matemática (GitLab)
+### Matemática (GitLab)
 
 ```md
 `` `math
@@ -187,7 +198,7 @@ a^2+b^2=c^2
 `` `
 ```
 
-## Html
+### Html
 
 ```md
 <dl>
@@ -199,7 +210,7 @@ a^2+b^2=c^2
 </dl>
 ```
 
-## Linha horizontal
+### Linha horizontal
 
 Três ou mais caracteres iguais a:
 
@@ -209,14 +220,14 @@ Três ou mais caracteres iguais a:
 ___
 ```
 
-## Notas rodapé
+### Notas rodapé
 
 ```md
 Este texto possui uma anotação de rodapé.[^1]
 [^1]: Este é meu rodapé.
 ```
 
-## Referências (GitLab)
+### Referências (para o GitLab)
 
 |Entrada               |Referência|
 |--- |--- |
@@ -261,31 +272,18 @@ Referência Cross-project (Anotação curta)
 |project@9ba12248...b19a04f5  |commit range comparison|
 |project~"Some label"         |issues with given label|
 
-## Ferramentas
+## Links interessantes
 
-### Conversores
+- Formatação de tabela de modo mais legível
+    - <http://markdowntable.com>
 
-Converter tabela HTML para tabela markdown
+- Conversores
+    - Converter tabela HTML para tabela markdown
+        - <http://markdowntables.mrvautin.com>
 
-<http://markdowntables.mrvautin.com>
+    - Converter geral para markdown
+        - <https://pandoc.org/try>
 
-Converter geral para markdown
-
-<https://pandoc.org/try>
-
-### Formatação
-
-Formatar tabela markdown de modo mais legível
-
-<http://markdowntable.com>
-
-### Visualizadoreres
-
-Visualizador markdown
-
-<https://dillinger.io>
-
-## Links
 - Representação de comandos de prompt
     - <http://docopt.org/>
     - <https://developers.google.com/style/code-syntax>
@@ -295,3 +293,9 @@ Visualizador markdown
 
 - Gerador de tabela
     - <https://www.tablesgenerator.com/markdown_tables>
+
+## Referências
+
+- <https://en.wikipedia.org/wiki/Markdown>
+- <https://gitlab.com/help/user/markdown>
+- <https://help.github.com/categories/writing-on-github>

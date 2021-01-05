@@ -1,12 +1,14 @@
-# Pop! OS
+# Pop!_OS
 
-## Reparar o systemd-boot
+Pop!_OS é uma distribuição linux gratuita de código-aberto, com base no Ubuntu, apresentando um ambiente de trabalho GNOME customizado. A distribuição é desenvolvida pela fabricante de computadores americana System76.
+
+## Systemd-boot
+
+### Reparar o systemd-boot
 
 ```bash
-# Ex: sistema = /dev/nvme1n1p1; efi = /dev/nvme1n1p7
-
-sudo mount /dev/nvme1n1p7 /mnt
-sudo mount /dev/nvme1n1p1 /mnt/boot/efi
+sudo mount <particao-sistema> /mnt
+sudo mount <particao-efi> /mnt/boot/efi
 for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
 sudo cp /etc/resolv.conf /mnt/etc/
 sudo chroot /mnt
@@ -14,9 +16,9 @@ apt install --reinstall linux-generic linux-headers-generic
 update-initramfs -c -k all
 exit
 sudo bootctl --path=/mnt/boot/efi install
-``` 
+```
 
-## Alterar opções de boot do systemd-boot
+### Gerenciar opções de boot
 
 As opções de boot são os arquivos `.conf` em `/boot/efi/loader/entries`.
 
@@ -29,18 +31,17 @@ efi /EFI/Microsoft/Boot/bootmgfw.efi
 # A partição `/boot` é só um ponto de montagem da partição `efi`
 ```
 
-As configurações de boot estão em:  `/boot/efi/loader/loader.conf`:
+As configurações de boot estão em `/boot/efi/loader/loader.conf`:
 
 ```ini
 default windows.conf
 timeout 10
-auto-entries 0
 # Evitar que apareça opções de busca automática que não então em `/boot/efi/loader/entries`.
+auto-entries 0
 ```
 
-## Listar sistemas presentes na partição EFI
+### Listar sistemas presentes na partição EFI
 
 ```bash
 ls -l /boot/efi/EFI
 ```
-

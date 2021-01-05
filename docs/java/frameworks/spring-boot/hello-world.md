@@ -155,7 +155,7 @@ Onde:
 
 Para rodar a aplicação devemos executar o comando `run` do plugin `spring-boot`:
 
-```sh
+```bash
 mvn spring-boot:run
 ```
 
@@ -165,12 +165,12 @@ O *Spring Boot* **empacota o aplicativo e suas dependências** em um único JAR 
 
 Para executar a aplicação através do *JAR*, primeiramente execute o comando abaixo para criar o *Fat JAR*.
 
-```sh
+```bash
 mvn clean package
 ```
 
 Para rodar o *JAR*, execute:
 
-```sh
+```bash
 java -jar CAMINHO/target/hello_world-0.0.1-SNAPSHOT.jar
 ```

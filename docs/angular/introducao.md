@@ -14,32 +14,32 @@ Angular nos ajuda a criar Single-Page Applications com uma qualidade e produtivi
 
 ### Instalação
 
-```sh
+```bash
 npm install -g @angular/cli
 ```
 
 Especificando a versão de instalação. [Ver versões](https://github.com/angular/angular-cli/releases).
 
-```sh
+```bash
 npm install -g @angular/cli@v10.0.0-rc.3
 ```
 
 ### Criar projeto
 
-```sh
+```bash
 ng new <projeto>
 ```
 
 ### Executar projeto
 
-```sh
+```bash
 cd <projeto>
 ng serve
 ```
 
 ### Criar arquivos
 
-```sh
+```bash
 ng generate <tipo> <nome>
 ```
 
@@ -63,13 +63,13 @@ Tipos possíveis:
 
 #### Criar componente
 
-```sh
+```bash
 ng generate component <name>
 ```
 
 #### Adicionar módulo de rotas
 
-```sh
+```bash
 ng generate module app-routing --flat --module=app
 ```
 

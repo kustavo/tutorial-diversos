@@ -1,9 +1,5 @@
 # Docker-Compose
 
-[TOC]
-
-[[_TOC_]]
-
 ## Introdução
 
 Geralmente com o aumento do número de containers em execução, fica evidente a necessidade de um melhor gerenciamento da sua comunicação, pois é ideal que os serviços consigam trocar dados entre os containers quando necessário, ou seja, você precisa lidar com a rede desse novo ambiente.
@@ -19,6 +15,8 @@ O arquivo de definição do Docker Compose é o local onde é especificado todo 
 Para ver a versão do arquivo que é compatível com a versão do docker, acesse esse [link](<https://docs.docker.com/compose/compose-file/>).
 
 ## Anatomia do docker-compose.yml
+
+Exemplo 1:
 
 ```yml
 version: '3.4'           # versão do docker-compose
@@ -41,7 +39,7 @@ services:
       - ./dados:/docker-entrypoint-initdb.d # mapeia o volume <exposta>:<container>
 ```
 
-Outro exemplo
+Exemplo 2:
 
 ```yml
 version: '3.6'
@@ -58,10 +56,10 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql/data  # mapeamento do volume
 
 volumes:
-    db-data:
+    db-data:                              # definições do volume
       name: postgres-volume
 ```
 
@@ -69,28 +67,28 @@ volumes:
 
 Cria e inicia os containers. Se o nome do arquivo for `docker-compose.yml` **não** é necessário informá-lo com `-f <nome>`.
 
-```sh
+```bash
 docker-compose -f <nome.yml> up -d
 # -f: arquivo
 ```
 
 Inicia os containers sem criá-los. Usado caso os containers já foram criados.
 
-```sh
+```bash
 docker-compose start <nome.yml>
 ```
 
-## Parar Containers
+## Parar containers
 
 Para e remove containers.
 
-```sh
+```bash
 docker-compose -f <nome.yml> down
 ```
 
 Para containers sem removê-los.
 
-```sh
+```bash
 docker-compose stop <nome.yml>
 ```
 
@@ -98,16 +96,18 @@ docker-compose stop <nome.yml>
 
 Listar todos os serviços que foram iniciados a partir do arquivo yml.
 
-```sh
+```bash
 docker-compose ps <nome.yml>
 ```
 
-## Erros
+## Erros e soluções
+
+### Localhost
 
 Não encontrado em localhost.
 
-Solução:
+??? tip "Solução"
 
-```sh
-export DOCKER_HOST=127.0.0.1
-```
+    ```bash
+    export DOCKER_HOST=127.0.0.1
+    ```

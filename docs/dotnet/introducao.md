@@ -10,7 +10,7 @@ Página de download: <https://dotnet.microsoft.com/download/dotnet-core>
 
 Adicionar repositório e instalação.
 
-```sh
+```bash
 wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo sdpkg -i packages-microsoft-prod.deb
 
@@ -22,13 +22,13 @@ sudo apt-get install dotnet-sdk-3.1
 
 ### Local da instalação
 
-```sh
+```bash
 /usr/share/dotnet
 ```
 
 ### Configurar variáveis de sistema
 
-```sh
+```bash
 export DOTNET_ROOT=$(dirname $(realpath $(which dotnet)))
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true
 ```
@@ -150,7 +150,7 @@ O arquivo `web.config` é usado apenas pelo IIS (Windows).
 
 Criar nova solução
 
-```sh
+```bash
 dotnet new sln -n <nome-solucao>
 
 # Parâmetros
@@ -161,13 +161,13 @@ dotnet new sln -n <nome-solucao>
 
 Criar projeto tipo `console`.
 
-```sh
+```bash
 dotnet new console -o <projeto>
 ```
 
 Criar projeto tipo `biblioteca de classes`.
 
-```sh
+```bash
 dotnet new classlib -f <framework> -o <diretorio> -n <nome-projeto>
 # Exemplo:
 dotnet new classlib -f netcoreapp3.1 -o NerdStore.Catalogo.Domain
@@ -175,25 +175,25 @@ dotnet new classlib -f netcoreapp3.1 -o NerdStore.Catalogo.Domain
 
 Criar projeto tipo `ASP.NET Core vazio`.
 
-```sh
+```bash
 dotnet new web -o <projeto>
 ```
 
 Criar projeto tipo `API Web do ASP.NET Core`.
 
-```sh
+```bash
 dotnet new webapi -o <projeto>
 ```
 
 Criar projeto tipo `Aplicativo Web ASP.NET Core`.
 
-```sh
+```bash
 dotnet new webapp -o <projeto>
 ```
 
 Criar projeto tipo `Aplicativo Web ASP.NET Core MVC`.
 
-```sh
+```bash
 dotnet new mvc -o <projeto> -au Individual
 
 # Parâmetros
@@ -202,13 +202,13 @@ dotnet new mvc -o <projeto> -au Individual
 
 Criar projeto tipo `Xunit`.
 
-```sh
+```bash
 dotnet new xunit -o <projeto>
 ```
 
 ## Criar pasta de projeto
 
-```sh
+```bash
 dotnet new <typeproj> -o <pasta-solucao> -n <nome-pasta>
 
 # Exemplo
@@ -219,7 +219,7 @@ dotnet new <typeproj> -o "Services/Catalogo" -n "Catalogo"
 
 ### Associar projeto a solução
 
-```sh
+```bash
 dotnet sln add -s <pasta-solucao> <diretorio-projeto>/<arquivo>.csproj
 
 # Exemplo
@@ -228,7 +228,7 @@ dotnet sln add -s Services/Catalogo src/NerdStore.Catalogo.Domain/NerdStore.Cata
 
 ### Desassociar projeto a solução
 
-```sh
+```bash
 dotnet sln remove -s <pasta-solucao> <diretorio-projeto>/<arquivo>.csproj
 
 # Exemplo
@@ -237,13 +237,13 @@ dotnet sln remove src/NerdStore.Catalogo.Domain/NerdStore.Catalogo.Domain.csproj
 
 ### Associar projeto a outro projeto
 
-```sh
+```bash
 dotnet add <diretorio-projeto> reference <diretorio-projeto-referenciado>
 ```
 
 ### Desassociar projeto de outro projeto
 
-```sh
+```bash
 dotnet remove <diretorio-projeto> reference <diretorio-projeto-referenciado>
 
 # Exemplo
@@ -252,13 +252,13 @@ dotnet remove Projeto.csproj reference src/NerdStore.Catalogo.Domain/NerdStore.C
 
 ## Listar projetos da solução
 
-```sh
+```bash
 dotnet sln list 
 ```
 
 ## Compilar solução ou projeto
 
-```sh
+```bash
 dotnet build
 ```
 
@@ -270,7 +270,7 @@ As implantações de aplicativo autocontatidas do .NET Core incluem as bibliotec
 
 [Lista de runtimes](https://github.com/dotnet/runtime/blob/master/src/libraries/pkg/Microsoft.NETCore.Platforms/runtime.json)
 
-```sh
+```bash
 dotnet publish -f <framework> -c <configuracao> -o <diretorio-saida> --self-contained true -r <rid-runtime-id> -p:<propriedade-nome>=<valor>
 
 # Exemplo
@@ -279,13 +279,13 @@ dotnet publish -f netcoreapp2.2 -o ~/MeuDeploy --self-contained true -r ubuntu.1
 
 ## Rodar a solução ou projeto publicado
 
-```sh
+```bash
 dotnet <nome-solucao-ou-projeto>.dll --environment <nome-environment> --server.urls http://0.0.0.0:5000
 ```
 
 ## Instalar as dependências (pacotes) do projeto
 
-```sh
+```bash
 dotnet restore
 ```
 
@@ -295,20 +295,20 @@ O EF Core (`Entity Framework Core`) é um O/RM (mapeador relacional de objeto) q
 
 ### Instalar o CLI do EF
 
-```sh
+```bash
 dotnet tool install --global dotnet-ef
 ```
 
 ### Adicionar o pacote do EF
 
-```sh
+```bash
 dotnet add package Microsoft.EntityFrameworkCore
 dotnet add package Microsoft.EntityFrameworkCore.Design
 ```
 
 ### Instalar o provedor do banco para o EF
 
-```sh
+```bash
 dotnet add <projeto> package <pacote-provedor-banco>
 
 # Exemplo PostgreSQL:
@@ -333,7 +333,7 @@ public class MeuContexto : DbContext {
 
 ### Criar uma migration
 
-```sh
+```bash
 dotnet ef migrations add <nome> -p <caminho-projeto-migrations> -s <caminho-projeto-startup> -c <nome-contexto> --framework <netcoreapp#.#>
 ```
 
@@ -341,13 +341,13 @@ dotnet ef migrations add <nome> -p <caminho-projeto-migrations> -s <caminho-proj
 
 Remove a última *migration* ainda **não aplicada ao banco**.
 
-```sh
+```bash
 dotnet ef migrations remove
 ```
 
 Remover todas migrations
 
-```sh
+```bash
 dotnet ef database update 0
 dotnet ef migrations remove
 ```
@@ -356,13 +356,13 @@ dotnet ef migrations remove
 
 Reverter uma ou várias *migrations*, até a migrations informada.
 
-```sh
+```bash
 dotnet ef database update <nome>
 ```
 
 ### Lista as migrations
 
-```sh
+```bash
 dotnet ef migrations list
 ```
 
@@ -370,7 +370,7 @@ dotnet ef migrations list
 
 Gera um script SQL das aplicações que serão feitas no banco.
 
-```sh
+```bash
 dotnet ef migrations script -from <nome> -to <nome>
 ```
 
@@ -380,7 +380,7 @@ Os argumentos `<from>` e `<to>` são opcionais. Por padão será pego da primeir
 
 Aplica as *migrations* no banco. Se o banco não existir, também será criado.
 
-```sh
+```bash
 dotnet ef database update
 ```
 
@@ -410,7 +410,7 @@ Não chame `EnsureCreated()` antes de `Migrate()`. O `EnsureCreated()` ignora as
 
 ### Instalar
 
-```sh
+```bash
 dotnet add <projeto> package <pacote> <versao>
 
 # exemplo: dotnet add ~/ToDo.csproj package Microsoft.Azure.DocumentDB.Core -v 1.0.0
@@ -420,7 +420,7 @@ Os argumento `<projeto>` e `<versao>` são opcionais. Pode basear no diretório 
 
 ### Remover
 
-```sh
+```bash
 dotnet remove <projeto> package <pacote>
 ```
 
@@ -428,7 +428,7 @@ O argumento `<projeto>` é opcional. Pode basear no diretório corrente.
 
 ### Restaurar
 
-```sh
+```bash
 dotnet restore <projeto|solucao>
 ```
 
@@ -440,13 +440,13 @@ O argumento `<projeto|solucao>` é opcional. Pode basear no diretório corrente.
 
 Erro de concorrencia de processos
 
-```sh
+```bash
 dotnet build-server shutdown
 ```
 
 Se não funcionar, matar todas os processos `dotnet`
 
-```sh
+```bash
 killall dotnet
 ```
 
@@ -456,7 +456,7 @@ Se o erro ocorrer em `dotnet publish`, pode ser que o arquivo já está sendo co
 
 Solução, definir a variável de sistema `DOTNET_ROOT`.
 
-```sh
+```bash
 export DOTNET_ROOT=$(dirname $(realpath $(which dotnet)))
 ```
 
@@ -464,6 +464,6 @@ export DOTNET_ROOT=$(dirname $(realpath $(which dotnet)))
 
 Solução, definir a variável de sistema `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT`. [Veja mais](https://github.com/dotnet/corefx/blob/8245ee1e8f6063ccc7a3a60cafe821d29e85b02f/Documentation/architecture/globalization-invariant-mode.md)
 
-```sh
+```bash
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true
 ```

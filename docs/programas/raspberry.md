@@ -1,22 +1,20 @@
-# Raspberry
+# Raspberry Pi
 
-[TOC]
+## Introdução
 
-## Instalação
+Raspberry Pi é uma série de computadores de placa única do tamanho reduzido, que se conecta a um monitor de computador ou TV, e usa um teclado e um mouse padrão, desenvolvido no Reino Unido pela Fundação Raspberry Pi. Todo o hardware é integrado numa única placa.
 
-Instalação da imagem usando o `BalenaEtcher`.
-
-## Configuração sem monitor
+## Configurações
 
 ### Configurar WIFI
 
-Adicionar os comandos abaixo no arquivo `/etc/wpa_supplicant/wpa_supplicant.conf`. Este arquivo também pode ser criado na partição `boot`, pois será automaticamente copaido para `/etc/wpa_supplicant/wpa_supplicant.conf`.
+Adicionar os comandos abaixo no arquivo `/etc/wpa_supplicant/wpa_supplicant.conf`. Este arquivo também pode ser criado na partição `boot`, pois será automaticamente copiado para `/etc/wpa_supplicant/wpa_supplicant.conf`.
 
 ```ini
 country=BR
 network={
-    ssid="NOME_WIFI"
-    psk="SENHA_WIFI"
+    ssid="<nome_wifi>"
+    psk="<senha_wifi>"
     key_mgmt=WPA-PSK
 }
 ```
@@ -25,7 +23,7 @@ network={
 
 Na partição `boot`, criar um arquivo vazio chamado `SSH`.
 
-Acesso:
+Após a configuração, o acesso via SSH será:
 
 ```bash
 Usuário: pi
@@ -34,7 +32,7 @@ Senha: raspberry
 ssh pi@192.168.x.x
 ```
 
-### VNC
+### Instalar o VNC
 
 Instalação:
 
@@ -48,13 +46,14 @@ Para habilitar, execute o comando abaixo e escolha a opção `VNC` em `Interfaci
 sudo raspi-config
 ```
 
+Após a configuração, o acesso via VNC será:
+
 ```bash
 Usuário: pi
 Senha: raspberry
 ```
 
-## Links
+## Referências
 
 - <https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md>
-
 - <https://www.raspberrypi.org/documentation/configuration/wireless/headless.md>

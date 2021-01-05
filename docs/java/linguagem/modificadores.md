@@ -886,14 +886,14 @@ No exemplo acima a classe `TesteNative` contendo a declaração de um método na
 
 Primeiro é compilado a classe Java:
 
-```sh
+```bash
 javac TesteNative.java
 
 ```
 
 Em seguida, utiliza-se a ferramenta `javah` para gerar o arquivo de cabeçalho baseado em JNI para implementação do método nativo em C. O `javah` é usado para gerar cabeçalhos e códigos fonte em C a partir de uma classe Java.
 
-```sh
+```bash
 javah -jni TesteNative
 ```
 
@@ -939,7 +939,7 @@ Java_TesteNative_imprimir(JNIEnv *env, jobject obj) {
 
 A implementação da função nativa em C, segue exatamente a assinatura do protótipo do método presente no arquivo `TesteNative.h` gerado pelo `javah` a partir da classe `TesteNative`. A inclusão do cabeçalho `jni.h` oferece diferentes tipos de dados não disponíveis na linguagem C/C++ tratados pelo JNI para a passagem de parâmetros às funções de código nativo. Depois de implementado, pode-se compilar o código nativo a partir do diretório onde as classes Java estão presentes da seguinte forma:
 
-```sh
+```bash
 gcc -I/usr/lib/jvm/java-12-oracle/include/ -I/usr/lib/jvm/java-12-oracle/include/linux -o libTesteNative.so -shared TesteNative.c
 ```
 
@@ -949,13 +949,13 @@ Depois de todos esses passos, é preciso verificar a existência dos arquivos na
 
 O comando abaixo realiza a execução do binário java:
 
-```sh
+```bash
 java -Djava.library.path=. TesteNative
 ```
 
 O seguinte resultado é gerado:
 
-```sh
+```bash
 Olá! Invocando um método nativo!
 ```
 

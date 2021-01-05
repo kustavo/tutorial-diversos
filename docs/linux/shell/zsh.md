@@ -22,7 +22,7 @@ Algumas de suas características:
 
 Instalação do Zsh em derivados Debian:
 
-```sh
+```bash
 sudo apt install zsh
 ```
 
@@ -34,7 +34,7 @@ Oh My Zsh é um framework de código-fonte aberto para gerenciar as configuraç�
 
 Instalar o framework `Oh-my-zsh`:
 
-```sh
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
@@ -42,7 +42,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 Para alterar o tema, altere o arquivo `~/.zshrc`:
 
-```sh
+```bash
 ZSH_THEME="af-magic"
 ```
 

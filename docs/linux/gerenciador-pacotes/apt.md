@@ -1,25 +1,29 @@
 # Apt
 
-[TOC]
+## Verificar a versão do pacote
 
-## Comandos
+Pacote que será instalado.
 
-### Verificar a versão do pacote
-
-```sh
-# Pacote que será instalado
+```bash
 apt policy <nome-pacote>
-
-# Pacote instalado
-apt-cache policy  <nome-pacote>
 ```
 
-### Verificar dependências
+Pacote instalado.
 
-```sh
-# Pacote que será instalado
+```bash
+apt-cache policy <nome-pacote>
+```
+
+## Verificar dependências
+
+Pacote que será instalado.
+
+```bash
 apt rdepends <nome-pacote>
+```
 
-# Pacote instalado
+Pacote instalado.
+
+```bash
 apt-cache rdepends <nome-pacote>
 ```

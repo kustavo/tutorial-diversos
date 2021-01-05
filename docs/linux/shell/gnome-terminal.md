@@ -6,7 +6,7 @@ GNOME Terminal é um emulador de terminal para o ambiente GNOME escrito por Havo
 
 ### Autocompletar case-insensitive
 
-```sh
+```bash
 echo 'set completion-ignore-case On' >> ~/.inputrc
 ```
 
@@ -14,7 +14,7 @@ echo 'set completion-ignore-case On' >> ~/.inputrc
 
 Editar o arquivo `~/.bashrc` e adicionar os comandos abaixo:
 
-```sh
+```bash
 parse_git_branch () {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
