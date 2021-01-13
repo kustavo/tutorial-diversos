@@ -8,6 +8,10 @@ docs_dir: docs
 repo_url: https://github.com/kustavo/guia-rapido/
 repo_name: 'GitHub'
 
+google_analytics:
+  - G-Y8CBSJDDZK
+  - auto
+
 markdown_extensions:
   - admonition
   - pymdownx.details
