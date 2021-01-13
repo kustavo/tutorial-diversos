@@ -16,6 +16,16 @@
     <meta property="og:image:height" content="568">
     <link rel="stylesheet" href="{{ 'assets/stylesheets/home.css' | url }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" >
+    <!-- REMOVER os 2 abaixo após suporte em https://github.com/mkdocs/mkdocs/pull/2253 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y8CBSJDDZK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-Y8CBSJDDZK');
+    </script>
 {% endblock %}
 
 {#-
