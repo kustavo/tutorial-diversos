@@ -1,12 +1,12 @@
 site_name: Guia Rápido
-site_description: 'Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI.'
-site_author: 'Gustavo Araujo'
+site_description: "Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI."
+site_author: "Gustavo Araujo"
 
 site_url: https://kustavo.github.io/guia-rapido/
 site_dir: public
 docs_dir: docs
 repo_url: https://github.com/kustavo/guia-rapido/
-repo_name: 'GitHub'
+repo_name: "GitHub"
 
 google_analytics:
     - G-Y8CBSJDDZK
@@ -33,7 +33,6 @@ markdown_extensions:
 #       prebuild_index: true
 
 plugins: []
-
 
 theme:
     name: "material"
