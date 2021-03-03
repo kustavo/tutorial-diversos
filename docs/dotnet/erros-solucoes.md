@@ -47,3 +47,45 @@ Erro quando OmniSharp não encontra os sdks do dotnet.
       ```bash
       sudo ln -s /usr/bin/dotnet /usr/local/bin/dotnet
       ```
+
+## Concorrência de processos
+
+Erro quando está sendo usado por outro processo.
+
+??? tip "Solução (Linux)"
+
+      ```bash
+      dotnet build-server shutdown
+      ```
+
+      Se não funcionar, matar todas os processos `dotnet`
+
+      ```bash
+      killall dotnet
+      ```
+
+      Se o erro ocorrer em `dotnet publish`, pode ser que o arquivo já está sendo copiado por outra thread, basta ignorar o erro.
+
+## Biblioteca libhostfxr.so não encontrada
+
+Erro quando a biblioteca `libhostfxr.so` não encontrada.
+
+??? tip "Solução (Linux)"
+
+      Solução, definir a variável de sistema `DOTNET_ROOT`.
+
+      ```bash
+      export DOTNET_ROOT=$(dirname $(realpath $(which dotnet)))
+      ```
+
+## Pacote ICU package não encontrado
+
+??? tip "Solução (Linux)"
+
+      Solução, definir a variável de sistema `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT`. 
+      
+      [Veja mais](https://github.com/dotnet/corefx/blob/8245ee1e8f6063ccc7a3a60cafe821d29e85b02f/Documentation/architecture/globalization-invariant-mode.md)
+
+      ```bash
+      export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true
+      ```

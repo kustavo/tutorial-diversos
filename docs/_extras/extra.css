@@ -13,9 +13,12 @@
     text-align: justify;
 }
 
-.md-typeset pre > code,
+code.language-css,
+code.language-html,
+code.language-js,
 iframe {
     border: 1px solid #e4e4e4;
+    height: 500px;
 }
 
 /* Linha menu direita */

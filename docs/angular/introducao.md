@@ -1,9 +1,5 @@
 # Introdução
 
-[TOC]
-
-## Sobre
-
 Angular é uma plataforma e framework para construção da interface de aplicações usando HTML, CSS e, principalmente, JavaScript, criada pelos desenvolvedores da Google.
 
 Ele possui alguns elementos básicos que tornam essa construção interessante como: componentes, templates, diretivas, roteamento, módulos, serviços, injeção de dependências e ferramentas de infraestrutura que automatizam tarefas, como a de executar os testes unitários de uma aplicação.
@@ -22,6 +18,12 @@ Especificando a versão de instalação. [Ver versões](https://github.com/angul
 
 ```bash
 npm install -g @angular/cli@v10.0.0-rc.3
+```
+
+### Desinstalação
+
+```bash
+sudo npm uninstall -g @angular/cli
 ```
 
 ### Criar projeto
@@ -111,11 +113,26 @@ Os elementos básicos (building blocks) de uma aplicação Angular são:
 
 </div>
 
+
 CONTINUAR!!!
 
 - <https://blog.algaworks.com/o-que-e-angular/>
 
-## Links
+
+## Erros e soluções
+
+### Botão é acionado com a tecla enter
+
+O botão é acionado ao prescionar a tecla `enter`.
+
+??? tip
+      Acionar o atributo `type="button"`.
+
+      ```html
+      <button type="button"></button>
+      ```
+
+## Referências
 
 - <https://blog.algaworks.com/o-que-e-angular/>
 - <https://medium.com/@danilodev.silva/aprendendo-angular-2-na-pr%C3%A1tica-antes-veja-depois-crie-49567b25dc1>

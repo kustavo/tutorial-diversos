@@ -1,0 +1,72 @@
+.exemplo1,
+.exemplo6 {
+    align-items: stretch;
+}
+
+.exmplo2,
+.exemplo7 {
+    align-items: flex-start;
+}
+
+.exemplo3,
+.exemplo8 {
+    align-items: flex-end;
+}
+
+.exemplo4,
+.exemplo9 {
+    align-items: center;
+}
+
+.exemplo5,
+.exemplo10 {
+    align-items: baseline;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.item:first-child {
+    padding-top: 20px;
+}
+
+.alinhamento-central {
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+}
+
+.alinhamento-central .item {
+    flex: 0;
+    padding: 10px;
+}
+
+.container {
+    max-width: 420px;
+    margin: 0 auto;
+    display: flex;
+    border: 1px solid #ccc;
+}
+
+.item {
+    flex: 1;
+    margin: 5px;
+    background-color: DarkSlateBlue;
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 0 10px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: normal;
+    margin-top: 40px;
+}
+
+body {
+    font-family: monospace;
+    margin: 0px;
+}

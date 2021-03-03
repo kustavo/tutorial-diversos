@@ -1,0 +1,46 @@
+.exemplo1 {
+    flex-direction: row;
+}
+.exemplo2 {
+    flex-direction: row-reverse;
+}
+.exemplo3 {
+    flex-direction: column;
+}
+.exemplo4 {
+    flex-direction: column-reverse;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    border: 1px solid #ccc;
+}
+.item {
+    /* O flex: 1; é necessário para que cada item se expanda ocupando o tamanho máximo do container. */
+    flex: 1;
+    margin: 5px;
+    background-color: DarkSlateBlue;
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: normal;
+    margin-top: 40px;
+}
+
+body {
+    font-family: monospace;
+    margin: 0px;
+}

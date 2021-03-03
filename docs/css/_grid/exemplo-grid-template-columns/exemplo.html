@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- Exemplo 1 -->
+        <h1>grid-template-columns: 1fr 2fr 1fr;</h1>
+
+        <section class="grid exemplo1">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </section>
+
+        <p>O <b>fr</b> é uma unidade fracional, dessa forma a segunda coluna terá o dobro do tamanho das outras.</p>
+
+        <!-- Exemplo 2 -->
+        <h1>grid-template-columns: minmax(200px, 1fr) 1fr 1fr;</h1>
+
+        <section class="grid exemplo2">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </section>
+
+        <p>
+            A primeira coluna terá no mínimo 200px de largura e no máximo 1fr. Isso significa que após 200px ela se expande da mesma forma que as
+            outras colunas.
+        </p>
+
+        <!-- Exemplo 3 -->
+        <h1>grid-template-columns: repeat(auto-fit, 100px);</h1>
+
+        <section class="grid exemplo3">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </section>
+
+        <p>Cria automaticamente um total de colunas que acomode itens com no mínimo 100px de largura.</p>
+    </body>
+</html>

@@ -1,29 +1,35 @@
 # Introdução
 
-[TOC]
+O .NET Framework (pronuncia-se: dotNet) é uma iniciativa da empresa Microsoft, que visa uma plataforma única para desenvolvimento e execução de sistemas e aplicações. Todo e qualquer código gerado para .NET pode ser executado em qualquer dispositivo que possua um framework de tal plataforma. Com ideia semelhante à plataforma Java, o programador deixa de escrever código para um sistema ou dispositivo específico, e passa a escrever para a plataforma .NET. Aplicações escritas para ele funcionam em um ambiente de software controlado, em oposição a um ambiente de hardware, através de uma máquina virtual de aplicação.
 
-[[_TOC_]]
+O .NET Framework consiste basicamente em dois componentes principais, ou seja, ela é executada sobre uma Common Language Runtime - CLR (Ambiente de Execução Independente de Linguagem) interagindo com um Framework Class Library - FCL (Conjunto de Bibliotecas Unificadas). Ele permite executar diversas linguagens permitindo grande interoperabilidade entre elas. O CLR fornece gerenciamento de memória, controle de exceção, interoperabilidade, manipulação de processamento paralelo e concorrente, reflexão, segurança, serviços de compilação para a arquitetura específica, entre outros. A FCL oferece APIs para UI de console, acesso a dados, conectividade com banco de dados, redes, web, criptografia, acesso aos serviços do sistema operacional, estruturas de dados e algoritmos diversos, facilidades para a linguagem e muito mais.
 
-## Instalação
+Originalmente só funcionava no Windows, agora também funciona no Linux e no macOS através do .NET Core. Inicialmente era proprietário, mas seus fontes foram liberados. O .NET Core já nasceu como um projeto 100% aberto, contando com contribuições da comunidade através da .NET Foundation.
 
-Página de download: <https://dotnet.microsoft.com/download/dotnet-core>
+## Instalação (debian/ubuntu)
+
+Página de download: <https://dotnet.microsoft.com/download>
 
 Adicionar repositório e instalação.
 
 ```bash
-wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-sudo sdpkg -i packages-microsoft-prod.deb
+wget https://packages.microsoft.com/config/ubuntu/20.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
 
-sudo apt-get update
-sudo apt-get install apt-transport-https
-sudo apt-get update
-sudo apt-get install dotnet-sdk-3.1
+sudo apt-get update; \
+  sudo apt-get install -y apt-transport-https && \
+  sudo apt-get update && \
+  sudo apt-get install -y dotnet-sdk-5.0
 ```
 
-### Local da instalação
+### Locais da instalação
 
 ```bash
-/usr/share/dotnet
+# onde estão instalados os sdks
+dotnet --list-sdks
+
+# onde estão instalados os runtimes
+dotnet --list-runtimes
 ```
 
 ### Configurar variáveis de sistema
@@ -35,115 +41,121 @@ export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true
 
 ## Arquivos de configuração
 
-### launchSettings.json
+=== "launchSettings.json"
 
-O arquivo `launchSettings.json` é usado apenas pelo `Visual Studio` para o usuário escolher o *environment* atual.
+    O arquivo `launchSettings.json` é usado apenas pelo `Visual Studio` para o usuário escolher o *environment* atual.
 
-```json
-{
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:53836/",
-      "sslPort": 0
+    ```json
+    {
+      "iisSettings": {
+        "windowsAuthentication": false,
+        "anonymousAuthentication": true,
+        "iisExpress": {
+          "applicationUrl": "http://localhost:53836/",
+          "sslPort": 0
+        }
+      },
+      "profiles": {
+        "IIS Express": {
+          "commandName": "IISExpress",
+          "launchBrowser": true,
+          "environmentVariables": { "ASPNETCORE_ENVIRONMENT": "Development" }
+        },
+        "Gustavo": {
+          "commandName": "Project",
+          "launchBrowser": false,
+          "environmentVariables": { "ASPNETCORE_ENVIRONMENT": "Gustavo" },
+          "applicationUrl": "http://localhost:5000/"
+        }
+      }
     }
-  },
-  "profiles": {
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "environmentVariables": { "ASPNETCORE_ENVIRONMENT": "Development" }
-    },
-    "Gustavo": {
-      "commandName": "Project",
-      "launchBrowser": false,
-      "environmentVariables": { "ASPNETCORE_ENVIRONMENT": "Gustavo" },
-      "applicationUrl": "http://localhost:5000/"
-    }
-  }
-}
-```
+    ```
 
-### launch.json
+=== "launch.json"
 
-O arquivo `launch.json` é usando pelo `Visual Studio Code`. O *environment* é definido pela chave `env`.
+    O arquivo `launch.json` é usando pelo `Visual Studio Code`. O *environment* é definido pela chave `env`.
 
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": ".NET Core Launch (web)",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.0/TestApp.dll",
-            "args": [],
-            "cwd": "${workspaceRoot}",
-            "stopAtEntry": false,
-            "launchBrowser": {
-                "enabled": true,
-                "args": "${auto-detect-url}",
-                "windows": {
-                    "command": "cmd.exe",
-                    "args": "/C start ${auto-detect-url}"
+    ```json
+    {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": ".NET Core Launch (web)",
+                "type": "coreclr",
+                "request": "launch",
+                "preLaunchTask": "build",
+                "program": "${workspaceRoot}/bin/Debug/netcoreapp1.0/TestApp.dll",
+                "args": [],
+                "cwd": "${workspaceRoot}",
+                "stopAtEntry": false,
+                "launchBrowser": {
+                    "enabled": true,
+                    "args": "${auto-detect-url}",
+                    "windows": {
+                        "command": "cmd.exe",
+                        "args": "/C start ${auto-detect-url}"
+                    },
+                    "osx": {
+                        "command": "open"
+                    },
+                    "linux": {
+                        "command": "xdg-open"
+                    }
                 },
-                "osx": {
-                    "command": "open"
+                "env": {
+                    "ASPNETCORE_ENVIRONMENT": "Development"
                 },
-                "linux": {
-                    "command": "xdg-open"
+                "sourceFileMap": {
+                    "/Views": "${workspaceRoot}/Views"
                 }
-            },
-            "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
-            },
-            "sourceFileMap": {
-                "/Views": "${workspaceRoot}/Views"
             }
-        }
-    ]
-}
-```
+        ]
+    }
+    ```
 
-### appsettings.json
+=== "appsettings.json"
 
-O arquivo `appsettings.json` define as configurações da aplicação e pode ser definida específica para um ambiente. Basta criar um arquivo `appsettings.<environment>.json`.
+    O arquivo `appsettings.json` define as configurações da aplicação e pode ser definida específica para um ambiente. Basta criar um arquivo `appsettings.<environment>.json`.
 
-```json
-{
-    "Logging": {
-        "LogLevel": {
-            "Default": "Information",
-            "Microsoft": "Warning",
-            "Microsoft.Hosting.Lifetime": "Information"
-        }
-    },
-    "AllowedHosts": "*"
-}
-```
+    ```json
+    {
+        "Logging": {
+            "LogLevel": {
+                "Default": "Information",
+                "Microsoft": "Warning",
+                "Microsoft.Hosting.Lifetime": "Information"
+            }
+        },
+        "AllowedHosts": "*"
+    }
+    ```
 
-### web.config
+=== "web.config"
 
-O arquivo `web.config` é usado apenas pelo IIS (Windows).
+    O arquivo `web.config` é usado apenas pelo IIS (Windows).
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-  <location path="." inheritInChildApplications="false">
-    <system.webServer>
-      <handlers>
-        <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModuleV2" resourceType="Unspecified" />
-      </handlers>
-      <aspNetCore processPath=".\MeuConsultorio.Api" stdoutLogEnabled="true" stdoutLogFile=".\logs\stdout" hostingModel="OutOfProcess" >
-        <environmentVariables>
-          <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="ProducaoLinux"/>
-        </environmentVariables>
-      </aspNetCore>
-    </system.webServer>
-  </location>
-</configuration>
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <configuration>
+      <location path="." inheritInChildApplications="false">
+        <system.webServer>
+          <handlers>
+            <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModuleV2" resourceType="Unspecified" />
+          </handlers>
+          <aspNetCore processPath=".\MeuConsultorio.Api" stdoutLogEnabled="true" stdoutLogFile=".\logs\stdout" hostingModel="OutOfProcess" >
+            <environmentVariables>
+              <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="ProducaoLinux"/>
+            </environmentVariables>
+          </aspNetCore>
+        </system.webServer>
+      </location>
+    </configuration>
+    ```
+
+## Desinstalação (Windows, Mac)
+
+```bash
+dotnet-core-uninstall
 ```
 
 ## Criar solução
@@ -434,36 +446,6 @@ dotnet restore <projeto|solucao>
 
 O argumento `<projeto|solucao>` é opcional. Pode basear no diretório corrente.
 
-## Erros
+## Referências
 
-## It is being used by another process
-
-Erro de concorrencia de processos
-
-```bash
-dotnet build-server shutdown
-```
-
-Se não funcionar, matar todas os processos `dotnet`
-
-```bash
-killall dotnet
-```
-
-Se o erro ocorrer em `dotnet publish`, pode ser que o arquivo já está sendo copiado por outra thread, basta ignorar o erro.
-
-### The required library libhostfxr.so could not be found
-
-Solução, definir a variável de sistema `DOTNET_ROOT`.
-
-```bash
-export DOTNET_ROOT=$(dirname $(realpath $(which dotnet)))
-```
-
-### Couldn't find a valid ICU package installed on the system
-
-Solução, definir a variável de sistema `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT`. [Veja mais](https://github.com/dotnet/corefx/blob/8245ee1e8f6063ccc7a3a60cafe821d29e85b02f/Documentation/architecture/globalization-invariant-mode.md)
-
-```bash
-export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true
-```
+- <https://pt.wikipedia.org/wiki/.NET_Framework>

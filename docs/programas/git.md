@@ -150,6 +150,16 @@ Excluir branch:
 git branch -D <branch>
 ```
 
+Exluir branchs locais que não existen remotamente:
+
+```bash
+# Linux
+git fetch --all -p; git branch -vv | grep ": gone]" | awk '{ print $1 }' | xargs -n 1 git branch -D
+
+# Windows
+git checkout master; git remote update origin --prune; git branch -vv | Select-String -Pattern ": gone]" | % { $_.toString().Trim().Split(" ")[0]} | % {git branch -d $_}
+```
+
 ### Checkout
 
 Define qual a branch corrente, ou seja, a branch atualmente usada:
@@ -623,6 +633,20 @@ ssh-keygen
 ```
 
 Use o conteúdo do arquivo `.pub` nas configurações de acesso SSH do gerenciador de repositórios (GitHub, GitLab, Bitbucket).
+
+### GitHub
+
+GitHub é uma plataforma de hospedagem de código-fonte e arquivos com controle de versão usando o Git. Ele permite que programadores, utilitários ou qualquer usuário cadastrado na plataforma contribuam em projetos privados e/ou Open Source de qualquer lugar do mundo.
+
+#### GitHub Pages
+
+O GitHub Pages é um serviço de hospedagem de site estático que usa arquivos HTML, CSS e JavaScript diretamente de um repositório no GitHub e, como opção, executa os arquivos por meio de um processo e publica um site.
+
+##### Remover a branch gh-pages
+
+```bash
+git push origin :gh-pages
+```
 
 ## Referências
 

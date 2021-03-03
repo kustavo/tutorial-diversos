@@ -8,20 +8,24 @@ docs_dir: docs
 repo_url: https://github.com/kustavo/guia-rapido/
 repo_name: 'GitHub'
 
+google_analytics:
+    - G-Y8CBSJDDZK
+    - auto
+
 markdown_extensions:
-  - admonition
-  - pymdownx.details
-  - pymdownx.tabbed
-  - pymdownx.superfences
-  - attr_list
-  - def_list
-  - footnotes
-  - meta
-  - codehilite:
-      linenums: true
-  - toc:
-      permalink: true
-      separator: "-"
+    - admonition
+    - pymdownx.details
+    - pymdownx.tabbed
+    - pymdownx.superfences
+    - attr_list
+    - def_list
+    - footnotes
+    - meta
+    - codehilite:
+          linenums: true
+    - toc:
+          permalink: true
+          separator: "-"
 
 # plugins:
 #   - search:
@@ -32,79 +36,88 @@ plugins: []
 
 
 theme:
-  name: 'material'
-  custom_dir: overrides
-  palette:
-    primary: indigo
-    accent: indigo
-  font:
-    text: Roboto
-    code: Roboto Mono
-  features:
-    - navigation.tabs
-    - search.suggest
-    - search.highlight
-    - search.share
-  language: pt
-  logo: _extras/logo.svg
-  favicon: _extras/favicon.svg
+    name: "material"
+    custom_dir: overrides
+    palette:
+        primary: indigo
+        accent: indigo
+    font:
+        text: Roboto
+        code: Roboto Mono
+    features:
+        - navigation.tabs
+        - search.suggest
+        - search.highlight
+        - search.share
+    language: pt
+    logo: _extras/logo.svg
+    favicon: _extras/favicon.svg
 
 extra_css: [_extras/extra.css]
 extra_javascript: [_extras/extra.js]
 
 nav:
-  - Home: index.md
-  - .Net:
-    - ./dotnet/erros-solucoes.md
-  - Linux:
-    - ./linux/introducao.md
-    - Shell:
-      - ./linux/shell/linux-shell.md
-      - ./linux/shell/bash.md
-      - ./linux/shell/dash.md
-      - ./linux/shell/zsh.md
-      - ./linux/shell/gnome-terminal.md
-    - ./linux/arquivos-e-diretorios.md
-    - ./linux/servicos-e-processos.md
-    - ./linux/sessao-e-usuario.md
-    - Gerenciador de pacotes:
-      - ./linux/gerenciador-pacotes/apt.md
-      - ./linux/gerenciador-pacotes/snap.md
-      - ./linux/gerenciador-pacotes/flatpak.md
-      - ./linux/gerenciador-pacotes/yaourt.md
-    - Distribuições e ambientes gráficos:
-      - ./linux/distribuicoes-e-ambientes-graficos/gnome.md
-      - ./linux/distribuicoes-e-ambientes-graficos/pop-os.md
-      - ./linux/distribuicoes-e-ambientes-graficos/manjaro.md
-      - ./linux/distribuicoes-e-ambientes-graficos/arch-linux.md
+    - Home: index.md
+    - .Net:
+          - ./dotnet/introducao.md
+          - ./dotnet/erros-solucoes.md
+          - ./dotnet/csharp/matrizes-colecoes.md
+    - Javascript:
+          - ./javascript/introducao.md
+          - ./javascript/assincronismo.md
+    - Padrões de projeto:
+          - ./design-patterns/observer.md
+    - Linux:
+          - ./linux/introducao.md
+          - Shell:
+                - ./linux/shell/linux-shell.md
+                - ./linux/shell/bash.md
+                - ./linux/shell/dash.md
+                - ./linux/shell/zsh.md
+                - ./linux/shell/gnome-terminal.md
+          - ./linux/arquivos-e-diretorios.md
+          - ./linux/servicos-e-processos.md
+          - ./linux/sessao-e-usuario.md
+          - Gerenciador de pacotes:
+                - ./linux/gerenciador-pacotes/apt.md
+                - ./linux/gerenciador-pacotes/snap.md
+                - ./linux/gerenciador-pacotes/flatpak.md
+                - ./linux/gerenciador-pacotes/yaourt.md
+          - Distribuições e ambientes gráficos:
+                - ./linux/distribuicoes-e-ambientes-graficos/gnome.md
+                - ./linux/distribuicoes-e-ambientes-graficos/pop-os.md
+                - ./linux/distribuicoes-e-ambientes-graficos/manjaro.md
+                - ./linux/distribuicoes-e-ambientes-graficos/arch-linux.md
+          - Programas:
+                - ./linux/programas/imagemagick.md
+                - ./linux/programas/ntfsfix.md
+                - ./linux/programas/puddletag.md
+                - ./linux/programas/rsync.md
+          - ./linux/certificado-ssl.md
+    - Html:
+          - ./html/introducao.md
+    - Css:
+          - ./css/introducao.md
+          - ./css/grid.md
+          - ./css/flexbox.md
+    - Markdown:
+          - ./markdown/markdown.md
+          - ./markdown/markdown-to-medium.md
+          - ./markdown/mkdocs.md
     - Programas:
-      - ./linux/programas/imagemagick.md
-      - ./linux/programas/ntfsfix.md
-      - ./linux/programas/puddletag.md
-      - ./linux/programas/rsync.md
-  - Javascript:
-      - ./javascript/introducao.md
-  - Markdown:
-    - ./markdown/markdown.md
-    - ./markdown/markdown-to-medium.md
-    - ./markdown/mkdocs.md
-  - Programas:
-    - ./programas/docker.md
-    - ./programas/docker-compose.md
-    - ./programas/firebase.md
-    - ./programas/git.md
-    - ./programas/maven.md
-    - ./programas/mysql.md
-    - ./programas/nginx.md
-    - ./programas/postgresql.md
-    - ./programas/raspberry.md
-    - ./programas/veracrypt.md
-    - ./programas/visual-studio-code.md
-  - Outros:
-    - ./android/android.md
-    - ./css/css.md
-    - ./html/html.md
-    - ./sql/sql.md
-    - ./windows/windows.md
-      
-
+          - ./programas/docker.md
+          - ./programas/docker-compose.md
+          - ./programas/firebase.md
+          - ./programas/git.md
+          - ./programas/maven.md
+          - ./programas/mysql.md
+          - ./programas/nginx.md
+          - ./programas/nodejs.md
+          - ./programas/postgresql.md
+          - ./programas/raspberry.md
+          - ./programas/veracrypt.md
+          - ./programas/visual-studio-code.md
+    - Outros:
+          - ./android/android.md
+          - ./sql/sql.md
+          - ./windows/windows.md

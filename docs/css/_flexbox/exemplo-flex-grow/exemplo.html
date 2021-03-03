@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- Exemplo 1 -->
+        <h1>flex-grow: 0;</h1>
+        <section class="container">
+            <div class="item grow0">1</div>
+            <div class="item grow0">2</div>
+            <div class="item grow0">3</div>
+        </section>
+        <p>Os itens não se expandem para ocupar o container.</p>
+
+        <!-- Exemplo 2 -->
+        <h1>flex-grow: 1;</h1>
+        <section class="container">
+            <div class="item grow1">1</div>
+            <div class="item grow1">2</div>
+            <div class="item grow1">3</div>
+        </section>
+        <p>
+            Os itens se expandem igualmente para ocupar o container. Utilizando apenas o flex-grow, o crescimento é distribuído igualmente antes e
+            depois do conteúdo de cada elemento. (pois por padrão o flex-basis é auto)
+        </p>
+
+        <!-- Exemplo 3 -->
+        <h1>flex-grow: 2;</h1>
+        <section class="container column">
+            <div class="item grow2">1</div>
+            <div class="item grow2">2</div>
+            <div class="item grow2">3</div>
+        </section>
+        <p>Os itens se expandem duas vezes mais que aqueles com flex-grow: 1;</p>
+
+        <!-- Exemplo 4 -->
+        <h1>flex-grow: 1; // conteúdo largo</h1>
+        <section class="container column-reverse">
+            <div class="item grow1">1</div>
+            <div class="item grow1">TestandoTestando2</div>
+            <div class="item grow1">3</div>
+        </section>
+
+        <!-- Exemplo 5 -->
+        <h1>flex-grow: (misturado);</h1>
+        <section class="container column-reverse">
+            <div class="item grow0">1</div>
+            <div class="item grow1">2</div>
+            <div class="item grow2">3</div>
+        </section>
+    </body>
+</html>

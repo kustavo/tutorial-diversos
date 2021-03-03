@@ -1,4 +1,4 @@
-# Visual Studio
+# Visual Studio Code
 
 ## Introdução
 

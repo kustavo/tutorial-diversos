@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- Exemplo 1 -->
+        <h1>order: misturados;</h1>
+        <section class="container">
+            <div class="item order2">1</div>
+            <div class="item order4">2</div>
+            <div class="item order1">3</div>
+            <div class="item order3">4</div>
+        </section>
+
+        <!-- Exemplo 2 -->
+        <h1>order: negativo; / flex-grow</h1>
+        <section class="container">
+            <div class="item order2 flex-grow">1</div>
+            <div class="item order-1 flex-grow">2</div>
+            <div class="item order1 flex-grow">3</div>
+            <div class="item order3 flex-grow">4</div>
+        </section>
+
+        <!-- Exemplo 3 -->
+        <h1>order: valores iguais; / grow / column</h1>
+        <section class="container column">
+            <div class="item order2 flex-grow">1</div>
+            <div class="item order2 flex-grow">2</div>
+            <div class="item order1 flex-grow">3</div>
+            <div class="item order1 flex-grow">4</div>
+        </section>
+
+        <!-- Exemplo 4 -->
+        <h1>order: valores iguais; / grow / column</h1>
+        <section class="container column">
+            <div class="item flex-grow">1</div>
+            <div class="item order2 flex-grow">2</div>
+            <div class="item flex-grow">3</div>
+            <div class="item order-1 flex-grow">4</div>
+        </section>
+    </body>
+</html>
