@@ -37,7 +37,7 @@ plugins:
 
 theme:
     name: "material"
-    custom_dir: overrides # local dos arquivos que sobrescreve o tema
+    # custom_dir: overrides # local dos arquivos que sobrescreve o tema
     palette:
         primary: indigo
         accent: indigo
