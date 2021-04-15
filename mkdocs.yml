@@ -73,7 +73,6 @@ nav:
           - ./javascript/assincronismo.md
     - Padrões de projeto:
           - ./design-patterns/observer.md
-      #     - ./design-patterns/dependency-injection.md
     - Linux:
           - ./linux/introducao.md
           - Shell:
