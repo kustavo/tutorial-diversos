@@ -8,35 +8,36 @@ docs_dir: docs
 repo_url: https://github.com/kustavo/guia-rapido/
 repo_name: "GitHub"
 
-google_analytics:
-    - G-Y8CBSJDDZK
-    - auto
+# TODO: Aguardando suporte V4
+# google_analytics:
+#     - G-Y8CBSJDDZK
+#     - auto
 
 markdown_extensions:
-    - admonition
-    - pymdownx.details
-    - pymdownx.tabbed
-    - pymdownx.superfences
-    - attr_list
-    - def_list
-    - footnotes
-    - meta
-    - codehilite:
-          linenums: true
+    - admonition # card de notas
+    - pymdownx.details # card de notas que expandem e recolhem
+    - pymdownx.snippets: # embutir arquivos
+          check_paths: true # erro se não encontrado
+    - pymdownx.tabbed # abas
+    - pymdownx.highlight:
+          #linenums: true # linha nos blocos de código
+    - pymdownx.superfences # bloco de código dentro de outros blocos
+    - attr_list # html e css em elementos markdown
+    - def_list # listas com descrições
+    - footnotes # notas de rodapé
+    - meta # metatags
     - toc:
-          permalink: true
-          separator: "-"
+          permalink: true # criar link âncora em cada subtítulo
+          toc_depth: 3 # limite de profundidade para aparecer no toc
 
-# plugins:
-#   - search:
-#       lang: pt
-#       prebuild_index: true
-
-plugins: []
+plugins:
+    - search:
+          lang: pt
+          prebuild_index: false # pré gerar o index de todas páginas
 
 theme:
     name: "material"
-    custom_dir: overrides
+    custom_dir: overrides # local dos arquivos que sobrescreve o tema
     palette:
         primary: indigo
         accent: indigo
@@ -44,10 +45,13 @@ theme:
         text: Roboto
         code: Roboto Mono
     features:
-        - navigation.tabs
-        - search.suggest
-        - search.highlight
-        - search.share
+        - navigation.tabs # exibi o menu superior
+        - search.suggest # sugestões na busca
+        - search.highlight # destaque das palavras na busca
+        - search.share # opção de compartilhar busca
+        #- toc.integrate # agrupa as toc direita e esquerda
+        - navigation.instant # Uso de XHR, comporta como SPA
+        - navigation.sections # Exibe toc sem agrupar subtítulos
     language: pt
     logo: _extras/logo.svg
     favicon: _extras/favicon.svg
@@ -59,13 +63,17 @@ nav:
     - Home: index.md
     - .Net:
           - ./dotnet/introducao.md
-          - ./dotnet/erros-solucoes.md
-          - ./dotnet/csharp/matrizes-colecoes.md
+          - ./dotnet/instalacao-e-configuracao.md
+          - ./dotnet/interface-linha-comando.md
+          - ./dotnet/entity-framework.md
+          - ./dotnet/erros-e-solucoes.md
+          - ./dotnet/matrizes-e-colecoes.md
     - Javascript:
           - ./javascript/introducao.md
           - ./javascript/assincronismo.md
     - Padrões de projeto:
           - ./design-patterns/observer.md
+      #     - ./design-patterns/dependency-injection.md
     - Linux:
           - ./linux/introducao.md
           - Shell:
@@ -116,6 +124,10 @@ nav:
           - ./programas/raspberry.md
           - ./programas/veracrypt.md
           - ./programas/visual-studio-code.md
+    - Inglês:
+          - ./ingles/introducao.md
+          - ./ingles/historia.md
+          - ./ingles/verbos.md
     - Outros:
           - ./android/android.md
           - ./sql/sql.md

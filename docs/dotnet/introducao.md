@@ -1,451 +1,107 @@
 # Introdução
 
-O .NET Framework (pronuncia-se: dotNet) é uma iniciativa da empresa Microsoft, que visa uma plataforma única para desenvolvimento e execução de sistemas e aplicações. Todo e qualquer código gerado para .NET pode ser executado em qualquer dispositivo que possua um framework de tal plataforma. Com ideia semelhante à plataforma Java, o programador deixa de escrever código para um sistema ou dispositivo específico, e passa a escrever para a plataforma .NET. Aplicações escritas para ele funcionam em um ambiente de software controlado, em oposição a um ambiente de hardware, através de uma máquina virtual de aplicação.
-
-O .NET Framework consiste basicamente em dois componentes principais, ou seja, ela é executada sobre uma Common Language Runtime - CLR (Ambiente de Execução Independente de Linguagem) interagindo com um Framework Class Library - FCL (Conjunto de Bibliotecas Unificadas). Ele permite executar diversas linguagens permitindo grande interoperabilidade entre elas. O CLR fornece gerenciamento de memória, controle de exceção, interoperabilidade, manipulação de processamento paralelo e concorrente, reflexão, segurança, serviços de compilação para a arquitetura específica, entre outros. A FCL oferece APIs para UI de console, acesso a dados, conectividade com banco de dados, redes, web, criptografia, acesso aos serviços do sistema operacional, estruturas de dados e algoritmos diversos, facilidades para a linguagem e muito mais.
-
-Originalmente só funcionava no Windows, agora também funciona no Linux e no macOS através do .NET Core. Inicialmente era proprietário, mas seus fontes foram liberados. O .NET Core já nasceu como um projeto 100% aberto, contando com contribuições da comunidade através da .NET Foundation.
-
-## Instalação (debian/ubuntu)
-
-Página de download: <https://dotnet.microsoft.com/download>
-
-Adicionar repositório e instalação.
-
-```bash
-wget https://packages.microsoft.com/config/ubuntu/20.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-sudo dpkg -i packages-microsoft-prod.deb
-
-sudo apt-get update; \
-  sudo apt-get install -y apt-transport-https && \
-  sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-5.0
-```
-
-### Locais da instalação
-
-```bash
-# onde estão instalados os sdks
-dotnet --list-sdks
-
-# onde estão instalados os runtimes
-dotnet --list-runtimes
-```
-
-### Configurar variáveis de sistema
-
-```bash
-export DOTNET_ROOT=$(dirname $(realpath $(which dotnet)))
-export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true
-```
-
-## Arquivos de configuração
-
-=== "launchSettings.json"
-
-    O arquivo `launchSettings.json` é usado apenas pelo `Visual Studio` para o usuário escolher o *environment* atual.
-
-    ```json
-    {
-      "iisSettings": {
-        "windowsAuthentication": false,
-        "anonymousAuthentication": true,
-        "iisExpress": {
-          "applicationUrl": "http://localhost:53836/",
-          "sslPort": 0
-        }
-      },
-      "profiles": {
-        "IIS Express": {
-          "commandName": "IISExpress",
-          "launchBrowser": true,
-          "environmentVariables": { "ASPNETCORE_ENVIRONMENT": "Development" }
-        },
-        "Gustavo": {
-          "commandName": "Project",
-          "launchBrowser": false,
-          "environmentVariables": { "ASPNETCORE_ENVIRONMENT": "Gustavo" },
-          "applicationUrl": "http://localhost:5000/"
-        }
-      }
-    }
-    ```
-
-=== "launch.json"
-
-    O arquivo `launch.json` é usando pelo `Visual Studio Code`. O *environment* é definido pela chave `env`.
-
-    ```json
-    {
-        "version": "0.2.0",
-        "configurations": [
-            {
-                "name": ".NET Core Launch (web)",
-                "type": "coreclr",
-                "request": "launch",
-                "preLaunchTask": "build",
-                "program": "${workspaceRoot}/bin/Debug/netcoreapp1.0/TestApp.dll",
-                "args": [],
-                "cwd": "${workspaceRoot}",
-                "stopAtEntry": false,
-                "launchBrowser": {
-                    "enabled": true,
-                    "args": "${auto-detect-url}",
-                    "windows": {
-                        "command": "cmd.exe",
-                        "args": "/C start ${auto-detect-url}"
-                    },
-                    "osx": {
-                        "command": "open"
-                    },
-                    "linux": {
-                        "command": "xdg-open"
-                    }
-                },
-                "env": {
-                    "ASPNETCORE_ENVIRONMENT": "Development"
-                },
-                "sourceFileMap": {
-                    "/Views": "${workspaceRoot}/Views"
-                }
-            }
-        ]
-    }
-    ```
-
-=== "appsettings.json"
-
-    O arquivo `appsettings.json` define as configurações da aplicação e pode ser definida específica para um ambiente. Basta criar um arquivo `appsettings.<environment>.json`.
-
-    ```json
-    {
-        "Logging": {
-            "LogLevel": {
-                "Default": "Information",
-                "Microsoft": "Warning",
-                "Microsoft.Hosting.Lifetime": "Information"
-            }
-        },
-        "AllowedHosts": "*"
-    }
-    ```
+.NET (antigamente .NET Core) é um framework livre e de código aberto para os sistemas operacionais Windows, Linux e macOS. É um sucessor de código aberto do .NET Framework. O projeto é uma iniciativa da empresa Microsoft, lançado com a Licença MIT, que visa uma plataforma única para desenvolvimento e execução de sistemas e aplicações. Todo e qualquer código gerado para .NET pode ser executado em qualquer dispositivo que possua um framework de tal plataforma. Com ideia semelhante à plataforma Java, o programador deixa de escrever código para um sistema ou dispositivo específico, e passa a escrever para a plataforma .NET. Aplicações escritas para ele funcionam em um ambiente de software controlado, em oposição a um ambiente de hardware, através de uma máquina virtual de aplicação.
 
-=== "web.config"
+## Arquitetura
 
-    O arquivo `web.config` é usado apenas pelo IIS (Windows).
+A **Common Language Infrastructure - CLI** é uma especificação aberta (padrão técnico) desenvolvida pela Microsoft que permite o uso de diferentes linguagens de alto nível em diferentes plataformas de computador sem a necessidade de reescrever o código para nenhuma arquitetura específica. Em termos simples, a CLI permite que uma aplicação escrita em qualquer linguagem de programação seja executada em qualquer sistema operacional usando um programa em tempo de execução comum, em vez de um programa específico para cada linguagem. Isso implica que é agnóstico de plataforma. O .NET e Mono são implementações da CLI.
 
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <configuration>
-      <location path="." inheritInChildApplications="false">
-        <system.webServer>
-          <handlers>
-            <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModuleV2" resourceType="Unspecified" />
-          </handlers>
-          <aspNetCore processPath=".\MeuConsultorio.Api" stdoutLogEnabled="true" stdoutLogFile=".\logs\stdout" hostingModel="OutOfProcess" >
-            <environmentVariables>
-              <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="ProducaoLinux"/>
-            </environmentVariables>
-          </aspNetCore>
-        </system.webServer>
-      </location>
-    </configuration>
-    ```
+Uma grande biblioteca de classes chamada **Framework Class Library - FCL** implementa as bibliotecas padrão fundamentais da CLI. Os programas escritos em qualquer uma das linguagens que suportam a plataforma .NET podem usar classes e métodos FCL e portanto criar objetos de classe, chamar seus métodos, herdar as classes FCL necessárias, etc. O FCL Oferece APIs para UI de console, acesso a dados, conectividade com banco de dados, redes, web, criptografia, acesso aos serviços do sistema operacional, estruturas de dados e algoritmos diversos, facilidades para a linguagem e muito mais.
 
-## Desinstalação (Windows, Mac)
+Os programas escritos para .NET, são compilados em uma linguagem intermediária chamada **Common Intermediate Language - CIL** (antigamente chamado de *Microsoft Intermediate Language - MSIL*), em vez de serem compilados diretamente em código de máquina.
 
-```bash
-dotnet-core-uninstall
-```
+Os programas escritos para .NET são executados em um ambiente de software (em contraste com um ambiente de hardware) denominado **Common Language Runtime - CLR**. O CLR é uma máquina virtual de aplicação para a execução gerenciada de programas CLI. Realiza o gerenciamento de memória, controle de exceção, interoperabilidade, manipulação de processamento paralelo e concorrente, reflexão, segurança, serviços de compilação para a arquitetura específica, entre outros. Portanto, o código de computador escrito usando .NET é chamado de "código gerenciado".
 
-## Criar solução
+O código CIL compilado é armazenado em *assemblies CLI*. Os *assemblies* são armazenados no formato de arquivo *Portable Executable - PE*, que é basicamente uma estrutura de dados que encapsula a informação necessária para que a CLR possa manipular o código executável que está empacotado.
 
-Criar nova solução
+Os *assemblies* formam as unidades fundamentais de implantação, controle de versão, reutilização, escopo de ativação e permissões de segurança para aplicações .NET. Um *assembly* é uma coleção de tipos e recursos compilados para funcionar juntos e formar uma unidade lógica de funcionalidade. Os *assemblies* assumem a forma de arquivos executáveis (`.exe`) ou *Dynamic Link Library* (`.dll`) e são os blocos de construção de aplicações .NET. Eles oferecem ao CLR as informações de que ele precisa para as implementações.
 
-```bash
-dotnet new sln -n <nome-solucao>
+Os *assemblies* têm as seguintes propriedades:
 
-# Parâmetros
-# -n: Por padrão usa o nome do diretório
-```
+- Os *assemblies* são implementados como arquivos `.exe` ou `.dll`.
+- Para bibliotecas direcionadas ao .NET, você pode compartilhar *assemblies* entre aplicações, colocando-os no *Global Assembly Cache - GAC*.
+- Os *assemblies* são carregados na memória somente se forem usados, podendo ser uma maneira eficiente de gerenciar recursos em projetos grandes.
+- Você pode obter informações de um assembly programaticamente usando *reflection* (reflexão).
+- Você pode carregar um assembly apenas para inspecioná-lo usando a classe `MetadataLoadContext` e os métodos `Assembly.ReflectionOnlyLoad` ou `Assembly.ReflectionOnlyLoadFrom`.
 
-## Criar projeto
+Em tempo de execução, um compilador **Just-In-Time - JIT** na CLR transforma o código CIL de um *assemble* em código nativo de máquina. Este é um código específico da CPU executado na mesma arquitetura de computador do compilador JIT. O JIT armazena o código nativo resultante na memória para que seja acessível para chamadas subsequentes no contexto desse processo.
 
-Criar projeto tipo `console`.
+O CLR fornece vários compiladores JIT, cada um funciona em uma arquitetura de CPU diferente dependendo do sistema operacional e torna possível executar o CIL (que é compilado a partir de diferentes linguagens .NET) em diferentes sistemas operacionais sem reescrever o Código fonte.
 
-```bash
-dotnet new console -o <projeto>
-```
+Vantagens da compilação Just-In-Time:
 
-Criar projeto tipo `biblioteca de classes`.
+- Define o perfil da plataforma de destino enquanto ela é executada e recompilada em tempo real para fornecer desempenho aprimorado.
+- A otimização do código com base na análise estatística pode ser realizada pelo compilador JIT enquanto o código está em execução.
+- O compilador JIT requer menos uso de memória, pois apenas os métodos necessários em tempo de execução são compilados em código de máquina.
+- *Page faults* são reduzidas, pois os métodos requeridos que possuem vínculos estão provavelmente na mesma página de memória.
 
-```bash
-dotnet new classlib -f <framework> -o <diretorio> -n <nome-projeto>
-# Exemplo:
-dotnet new classlib -f netcoreapp3.1 -o NerdStore.Catalogo.Domain
-```
+Desvantagens da compilação Just-In-Time:
 
-Criar projeto tipo `ASP.NET Core vazio`.
+- O compilador JIT requer mais tempo de inicialização enquanto a aplicação é executado inicialmente.
+- A memória cache é muito usada pelo compilador JIT para armazenar os métodos de código-fonte que são necessários em tempo de execução.
 
-```bash
-dotnet new web -o <projeto>
-```
+!!! note ""  
+    Muitas das desvantagens do compilador JIT podem ser tratadas usando a compilação *Ahead-of-time - AOT*. Isso envolve a compilação do CIL em código de máquina para que a compilação em tempo de execução não seja necessária e o arquivo de código de máquina possa ser executado nativamente.
 
-Criar projeto tipo `API Web do ASP.NET Core`.
+<figure>
+    <a href="../_introducao/dotnet-architecture.svg">
+        <img src="../_introducao/dotnet-architecture.svg"/>
+    </a>
+    <figcaption>Arquitetura .Net</figcaption>
+</figure>
 
-```bash
-dotnet new webapi -o <projeto>
-```
+## C\#
 
-Criar projeto tipo `Aplicativo Web ASP.NET Core`.
+### História
 
-```bash
-dotnet new webapp -o <projeto>
-```
+No final da década de 1990 a Microsoft tinha diversas tecnologias e linguagens de programação para resolver muitos problemas diferentes. Toda vez que um programador precisava migrar para uma nova linguagem, era necessário aprender tanto a nova linguagem quanto suas bibliotecas e conceitos. Para solucionar esses problemas, a Microsoft recorreu à linguagem Java.
 
-Criar projeto tipo `Aplicativo Web ASP.NET Core MVC`.
+O Java agradou os engenheiros da Microsoft pois com ela podíamos construir programas que eram independentes do ambiente de execução, além de possuir diversas bibliotecas com soluções prontas para diversos problemas. Para lançar produtos baseados no Java, a Microsoft assinou um acordo de licenciamento com a Sun para utilizar o Java em ambiente Windows.
 
-```bash
-dotnet new mvc -o <projeto> -au Individual
+Porém, a linguagem Java possuía um grave problema: ela não se comunicava bem com as bibliotecas de código nativo (código de máquina) que já existiam. Para resolver isso, a Microsoft decidiu criar a sua própria implementação do Java chamado J++, que possuía extensões proprietárias que resolviam o problema de comunicação com o código nativo existente. Para o desenvolvimento dessa nova implementação do Java, a Microsoft contratou um engenheiro chamado Anders Hejlsberg, um dos principais nomes por trás do Delphi.
 
-# Parâmetros
-# -au: Autenticação individual do identity
-```
+O J++ era uma versão da linguagem Java que só podia ser executada no ambiente Microsoft. Seu código não podia ser executado em mais nenhum ambiente Java, o que violava o licenciamento feito com a Sun e, por isso, a Microsoft foi processada. Uma das mais conhecidas batalhas judiciais da época.
 
-Criar projeto tipo `Xunit`.
+Sem o J++, a Microsoft foi obrigada a repensar sua estratégia sobre como lidar com as diferentes linguagens e tecnologias utilizadas internamente. A empresa começou a trabalhar em um nova plataforma que seria a base de todas as suas soluções, que posteriormente foi chamada de .Net. Esse novo ambiente de desenvolvimento da Microsoft foi desde o início projetado para trabalhar com diversas linguagens de programação, assim diversas linguagens diferentes compartilhariam o mesmo conjunto de bibliotecas. Com isso, para um programador migrar de uma linguagem para outra ele precisaria apenas aprender a linguagem sem se preocupar com as bibliotecas e APIs.
 
-```bash
-dotnet new xunit -o <projeto>
-```
+Além de uma plataforma a Microsoft também precisava de uma linguagem de programação. Um novo projeto de linguagem de programação foi iniciado, o projeto COOL (C-like Object Oriented Language). Anders Hejlsberg foi escolhido como engenheiro chefe desse novo projeto. COOL teve seu design baseado em diversas outras linguagens do mercado como Java, C, C++, Smalltalk, Delphi e VB. A ideia era estudar os problemas existentes e incorporar soluções.
 
-## Criar pasta de projeto
+Em 2002, o projeto COOL foi lançado como linguagem C# 1.0, junto com o ambiente .Net 1.0.
 
-```bash
-dotnet new <typeproj> -o <pasta-solucao> -n <nome-pasta>
+### Características
 
-# Exemplo
-dotnet new <typeproj> -o "Services/Catalogo" -n "Catalogo"
-```
+C# é uma linguagem de programação moderna, de uso geral, multiparadigma, de tipagem forte, desenvolvida pela Microsoft como parte da plataforma .NET. A sua sintaxe orientada a objetos foi baseada no C++ mas inclui muitas influências de outras linguagens de programação, como Object Pascal e, principalmente, Java. Dentre as linguagens suportadas no framework .NET, C# (C Sharp) é a mais usada em aplicações .NET.
 
-## Associar projetos
+Motivos que tornam C# uma linguagem amplamente usada:
 
-### Associar projeto a solução
+- Linguagem de programação moderna e de uso geral.
+- Orientado a objetos.
+- Orientado para componentes.
+- Fácil aprendizagem.
+- Linguagem estruturada.
+- Produz programas eficientes.
+- Pode ser compilada para várias plataformas de computador.
+- Parte do framework .Net.
+- Fortes recursos de programação.
 
-```bash
-dotnet sln add -s <pasta-solucao> <diretorio-projeto>/<arquivo>.csproj
+Recursos importantes do C#:
 
-# Exemplo
-dotnet sln add -s Services/Catalogo src/NerdStore.Catalogo.Domain/NerdStore.Catalogo.Domain.csproj
-```
-
-### Desassociar projeto a solução
-
-```bash
-dotnet sln remove -s <pasta-solucao> <diretorio-projeto>/<arquivo>.csproj
-
-# Exemplo
-dotnet sln remove src/NerdStore.Catalogo.Domain/NerdStore.Catalogo.Domain.csproj
-```
-
-### Associar projeto a outro projeto
-
-```bash
-dotnet add <diretorio-projeto> reference <diretorio-projeto-referenciado>
-```
-
-### Desassociar projeto de outro projeto
-
-```bash
-dotnet remove <diretorio-projeto> reference <diretorio-projeto-referenciado>
-
-# Exemplo
-dotnet remove Projeto.csproj reference src/NerdStore.Catalogo.Domain/NerdStore.Catalogo.Domain.csproj
-```
-
-## Listar projetos da solução
-
-```bash
-dotnet sln list 
-```
-
-## Compilar solução ou projeto
-
-```bash
-dotnet build
-```
-
-## Publicar solução
-
-Gerar o build para produção.
-
-As implantações de aplicativo autocontatidas do .NET Core incluem as bibliotecas e o runtime do .NET Core. A partir do SDK do .NET Core 2.1 (.NET Core 2.1.300), uma implantação de aplicativo autocontida publica o runtime de patch mais recente no computador.
-
-[Lista de runtimes](https://github.com/dotnet/runtime/blob/master/src/libraries/pkg/Microsoft.NETCore.Platforms/runtime.json)
-
-```bash
-dotnet publish -f <framework> -c <configuracao> -o <diretorio-saida> --self-contained true -r <rid-runtime-id> -p:<propriedade-nome>=<valor>
-
-# Exemplo
-dotnet publish -f netcoreapp2.2 -o ~/MeuDeploy --self-contained true -r ubuntu.18.04-x64 p:EnvironmentName=ProducaoLinux
-```
-
-## Rodar a solução ou projeto publicado
-
-```bash
-dotnet <nome-solucao-ou-projeto>.dll --environment <nome-environment> --server.urls http://0.0.0.0:5000
-```
-
-## Instalar as dependências (pacotes) do projeto
-
-```bash
-dotnet restore
-```
-
-## Banco de dados
-
-O EF Core (`Entity Framework Core`) é um O/RM (mapeador relacional de objeto) que permite que os desenvolvedores de .NET trabalhem com um banco de dados usando objetos .NET. Elimina a necessidade da maioria do código de acesso a dados que os desenvolvedores geralmente precisam gravar.
-
-### Instalar o CLI do EF
-
-```bash
-dotnet tool install --global dotnet-ef
-```
-
-### Adicionar o pacote do EF
-
-```bash
-dotnet add package Microsoft.EntityFrameworkCore
-dotnet add package Microsoft.EntityFrameworkCore.Design
-```
-
-### Instalar o provedor do banco para o EF
-
-```bash
-dotnet add <projeto> package <pacote-provedor-banco>
-
-# Exemplo PostgreSQL:
-# dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
-```
-
-O argumento `<projeto>` é opcional. Pode basear no diretório corrente. Lista de provedores de bancos de dados: [Veja mais](https://docs.microsoft.com/pt-br/ef/core/providers/index?tabs=dotnet-core-cli)
-
-Exemplo de uso:
-
-```dotnet
-public class MeuContexto : DbContext {
-
-    // ...
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=exemplo-migrations2;Username=postgres;Password=postgres");
-    }
-}
-```
-
-### Criar uma migration
-
-```bash
-dotnet ef migrations add <nome> -p <caminho-projeto-migrations> -s <caminho-projeto-startup> -c <nome-contexto> --framework <netcoreapp#.#>
-```
-
-### Remover migration
-
-Remove a última *migration* ainda **não aplicada ao banco**.
-
-```bash
-dotnet ef migrations remove
-```
-
-Remover todas migrations
-
-```bash
-dotnet ef database update 0
-dotnet ef migrations remove
-```
-
-### Reverter uma migration
-
-Reverter uma ou várias *migrations*, até a migrations informada.
-
-```bash
-dotnet ef database update <nome>
-```
-
-### Lista as migrations
-
-```bash
-dotnet ef migrations list
-```
-
-### Gerar scripts SQL
-
-Gera um script SQL das aplicações que serão feitas no banco.
-
-```bash
-dotnet ef migrations script -from <nome> -to <nome>
-```
-
-Os argumentos `<from>` e `<to>` são opcionais. Por padão será pego da primeira até a última *migration*.
-
-### Atualizar o banco
-
-Aplica as *migrations* no banco. Se o banco não existir, também será criado.
-
-```bash
-dotnet ef database update
-```
-
-### Aplicar migrações em runtime
-
-```dotnet
-<contexto>.Database.Migrate();
-```
-
-Exemplo chamando no `Main`.
-
-```dotnet
-class Program
-    {
-        static void Main(string[] args)
-        {
-            // ...
-            using var context = new BloggingContext();
-            context.Database.Migrate();
-        }
-    }
-```
-
-Não chame `EnsureCreated()` antes de `Migrate()`. O `EnsureCreated()` ignora as Migrações para criar o esquema e causa falha no `Migrate()`.
-
-## Pacotes Nuget
-
-### Instalar
-
-```bash
-dotnet add <projeto> package <pacote> <versao>
-
-# exemplo: dotnet add ~/ToDo.csproj package Microsoft.Azure.DocumentDB.Core -v 1.0.0
-```
-
-Os argumento `<projeto>` e `<versao>` são opcionais. Pode basear no diretório corrente.
-
-### Remover
-
-```bash
-dotnet remove <projeto> package <pacote>
-```
-
-O argumento `<projeto>` é opcional. Pode basear no diretório corrente.
-
-### Restaurar
-
-```bash
-dotnet restore <projeto|solucao>
-```
-
-O argumento `<projeto|solucao>` é opcional. Pode basear no diretório corrente.
+- Condições Booleanas.
+- *Garbage Collection* automático.
+- Biblioteca Padrão.
+- Versionamento *Assembly*
+- Propriedades e Eventos
+- *Delegates* e Gerenciadores de Eventos
+- *Generics* fáceis de usar
+- Indexadores
+- Compilação Condicional
+- *Multithreading* Simples
+- Expressões LINQ e Lambda
 
 ## Referências
 
 - <https://pt.wikipedia.org/wiki/.NET_Framework>
+- <https://en.wikipedia.org/wiki/.NET_Framework>
+- <https://docs.microsoft.com/pt-br/dotnet/standard/assembly/>
+- <https://www.tutorialspoint.com/csharp/csharp_overview.htm>
+- <https://www.caelum.com.br/apostila-csharp-orientacao-objetos/o-que-e-c-e-net>

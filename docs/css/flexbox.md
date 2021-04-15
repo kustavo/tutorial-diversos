@@ -1,3 +1,8 @@
+---
+title: Flexbox
+description: Flexible Box Module
+--- 
+
 # Flexbox
 
 O **Flexible Box Module**, geralmente chamado de flexbox, foi projetado tanto como um modelo de layout unidimensional quanto como um método capaz de organizar espacialmente os elementos em uma interface, além de possuir capacidades avançadas de alinhamento.
@@ -18,13 +23,17 @@ display: flex;
 ```
 
 === "Resultado"
-     <iframe src="../_flexbox/exemplo-display/exemplo.html"></iframe>
+    <iframe src="../_flexbox/exemplo-display/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_flexbox/exemplo-display/exemplo.html"></pre>
+    ```html
+    --8<-- "./docs/css/_flexbox/exemplo-display/exemplo.html"
+    ```
 
 === "CSS"
-     <pre data-url="css/_flexbox/exemplo-display/style.css"></pre>
+    ```css
+    --8<-- "./docs/css/_flexbox/exemplo-display/style.css"
+    ```
 
 ### flex-direction
 
@@ -47,13 +56,17 @@ flex-direction: column-reverse;
 ```
 
 === "Resultado"
-     <iframe src="../_flexbox/exemplo-flex-direction/exemplo.html"></iframe>
+    <iframe src="../_flexbox/exemplo-flex-direction/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_flexbox/exemplo-flex-direction/exemplo.html"></pre>
+    ```html
+    --8<-- "./docs/css/_flexbox/exemplo-flex-direction/exemplo.html"
+    ```
 
 === "CSS"
-     <pre data-url="css/_flexbox/exemplo-flex-direction/style.css"></pre>
+    ```css
+    --8<-- "./docs/css/_flexbox/exemplo-flex-direction/style.css"
+    ```
 
 ### flex-wrap
 
@@ -73,13 +86,17 @@ flex-wrap: wrap-reverse;
 ```
 
 === "Resultado"
-     <iframe src="../_flexbox/exemplo-flex-wrap/exemplo.html"></iframe>
+    <iframe src="../_flexbox/exemplo-flex-wrap/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_flexbox/exemplo-flex-wrap/exemplo.html"></pre>
+    ```html
+    --8<-- "./docs/css/_flexbox/exemplo-flex-wrap/exemplo.html"
+    ```
 
 === "CSS"
-     <pre data-url="css/_flexbox/exemplo-flex-wrap/style.css"></pre>
+    ```css
+    --8<-- "./docs/css/_flexbox/exemplo-flex-wrap/style.css"
+    ```
 
 ### flex-flow
 
@@ -97,13 +114,17 @@ flex-flow: column nowrap;
 ```
 
 === "Resultado"
-     <iframe src="../_flexbox/exemplo-flex-flow/exemplo.html"></iframe>
+    <iframe src="../_flexbox/exemplo-flex-flow/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_flexbox/exemplo-flex-flow/exemplo.html"></pre>
+    ```html
+    --8<-- "./docs/css/_flexbox/exemplo-flex-flow/exemplo.html"
+    ```
 
 === "CSS"
-     <pre data-url="css/_flexbox/exemplo-flex-flow/style.css"></pre>
+    ```css
+    --8<-- "./docs/css/_flexbox/exemplo-flex-flow/style.css"
+    ```
 
 ### justify-content
 
@@ -129,13 +150,17 @@ justify-content: space-around;
 ```
 
 === "Resultado"
-     <iframe src="../_flexbox/exemplo-justify-content/exemplo.html"></iframe>
+    <iframe src="../_flexbox/exemplo-justify-content/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_flexbox/exemplo-justify-content/exemplo.html"></pre>
+    ```html
+    --8<-- "./docs/css/_flexbox/exemplo-justify-content/exemplo.html"
+    ```
 
 === "CSS"
-     <pre data-url="css/_flexbox/exemplo-justify-content/style.css"></pre>
+    ```css
+    --8<-- "./docs/css/_flexbox/exemplo-justify-content/style.css"
+    ```
 
 ### align-items
 
@@ -161,13 +186,17 @@ align-items: baseline;
 ```
 
 === "Resultado"
-     <iframe src="../_flexbox/exemplo-align-items/exemplo.html"></iframe>
+    <iframe src="../_flexbox/exemplo-align-items/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_flexbox/exemplo-align-items/exemplo.html"></pre>
+    ```html
+    --8<-- "./docs/css/_flexbox/exemplo-align-items/exemplo.html"
+    ```
 
 === "CSS"
-     <pre data-url="css/_flexbox/exemplo-align-items/style.css"></pre>
+    ```css
+    --8<-- "./docs/css/_flexbox/exemplo-align-items/style.css"
+    ```
 
 ### align-content
 
@@ -196,13 +225,17 @@ align-content: space-around;
 ```
 
 === "Resultado"
-     <iframe src="../_flexbox/exemplo-align-content/exemplo.html"></iframe>
+    <iframe src="../_flexbox/exemplo-align-content/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_flexbox/exemplo-align-content/exemplo.html"></pre>
+    ```html
+    --8<-- "./docs/css/_flexbox/exemplo-align-content/exemplo.html"
+    ```
 
 === "CSS"
-     <pre data-url="css/_flexbox/exemplo-align-content/style.css"></pre>
+    ```css
+    --8<-- "./docs/css/_flexbox/exemplo-align-content/style.css"
+    ```
 
 ## Flex Item
 
@@ -229,13 +262,17 @@ flex-grow: 0;
 ```
 
 === "Resultado"
-     <iframe src="../_flexbox/exemplo-flex-grow/exemplo.html"></iframe>
+    <iframe src="../_flexbox/exemplo-flex-grow/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_flexbox/exemplo-flex-grow/exemplo.html"></pre>
+    ```html
+    --8<-- "./docs/css/_flexbox/exemplo-flex-grow/exemplo.html"
+    ```
 
 === "CSS"
-     <pre data-url="css/_flexbox/exemplo-flex-grow/style.css"></pre>
+    ```css
+    --8<-- "./docs/css/_flexbox/exemplo-flex-grow/style.css"
+    ```
 
 ### flex-basis
 
@@ -255,13 +292,17 @@ flex-basis: 0;
 ```
 
 === "Resultado"
-     <iframe src="../_flexbox/exemplo-flex-basis/exemplo.html"></iframe>
+    <iframe src="../_flexbox/exemplo-flex-basis/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_flexbox/exemplo-flex-basis/exemplo.html"></pre>
+    ```html
+    --8<-- "./docs/css/_flexbox/exemplo-flex-basis/exemplo.html"
+    ```
 
 === "CSS"
-     <pre data-url="css/_flexbox/exemplo-flex-basis/style.css"></pre>
+    ```css
+    --8<-- "./docs/css/_flexbox/exemplo-flex-basis/style.css"
+    ```
 
 ### flex-shrink
 
@@ -280,13 +321,17 @@ flex-shrink: número;
 ```
 
 === "Resultado"
-     <iframe src="../_flexbox/exemplo-flex-shrink/exemplo.html"></iframe>
+    <iframe src="../_flexbox/exemplo-flex-shrink/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_flexbox/exemplo-flex-shrink/exemplo.html"></pre>
+    ```html
+    --8<-- "./docs/css/_flexbox/exemplo-flex-shrink/exemplo.html"
+    ```
 
 === "CSS"
-     <pre data-url="css/_flexbox/exemplo-flex-shrink/style.css"></pre>
+    ```css
+    --8<-- "./docs/css/_flexbox/exemplo-flex-shrink/style.css"
+    ```
 
 ### flex
 
@@ -309,13 +354,17 @@ flex: 3 2 300px;
 ```
 
 === "Resultado"
-     <iframe src="../_flexbox/exemplo-flex/exemplo.html"></iframe>
+    <iframe src="../_flexbox/exemplo-flex/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_flexbox/exemplo-flex/exemplo.html"></pre>
+    ```html
+    --8<-- "./docs/css/_flexbox/exemplo-flex/exemplo.html"
+    ```
 
 === "CSS"
-     <pre data-url="css/_flexbox/exemplo-flex/style.css"></pre>
+    ```css
+    --8<-- "./docs/css/_flexbox/exemplo-flex/style.css"
+    ```
 
 ### order
 
@@ -330,13 +379,17 @@ order: 0;
 ```
 
 === "Resultado"
-     <iframe src="../_flexbox/exemplo-order/exemplo.html"></iframe>
+    <iframe src="../_flexbox/exemplo-order/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_flexbox/exemplo-order/exemplo.html"></pre>
+    ```html
+    --8<-- "./docs/css/_flexbox/exemplo-order/exemplo.html"
+    ```
 
 === "CSS"
-     <pre data-url="css/_flexbox/exemplo-order/style.css"></pre>
+    ```css
+    --8<-- "./docs/css/_flexbox/exemplo-order/style.css"
+    ```
 
 ### align-self
 
@@ -365,13 +418,17 @@ align-self: stretch;
 ```
 
 === "Resultado"
-     <iframe src="../_flexbox/exemplo-align-self/exemplo.html"></iframe>
+    <iframe src="../_flexbox/exemplo-align-self/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_flexbox/exemplo-align-self/exemplo.html"></pre>
+    ```html
+    --8<-- "./docs/css/_flexbox/exemplo-align-self/exemplo.html"
+    ```
 
 === "CSS"
-     <pre data-url="css/_flexbox/exemplo-align-self/style.css"></pre>
+    ```css
+    --8<-- "./docs/css/_flexbox/exemplo-align-self/style.css"
+    ```
 
 ## Referências
 

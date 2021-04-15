@@ -189,27 +189,27 @@ sudo systemctl reload nginx
 ### Configuração do Servidor
 
 `/etc/nginx`
-    : o diretório de configuração do Nginx. Todos os arquivos de configuração do Nginx residem aqui.
+:   o diretório de configuração do Nginx. Todos os arquivos de configuração do Nginx residem aqui.
 
 `/etc/nginx/nginx.conf`
-    : o arquivo de configuração principal do Nginx. Isso pode ser modificado para fazer alterações na configuração global do Nginx.
+:   o arquivo de configuração principal do Nginx. Isso pode ser modificado para fazer alterações na configuração global do Nginx.
 
 `/etc/nginx/sites-available/`
-    : o diretório onde os blocos de servidor de cada site podem ser armazenados. O Nginx não usará os arquivos de configuração encontrados neste diretório a menos que estejam ligados ao diretório sites-enabled. Normalmente, todas as configurações de blocos de servidor são feitas neste diretório e então habilitadas pela ligação a outro diretório.
+:   o diretório onde os blocos de servidor de cada site podem ser armazenados. O Nginx não usará os arquivos de configuração encontrados neste diretório a menos que estejam ligados ao diretório sites-enabled. Normalmente, todas as configurações de blocos de servidor são feitas neste diretório e então habilitadas pela ligação a outro diretório.
 
 `/etc/nginx/sites-enabled/`
-    : o diretório onde os blocos de servidor de cada site habilitados são armazenados. Normalmente, eles são criados pela ligação aos arquivos de configuração encontrados no diretório sites-available.
+:   o diretório onde os blocos de servidor de cada site habilitados são armazenados. Normalmente, eles são criados pela ligação aos arquivos de configuração encontrados no diretório sites-available.
 
 `/etc/nginx/snippets`
-    : este diretório contém fragmentos de configuração que podem ser incluídos em outro lugar na configuração do Nginx. Os segmentos de configuração potencialmente repetíveis são bons candidatos à refatoração em snippets.
+:   este diretório contém fragmentos de configuração que podem ser incluídos em outro lugar na configuração do Nginx. Os segmentos de configuração potencialmente repetíveis são bons candidatos à refatoração em snippets.
 
 ### Logs
 
 `/var/log/nginx/access.log`
-    : cada pedido ao seu servidor Web é registrado neste arquivo de registro a menos que o Nginx esteja configurado para fazer de outra maneira.
+:   cada pedido ao seu servidor Web é registrado neste arquivo de registro a menos que o Nginx esteja configurado para fazer de outra maneira.
 
 `/var/log/nginx/error.log`
-    : qualquer erro do Nginx será gravado neste registro.
+:   qualquer erro do Nginx será gravado neste registro.
 
 ## Referências
 

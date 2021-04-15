@@ -1,0 +1,53 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // Nome da configuração
+      "name": ".NET Core Launch (web)",
+      // Tipo da configuração
+      "type": "coreclr",
+      // Tipo de solicitação
+      "request": "launch",
+      // Tarefa executada antes de iniciar
+      "preLaunchTask": "build",
+      // Caminho para o aplicativo (.dll ou executável)
+      "program": "${workspaceFolder}/bin/Debug/net5.0/<EXECUTAVEL-PROJETO>",
+      // Argumentos da linha de comando
+      "args": [],
+      // Caminho raiz do projeto
+      "cwd": "${workspaceFolder}",
+      // Para o debugger no ponto de entrada (método Main)
+      "stopAtEntry": false,
+      // Configurações do navegador
+      "launchBrowser": {
+        // Abre o navegador ao iniciar
+        "enabled": true,
+        "windows": {
+          // Inicia o navegador no windows na URI do swagger
+          "command": "cmd.exe",
+          "args": "/C start ${auto-detect-url}/swagger"
+        },
+        "osx": {
+          // Inicia o navegador no MAC
+          "command": "open"
+        },
+        "linux": {
+          // Inicia o navegador no windows na URI do swagger
+          "command": "xdg-open",
+          "args": "${auto-detect-url}/swagger"
+        }
+      },
+      // Variáveis de ambiente
+      "env": {
+        // Ambiente do qual será lido o arquivo de configuração
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        // Portas
+        "ASPNETCORE_URLS": "https://localhost:5001;http://localhost:5000"
+      },
+      // Mapeamento de arquivos fontes opcionais passados para o debug
+      "sourceFileMap": {
+        "/Views": "${workspaceFolder}/Views"
+      }
+    }
+  ]
+}

@@ -1,3 +1,8 @@
+---
+title: Grid
+description: CSS Grid layout
+---
+
 # Grid
 
 **CSS Grid layout**, geralmente chamado de grid, oferece um sistema de layout baseado em grade, com linhas e colunas, facilitando o design de páginas da web sem ter que usar floats e posicionamento. Grid Layout é indicado quando estamos trabalhando com elementos em duas dimensões, principalmente para definir a estrutura de uma página.
@@ -13,10 +18,14 @@ Abaixo um exemplo de um layout formado por grid:
      <iframe src="../_grid/exemplo-grid-introducao/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-grid-introducao/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-grid-introducao/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-grid-introducao/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-grid-introducao/style.css"
+     ```
 
 Conforme o exemplo, `grid-template-columns` define os numero de colunas igual a 2, `grid-template-rows` o número de linhas igual a 3 e `grid-template-areas` define como os elementos ocuparão as áreas do grid.
 
@@ -61,10 +70,14 @@ grid-template-columns: repeat(auto-fit, minmax(100px, auto));
      <iframe src="../_grid/exemplo-grid-template-columns/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-grid-template-columns/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-grid-template-columns/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-grid-template-columns/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-grid-template-columns/style.css"
+     ```
 
 ### grid-template-rows
 
@@ -82,10 +95,14 @@ grid-template-rows: 1fr 2fr;
      <iframe src="../_grid/exemplo-grid-template-rows/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-grid-template-rows/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-grid-template-rows/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-grid-template-rows/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-grid-template-rows/style.css"
+     ```
 
 ### grid-template-areas
 
@@ -103,10 +120,14 @@ grid-template-areas:
      <iframe src="../_grid/exemplo-grid-template-areas/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-grid-template-areas/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-grid-template-areas/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-grid-template-areas/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-grid-template-areas/style.css"
+     ```
 
 ### grid-template
 
@@ -125,10 +146,14 @@ grid-template:
      <iframe src="../_grid/exemplo-grid-template/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-grid-template/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-grid-template/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-grid-template/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-grid-template/style.css"
+     ```
 
 ### gap
 
@@ -149,10 +174,14 @@ row-gap: 20px
      <iframe src="../_grid/exemplo-grid-gap/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-grid-gap/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-grid-gap/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-grid-gap/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-grid-gap/style.css"
+     ```
 
 ### grid-auto-columns
 
@@ -167,10 +196,14 @@ grid-auto-columns: 100px
      <iframe src="../_grid/exemplo-grid-auto-columns/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-grid-auto-columns/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-grid-auto-columns/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-grid-auto-columns/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-grid-auto-columns/style.css"
+     ```
 
 ### grid-auto-rows
 
@@ -185,10 +218,14 @@ grid-auto-rows: 100px
      <iframe src="../_grid/exemplo-grid-auto-rows/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-grid-auto-rows/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-grid-auto-rows/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-grid-auto-rows/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-grid-auto-rows/style.css"
+     ```
 
 ### grid-auto-flow
 
@@ -209,10 +246,14 @@ grid-auto-flow: dense
      <iframe src="../_grid/exemplo-grid-auto-flow/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-grid-auto-flow/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-grid-auto-flow/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-grid-auto-flow/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-grid-auto-flow/style.css"
+     ```
 
 ### grid
 
@@ -230,10 +271,14 @@ grid: 100px / auto-flow 100px 50px
      <iframe src="../_grid/exemplo-grid-grid/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-grid-grid/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-grid-grid/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-grid-grid/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-grid-grid/style.css"
+     ```
 
 ### justify-content
 
@@ -266,10 +311,14 @@ justify-content: center
      <iframe src="../_grid/exemplo-grid-justify-content/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-grid-justify-content/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-grid-justify-content/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-grid-justify-content/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-grid-justify-content/style.css"
+     ```
 
 ### align-content
 
@@ -302,10 +351,14 @@ align-content: center
      <iframe src="../_grid/exemplo-grid-align-content/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-grid-align-content/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-grid-align-content/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-grid-align-content/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-grid-align-content/style.css"
+     ```
 
 ### justify-items
 
@@ -329,10 +382,14 @@ justify-items: stretch
      <iframe src="../_grid/exemplo-grid-justify-items/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-grid-justify-items/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-grid-justify-items/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-grid-justify-items/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-grid-justify-items/style.css"
+     ```
 
 ### align-items
 
@@ -356,10 +413,14 @@ align-items: stretch
      <iframe src="../_grid/exemplo-grid-align-items/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-grid-align-items/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-grid-align-items/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-grid-align-items/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-grid-align-items/style.css"
+     ```
 
 ## Grid Item
 
@@ -390,10 +451,14 @@ grid-column: span 2
      <iframe src="../_grid/exemplo-grid-column/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-grid-column/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-grid-column/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-grid-column/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-grid-column/style.css"
+     ```
 
 ### grid-row
 
@@ -422,10 +487,14 @@ grid-row: span 2
      <iframe src="../_grid/exemplo-grid-row/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-grid-row/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-grid-row/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-grid-row/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-grid-row/style.css"
+     ```
 
 ### grid-area
 
@@ -450,10 +519,14 @@ grid-area: header;
      <iframe src="../_grid/exemplo-grid-area/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-grid-area/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-grid-area/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-grid-area/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-grid-area/style.css"
+     ```
 
 ### justify-self
 
@@ -477,10 +550,14 @@ justify-self: stretch
      <iframe src="../_grid/exemplo-justify-self/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-justify-self/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-justify-self/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-justify-self/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-justify-self/style.css"
+     ```
 
 ### align-self
 
@@ -504,10 +581,14 @@ align-self: stretch
      <iframe src="../_grid/exemplo-align-self/exemplo.html"></iframe>
 
 === "HTML"
-     <pre data-url="css/_grid/exemplo-align-self/exemplo.html"></pre>
+     ```html
+     --8<-- "./docs/css/_grid/exemplo-align-self/exemplo.html"
+     ```
 
 === "CSS"
-     <pre data-url="css/_grid/exemplo-align-self/style.css"></pre>
+     ```css
+     --8<-- "./docs/css/_grid/exemplo-align-self/style.css"
+     ```
 
 ## Referências
 
