@@ -161,18 +161,18 @@ public class Exemplo {
 Uma interface funcional (em inglês, *functional interface*) é uma interface que possui apenas um único método abstrato, ao qual os parâmetros e tipos de retorno da expressão lambda são combinados ou adaptados. Alguns exemplos de interfaces funcionais:
 
 | Interface  | Método                         | Descrição                                |
-| ---------- | ------------------------------ | ---------------------------------------- |
-| Comparator | `int compare​(T o1, T o2) { }` | Comparação entre dois elementos          |
+|------------|--------------------------------|------------------------------------------|
+| Comparator | `int compare​(T o1, T o2) { }`  | Comparação entre dois elementos          |
 | Runnable   | `void run() { }`               | Usado para criar um *thread*             |
 | Callable   | `V call() throws Exception`    | Computa o resultado ou lança uma exceção |
 
 Introduzidas no Java 8:
 
 | Interface     | Método                                   | Descrição                                      |
-| ------------- | ---------------------------------------- | ---------------------------------------------- |
-| Predicate     | `boolean test​(T t)`                     | Operação que retorna um booleano               |
-| Consumer      | `void accept​(T t)`                      | Operação que não retorna valor (void)          |
-| Function      | `R apply​(T t)`                          | Operação que retorna algum valor               |
+|---------------|------------------------------------------|------------------------------------------------|
+| Predicate     | `boolean test​(T t)`                      | Operação que retorna um booleano               |
+| Consumer      | `void accept​(T t)`                       | Operação que não retorna valor (void)          |
+| Function      | `R apply​(T t)`                           | Operação que retorna algum valor               |
 | Supplier      | `T get()`                                | Operação sem parâmetro que retorna algum valor |
 | UnaryOperator | `static <T> UnaryOperator<T>` identity() | Operação que retorna mesmo valor do parâmetro  |
 

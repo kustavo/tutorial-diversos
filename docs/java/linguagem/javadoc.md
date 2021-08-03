@@ -15,7 +15,7 @@ Ele também provê uma API para a criação de *doclets* e *taglets*, que permit
 A estrutura básica de escrever os comentários é inseri-los em `/ ** ... * /`. As `tags` descritivas devem aparecer na seguinte ordem de prioridade.
 
 | Tag e parâmetro                                                               | Usado                                                                                                        | Aplica em                             |
-| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
+|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|---------------------------------------|
 | @**author** John Smith                                                        | Describes an author.                                                                                         | Class, Interface, Enum                |
 | {@**docRoot**}                                                                | Represents the relative path to the generated document's root directory from any generated page.             | Class, Interface, Enum, Field, Method |
 | @**version** version                                                          | Provides software version entry. Max one per Class or Interface.                                             | Class, Interface, Enum                |

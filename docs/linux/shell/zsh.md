@@ -46,6 +46,20 @@ Para alterar o tema, altere o arquivo `~/.zshrc`:
 ZSH_THEME="af-magic"
 ```
 
+### Mostrar path completo
+
+Alterar o arquivo do template:
+
+```bash
+~/.oh-my-zsh/themes/robbyrussell.zsh-theme
+```
+
+substituir `%c` por `%~` e executar:
+
+```bash
+source ~/.zshrc
+```
+
 ## Configurar o emulador de terminal
 
 Para definir como o shell do emulador de terminal, nas configurações do terminal, adicione o comando `zsh` como o comando de inicialização do terminal.

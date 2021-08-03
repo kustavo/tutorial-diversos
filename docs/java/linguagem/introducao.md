@@ -95,7 +95,7 @@ Pacotes na própria linguagem Java começam com java. ou javax.
 Em alguns casos, o nome de domínio da Internet pode não ser um nome de pacote válido. Isso pode ocorrer se o nome do domínio contiver um hífen ou outro caractere especial, se o nome do pacote começar com um dígito ou outro caractere ilegal para usar como o início de um nome Java ou se o nome do pacote contiver uma palavra-chave reservada Java como "int". Nesse caso, a convenção sugerida é adicionar um sublinhado. Por exemplo:
 
 | Nome do domínio               | Nome do prefixo do pacote   |
-| ----------------------------- | --------------------------- |
+|-------------------------------|-----------------------------|
 | `hyphenated-name.example.org` | org.example.hyphenated_name |
 | `example.int`                 | int_.example                |
 | `123name.example.com`         | com.example._123name        |

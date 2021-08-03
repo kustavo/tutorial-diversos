@@ -200,7 +200,7 @@ As matrizes são mais úteis para criar e trabalhar com um número fixo de objet
 - Os elementos de matriz podem ser de qualquer tipo, inclusive um tipo de matriz.
 - Os tipos de matriz são tipos de referência derivados do tipo base abstrato `System.Array`. Como esse tipo implementa `IEnumerable` e `IEnumerable<T>`, você pode usar a iteração `foreach` em todas as matrizes em C#.
 
-!!! note
+!!! note "Notas"
     *Array* é um tipo histórico que existe desde a época em que não existiam coleções genéricas em C#. A classe `Array` não faz parte dos namespaces `System.Collections`. No entanto, ainda é considerado uma coleção porque é baseado na interface `IList`.
 
     Matrizes unidimensionais `T[]` implementam as interfaces genéricas `System.Collections.Generic.IList<T>`, `System.Collections.Generic.ICollection<T>`, `System.Collections.Generic.IEnumerable<T>`, `System.Collections.Generic.IReadOnlyList<T>` e `System.Collections.Generic.IReadOnlyCollection<T>`. As implementações são fornecidas para *arrays* **somente em tempo de execução**, portanto, as interfaces genéricas não aparecem na sintaxe de declaração da classe `Array`. Alguns métodos de `ICollection<T>` não funcionariam para *arrays*, como o método `Add()` por exemplo.

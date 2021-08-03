@@ -47,8 +47,6 @@ O passar dos séculos e as disputas que acabaram ocorrendo entre os normandos da
 
 Muitas palavras foram incorporadas com a introdução de novos conceitos administrativos, políticos e sociais, para os quais não havia equivalentes em inglês. Em alguns casos, entretanto, já existiam palavras de origem germânica, as quais, ou acabaram desaparecendo, ou passaram a coexistir com os equivalentes de origem francesa, em princípio como sinônimo, mas, com o tempo, adquirindo conotações diferentes.
 
-**Palavras anglo-saxônicas e suas equivalentes em francês**
-
 | Anglo-Saxão | Francês   | Anglo-Saxão | Francês  |
 | ----------- | --------- | ----------- | -------- |
 | answer      | respond   | ask         | question |
@@ -77,9 +75,7 @@ Além da influência do francês sobre seu vocabulário, o Middle English se car
 
 Uma acentuada mudança na pronúncia das vogais do inglês ocorreu principalmente durante os séculos XV e XVI. Praticamente todos os sons vogais, inclusive ditongos, sofreram alterações e algumas consoantes deixaram de ser pronunciadas. De uma forma geral, as mudanças das vogais corresponderam a um movimento na direção dos extremos do espectro de vogais, como representado no modelo abaixo.
 
- **The Great Vowel Shift**
-
-| Palavra exemplo | 1400 | 1500 | 1600 | 2600        |
+| Palavra exemplo | 1400 | 1500 | 1600 | 1700        |
 | --------------- | ---- | ---- | ---- | ----------- |
 | bite            | /iː/ | /ei/ | /ɛi/ | /aɪ/        |
 | meet            | /eː/ | /iː/ | /iː/ | /iː/        |
@@ -93,6 +89,3 @@ Uma acentuada mudança na pronúncia das vogais do inglês ocorreu principalment
 
 - <https://en.wikipedia.org/wiki/Great_Vowel_Shift>
 - <http://www.sk.com.br/sk-enhis.html>
-
-
-

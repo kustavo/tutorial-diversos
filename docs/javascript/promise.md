@@ -1,4 +1,4 @@
-# Javascript assíncrono
+# Promises
 
 Com o avanço das tecnologias frontend e principalmente do Javascript, a programação assíncrona se tornou cada vez mais necessária e comum nas aplicações, principalmente em SPA’s. Desde os primórdios do jQuery possuímos as requisições XMLHttpRequest (AJAX) que faziam um trabalho assíncrono.
 
@@ -357,6 +357,8 @@ Os `async` e `await` são *keywords* que foram introduzidas no ES8 em 2017. Basi
 
 O motivo pela adição do `async/await` foi facilitar quando era necessário o aninhando Promises dentro de Promises. Este aninhando tornava tudo muito mais difícil de se ler. No exemplo abaixo temos a comparação de trechos de código equivalentes usando `async/await` e `Promise` respectivamente.
 
+Usando `async/await`
+
 ```js
 async function foo() {
  if (Math.random() > 0.5) return 'Ok!'
@@ -372,6 +374,8 @@ async function bar() {
 
 bar();
 ```
+
+Usando `Promise`
 
 ```js
 const foo = new Promise((resolve, reject) => {
@@ -497,7 +501,7 @@ bar(); // Resolução em 3s
 // dois
 ```
 
-Outro exemplo de forma de paralelizar a execução de Promises.
+Outro exemplo de como paralelizar a execução de Promises.
 
 ```js
 // Exemplo sequencial

@@ -184,7 +184,7 @@ sudo systemctl reload nginx
 ### Conteúdo
 
 `/var/www/html`
-    : O conteúdo Web em si, que por padrão apenas consiste na página Nginx padrão que você viu antes, é servido fora do diretório /var/www/html. Isso pode ser alterado mudando os arquivos de configuração do Nginx.
+:   O conteúdo Web em si, que por padrão apenas consiste na página Nginx padrão que você viu antes, é servido fora do diretório /var/www/html. Isso pode ser alterado mudando os arquivos de configuração do Nginx.
 
 ### Configuração do Servidor
 

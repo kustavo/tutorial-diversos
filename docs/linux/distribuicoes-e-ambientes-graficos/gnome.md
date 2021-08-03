@@ -93,6 +93,8 @@ Alterar o monitor onde irá aparecer a tela de login quando usado GDM (GNOME Dis
 1. Copie o arquivo para `/var/lib/gdm3/.config/`:
 
     ```bash
+    cp ~/.config/monitors.xml /var/lib/gdm/.config/
+    # ou
     cp ~/.config/monitors.xml /var/lib/gdm3/.config/
     ```
 

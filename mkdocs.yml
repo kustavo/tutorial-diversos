@@ -14,120 +14,146 @@ repo_name: "GitHub"
 #     - auto
 
 markdown_extensions:
-    - admonition # card de notas
-    - pymdownx.details # card de notas que expandem e recolhem
-    - pymdownx.snippets: # embutir arquivos
-          check_paths: true # erro se não encontrado
-    - pymdownx.tabbed # abas
-    - pymdownx.highlight:
-          #linenums: true # linha nos blocos de código
-    - pymdownx.superfences # bloco de código dentro de outros blocos
-    - attr_list # html e css em elementos markdown
-    - def_list # listas com descrições
-    - footnotes # notas de rodapé
-    - meta # metatags
-    - toc:
-          permalink: true # criar link âncora em cada subtítulo
-          toc_depth: 3 # limite de profundidade para aparecer no toc
+  - admonition # card de notas
+  - pymdownx.details # card de notas que expandem e recolhem
+  - pymdownx.snippets: # embutir arquivos
+      check_paths: true # erro se não encontrado
+  - pymdownx.tabbed # abas
+  - pymdownx.highlight:
+      #linenums: true # linha nos blocos de código
+  - pymdownx.superfences # bloco de código dentro de outros blocos
+  - attr_list # html e css em elementos markdown
+  - def_list # listas com descrições
+  - footnotes # notas de rodapé
+  - meta # metatags
+  - toc:
+      permalink: true # criar link âncora em cada subtítulo
+      toc_depth: 3 # limite de profundidade para aparecer no toc
 
 plugins:
-    - search:
-          lang: pt
-          prebuild_index: false # pré gerar o index de todas páginas
+  - search:
+      lang: pt
+      prebuild_index: false # pré gerar o index de todas páginas
 
 theme:
-    name: "material"
-    custom_dir: overrides # local dos arquivos que sobrescreve o tema
-    palette:
-        primary: indigo
-        accent: indigo
-    font:
-        text: Roboto
-        code: Roboto Mono
-    features:
-        - navigation.tabs # exibi o menu superior
-        - search.suggest # sugestões na busca
-        - search.highlight # destaque das palavras na busca
-        - search.share # opção de compartilhar busca
-        #- toc.integrate # agrupa as toc direita e esquerda
-        - navigation.instant # Uso de XHR, comporta como SPA
-        - navigation.sections # Exibe toc sem agrupar subtítulos
-    language: pt
-    logo: _extras/logo.svg
-    favicon: _extras/favicon.svg
+  name: "material"
+  custom_dir: overrides # local dos arquivos que sobrescreve o tema
+  palette:
+    primary: indigo
+    accent: indigo
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.tabs # exibi o menu superior
+    - search.suggest # sugestões na busca
+    - search.highlight # destaque das palavras na busca
+    - search.share # opção de compartilhar busca
+    #- toc.integrate # agrupa as toc direita e esquerda
+    - navigation.instant # Uso de XHR, comporta como SPA
+    - navigation.sections # Exibe toc sem agrupar subtítulos
+  language: pt
+  logo: _extras/logo.svg
+  favicon: _extras/favicon.svg
 
 extra_css: [_extras/extra.css]
 extra_javascript: [_extras/extra.js]
 
 nav:
-    - Home: index.md
-    - .Net:
-          - ./dotnet/introducao.md
-          - ./dotnet/instalacao-e-configuracao.md
-          - ./dotnet/interface-linha-comando.md
-          - ./dotnet/entity-framework.md
-          - ./dotnet/erros-e-solucoes.md
-          - ./dotnet/matrizes-e-colecoes.md
-    - Javascript:
-          - ./javascript/introducao.md
-          - ./javascript/assincronismo.md
-    - Padrões de projeto:
-          - ./design-patterns/observer.md
-    - Linux:
-          - ./linux/introducao.md
-          - Shell:
-                - ./linux/shell/linux-shell.md
-                - ./linux/shell/bash.md
-                - ./linux/shell/dash.md
-                - ./linux/shell/zsh.md
-                - ./linux/shell/gnome-terminal.md
-          - ./linux/arquivos-e-diretorios.md
-          - ./linux/servicos-e-processos.md
-          - ./linux/sessao-e-usuario.md
-          - Gerenciador de pacotes:
-                - ./linux/gerenciador-pacotes/apt.md
-                - ./linux/gerenciador-pacotes/snap.md
-                - ./linux/gerenciador-pacotes/flatpak.md
-                - ./linux/gerenciador-pacotes/yaourt.md
-          - Distribuições e ambientes gráficos:
-                - ./linux/distribuicoes-e-ambientes-graficos/gnome.md
-                - ./linux/distribuicoes-e-ambientes-graficos/pop-os.md
-                - ./linux/distribuicoes-e-ambientes-graficos/manjaro.md
-                - ./linux/distribuicoes-e-ambientes-graficos/arch-linux.md
-          - Programas:
-                - ./linux/programas/imagemagick.md
-                - ./linux/programas/ntfsfix.md
-                - ./linux/programas/puddletag.md
-                - ./linux/programas/rsync.md
-          - ./linux/certificado-ssl.md
-    - Html:
-          - ./html/introducao.md
-    - Css:
-          - ./css/introducao.md
-          - ./css/grid.md
-          - ./css/flexbox.md
-    - Markdown:
-          - ./markdown/markdown.md
-          - ./markdown/markdown-to-medium.md
-          - ./markdown/mkdocs.md
-    - Programas:
-          - ./programas/docker.md
-          - ./programas/docker-compose.md
-          - ./programas/firebase.md
-          - ./programas/git.md
-          - ./programas/maven.md
-          - ./programas/mysql.md
-          - ./programas/nginx.md
-          - ./programas/nodejs.md
-          - ./programas/postgresql.md
-          - ./programas/raspberry.md
-          - ./programas/veracrypt.md
-          - ./programas/visual-studio-code.md
-    - Inglês:
-          - ./ingles/introducao.md
-          - ./ingles/historia.md
-          - ./ingles/verbos.md
-    - Outros:
-          - ./android/android.md
-          - ./sql/sql.md
-          - ./windows/windows.md
+  - Home: index.md
+  - .Net:
+      - ./dotnet/introducao.md
+      - ./dotnet/instalacao-e-configuracao.md
+      - ./dotnet/interface-linha-comando.md
+      - ./dotnet/matrizes-e-colecoes.md
+      - ./dotnet/entity-framework.md
+      - ./dotnet/container-ioc-di.md
+      - ./dotnet/erros-e-solucoes.md
+  - Javascript:
+      - ./javascript/introducao.md
+      - ./javascript/promise.md
+      - ./javascript/observable.md
+  - Padrões de projeto:
+      - ./design-patterns/dependency-injection.md
+      - ./design-patterns/domain-driven-design.md
+      - ./design-patterns/cqrs.md
+      - ./design-patterns/observer.md
+      - ./design-patterns/solid/introducao.md
+      - ./design-patterns/solid/single-responsability-principle.md
+      - ./design-patterns/solid/open-close-principle.md
+      - ./design-patterns/solid/liskov-substitution-principle.md
+      - ./design-patterns/solid/interface-segregation-principle.md
+      - ./design-patterns/solid/dependency-inversion-principle.md
+  - Linux:
+      - ./linux/introducao.md
+      - Shell:
+          - ./linux/shell/linux-shell.md
+          - ./linux/shell/bash.md
+          - ./linux/shell/dash.md
+          - ./linux/shell/zsh.md
+          - ./linux/shell/gnome-terminal.md
+      - ./linux/arquivos-e-diretorios.md
+      - ./linux/servicos-e-processos.md
+      - ./linux/sessao-e-usuario.md
+      - Gerenciador de pacotes:
+          - ./linux/gerenciador-pacotes/apt.md
+          - ./linux/gerenciador-pacotes/snap.md
+          - ./linux/gerenciador-pacotes/flatpak.md
+          - ./linux/gerenciador-pacotes/yaourt.md
+      - Distribuições e ambientes gráficos:
+          - ./linux/distribuicoes-e-ambientes-graficos/gnome.md
+          - ./linux/distribuicoes-e-ambientes-graficos/pop-os.md
+          - ./linux/distribuicoes-e-ambientes-graficos/manjaro.md
+          - ./linux/distribuicoes-e-ambientes-graficos/arch-linux.md
+      - Programas:
+          - ./linux/programas/imagemagick.md
+          - ./linux/programas/ntfsfix.md
+          - ./linux/programas/puddletag.md
+          - ./linux/programas/rsync.md
+      - ./linux/certificado-ssl.md
+  - Html:
+      - ./html/introducao.md
+  - Css:
+      - ./css/introducao.md
+      - ./css/grid.md
+      - ./css/flexbox.md
+  - Markdown:
+      - ./markdown/markdown.md
+      - ./markdown/markdown-to-medium.md
+      - ./markdown/mkdocs.md
+  - Angular:
+      - ./angular/introducao.md
+      - ./angular/interface-linha-comando.md
+      - ./angular/componentes.md
+      - ./angular/rotas.md
+      - ./angular/modulos.md
+  - Flutter:
+      - ./flutter/instalacao.md
+      - ./flutter/introducao.md
+      - ./flutter/dart.md
+      - ./flutter/interface-linha-comando.md
+      - ./flutter/erros-e-solucoes.md
+  - Inglês:
+      - ./ingles/introducao.md
+      - ./ingles/historia.md
+      - ./ingles/verbos.md
+  - Outros:
+      - ./android/android.md
+      - ./sql/sql.md
+      - ./windows/windows.md
+      - Programas:
+        - ./programas/docker.md
+        - ./programas/docker-compose.md
+        - ./programas/firebase.md
+        - ./programas/git.md
+        - ./programas/maven.md
+        - ./programas/mkvtoolnix.md
+        - ./programas/mysql.md
+        - ./programas/nginx.md
+        - ./programas/nodejs.md
+        - ./programas/postgresql.md
+        - ./programas/raspberry.md
+        - ./programas/veracrypt.md
+        - ./programas/visual-studio-code.md
+      - Dispositivos:
+        - ./dispositivos/teclado-blitz-wolf-bw-kb1.md

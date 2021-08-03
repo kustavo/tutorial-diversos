@@ -6,97 +6,9 @@ Ele possui alguns elementos básicos que tornam essa construção interessante c
 
 Angular nos ajuda a criar Single-Page Applications com uma qualidade e produtividade surpreendente.
 
-## Angular CLI
-
-### Instalação
-
-```bash
-npm install -g @angular/cli
-```
-
-Especificando a versão de instalação. [Ver versões](https://github.com/angular/angular-cli/releases).
-
-```bash
-npm install -g @angular/cli@v10.0.0-rc.3
-```
-
-### Desinstalação
-
-```bash
-sudo npm uninstall -g @angular/cli
-```
-
-### Criar projeto
-
-```bash
-ng new <projeto>
-```
-
-### Executar projeto
-
-```bash
-cd <projeto>
-ng serve
-```
-
-### Criar arquivos
-
-```bash
-ng generate <tipo> <nome>
-```
-
-Tipos possíveis:
-
-- appShell
-- application
-- class
-- component
-- directive
-- enum
-- guard
-- interceptor
-- interface
-- library
-- module
-- pipe
-- service
-- serviceWorker
-- webWorker
-
-#### Criar componente
-
-```bash
-ng generate component <name>
-```
-
-#### Adicionar módulo de rotas
-
-```bash
-ng generate module app-routing --flat --module=app
-```
-
-Modificar o arquivo criado conforme exemplo abaixo:
-
-```ts
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HeroesComponent } from './heroes/heroes.component';
-
-// Rotas adicionadas
-const routes: Routes = [
-  { path: 'heroes', component: HeroesComponent }
-];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
-```
-
 ## Elementos de uma aplicação Angular
 
-Os elementos básicos (building blocks) de uma aplicação Angular são:
+Os elementos básicos (*building blocks*) de uma aplicação Angular são:
 
 - Módulos
 - Componentes
@@ -107,30 +19,13 @@ Os elementos básicos (building blocks) de uma aplicação Angular são:
 - Serviços
 - Injeção de dependências
 
-<div class='imagem' markdown='1' style="width: 70%">
+<figure>
+    <img src="../_introducao/esquema-elementos-angular.png" title="Fonte: https://blog.algaworks.com/o-que-e-angular"/>
+    <figcaption>Elementos do Angular</figcaption>
+</figure>
 
-![exemplo_sem_dip](_introducao/esquema-elementos-angular.png)
-
-</div>
-
-
-CONTINUAR!!!
-
-- <https://blog.algaworks.com/o-que-e-angular/>
-
-
-## Erros e soluções
-
-### Botão é acionado com a tecla enter
-
-O botão é acionado ao prescionar a tecla `enter`.
-
-??? tip
-      Acionar o atributo `type="button"`.
-
-      ```html
-      <button type="button"></button>
-      ```
+Continuar!!!!!!!!!!!!!!!!!!!!!!!!!!!
+<https://blog.algaworks.com/o-que-e-angular/>
 
 ## Referências
 
