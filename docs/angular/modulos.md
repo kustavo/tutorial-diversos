@@ -1,5 +1,9 @@
 # Módulos
 
+!!! warning "Página em construção"
+
+    Página em construção!
+
 No contexto do Angular um módulo é a forma de agrupar componentes, diretivas, pipes e serviços que são relacionados. Conjuntos de módulos são usados para formar a aplicação. Um módulo pode esconder ou exportar um componente, diretiva, serviço ou pipe. Componentes exportados podem ser usados por outros módulos, já aqueles que são escondidos pelo módulo só podem ser usados por ele mesmo.
 
 Os módulos no Angular são classes marcadas pelo decorador `@NgModule` que configura o injetor e o compilador e ajuda a organizar coisas relacionadas. Este decorator usa um objeto de metadados com propriedades que definem o módulo. As principais propriedades são:

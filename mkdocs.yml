@@ -2,11 +2,11 @@ site_name: Guia Rápido
 site_description: "Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI."
 site_author: "Gustavo Araujo"
 
-site_url: https://kustavo.github.io/guia-rapido/
+site_url: https://ajuda.gitlab.io/guia-rapido/
 site_dir: public
 docs_dir: docs
-repo_url: https://github.com/kustavo/guia-rapido/
-repo_name: "GitHub"
+repo_url: https://gitlab.com/ajuda/guia-rapido/
+repo_name: "GitLab"
 
 # TODO: Aguardando suporte V4
 # google_analytics:
@@ -49,9 +49,9 @@ theme:
     - search.suggest # sugestões na busca
     - search.highlight # destaque das palavras na busca
     - search.share # opção de compartilhar busca
-    #- toc.integrate # agrupa as toc direita e esquerda
+    #- toc.integrate # agrupa menus da direita e esquerda
     - navigation.instant # Uso de XHR, comporta como SPA
-    - navigation.sections # Exibe toc sem agrupar subtítulos
+    #- navigation.sections # Exibe menu sem agrupar submenus
   language: pt
   logo: _extras/logo.svg
   favicon: _extras/favicon.svg
@@ -65,25 +65,60 @@ nav:
       - ./dotnet/introducao.md
       - ./dotnet/instalacao-e-configuracao.md
       - ./dotnet/interface-linha-comando.md
+      - Csharp:
+          - ./dotnet/csharp/palavras-chave.md
+          - Tipos de valor:
+              - ./dotnet/csharp/tipos/tipos-de-valor/introducao.md
+              - ./dotnet/csharp/tipos/tipos-de-valor/tipos-numericos-integrais.md
+              - ./dotnet/csharp/tipos/tipos-de-valor/tipos-numericos-de-ponto-flutuante.md
+              - ./dotnet/csharp/tipos/tipos-de-valor/bool.md
+              - ./dotnet/csharp/tipos/tipos-de-valor/char.md
+              - ./dotnet/csharp/tipos/tipos-de-valor/tipos-de-enumeracao.md
+              - ./dotnet/csharp/tipos/tipos-de-valor/tipos-de-estrutura.md
+              - ./dotnet/csharp/tipos/tipos-de-valor/tipos-de-tuplas.md
+              - ./dotnet/csharp/tipos/tipos-de-valor/tipos-de-valores-anulaveis.md
+          - Tipos de referência:
+              - ./dotnet/csharp/tipos/tipos-de-referencia/introducao.md
+              - ./dotnet/csharp/tipos/tipos-de-referencia/object.md
+              - ./dotnet/csharp/tipos/tipos-de-referencia/string.md
+              - ./dotnet/csharp/tipos/tipos-de-referencia/delegate.md
+              - ./dotnet/csharp/tipos/tipos-de-referencia/dynamic.md
+          - Modificadores:
+              - ./dotnet/csharp/modificadores/modificadores-acesso.md
+              - ./dotnet/csharp/modificadores/virtual.md
+              - ./dotnet/csharp/modificadores/abstract.md
+              - ./dotnet/csharp/modificadores/override.md
+          - Namespace:
+              - ./dotnet/csharp/namespace/using.md
+              - ./dotnet/csharp/namespace/namespace.md
+          - ./dotnet/csharp/classes-e-objetos.md
+          - ./dotnet/csharp/campos-e-propriedades.md
+          - ./dotnet/csharp/generics.md
       - ./dotnet/matrizes-e-colecoes.md
       - ./dotnet/entity-framework.md
       - ./dotnet/container-ioc-di.md
       - ./dotnet/erros-e-solucoes.md
+      - ./dotnet/swagger.md
+      - ./dotnet/dispose.md
   - Javascript:
       - ./javascript/introducao.md
       - ./javascript/promise.md
       - ./javascript/observable.md
-  - Padrões de projeto:
-      - ./design-patterns/dependency-injection.md
-      - ./design-patterns/domain-driven-design.md
-      - ./design-patterns/cqrs.md
-      - ./design-patterns/observer.md
-      - ./design-patterns/solid/introducao.md
-      - ./design-patterns/solid/single-responsability-principle.md
-      - ./design-patterns/solid/open-close-principle.md
-      - ./design-patterns/solid/liskov-substitution-principle.md
-      - ./design-patterns/solid/interface-segregation-principle.md
-      - ./design-patterns/solid/dependency-inversion-principle.md
+  - Arquitetura:
+      - Padrões de projeto:
+          - ./arquitetura/design-patterns/dependency-injection.md
+          - ./arquitetura/design-patterns/domain-driven-design.md
+          - ./arquitetura/design-patterns/cqrs.md
+          - ./arquitetura/design-patterns/observer.md
+          - Solid:
+              - ./arquitetura/design-patterns/solid/introducao.md
+              - ./arquitetura/design-patterns/solid/single-responsability-principle.md
+              - ./arquitetura/design-patterns/solid/open-close-principle.md
+              - ./arquitetura/design-patterns/solid/liskov-substitution-principle.md
+              - ./arquitetura/design-patterns/solid/interface-segregation-principle.md
+              - ./arquitetura/design-patterns/solid/dependency-inversion-principle.md
+      - Organização do projeto:
+          - ./arquitetura/organizacao-projeto/introducao.md
   - Linux:
       - ./linux/introducao.md
       - Shell:
@@ -105,26 +140,25 @@ nav:
           - ./linux/distribuicoes-e-ambientes-graficos/pop-os.md
           - ./linux/distribuicoes-e-ambientes-graficos/manjaro.md
           - ./linux/distribuicoes-e-ambientes-graficos/arch-linux.md
-      - Programas:
-          - ./linux/programas/imagemagick.md
-          - ./linux/programas/ntfsfix.md
-          - ./linux/programas/puddletag.md
-          - ./linux/programas/rsync.md
+      - Aplicativos:
+          - ./linux/aplicativos/7z.md
+          - ./linux/aplicativos/imagemagick.md
+          - ./linux/aplicativos/ntfsfix.md
+          - ./linux/aplicativos/puddletag.md
+          - ./linux/aplicativos/rsync.md
+          - ./linux/aplicativos/tmux.md
       - ./linux/certificado-ssl.md
-  - Html:
-      - ./html/introducao.md
-  - Css:
-      - ./css/introducao.md
-      - ./css/grid.md
-      - ./css/flexbox.md
   - Markdown:
       - ./markdown/markdown.md
       - ./markdown/markdown-to-medium.md
       - ./markdown/mkdocs.md
   - Angular:
       - ./angular/introducao.md
-      - ./angular/interface-linha-comando.md
       - ./angular/componentes.md
+      - ./angular/diretivas.md
+      - ./angular/injecao-de-dependencia.md
+      - ./angular/pipes.md
+      - ./angular/interface-linha-comando.md
       - ./angular/rotas.md
       - ./angular/modulos.md
   - Flutter:
@@ -141,19 +175,34 @@ nav:
       - ./android/android.md
       - ./sql/sql.md
       - ./windows/windows.md
-      - Programas:
-        - ./programas/docker.md
-        - ./programas/docker-compose.md
-        - ./programas/firebase.md
-        - ./programas/git.md
-        - ./programas/maven.md
-        - ./programas/mkvtoolnix.md
-        - ./programas/mysql.md
-        - ./programas/nginx.md
-        - ./programas/nodejs.md
-        - ./programas/postgresql.md
-        - ./programas/raspberry.md
-        - ./programas/veracrypt.md
-        - ./programas/visual-studio-code.md
+      - Sistema Operacional:
+          - ./sistema_operacional/memoria.md
+      - Aplicativos:
+          - ./aplicativos/docker.md
+          - ./aplicativos/docker-compose.md
+          - ./aplicativos/firebase.md
+          - ./aplicativos/git.md
+          - ./aplicativos/maven.md
+          - ./aplicativos/mkvtoolnix.md
+          - ./aplicativos/mysql.md
+          - ./aplicativos/nginx.md
+          - ./aplicativos/nodejs.md
+          - ./aplicativos/postgresql.md
+          - ./aplicativos/raspberry.md
+          - ./aplicativos/retropie.md
+          - ./aplicativos/veracrypt.md
+          - ./aplicativos/visual-studio-code.md
+      - Css:
+          - ./css/introducao.md
+          - ./css/grid.md
+          - ./css/flexbox.md
+      - Html:
+          - ./html/introducao.md
+      - Serviços:
+          - ./servicos/replit.md
+      - DevOps:
+          - Azure:
+              - ./devops/azure/service-bus.md
+              - ./devops/azure/functions.md
       - Dispositivos:
-        - ./dispositivos/teclado-blitz-wolf-bw-kb1.md
+          - ./dispositivos/teclado-blitz-wolf-bw-kb1.md

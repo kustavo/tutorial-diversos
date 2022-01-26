@@ -106,13 +106,13 @@ O gerenciador de arquivos não está sendo aberto quando um aplicativo tem a op�
 
 ??? tip "Solução"
 
-    Remover o aplicativo que está usando a diretiva "inode/directory=" no "mimeinfo.cache".
+    Remover o aplicativo que está usando a diretiva `inode/directory=` no `mimeinfo.cache`.
 
     ```bash
     sudo nano /usr/share/applications/mimeinfo.cache
     ```
 
-    Adicionar a diretiva "inode/directory=" no "mimeapps.list".
+    Adicionar a diretiva `inode/directory=` no `mimeapps.list`.
 
     ```bash
     nano ~/.config/mimeapps.list

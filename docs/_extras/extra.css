@@ -65,11 +65,17 @@ iframe body {
   background-color: #505050e6;
   color: #fff;
   border-radius: 6px;
-  padding: 5px;
+  padding: 0 5px;
   position: absolute;
   z-index: 1;
+  margin: 0 15px ;
 }
 
 .tooltip:hover span {
   visibility: visible;
+}
+
+/* admonition */
+.admonition {
+    font-size: unset !important;
 }

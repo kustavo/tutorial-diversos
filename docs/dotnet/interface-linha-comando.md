@@ -185,7 +185,7 @@ dotnet new <TEMPLATE> [--dry-run] [--force] [-i|--install {PATH|NUGET_ID}]
 
 ??? info "Principais parâmetros"
 
-    - `-n|--name`: nome da solução/projeto/config. Padrão: nome do diretório
+    - `-n|--name`: nome da solução/projeto/config. Padrão: nome do diretório.
     - `-o|--output`: destino da solução/projeto/config. Padrão: diretório corrente.
     - `-f|--framework`: especifica a versão do framework (net5.0, netcoreapp3.1, netcoreapp3.0). Padrão: última versão instalada.
     - `<TEMPLATE>`: estrutura a ser criada.

@@ -1,8 +1,8 @@
 # https://github.com/mkdocs/mkdocs
-mkdocs>=1.1.2
+mkdocs>=1.2.2
 
 # https://github.com/squidfunk/mkdocs-material
-mkdocs-material>=7.0.4
+mkdocs-material>=7.2.3
 
 # https://github.com/facelessuser/pymdown-extensions/
-pymdown-extensions>=8.1.1
+pymdown-extensions>=8.2

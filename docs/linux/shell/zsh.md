@@ -64,6 +64,34 @@ source ~/.zshrc
 
 Para definir como o shell do emulador de terminal, nas configurações do terminal, adicione o comando `zsh` como o comando de inicialização do terminal.
 
+## Adicionar diretório ao $PATH
+
+Adicionar ao arquivo `~/.zshrc`:
+
+```bash
+export PATH=$PATH:<caminho>
+```
+
+Exemplo:
+
+```bash
+export PATH=$PATH:~/Programas/node-v14.17.6-linux-x64/bin
+```
+
+## Adicionar alias
+
+Adicionar ao arquivo `~/.zshrc`:
+
+```bash
+alias <nome>="<comando>"
+```
+
+Exemplo:
+
+```bash
+alias lsa="ls -la"
+```
+
 ## Referências
 
 - <https://en.wikipedia.org/wiki/Z_shell>

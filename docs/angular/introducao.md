@@ -1,5 +1,9 @@
 # Introdução
 
+!!! warning "Página em construção"
+
+    Página em construção!
+
 Angular é uma plataforma e framework para construção da interface de aplicações usando HTML, CSS e, principalmente, JavaScript, criada pelos desenvolvedores da Google.
 
 Ele possui alguns elementos básicos que tornam essa construção interessante como: componentes, templates, diretivas, roteamento, módulos, serviços, injeção de dependências e ferramentas de infraestrutura que automatizam tarefas, como a de executar os testes unitários de uma aplicação.

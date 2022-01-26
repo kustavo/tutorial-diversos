@@ -1,5 +1,9 @@
 # Rotas
 
+!!! warning "Página em construção"
+
+    Página em construção!
+
 ## Adicionar módulo de rotas
 
 ```bash

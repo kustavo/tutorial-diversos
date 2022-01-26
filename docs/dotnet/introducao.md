@@ -98,6 +98,13 @@ Recursos importantes do C#:
 - *Multithreading* Simples
 - Expressões LINQ e Lambda
 
+## Developer Roadmap
+
+<figure>
+    <img src="../_introducao/developer-roadmap.png" title="Fonte: https://github.com/MoienTajik/AspNetCore-Developer-Roadmap"/>
+    <figcaption>Developer Roadmap</figcaption>
+</figure>
+
 ## Referências
 
 - <https://pt.wikipedia.org/wiki/.NET_Framework>
@@ -105,3 +112,4 @@ Recursos importantes do C#:
 - <https://docs.microsoft.com/pt-br/dotnet/standard/assembly/>
 - <https://www.tutorialspoint.com/csharp/csharp_overview.htm>
 - <https://www.caelum.com.br/apostila-csharp-orientacao-objetos/o-que-e-c-e-net>
+- <https://github.com/MoienTajik/AspNetCore-Developer-Roadmap>
