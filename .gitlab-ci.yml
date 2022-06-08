@@ -1,0 +1,12 @@
+image: python:latest
+pages:
+  stage: deploy
+  only:
+    - master 
+    #- main # Gitlab irá mudar para main
+  script:
+    - pip install mkdocs-material
+    - mkdocs build --strict --verbose --site-dir public
+  artifacts:
+    paths:
+      - public
