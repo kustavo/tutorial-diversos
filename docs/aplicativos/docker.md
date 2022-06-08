@@ -76,9 +76,38 @@ Além disso, há outros subsistemas e dispositivos do Linux sem espaço de nomes
 
 ## Instalação
 
+Opcional: Dependências geralmente necessárias. 
+
+```bash
+# Debian/Ubuntu
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+```
+
+Para obter a versão do repositório do Ubuntu:
+
 ```bash
 # Debian/Ubuntu
 sudo apt install docker.io
+```
+
+Para obter a versão mais recente:
+
+```bash
+# Debian/Ubuntu
+# GPG key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+# Repositório
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
 Ver a versão instalada:
@@ -119,17 +148,6 @@ sudo systemctl start docker
    CGroup: /system.slice/docker.service
            ├─46625 /usr/bin/dockerd -H fd://
            └─46633 containerd --config /var/run/docker/containerd/containerd.toml --log-level info
-
-set 11 16:35:29 archlinux dockerd[46625]: time="2019-09-11T16:35:29.547513653-03:00" level=warning msg="Your kernel does not support cgroup blkio weight"
-set 11 16:35:29 archlinux dockerd[46625]: time="2019-09-11T16:35:29.547523446-03:00" level=warning msg="Your kernel does not support cgroup blkio weight_device"
-set 11 16:35:29 archlinux dockerd[46625]: time="2019-09-11T16:35:29.547724864-03:00" level=info msg="Loading containers: start."
-set 11 16:35:29 archlinux dockerd[46625]: time="2019-09-11T16:35:29.687707718-03:00" level=info msg="Default bridge (docker0) is assigned with an IP address 172.17.0.0/>
-set 11 16:35:29 archlinux dockerd[46625]: time="2019-09-11T16:35:29.758083807-03:00" level=info msg="Loading containers: done."
-set 11 16:35:29 archlinux dockerd[46625]: time="2019-09-11T16:35:29.792834766-03:00" level=warning msg="Not using native diff for overlay2, this may cause degraded perf>
-set 11 16:35:29 archlinux dockerd[46625]: time="2019-09-11T16:35:29.793107525-03:00" level=info msg="Docker daemon" commit=6a30dfca03 graphdriver(s)=overlay2 version=19>
-set 11 16:35:29 archlinux dockerd[46625]: time="2019-09-11T16:35:29.793230539-03:00" level=info msg="Daemon has completed initialization"
-set 11 16:35:29 archlinux dockerd[46625]: time="2019-09-11T16:35:29.828163899-03:00" level=info msg="API listen on /run/docker.sock"
-set 11 16:35:29 archlinux systemd[1]: Started Docker Application Container Engine.
 ```
 
 ### Habilitar serviço para iniciar após o boot
@@ -337,6 +355,12 @@ docker inspect <id-ou-nome>
 ```
 
 [Veja mais](<https://docs.docker.com/engine/reference/commandline/inspect/>)
+
+#### Logs do container
+
+```bash
+sudo docker logs -f <id-ou-nome>
+```
 
 #### Acessar container
 

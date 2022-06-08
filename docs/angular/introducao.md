@@ -2,7 +2,7 @@
 
 !!! warning "Página em construção"
 
-    Página em construção!
+    TODO: Página em construção!
 
 Angular é uma plataforma e framework para construção da interface de aplicações usando HTML, CSS e, principalmente, JavaScript, criada pelos desenvolvedores da Google.
 

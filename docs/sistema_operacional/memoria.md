@@ -28,7 +28,7 @@ Muitas ferramentas, assim como o `ps` e `top`, não se preocupam com esse compor
 
 ## Virtual Memory
 
-O espaço de endereço virtual é a quantidade de espaço de endereço que um processo está gerenciando. O espaço de endereço virtual contém tudo o que o processo pode acessar por meio de ponteiros (referências de endereço de memória). `VIRT` representa a quantidade de memória do programa que é capaz de acessar no momento presente. 
+O espaço de endereço virtual é a quantidade de espaço de endereço que um processo está gerenciando. O espaço de endereço virtual contém tudo o que o processo pode acessar por meio de ponteiros (referências de endereço de memória). `VIRT` representa a quantidade de memória do programa que é capaz de acessar no momento presente.
 
 Se o seu programa obtiver acesso ao buffer de quadros da sua placa de vídeo, essa memória será mapeada para o espaço virtual do processo e receberá um endereço armazenado em um ponteiro. Arquivos de disco mapeados na memória (SWAP), memória compartilhada com outros processos e mapeamentos anônimos também são contabilizados no tamanho do espaço de endereço virtual. Praticamente tudo está no tamanho virtual. Se você resumir o tamanho de todos os intervalos de endereços listados `/proc/<PID>/maps`, ele deverá retornar aproximadamente o mesmo valor do tamanho virtual.
 

@@ -2,7 +2,7 @@
 
 !!! warning "Página em construção"
 
-    Página em construção!
+    TODO: Página em construção!
 
 A **Command-Line Interface - CLI**  (interface de linha de comando) conta com comandos para criação, execução e publicação de aplicações Angular.
 

@@ -26,25 +26,82 @@ Instalação do Zsh em derivados Debian:
 sudo apt install zsh
 ```
 
+## Configurar o emulador de terminal
+
+Para definir como o shell do emulador de terminal, nas configurações do terminal, adicione o comando `zsh` como o comando de inicialização do terminal.
+
 ## Framework Oh-my-zsh
 
 Oh My Zsh é um framework de código-fonte aberto para gerenciar as configuração do Zsh.
 
-### Instalação
+1. Instalar o framework `Oh-my-zsh`:
 
-Instalar o framework `Oh-my-zsh`:
+    ```bash
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    ```
 
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-
-### Alterar tema
+## Alterar tema
 
 Para alterar o tema, altere o arquivo `~/.zshrc`:
 
 ```bash
-ZSH_THEME="af-magic"
+ZSH_THEME="<nome-tema>"
 ```
+
+## Temas
+
+### powerlevel10k
+
+1. Instalar as fontes em `.local/share/fonts`:
+
+    - MesloLGS NF Regular.ttf
+    - MesloLGS NF Bold.ttf
+    - MesloLGS NF Italic.ttf
+    - MesloLGS NF Bold Italic.ttf
+
+1. Instalar 
+
+    ```bash
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+    ```
+
+1. Alterar a fonte padrão do Gnome Terminal
+
+    Profiles -> Text Appearance -> Custom font -> selecionar MesloLGS NF Regular
+
+1. Irá ao reabrir o terminal irá iniciar a configuração do tema. Caso seja necessário reiniciar a instalação, execute:
+
+    `p10k configure`
+
+1. Se a configuração não alterar o arquivo `~/.zshrc` automaticamente, defina:
+
+    Definir `ZSH_THEME="powerlevel10k/powerlevel10k"` em `~/.zshrc`
+
+[Fonte](https://github.com/romkatv/powerlevel10k#installation)
+
+## Plugins
+
+### zsh-autosuggestions
+
+Autocomplete baseado no histórico
+
+1. Instalar
+    
+    ```bash
+    $ cd ~/.oh-my-zsh/custom/plugins
+    $ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    ```
+
+1. Adicionar o plugin em `~/.zshrc`:
+
+    ```txt
+    plugins=( 
+    # other plugins...
+    zsh-autosuggestions
+    )
+    ```
+
+[Fonte](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
 
 ### Mostrar path completo
 
@@ -59,10 +116,6 @@ substituir `%c` por `%~` e executar:
 ```bash
 source ~/.zshrc
 ```
-
-## Configurar o emulador de terminal
-
-Para definir como o shell do emulador de terminal, nas configurações do terminal, adicione o comando `zsh` como o comando de inicialização do terminal.
 
 ## Adicionar diretório ao $PATH
 

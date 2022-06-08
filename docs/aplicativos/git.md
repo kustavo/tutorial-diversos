@@ -142,7 +142,7 @@ Exluir branchs locais que não existen remotamente:
 
 ```bash
 # Linux
-git fetch --all -p; git branch -vv | grep ": gone]" | awk '{ print $1 }' | xargs -n 1 git branch -D
+git fetch -p && git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -D
 
 # Windows
 git checkout master; git remote update origin --prune; git branch -vv | Select-String -Pattern ": gone]" | % { $_.toString().Trim().Split(" ")[0]} | % {git branch -d $_}
@@ -367,7 +367,7 @@ Commit já informando a mensagem de descrição:
 git commit -m "<mensagem>"
 ```
 
-Commit já adicionando os arquivos à área de staging (add + commit):
+Commit já adicionando os arquivos à área de staging (commit + add):
 
 ```bash
 git commit -am "<mensagem>"
@@ -392,6 +392,14 @@ Ver os últimos commits
 
 ```bash
 git log
+```
+
+### Cherry-pick
+
+Aplicar o commit na branch atual
+
+```bash
+git cherry-pick <commit>
 ```
 
 ### Push

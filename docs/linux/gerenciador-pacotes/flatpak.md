@@ -6,6 +6,15 @@ A ideia de usar contêineres de aplicativos no GNOME foi proposta em 2013 por Le
 
 Diferente do Snappy, o Flatpak foi desenvolvido para ser descentralizado, permitindo adicionar diferentes fontes de programas. Uma fonte popular de aplicativos no formato Flatpak é o Flathub. Atualmente, alguns programas populares disponíveis inclui Blender, GIMP,LibreOffice, Pitivi, KDE Applications, Linphone e alguns não oficiais como versões de desenvolvimento do Mozilla Firefox (suporte oficial não planejado), Skype, Spotify.
 
+## Instalação
+
+```bash
+$ sudo apt install gnome-software gnome-software-plugin-flatpak
+
+# Adicionar o repositório flathub
+$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+
 ## Comandos
 
 Procurar por runtimes e aplicações nos repositórios.

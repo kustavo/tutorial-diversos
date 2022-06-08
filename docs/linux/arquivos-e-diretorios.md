@@ -167,6 +167,14 @@ A tabela abaixo mostra qual a finalidade dos principais diretórios em sistemas 
 
 ## Principais comandos
 
+### exa
+
+exa é um substituto moderno para o ls.
+
+Sugestão de alias: `alias ls="exa -la --icons"`
+
+[Fonte](https://github.com/ogham/exa)
+
 ### ls
 
 Listar os arquivos de um diretório.

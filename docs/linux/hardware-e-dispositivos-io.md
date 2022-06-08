@@ -29,7 +29,7 @@ Comando para ver as informações da CPU:
 cat /proc/cpuinfo
 ```
 
-## Placa de wireless
+## Placa de rede wireless
 
 ### Instalação
 
@@ -37,8 +37,9 @@ cat /proc/cpuinfo
 
 ```bash
 # Arch Linux
-sudo pacman -S b43-firmware
-sudo pacman -S broadcom-wl
+sudo pacmac -S broadcom-wl-dkms
+sudo pacmac -S linux<kenel-version>headers-bin
+reboot
 
 # Debian/Ubuntu
 sudo apt install bcmwl-kernel-source

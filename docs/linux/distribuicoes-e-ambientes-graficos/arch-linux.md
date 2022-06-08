@@ -387,26 +387,6 @@ pacman -Syyu
 rankmirrors -n 6 /etc/pacman.d/mirrorlist
 ```
 
-## Restauração do Grub
-
-```bash
-mount /dev/sda7 /mnt          # partição linux
-mkdir -p /mnt/boot/efi
-mount /dev/sda2 /mnt/boot/efi # partição efi
-arch-chroot /mnt
-os-prober
-grub-mkconfig -o /boot/grub/grub.cfg
-grub-install /dev/sda
-```
-
-Caso o comando "os-prober" não retorne o local do windows, o grub contará apenas com o linux. Neste caso entre no sistema linux e execute os comandos abaixo novamente:
-
-```bash
-os-prober
-grub-mkconfig -o /boot/grub/grub.cfg
-grub-install /dev/sda
-```
-
 ## Referências
 
 - <https://pt.wikipedia.org/wiki/Arch_Linux>

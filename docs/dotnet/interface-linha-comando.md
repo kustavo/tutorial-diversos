@@ -723,8 +723,13 @@ O exemplo anterior usa o arquivo `FolderProfile.pubxml` que é encontrado no dir
 ??? example "Exemplos"
 
     ```bash
-    # Publicar um projeto para o framework Core 2.2 para o runtime ubuntu.18.04-x64 usando as configurações do ambiente "Producao"
-    dotnet publish -f netcoreapp2.2 -o ~/DeployProducao --self-contained true -r ubuntu.18.04-x64 p:EnvironmentName=Producao
+    # Publicar um projeto para o framework Core 2.2 para o runtime linux-x64 usando as configurações do ambiente "Producao" 
+    # com todas dependências inclusas
+    dotnet publish -f netcoreapp2.2 -o ~/DeployProducao --self-contained true -r linux-x64 p:EnvironmentName=Producao
+
+    # Publicar um projeto para o framework atual para o runtime linux-x64 usando as configurações para Release
+    # sem dependências inclusas
+    dotnet publish --self-contained false -c Release -r linux-x64 
     ```
 
 ## dotnet restore
