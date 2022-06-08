@@ -11,6 +11,7 @@
 | Fn + S + O (3s) | Desabilitar/Habilitar auto sleep |
 | Fn + X + L | Alternar entre teclas de multimídia e teclas F1-F12 (Windows)|
 | Fn + +/- | Velocidade dos efeito de luz |
+| Fn + Caps Lock + P (6s)| Caps Lock não irá seguir os efeitos de luz |
 
 ## Desabilitar teclas Fn como padrão
 
