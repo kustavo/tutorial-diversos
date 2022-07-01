@@ -77,7 +77,12 @@ O Amazon EC2 oferece uma variedade de opções de preços para diferentes casos 
 
 ## Amazon EC2 Auto Scaling
 
-
+- Escalona automaticamente instâncias conforme necessário.
+- Você pode usar duas abordagens:
+  - Dimensionamento dinâmico (*Dynamic scaling*): responde à demanda em constante mudança.
+  - Dimensionamento preditivo (*Predictive scaling*): agenda automaticamente o número certo de instâncias do Amazon EC2 com base na demanda prevista.
+- Ao configurar o tamanho do *Auto Scaling group*, você pode definir o número mínimo, desejado e máximo de instâncias do Amazon EC2.
+  - Se a quantidade desejada não for definida, será utilizada a quantidade mínima.
 
 ## Referências
 
