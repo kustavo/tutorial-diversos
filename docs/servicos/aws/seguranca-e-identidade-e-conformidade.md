@@ -1,19 +1,19 @@
 # Segurança, identidade e conformidade
 
-Segurança (*security*), identidade (*identity*) e conformidade (*compliance*) na AWS.
+Gerenciamento da segurança (*security*), identidade (*identity*) e conformidade (*compliance*) na AWS.
 
-## Serviço: AWS Identity and Access Management (IAM)
+## AWS Identity and Access Management (IAM)
 
 Gerencie com segurança o acesso a serviços e recursos.
 
-### User groups
+### User Groups
 
 Um grupo de usuários (*user groups*) é uma coleção de usuários do IAM. Use grupos para especificar permissões para uma coleção de usuários.
 
 ### Policies
 
 - Uma política (*policie*) é um objeto na AWS que define permissões.
-- Pode ser aplicada a usuários (*users*) ou a grupos de usuários (*user groups*).
+- Pode ser aplicada a usuários (*users*), grupos de usuários (*user groups*) e unidades organizacionais (*OUs - Organizational Units*).
 
 ### Roles
 
@@ -21,17 +21,15 @@ Um papel/função (*role*) no IAM é uma identidade que você pode criar com per
 
 ## AWS Organizations
 
-Você pode usar o AWS Organizations para consolidar e gerenciar várias contas da AWS em um local central.
+- Consolidar e gerenciar várias contas da AWS em um local central.
+- Quando você cria uma organização, é criado uma raiz (*root*), que é o contêiner pai para todas as contas na organização.
+- Controlar centralmente as permissões para as contas em sua organização usando políticas de controle de serviço (*SCPs - Service Control Policies*).
+  - As SCPs permitem que você coloque restrições nos serviços, recursos e ações de API individuais da AWS que usuários e funções em cada conta podem acessar.
 
-Quando você cria uma organização, o AWS Organizations cria automaticamente uma raiz (*root*), que é o contêiner pai para todas as contas em sua organização.
+### Organizational Units
 
-No AWS Organizations, você pode controlar centralmente as permissões para as contas em sua organização usando políticas de controle de serviço (*SCPs - Service Control Policies*). As SCPs permitem que você coloque restrições nos serviços, recursos e ações de API individuais da AWS que usuários e funções em cada conta podem acessar.
-
-### Organizational units
-
-No AWS Organizations, você pode agrupar contas em unidades organizacionais (*OUs - Organizational Units*) para facilitar o gerenciamento de contas com requisitos comerciais ou de segurança semelhantes. Quando você aplica uma política a uma OU, todas as contas na OU herdam automaticamente as permissões especificadas na política.
-
-Ao organizar contas separadas em OUs, você pode isolar mais facilmente cargas de trabalho ou aplicativos que tenham requisitos de segurança específicos. Por exemplo, se sua empresa tiver contas que podem acessar apenas os serviços da AWS que atendem a determinados requisitos regulamentares, você poderá colocar essas contas em uma OU. Em seguida, você pode anexar uma política à OU que bloqueia o acesso a todos os outros serviços da AWS que não atendem aos requisitos regulamentares.
+- No *AWS Organizations*, você pode agrupar contas em unidades organizacionais (*OUs - Organizational Units*) para facilitar o gerenciamento de contas com requisitos comerciais ou de segurança semelhantes.
+- Quando você aplica uma política a uma OU, todas as contas na OU herdam automaticamente as permissões especificadas na política.
 
 ## Referências
 

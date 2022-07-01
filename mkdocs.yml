@@ -218,6 +218,11 @@ nav:
           - Azure:
               - ./servicos/azure/service-bus.md
               - ./servicos/azure/functions.md
+          - AWS:
+              - ./servicos/aws/introducao.md
+              - ./servicos/aws/infraestrutura-global.md
+              - ./servicos/aws/seguranca-e-identidade-e-conformidade.md
+              - ./servicos/aws/computacao.md
       - Dispositivos:
           - ./dispositivos/teclado-blitz-wolf-bw-kb1.md
           - ./dispositivos/teclado-keychron-k3-v2.md
