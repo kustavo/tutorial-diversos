@@ -86,6 +86,11 @@ O Amazon EC2 oferece uma variedade de opções de preços para diferentes casos 
 
 ## AWS Lambda
 
+- O termo "*serverless*" significa que seu código é executado em servidores, mas você não precisa provisionar ou gerenciar esses servidores.
+- Dimensiona aplicativos sem servidor automaticamente.
+- Pague apenas pelo tempo de computação que você consumir.
+- Uma instância em execução terá no máximo 15 minutos para executar seu trabalho.
+- Um código em um AWS Lambda é executado ao ser acionado por um evento configurado.
 
 
 ## Referências
