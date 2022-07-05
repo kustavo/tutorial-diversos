@@ -225,6 +225,7 @@ nav:
               - ./servicos/aws/computacao.md
               - ./servicos/aws/redes-e-entrega-conteudo.md
               - ./servicos/aws/integracao-aplicativos.md
+              - ./servicos/aws/containers.md
       - Dispositivos:
           - ./dispositivos/teclado-blitz-wolf-bw-kb1.md
           - ./dispositivos/teclado-keychron-k3-v2.md
