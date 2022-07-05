@@ -84,6 +84,10 @@ O Amazon EC2 oferece uma variedade de opções de preços para diferentes casos 
 - Ao configurar o tamanho do *Auto Scaling group*, você pode definir o número mínimo, desejado e máximo de instâncias do Amazon EC2.
   - Se a quantidade desejada não for definida, será utilizada a quantidade mínima.
 
+## AWS Lambda
+
+
+
 ## Referências
 
 - <https://aws.amazon.com/pt/ec2>
