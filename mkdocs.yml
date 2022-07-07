@@ -192,6 +192,7 @@ nav:
       - Sistema Operacional:
           - ./sistema_operacional/memoria.md
       - Aplicativos:
+          - ./aplicativos/disk-drill.md
           - ./aplicativos/docker.md
           - ./aplicativos/docker-compose.md
           - ./aplicativos/firebase.md

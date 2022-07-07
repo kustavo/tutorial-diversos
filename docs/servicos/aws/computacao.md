@@ -92,7 +92,6 @@ O Amazon EC2 oferece uma variedade de opções de preços para diferentes casos 
 - Uma instância em execução terá no máximo 15 minutos para executar seu trabalho.
 - Um código em um AWS Lambda é executado ao ser acionado por um evento configurado.
 
-
 ## Referências
 
 - <https://aws.amazon.com/pt/ec2>
