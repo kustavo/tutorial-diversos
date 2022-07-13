@@ -15,7 +15,7 @@
 - É uma conexão entre uma VPC e a Internet.
 
 <figure>
-    <img src="../servicos/_aws/internet-gateway.png" width="100%" title="Fonte: https://explore.skillbuilder.aws/learn/course/134/play/31418/aws-cloud-practitioner-essentials-all-modules"/>
+    <img src="../_rede-e-entrega-de-conteudo/internet-gateway.png" width="100%" title="Fonte: https://explore.skillbuilder.aws/learn/course/134/play/31418/aws-cloud-practitioner-essentials-all-modules"/>
     <figcaption>Internet gateway</figcaption>
 </figure>
 
@@ -27,7 +27,7 @@
 - Permite o tráfego na VPC somente se for proveniente de uma rede aprovada.
 
 <figure>
-    <img src="../servicos/_aws/virtual-private-gateway.png" width="100%" title="Fonte: https://explore.skillbuilder.aws/learn/course/134/play/31418/aws-cloud-practitioner-essentials-all-modules"/>
+    <img src="../_rede-e-entrega-de-conteudo/virtual-private-gateway.png" width="100%" title="Fonte: https://explore.skillbuilder.aws/learn/course/134/play/31418/aws-cloud-practitioner-essentials-all-modules"/>
     <figcaption>Virtual private gateway</figcaption>
 </figure>
 
@@ -37,7 +37,7 @@
 - A conexão privada fornecida pelo AWS Direct Connect ajuda a reduzir os custos de rede e aumentar a quantidade de largura de banda que pode trafegar pela rede.
 
 <figure>
-    <img src="../servicos/_aws/aws-direct-connect.png" width="100%" title="Fonte: https://explore.skillbuilder.aws/learn/course/134/play/31418/aws-cloud-practitioner-essentials-all-modules"/>
+    <img src="../_rede-e-entrega-de-conteudo/aws-direct-connect.png" width="100%" title="Fonte: https://explore.skillbuilder.aws/learn/course/134/play/31418/aws-cloud-practitioner-essentials-all-modules"/>
     <figcaption>AWS Direct Connect</figcaption>
 </figure>
 
@@ -76,7 +76,7 @@
 Tanto as ACLs de rede quanto os grupos de segurança permitem que você configure regras personalizadas para o tráfego em sua VPC. À medida que você continua aprendendo mais sobre segurança e rede da AWS, certifique-se de entender as diferenças entre ACLs de rede e grupos de segurança.
 
 <figure>
-    <img src="../servicos/_aws/acl-e-security-group.png" width="100%" title="Fonte: https://explore.skillbuilder.aws/learn/course/134/play/31418/aws-cloud-practitioner-essentials-all-modules"/>
+    <img src="../_rede-e-entrega-de-conteudo/acl-e-security-group.png" width="100%" title="Fonte: https://explore.skillbuilder.aws/learn/course/134/play/31418/aws-cloud-practitioner-essentials-all-modules"/>
     <figcaption>ACLs e Security groups</figcaption>
 </figure>
 
@@ -105,7 +105,7 @@ Tanto as ACLs de rede quanto os grupos de segurança permitem que você configur
 O exemplo a seguir descreve como o *Route 53* e o *Amazon CloudFront* trabalham juntos para entregar conteúdo aos clientes.
 
 <figure>
-    <img src="../servicos/_aws/route-53-e-cloud-front.ng" width="100%" title="Fonte: https://explore.skillbuilder.aws/learn/course/134/play/31418/aws-cloud-practitioner-essentials-all-modules"/>
+    <img src="../_rede-e-entrega-de-conteudo/route-53-e-cloud-front.ng" width="100%" title="Fonte: https://explore.skillbuilder.aws/learn/course/134/play/31418/aws-cloud-practitioner-essentials-all-modules"/>
     <figcaption>Route 53 e o Amazon CloudFront</figcaption>
 </figure>
 
