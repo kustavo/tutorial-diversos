@@ -6,7 +6,7 @@
 - Permite provisionar uma seção isolada da Nuvem AWS.
 - Você pode iniciar recursos em uma rede virtual que você define.
 - Dentro de uma VPC, você pode organizar seus recursos em sub-redes.
-- Ao criar uma VPC é criado um Security Group padrão (*default*).
+- Ao criar uma VPC é criado um *Security Group* padrão (*default*).
   - Não é possível excluir um grupo de segurança *default*, mas é possível adicionar ou remover as regras.
 
 ### Internet gateway
@@ -22,8 +22,8 @@
 ### Virtual private gateway
 
 - Usado para acessar recursos privados em uma VPC.
-- Permite que o tráfego protegido da Internet (ex: Virtual Private Network - VPN) entre na VPC.
-- Permite que você estabeleça uma conexão de rede privada virtual (Virtual Private Network - VPN) entre sua VPC e uma rede privada.
+- Permite que o tráfego protegido da Internet (ex: *Virtual Private Network - VPN*) entre na VPC.
+- Permite que você estabeleça uma conexão de rede privada virtual (*Virtual Private Network - VPN*) entre sua VPC e uma rede privada.
 - Permite o tráfego na VPC somente se for proveniente de uma rede aprovada.
 
 <figure>
@@ -51,7 +51,7 @@
 - Os pacotes de dados entram em uma VPC por meio de um gateway de internet.
 - Antes que um pacote possa entrar em uma sub-rede ou sair de uma sub-rede, é verificado as permissões.
   - Essas permissões indicam quem enviou o pacote e como o pacote está tentando se comunicar com os recursos em uma sub-rede.
-  - O componente VPC que verifica as permissões de pacote para sub-redes é o *Network access control lists* (ACLs).
+  - O componente VPC que verifica as permissões de pacote para sub-redes é o *Network access control lists (ACLs)*.
 
 ### Network access control lists (ACLs)
 
@@ -105,7 +105,7 @@ Tanto as ACLs de rede quanto os grupos de segurança permitem que você configur
 O exemplo a seguir descreve como o *Route 53* e o *Amazon CloudFront* trabalham juntos para entregar conteúdo aos clientes.
 
 <figure>
-    <img src="../_rede-e-entrega-de-conteudo/route-53-e-cloud-front.ng" width="100%" title="Fonte: https://explore.skillbuilder.aws/learn/course/134/play/31418/aws-cloud-practitioner-essentials-all-modules"/>
+    <img src="../_rede-e-entrega-de-conteudo/route-53-e-cloud-front.png" width="100%" title="Fonte: https://explore.skillbuilder.aws/learn/course/134/play/31418/aws-cloud-practitioner-essentials-all-modules"/>
     <figcaption>Route 53 e o Amazon CloudFront</figcaption>
 </figure>
 
