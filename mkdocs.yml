@@ -224,10 +224,10 @@ nav:
               - ./servicos/aws/infraestrutura-global.md
               - ./servicos/aws/seguranca-e-identidade-e-conformidade.md
               - ./servicos/aws/computacao.md
-              - ./servicos/aws/redes-e-entrega-conteudo.md
               - ./servicos/aws/integracao-aplicativos.md
               - ./servicos/aws/containers.md
               - ./servicos/aws/rede-e-entrega-de-conteudo.md
+              - ./servicos/aws/armazenamento.md
       - Dispositivos:
           - ./dispositivos/teclado-blitz-wolf-bw-kb1.md
           - ./dispositivos/teclado-keychron-k3-v2.md
