@@ -102,7 +102,7 @@ Dependendo do setor de sua empresa, pode ser necessário manter padrões especí
 ## Amazon Inspector
 
 - Ajuda a melhorar a segurança e a conformidade dos **aplicativos** executando avaliações de segurança automatizadas.
-- Ele verifica os aplicativos quanto a vulnerabilidades de segurança e desvios das melhores práticas de segurança, como acesso aberto a instâncias do Amazon EC2 e instalações de versões de software vulneráveis.
+- Ele verifica os aplicativos quanto a vulnerabilidades de segurança e desvios das melhores práticas de segurança, como acesso aberto a instâncias do *Amazon EC2* e instalações de versões de software vulneráveis.
 - Depois de realizar uma avaliação, fornece uma lista de descobertas de segurança.
   - A lista prioriza por nível de gravidade, incluindo uma descrição detalhada de cada problema de segurança e uma recomendação de como corrigi-lo.
   - No entanto, a AWS não garante que seguir as recomendações fornecidas resolva todos os possíveis problemas de segurança.
@@ -111,7 +111,7 @@ Dependendo do setor de sua empresa, pode ser necessário manter padrões especí
 ## Amazon GuardDuty
 
 - É um serviço que fornece detecção inteligente de ameaças para sua **infraestrutura e recursos** da AWS.
-- Ele identifica ameaças monitorando continuamente a atividade da rede e o comportamento da conta em seu ambiente da AWS.
+- Ele identifica ameaças monitorando continuamente a **atividade da rede** e o comportamento da conta em seu ambiente da AWS.
 - Depois de habilitar o GuardDuty para sua conta da AWS, o GuardDuty começa a monitorar a atividade de sua rede e conta.
   - Você não precisa implantar ou gerenciar nenhum software de segurança adicional.
   - O GuardDuty analisa continuamente os dados de várias fontes da AWS, incluindo logs de fluxo de *VPC* e logs de *DNS*.

@@ -41,11 +41,11 @@
 
 - É um serviço da web que inspeciona seu ambiente da AWS e fornece **recomendações em tempo real** de acordo com as melhores práticas da AWS.
 - Compara suas descobertas com as melhores práticas da AWS em cinco categorias:
-  - otimização de custos
-  - desempenho
-  - segurança
-  - tolerância a falhas
-  - limites de serviço
+  - **otimização de custos**
+  - **desempenho**
+  - **segurança**
+  - **tolerância a falhas**
+  - **limites de serviço**
 - Para as verificações em cada categoria, o Trusted Advisor oferece uma lista de ações recomendadas e recursos adicionais para saber mais sobre as melhores práticas da AWS.
 - Pode beneficiar sua empresa em todos os estágios de implantação.
 - Exemplo de aplicação:
