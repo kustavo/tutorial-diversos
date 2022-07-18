@@ -77,11 +77,58 @@
 ## Estratégias de migração
 
 ### Rehosting
+
+- Também conhecida como **lift-and-shift**, envolve a movimentação de aplicativos sem alterações.
+- Cenário:
+  - No cenário de uma grande migração de legado, em que a empresa busca implementar sua migração e dimensionar rapidamente para atender a um caso de negócios, a maioria dos aplicativos é rehospedada.
+
 ### Replatforming
+
+- Também conhecida como **lift, tinker, and shift**, envolve fazer algumas otimizações na nuvem para obter um benefício tangível.
+- A otimização é alcançada **sem alterar** a arquitetura central do aplicativo.
+
 ### Refactoring/re-architecting
+
+- Também conhecida como **re-architecting** envolve reimaginar como um aplicativo é arquitetado e desenvolvido usando recursos nativos da nuvem.
+- Cenário:
+  - A refatoração é impulsionada por uma forte necessidade comercial de adicionar recursos, escala ou desempenho que, de outra forma, seriam difíceis de alcançar no ambiente existente do aplicativo.
+
 ### Repurchasing
+
+- Envolve a mudança de uma licença tradicional para um modelo de software como serviço.
+- Cenário:
+  - Por exemplo, uma empresa pode optar por implementar a estratégia de recompra migrando de um sistema de *Customer Relationship Management - CRM* para *Salesforce.com*.
+
 ### Retaining
+
+- Consiste em manter os aplicativos críticos para os negócios no ambiente de origem.
+- Isso pode incluir aplicativos que exigem grande refatoração antes de serem migrados ou trabalhos que podem ser adiados para um momento posterior.
+
 ### Retiring
+
+- Processo de remoção de aplicativos que não são mais necessários.
+
+## AWS Snow Family
+
+- A família AWS Snow é uma coleção de **dispositivos físicos** que ajudam a transportar fisicamente até **exabytes** de dados para dentro e fora da AWS.
+- A AWS possui e gerencia os dispositivos da Snow Family e se integra aos recursos de segurança, monitoramento, gerenciamento de armazenamento e computação da AWS.
+- A família AWS Snow é composta por:
+  - **AWS Snowcone**:
+    - É um dispositivo de transferência de dados e computação de borda pequeno, robusto e seguro.
+    - Possui 2 CPUs, 4 GB de memória e **8 TB** de armazenamento utilizável.
+  - **AWS Snowball**:
+    - **Snowball Edge Storage Optimized**:
+      - Dispositivos adequados para migrações de dados em grande escala e fluxos de trabalho de transferência recorrentes, além de computação local com necessidades de maior capacidade.
+      - Armazenamento: **80 TB HDD** para volumes de blocos e armazenamento de objetos compatível com Amazon S3 e **1 TB SSD Sata** para volumes de blocos.
+      - Computação: **40 vCPUs e 80 GiB de memória** para dar suporte a instâncias sbe1 do Amazon EC2 (equivalente a C5).
+    - **Snowball Edge Compute Optimized**:
+      - Fornece recursos de computação poderosos para casos de uso, como aprendizado de máquina, análise de vídeo em movimento total, análise e pilhas de computação local.
+      - Armazenamento: **42 TB HDD** para armazenamento de objetos compatível com Amazon S3 ou volumes de blocos compatíveis com Amazon EBS e **7,68 TB SSD NVMe** utilizável para volumes de blocos compatíveis com Amazon EBS.
+      - Computação: **52 vCPUs, 208 GiB de memória e uma GPU NVIDIA Tesla V100 opcional**.
+      - Os dispositivos executam instâncias sbe-c e sbe-g do Amazon EC2, que são equivalentes a instâncias C5, M5a, G3 e P3.
+    - **AWS Snowmobile**
+      - É um serviço de download de dados em escala de **exabytes** usado para mover grandes móveis de dados para a AWS.
+      - Você pode transferir até **100 petabytes** de dados por Snowmobile, um contêiner de transporte robusto de 45 pés de comprimento, puxado por um caminhão semi-reboque.
 
 ## Referências
 

@@ -233,6 +233,7 @@ nav:
               - ./servicos/aws/gerenciamento-e-governanca.md
               - ./servicos/aws/preco-e-suporte.md
               - ./servicos/aws/migracao-transferencia.md
+              - ./servicos/aws/aprendizado-de-maquina.md
       - Dispositivos:
           - ./dispositivos/teclado-blitz-wolf-bw-kb1.md
           - ./dispositivos/teclado-keychron-k3-v2.md
