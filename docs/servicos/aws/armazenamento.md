@@ -5,17 +5,17 @@
 - Fornece armazenamento temporário em nível de bloco para uma instância do *Amazon EC2*.
 - É um armazenamento em disco fisicamente conectado ao computador host para uma instância do *EC2*.
 - Tem a mesma vida útil da instância.
-  - Quando a instância é encerrada, você perde todos os dados armazenados.
+    - Quando a instância é encerrada, você perde todos os dados armazenados.
 
 ## Amazon Elastic Block Store (Amazon EBS)
 
 - Fornece volumes de armazenamento em nível de bloco para uma instância do *Amazon EC2*.
 - Vida útil não depende da instância.
-  - Se você interromper ou encerrar uma instância do *Amazon EC2*, todos os dados no volume do *EBS* anexado **permanecerão** disponíveis.
+    - Se você interromper ou encerrar uma instância do *Amazon EC2*, todos os dados no volume do *EBS* anexado **permanecerão** disponíveis.
 - Para criar um volume do *EBS*, você define a configuração (como tamanho e tipo de volume) e a provisiona.
-  - Depois de criar um volume do *EBS*, ele pode ser anexado a uma instância do *Amazon EC2*.
+    - Depois de criar um volume do *EBS*, ele pode ser anexado a uma instância do *Amazon EC2*.
 - Criado em uma **única available zone**.
-  - A instância do *Amazon EC2* deve estar na mesma **available zone**.
+    - A instância do *Amazon EC2* deve estar na mesma **available zone**.
 
 ### Amazon EBS snapshots
 
@@ -36,15 +36,15 @@
 ### Amazon S3 storage classes
 
 - Ao selecionar uma classe de armazenamento do Amazon S3, considere estes dois fatores:
-  - Com que frequência você planeja recuperar seus dados
-  - Quão disponíveis você precisa que seus dados estejam
+    - Com que frequência você planeja recuperar seus dados
+    - Quão disponíveis você precisa que seus dados estejam
 
 #### S3 Standard
 
 - Para dados acessados ​​com frequência.
 - Armazena dados em no mínimo **três available zones** de disponibilidade.
 - Oferece alta disponibilidade para objetos.
-  - Usado para sites, distribuição de conteúdo e análise de dados.
+    - Usado para sites, distribuição de conteúdo e análise de dados.
 - Custo mais alto.
 
 #### S3 Standard-Infrequent Access (S3 Standard-IA)
@@ -65,8 +65,8 @@
 - Ideal para dados com padrões de acesso desconhecidos ou em mudança.
 - Requer uma pequena taxa mensal de monitoramento e automação por objeto.
 - Os padrões de acesso dos objetos são monitorados.
-  - Se o objeto não tiver acesso por **30 dias consecutivos**, será movido para *S3 Standard-IA*.
-  - Se o objeto que estava em *S3 Standard-IA* for acessado, será movido para *S3 Standard*.
+    - Se o objeto não tiver acesso por **30 dias consecutivos**, será movido para *S3 Standard-IA*.
+    - Se o objeto que estava em *S3 Standard-IA* for acessado, será movido para *S3 Standard*.
 - A movimentação de objetos entre as classes entra na cobrança de transferências de objetos.
 
 #### S3 Glacier

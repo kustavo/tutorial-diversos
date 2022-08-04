@@ -3,7 +3,7 @@
 ## Amazon SNS (Simple Notification Service)
 
 - É um serviço de publicação/assinatura. Usando tópicos do Amazon SNS, um editor publica mensagens para os assinantes.
-  - Os assinantes podem ser servidores web, endereços de e-mail, funções do AWS Lambda ou várias outras opções.
+    - Os assinantes podem ser servidores web, endereços de e-mail, funções do AWS Lambda ou várias outras opções.
 - Método Push - Amazon SNS envia mensagens para os assinantes (consumidores) de um tópico.
 
 ## Amazon SQS (Simple Queue Service)
@@ -15,8 +15,8 @@
 - Não possui assinantes em tópicos.
 - FIFO
 - Idempotência - não introduzem mensagens duplicadas no controle de janela de 5 minutos.
-  - Método 1: SHA-256 baseado no corpo da mensagem (não utiliza os atributos).
-  - Método 2: O produtor fornece explicitamente um ID na mensagem para o controle de duplicidade. 
+    - Método 1: SHA-256 baseado no corpo da mensagem (não utiliza os atributos).
+    - Método 2: O produtor fornece explicitamente um ID na mensagem para o controle de duplicidade. 
 
 ## Referências
 

@@ -6,12 +6,12 @@
 - Serviço gerenciado que automatiza tarefas como provisionamento de hardware, configuração de banco de dados, aplicação de patches e backups.
 - Mecanismos de banco de dados do Amazon RDS oferecem criptografia em repouso (protegendo dados enquanto estão armazenados) e criptografia em trânsito (protegendo dados enquanto estão sendo enviados e recebidos).
 - Está disponível em seis mecanismos de banco de dados, que otimizam a memória, o desempenho ou a entrada/saída (E/S). Os mecanismos de banco de dados suportados incluem:
-  - Amazon Aurora
-  - PostgreSQL
-  - MySQL
-  - MariaDB
-  - Banco de Dados Oracle
-  - Microsoft SQL Server
+    - Amazon Aurora
+    - PostgreSQL
+    - MySQL
+    - MariaDB
+    - Banco de Dados Oracle
+    - Microsoft SQL Server
 
 ### Amazon Aurora
 
@@ -20,7 +20,7 @@
 - É até 5x mais rápido que o MySQL padrão e até 3x mais rápido que PostgreSQL padrão.
 - Ajuda a reduzir os custos do banco de dados ao reduzir as operações de entrada/saída (E/S) desnecessárias
 - Considere o *Amazon Aurora* se suas cargas de trabalho exigirem alta disponibilidade.
-  - Ele replica seis cópias de seus dados em **três available zones** e faz **backup contínuo** de seus dados no **Amazon S3**.
+    - Ele replica seis cópias de seus dados em **três available zones** e faz **backup contínuo** de seus dados no **Amazon S3**.
 
 ## Amazon DynamoDB
 
@@ -39,11 +39,11 @@
 
 - Permite migrar bancos de dados relacionais, bancos de dados não relacionais e outros tipos de armazenamentos de dados.
 - Move dados entre um banco de dados de origem e um banco de dados de destino.
-  - Os bancos de dados de origem e destino podem ser do mesmo tipo ou de tipos diferentes.
+    - Os bancos de dados de origem e destino podem ser do mesmo tipo ou de tipos diferentes.
 - Durante a migração, seu banco de dados de origem permanece operacional.
 - Outras aplicações:
-  - Permitir que os desenvolvedores testem aplicativos em relação aos dados de produção sem afetar os usuários de produção.
-  - Enviar cópias contínuas de seus dados para outras fontes de destino em vez de fazer uma migração única
+    - Permitir que os desenvolvedores testem aplicativos em relação aos dados de produção sem afetar os usuários de produção.
+    - Enviar cópias contínuas de seus dados para outras fontes de destino em vez de fazer uma migração única
 
 ## Amazon DocumentDB
 
