@@ -12,24 +12,24 @@
 - Garante que a TI se alinhe às necessidades de negócios e que os investimentos em TI se vinculem aos principais resultados de negócios.
 - Ajuda você a passar de um modelo que separa as estratégias de negócios e de TI para um modelo de negócios que integra a estratégia de TI.
 - Aplicação:
-  - Use a Perspectiva de Negócios para criar um forte caso de negócios para a adoção da nuvem e priorize as iniciativas de adoção da nuvem.
+    - Use a Perspectiva de Negócios para criar um forte caso de negócios para a adoção da nuvem e priorize as iniciativas de adoção da nuvem.
 - Certifique-se de que suas estratégias e objetivos de negócios estejam alinhados com suas estratégias e objetivos de TI.
 - As funções comuns na Perspectiva de Negócios incluem:
-  - Gerentes de negócios
-  - Gerentes de finanças
-  - Proprietários de orçamento (*budget owners*)
-  - Partes interessadas da estratégia (*strategy stakeholders*)
+    - Gerentes de negócios
+    - Gerentes de finanças
+    - Proprietários de orçamento (*budget owners*)
+    - Partes interessadas da estratégia (*strategy stakeholders*)
 
 ### People Perspective
 
 - Apoia o desenvolvimento de uma estratégia de gerenciamento de mudanças em toda a organização para a adoção bem-sucedida da nuvem.
 - Ajuda os funcionários de Recursos Humanos (RH) a preparar suas equipes para a adoção da nuvem, atualizando os processos organizacionais e as habilidades da equipe para incluir competências baseadas na nuvem.
 - Aplicação:
-  - Use a Perspectiva de Pessoas para avaliar estruturas e funções organizacionais, novos requisitos de habilidades e processos e identificar lacunas. Isso ajuda a priorizar treinamento, pessoal e mudanças organizacionais.
+    - Use a Perspectiva de Pessoas para avaliar estruturas e funções organizacionais, novos requisitos de habilidades e processos e identificar lacunas. Isso ajuda a priorizar treinamento, pessoal e mudanças organizacionais.
 - Os papéis comuns na Perspectiva de Pessoas incluem:
-  - Recursos Humanos
-  - Pessoal
-  - Gestores de pessoas
+    - Recursos Humanos
+    - Pessoal
+    - Gestores de pessoas
 
 ### Governance Perspective
 
