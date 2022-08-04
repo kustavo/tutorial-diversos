@@ -43,7 +43,7 @@ bcdboot x:\windows            # x é a partição onde está o windows
 bcdboot x:\windows # x é a partição onde está o windows
 ```
 
-## Compartilhar Wifi para conexão cabeada
+## Compartilhar Wifi de uma conexão cabeada
 
 1. Abra as configurações da Internet, visualize as conexões de rede e altere opções do adaptador ("Change adapter options").
 
