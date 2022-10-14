@@ -10,6 +10,7 @@
 ## Amazon Elastic Block Store (Amazon EBS)
 
 - Fornece volumes de armazenamento em nível de bloco para uma instância do *Amazon EC2*.
+- HDD ou SSD
 - Vida útil não depende da instância.
     - Se você interromper ou encerrar uma instância do *Amazon EC2*, todos os dados no volume do *EBS* anexado **permanecerão** disponíveis.
 - Para criar um volume do *EBS*, você define a configuração (como tamanho e tipo de volume) e a provisiona.
@@ -17,11 +18,29 @@
 - Criado em uma **única available zone**.
     - A instância do *Amazon EC2* deve estar na mesma **available zone**.
 
+### Amazon EBS volumes
+
+- Fornece os tipos de volume:
+    - **Unidades de estado sólido (SSD)**: otimizadas para workloads de transação envolvendo **operações de leitura/gravação frequentes** com o tamanho pequeno de E/S, onde o atributo dominante de performance é IOPS. Os tipos de volume com suporte de SSD incluem:
+        - Volumes SSD de uso geral.
+            - Equilibram preço e performance para proporcionar uma ampla variedade de workloads transacionais.
+        - Volumes de Provisioned IOPS SSD.
+            - Volumes de armazenamento da mais alta performance, criados para workloads essenciais, com uso intenso de IOPS e de throughput que exigem baixa latência.
+    - **Unidades de disco rígido (HDD)**: otimizadas para grandes workloads de transmissão em que o atributo de performance dominante é a **throughput**. Os tipos de volume com suporte de HDD incluem:
+        - Volumes de HDD otimizado para throughput.
+            - Um HDD de baixo custo criado para workloads acessadas com frequência e com alta throughput.
+        - HDD frio com throughput.
+            - O design de HDD de menor custo para workloads acessadas com menos frequência.
+    - **Geração anterior**: unidades de disco rígido que você pode usar para workloads com pequenos conjuntos de dados em que os dados são **acessados raramente** e a performance não é de primordial importância.
+
+- [Veja mais sobre os tipos de volumes](https://aws.amazon.com/pt/ebs/volume-types/)
+
 ### Amazon EBS snapshots
 
 - Como os volumes do *EBS* são para dados que precisam persistir, é importante fazer backup dos dados.
 - Você pode fazer backups incrementais de volumes do *EBS* criando snapshots do *Amazon EBS*.
 - Um *snapshots* do EBS é um backup incremental. Isso significa que o primeiro backup feito de um volume copia todos os dados. Para backups subsequentes, apenas os blocos de dados que foram alterados desde o *snapshots* mais recente são salvos.
+- Durante o processo de *snapshot* o volume EBS pode ser usando normalmente.
 
 ## Amazon Simple Storage Service (Amazon S3)
 

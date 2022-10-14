@@ -99,6 +99,10 @@ Confira um detalhamento rápido dos principais serviços que você vai encontrar
     - **Pinpoint**: ajuda a entender seus usuários e se envolver com eles;
     - **SES (Simple Email Service)**: ajuda a enviar e-mails em massa para seus clientes a um preço relativamente econômico.
 
+## Documentação
+
+- <https://docs.aws.amazon.com/>
+
 ## Referências
 
 - <https://flexa.cloud/18-servicos-essenciais-da-aws-para-sua-empresa/>

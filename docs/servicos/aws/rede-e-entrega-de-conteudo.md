@@ -116,6 +116,31 @@ Suponha que um aplicativo esteja sendo executado em várias instâncias do *Amaz
 1. A solicitação do cliente é enviada para o ponto de presença mais próximo por meio do *Amazon CloudFront*.
 1. O *Amazon CloudFront* se conecta ao *Application Load Balancer*, que envia o pacote de entrada para uma instância do *Amazon EC2*.
 
+## Amazon CloudFront
+
+- Serviço da web que acelera a distribuição do conteúdo estático e dinâmico da web para os usuários.
+- Serviço de CDN.
+- Distribui o conteúdo por meio de uma rede global de datacenters denominados pontos de presença.
+    - Quando um usuário solicita um conteúdo que você está disponibilizando com o CloudFront, a solicitação é roteada para o ponto de presença que fornece a menor latência (atraso), assim o conteúdo é entregue com a melhor performance possível.
+    - Se o conteúdo já estiver no ponto de presença com a menor latência, o CloudFront o entregará imediatamente.
+    - Se o conteúdo não estiver nesse ponto de presença, o CloudFront o recuperará na fonte identificada como a fonte para a versão definitiva do conteúdo.
+
+### Signed URLs e signed cookies
+
+- Os signed URLs e signed cookies do CloudFront fornecem a mesma funcionalidade básica: eles permitem controlar quem pode acessar seu conteúdo.
+- Use signed URLs nos seguintes casos:
+    - Você quer restringir o acesso a **arquivos individuais**, por exemplo, o download de uma instalação para seu aplicativo.
+    - Seus usuários estão usando um cliente (por exemplo, um cliente HTTP personalizado) incompatível com cookies.
+- Use signed cookies nos seguintes casos:
+    - Você quer fornecer acesso a **vários arquivos** restritos, por exemplo, todos os arquivos de um vídeo no formato HLS ou todos os arquivos da área de assinantes de um site.
+    - Você **não** quer alterar seus URLs atuais.
+- Se você não estiver usando URLs assinados e seus URLs (não assinados) contiverem um dos seguintes parâmetros de string de consulta, você **não poderá usar signed URLs ou signed cookies**:
+    - Expires
+    - Policy
+    - Signature
+    - Key-Pair-Id
+- O CloudFront pressupõe que os URLs que contenham um desses parâmetros de query string sejam signed URLs, portanto, não analisará os signed cookies.
+
 ## Referências
 
 - <https://explore.skillbuilder.aws/learn/course/134/play/31418/aws-cloud-practitioner-essentials-all-modules>

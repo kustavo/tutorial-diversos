@@ -20,7 +20,7 @@ Gerenciamento da segurança (*security*), identidade (*identity*) e conformidade
 - É uma identidade que você cria na AWS.
 - Representa a pessoa ou o aplicativo que interage com os serviços e recursos da AWS.
 - Consiste em um nome e credenciais.
-- Por padrão, quando você cria um novo usuário do IAM na AWS, ele não tem permissões associadas a ele.
+- Por padrão, um novo usuário no IAM **não possui nenhuma permissão** associada a ele.
 
 ### IAM groups
 
