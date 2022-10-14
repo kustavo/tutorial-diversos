@@ -86,7 +86,7 @@ echo $SHELL
 
 ## Shell script
 
-Shell scripts ou scripts em shell são programas curtos escritos em uma linguagem de programação shell que serão interpretados por um shell. Eles são extremamente úteis para automatizar tarefas em sistemas tipo Unix. Um script em shell geralmente é criado para sequências de comandos nas quais o usuário precisa usar repetidamente para economizar tempo. 
+Shell scripts ou scripts em shell são programas curtos escritos em uma linguagem de programação shell que serão interpretados por um shell. Eles são extremamente úteis para automatizar tarefas em sistemas tipo Unix. Um script em shell geralmente é criado para sequências de comandos nas quais o usuário precisa usar repetidamente para economizar tempo.
 
 Como outros programas, o script em shell pode conter parâmetros, variáveis, estruturas de repetição, estruturas de condição, comentários, subcomandos, entre outros recursos. Um arquivo contendo um script em shell, geralmente possui a extensão `.sh`. Exemplo de um script em shell para o shell Bash:
 

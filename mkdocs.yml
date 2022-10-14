@@ -1,6 +1,6 @@
 site_name: Guia Rápido
 site_description: "Guia para consultas rápidas em assuntos relacionados às áreas de programação, desenvolvimento e outras áreas de TI."
-site_author: "Gustavo Araujo"
+site_author: "Gustavo Araújo"
 
 site_url: https://kustavo.github.io/guia-rapido/
 #site_url: https://ajuda.gitlab.io/guia-rapido/
@@ -206,6 +206,7 @@ nav:
           - ./aplicativos/postgresql.md
           - ./aplicativos/raspberry.md
           - ./aplicativos/retropie.md
+          - ./aplicativos/ssh.md
           - ./aplicativos/veracrypt.md
           - ./aplicativos/visual-studio-code.md
       - Css:
