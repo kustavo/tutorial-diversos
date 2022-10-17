@@ -22,6 +22,11 @@
 - Considere o *Amazon Aurora* se suas cargas de trabalho exigirem alta disponibilidade.
     - Ele replica seis cópias de seus dados em **três available zones** e faz **backup contínuo** de seus dados no **Amazon S3**.
 
+### Multi-AZ do Amazon RDS com uma instância secundária
+
+- Uma instância RDS secundária é criada em outra AZ e mantida atualizada para caso de interrupção da instância RDS principal.
+- Não é possível usar a instância RDS secundária se a principal está ativa (fica em *standby*).
+
 ## Amazon DynamoDB
 
 - Banco de dados não relacional (NoSQL)

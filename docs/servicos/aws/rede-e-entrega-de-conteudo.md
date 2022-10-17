@@ -9,6 +9,16 @@
 - Ao criar uma VPC é criado um *Security Group* padrão (*default*).
     - Não é possível excluir um grupo de segurança *default*, mas é possível adicionar ou remover as regras.
 
+### Emparelhamento de VPC (VPC peering)
+
+- É uma conexão de rede entre duas VPCs que permite direcionar o tráfego entre elas usando endereços IPv4 ou IPv6 privados.
+    - Podem se comunicar umas com as outras como se estivessem na mesma rede.
+- É possível criar emparelhamento em VPCs de contas diferentes.
+- Não é nem um gateway nem uma conexão VPN, e não depende de uma parte separada do hardware físico.
+- Não há um ponto único de falha de comunicação ou um gargalo de largura de banda.
+- A comunicação entre VPCs emparelhadas ocorre diretamente entre duas VPCs, não é possível através de uma VPC emparelhada intermediária.
+- Não é possível criar emparelhamento entre VPCs que tenham blocos CIDR IPv4 ou IPv6 coincidentes ou sobrepostos.
+
 ### Internet gateway
 
 - Permitir que o tráfego público da Internet acesse sua VPC.

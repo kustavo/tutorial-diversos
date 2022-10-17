@@ -52,6 +52,23 @@
 - Possui recurso de versão para rastrear alterações em seus objetos ao longo do tempo.
 - Você paga apenas pelo que usa.
 
+### Otimizar a performance do Amazon S3
+
+- O Amazon S3 **escala automaticamente** para taxas de solicitações elevadas.
+    - Sua aplicação pode atingir pelo menos **3,5 mil** solicitações PUT/COPY/POST/DELETE ou **5,5 mil** solicitações GET/HEAD por segundo **por prefixo particionado**.
+    - Você pode melhorar a performance de leitura ou gravação usando paralelização por prefixos.
+        - Por exemplo, se você criar 10 prefixos em um bucket do Amazon S3 para paralelizar leituras, poderá escalar a performance de leitura para 55.000 solicitações de leitura por segundo.
+            - Da mesma forma, você pode dimensionar as operações de gravação gravando em vários prefixos.
+
+### Organizar objetos usando prefixos
+
+- Um prefixo é uma string no início do nome da chave do objeto.
+- Forma de organizar seus dados de forma semelhante aos diretórios (mas não é diretório)
+- Não há limite para o número de prefixos em um bucket.
+- É possível definir qual será o delimitador dos prefixos, mas o mais comum é "/", exemplos:
+    - `photos/2006/January/sample.jpg`
+    - `photos/2006/February/sample3.jpg`
+
 ### Amazon S3 storage classes
 
 - Ao selecionar uma classe de armazenamento do Amazon S3, considere estes dois fatores:
