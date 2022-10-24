@@ -225,6 +225,7 @@ nav:
               - ./servicos/aws/infraestrutura-global.md
               - ./servicos/aws/seguranca-e-identidade-e-conformidade.md
               - ./servicos/aws/computacao.md
+              - ./servicos/aws/analise.md
               - ./servicos/aws/integracao-aplicativos.md
               - ./servicos/aws/containers.md
               - ./servicos/aws/rede-e-entrega-de-conteudo.md

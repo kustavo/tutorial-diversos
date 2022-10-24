@@ -60,6 +60,12 @@
     - O triângulo laranja representa o número de investigações recomendadas.
     - O círculo vermelho representa o número de ações recomendadas.
 
+## AWS CloudFormation
+
+- É um serviço que ajuda você a modelar e configurar seus recursos da AWS.
+- Você cria um modelo (em inglês, *template*) que descreve todos os recursos da AWS que você deseja e o CloudFormation cuida do provisionamento e da configuração desses recursos para você.
+- Não é necessário criar e configurar individualmente os recursos da AWS e descobrir o que depende do que; o CloudFormation lida com isso.
+
 ## Referências
 
 - <https://explore.skillbuilder.aws/learn/course/134/play/31418/aws-cloud-practitioner-essentials-all-modules>

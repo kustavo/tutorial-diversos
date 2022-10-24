@@ -30,7 +30,7 @@
 ## Amazon DynamoDB
 
 - Banco de dados não relacional (NoSQL)
-- Serverless.
+- **Serverless**.
 - Dimensionado automaticamente a medida que o tamanho do banco de dados diminui ou aumenta.
 - É um serviço de banco de dados de chave-valor.
 - Oferece desempenho de milissegundos de um dígito em qualquer escala.

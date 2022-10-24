@@ -92,6 +92,14 @@ O Amazon EC2 oferece uma variedade de opções de preços para diferentes casos 
 - Uma instância em execução terá no máximo 15 minutos para executar seu trabalho.
 - Um código em um AWS Lambda é executado ao ser acionado por um evento configurado.
 
+## AWS Elastic Beanstalk
+
+- Com o Elastic Beanstalk, é possível implantar e gerenciar rapidamente aplicações na Nuvem AWS sem se preocupar com a infraestrutura que as executa.
+- Basta fazer upload da aplicação e o Elastic Beanstalk automaticamente gerencia os detalhes de provisão de capacidade, balanceamento de carga, escalabilidade e monitoramento do status da aplicação.
+- Compatível com aplicações desenvolvidas em Go, Java, .NET, Node.js, PHP, Python e Ruby.
+- Constrói a versão da plataforma suportada selecionada e provisiona um ou mais recursos da AWS, como instâncias do Amazon EC2, para executar a aplicação.
+- Não há custo adicional para o Elastic Beanstalk. Você paga apenas pelos recursos subjacentes da AWS consumidos pela aplicação.
+
 ## Referências
 
 - <https://aws.amazon.com/pt/ec2>
