@@ -12,230 +12,230 @@ repo_name: "GitHub"
 #repo_name: "GitLab"
 
 extra:
-    analytics:
-        provider: google
-        property: G-WC1WMST9T6
+  analytics:
+    provider: google
+    property: G-WC1WMST9T6
 
 markdown_extensions:
-    - admonition # card de notas
-    - pymdownx.details # card de notas que expandem e recolhem
-    - pymdownx.snippets: # embutir arquivos
-          check_paths: true # erro se não encontrado
-    - pymdownx.tabbed: # abas
-          alternate_style: true
-    - pymdownx.highlight:
-          #linenums: true # linha nos blocos de código
-    - pymdownx.superfences # bloco de código dentro de outros blocos
-    - attr_list # html e css em elementos markdown
-    - def_list # listas com descrições
-    - footnotes # notas de rodapé
-    - meta # metatags
-    - toc:
-          permalink: true # criar link âncora em cada subtítulo
-          toc_depth: 3 # limite de profundidade para aparecer no toc
+  - admonition # card de notas
+  - pymdownx.details # card de notas que expandem e recolhem
+  - pymdownx.snippets: # embutir arquivos
+      check_paths: true # erro se não encontrado
+  - pymdownx.tabbed: # abas
+      alternate_style: true
+  - pymdownx.highlight:
+      #linenums: true # linha nos blocos de código
+  - pymdownx.superfences # bloco de código dentro de outros blocos
+  - attr_list # html e css em elementos markdown
+  - def_list # listas com descrições
+  - footnotes # notas de rodapé
+  - meta # metatags
+  - toc:
+      permalink: true # criar link âncora em cada subtítulo
+      toc_depth: 3 # limite de profundidade para aparecer no toc
 
 plugins:
-    - search:
-          lang: pt
-          prebuild_index: false # pré gerar o index de todas páginas
+  - search:
+      lang: pt
+      prebuild_index: false # pré gerar o index de todas páginas
 
 theme:
-    name: "material"
-    custom_dir: overrides # local dos arquivos que sobrescreve o tema
-    palette:
-        primary: indigo
-        accent: indigo
-    font:
-        text: Roboto
-        code: Roboto Mono
-    features:
-        - navigation.tabs # exibi o menu superior
-        - search.suggest # sugestões na busca
-        - search.highlight # destaque das palavras na busca
-        - search.share # opção de compartilhar busca
-        #- toc.integrate # agrupa menus da direita e esquerda
-        - navigation.instant # Uso de XHR, comporta como SPA
-        #- navigation.sections # Exibe menu sem agrupar submenus
-    language: pt
-    logo: _extras/logo.svg
-    favicon: _extras/favicon.svg
+  name: "material"
+  custom_dir: overrides # local dos arquivos que sobrescreve o tema
+  palette:
+    primary: indigo
+    accent: indigo
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.tabs # exibi o menu superior
+    - search.suggest # sugestões na busca
+    - search.highlight # destaque das palavras na busca
+    - search.share # opção de compartilhar busca
+    #- toc.integrate # agrupa menus da direita e esquerda
+    - navigation.instant # Uso de XHR, comporta como SPA
+    #- navigation.sections # Exibe menu sem agrupar submenus
+  language: pt
+  logo: _extras/logo.svg
+  favicon: _extras/favicon.svg
 
 extra_css: [_extras/extra.css]
 extra_javascript: [_extras/extra.js]
 
 nav:
-    - Home: index.md
-    - .Net:
-          - ./dotnet/introducao.md
-          - ./dotnet/instalacao-e-configuracao.md
-          - ./dotnet/interface-linha-comando.md
-          - Csharp:
-                - ./dotnet/csharp/palavras-chave.md
-                - Tipos de valor:
-                      - ./dotnet/csharp/tipos/tipos-de-valor/introducao.md
-                      - ./dotnet/csharp/tipos/tipos-de-valor/tipos-numericos-integrais.md
-                      - ./dotnet/csharp/tipos/tipos-de-valor/tipos-numericos-de-ponto-flutuante.md
-                      - ./dotnet/csharp/tipos/tipos-de-valor/bool.md
-                      - ./dotnet/csharp/tipos/tipos-de-valor/char.md
-                      - ./dotnet/csharp/tipos/tipos-de-valor/tipos-de-enumeracao.md
-                      - ./dotnet/csharp/tipos/tipos-de-valor/tipos-de-estrutura.md
-                      - ./dotnet/csharp/tipos/tipos-de-valor/tipos-de-tuplas.md
-                      - ./dotnet/csharp/tipos/tipos-de-valor/tipos-de-valores-anulaveis.md
-                - Tipos de referência:
-                      - ./dotnet/csharp/tipos/tipos-de-referencia/introducao.md
-                      - ./dotnet/csharp/tipos/tipos-de-referencia/object.md
-                      - ./dotnet/csharp/tipos/tipos-de-referencia/string.md
-                      - ./dotnet/csharp/tipos/tipos-de-referencia/delegate.md
-                      - ./dotnet/csharp/tipos/tipos-de-referencia/dynamic.md
-                - Modificadores:
-                      - ./dotnet/csharp/modificadores/modificadores-acesso.md
-                      - ./dotnet/csharp/modificadores/virtual.md
-                      - ./dotnet/csharp/modificadores/abstract.md
-                      - ./dotnet/csharp/modificadores/override.md
-                - Namespace:
-                      - ./dotnet/csharp/namespace/using.md
-                      - ./dotnet/csharp/namespace/namespace.md
-                - ./dotnet/csharp/classes-e-objetos.md
-                - ./dotnet/csharp/campos-e-propriedades.md
-                - ./dotnet/csharp/generics.md
-          - ./dotnet/matrizes-e-colecoes.md
-          - ./dotnet/entity-framework.md
-          - ./dotnet/container-ioc-di.md
-          - ./dotnet/erros-e-solucoes.md
-          - ./dotnet/swagger.md
-          - ./dotnet/dispose.md
-    - Javascript:
-          - ./javascript/introducao.md
-          - ./javascript/promise.md
-          - ./javascript/observable.md
-    - Arquitetura:
-          - Padrões de projeto:
-                - ./arquitetura/design-patterns/dependency-injection.md
-                - ./arquitetura/design-patterns/domain-driven-design.md
-                - ./arquitetura/design-patterns/cqrs.md
-                - ./arquitetura/design-patterns/observer.md
-                - Solid:
-                      - ./arquitetura/design-patterns/solid/introducao.md
-                      - ./arquitetura/design-patterns/solid/single-responsability-principle.md
-                      - ./arquitetura/design-patterns/solid/open-close-principle.md
-                      - ./arquitetura/design-patterns/solid/liskov-substitution-principle.md
-                      - ./arquitetura/design-patterns/solid/interface-segregation-principle.md
-                      - ./arquitetura/design-patterns/solid/dependency-inversion-principle.md
-          - Organização do projeto:
-                - ./arquitetura/organizacao-projeto/introducao.md
-    - Linux:
-          - ./linux/introducao.md
-          - Shell:
-                - ./linux/shell/linux-shell.md
-                - ./linux/shell/bash.md
-                - ./linux/shell/dash.md
-                - ./linux/shell/zsh.md
-                - ./linux/shell/gnome-terminal.md
-          - ./linux/arquivos-e-diretorios.md
-          - ./linux/servicos-e-processos.md
-          - ./linux/sessao-e-usuario.md
-          - Gerenciador de pacotes:
-                - ./linux/gerenciador-pacotes/apt.md
-                - ./linux/gerenciador-pacotes/snap.md
-                - ./linux/gerenciador-pacotes/flatpak.md
-                - ./linux/gerenciador-pacotes/yay.md
-                - ./linux/gerenciador-pacotes/yaourt.md
-          - Distribuições e ambientes gráficos:
-                - ./linux/distribuicoes-e-ambientes-graficos/gnome.md
-                - ./linux/distribuicoes-e-ambientes-graficos/pop-os.md
-                - ./linux/distribuicoes-e-ambientes-graficos/manjaro.md
-                - ./linux/distribuicoes-e-ambientes-graficos/arch-linux.md
-          - ./linux/boot.md
-          - Aplicativos:
-                - ./linux/aplicativos/7z.md
-                - ./linux/aplicativos/imagemagick.md
-                - ./linux/aplicativos/ntfsfix.md
-                - ./linux/aplicativos/puddletag.md
-                - ./linux/aplicativos/rsync.md
-                - ./linux/aplicativos/tmux.md
-          - ./linux/certificado-ssl.md
-    - Markdown:
-          - ./markdown/markdown.md
-          - ./markdown/markdown-to-medium.md
-          - ./markdown/mkdocs.md
-    - Angular:
-          - ./angular/introducao.md
-          - ./angular/componentes.md
-          - ./angular/diretivas.md
-          - ./angular/injecao-de-dependencia.md
-          - ./angular/pipes.md
-          - ./angular/interface-linha-comando.md
-          - ./angular/rotas.md
-          - ./angular/modulos.md
-    - Flutter:
-          - ./flutter/instalacao.md
-          - ./flutter/introducao.md
-          - ./flutter/dart.md
-          - ./flutter/interface-linha-comando.md
-          - ./flutter/erros-e-solucoes.md
-    - Go:
-          - ./go/introducao.md
-          - ./go/convensao.md
-          - ./go/package.md
-          - ./go/struct.md
-          - Third-party:
-                - ./go/third-party/swagger.md
-                - ./go/third-party/pgx.md
-    - Inglês:
-          - ./ingles/introducao.md
-          - ./ingles/historia.md
-          - ./ingles/verbos.md
-    - Outros:
-          - ./android/android.md
-          - ./sql/sql.md
-          - ./windows/windows.md
-          - Sistema Operacional:
-                - ./sistema_operacional/memoria.md
-          - Aplicativos:
-                - ./aplicativos/disk-drill.md
-                - ./aplicativos/docker.md
-                - ./aplicativos/docker-compose.md
-                - ./aplicativos/firebase.md
-                - ./aplicativos/git.md
-                - ./aplicativos/kafka.md
-                - ./aplicativos/maven.md
-                - ./aplicativos/mkvtoolnix.md
-                - ./aplicativos/mysql.md
-                - ./aplicativos/nginx.md
-                - ./aplicativos/nodejs.md
-                - ./aplicativos/postgresql.md
-                - ./aplicativos/raspberry.md
-                - ./aplicativos/retropie.md
-                - ./aplicativos/ssh.md
-                - ./aplicativos/veracrypt.md
-                - ./aplicativos/visual-studio-code.md
-          - Css:
-                - ./css/introducao.md
-                - ./css/grid.md
-                - ./css/flexbox.md
-          - Html:
-                - ./html/introducao.md
-          - Serviços:
-                - ./servicos/replit.md
-                - Azure:
-                      - ./servicos/azure/service-bus.md
-                      - ./servicos/azure/functions.md
-                - AWS:
-                      - ./servicos/aws/introducao.md
-                      - ./servicos/aws/infraestrutura-global.md
-                      - ./servicos/aws/seguranca-e-identidade-e-conformidade.md
-                      - ./servicos/aws/computacao.md
-                      - ./servicos/aws/analise.md
-                      - ./servicos/aws/integracao-aplicativos.md
-                      - ./servicos/aws/containers.md
-                      - ./servicos/aws/rede-e-entrega-de-conteudo.md
-                      - ./servicos/aws/armazenamento.md
-                      - ./servicos/aws/banco-de-dados.md
-                      - ./servicos/aws/criptografia-e-pki.md
-                      - ./servicos/aws/gerenciamento-e-governanca.md
-                      - ./servicos/aws/preco-e-suporte.md
-                      - ./servicos/aws/migracao-transferencia.md
-                      - ./servicos/aws/aprendizado-de-maquina.md
-          - Dispositivos:
-                - ./dispositivos/teclado-blitz-wolf-bw-kb1.md
-                - ./dispositivos/teclado-keychron-k3-v2.md
+  - Home: index.md
+  - .Net:
+      - ./dotnet/introducao.md
+      - ./dotnet/instalacao-e-configuracao.md
+      - ./dotnet/interface-linha-comando.md
+      - Csharp:
+          - ./dotnet/csharp/palavras-chave.md
+          - Tipos de valor:
+              - ./dotnet/csharp/tipos/tipos-de-valor/introducao.md
+              - ./dotnet/csharp/tipos/tipos-de-valor/tipos-numericos-integrais.md
+              - ./dotnet/csharp/tipos/tipos-de-valor/tipos-numericos-de-ponto-flutuante.md
+              - ./dotnet/csharp/tipos/tipos-de-valor/bool.md
+              - ./dotnet/csharp/tipos/tipos-de-valor/char.md
+              - ./dotnet/csharp/tipos/tipos-de-valor/tipos-de-enumeracao.md
+              - ./dotnet/csharp/tipos/tipos-de-valor/tipos-de-estrutura.md
+              - ./dotnet/csharp/tipos/tipos-de-valor/tipos-de-tuplas.md
+              - ./dotnet/csharp/tipos/tipos-de-valor/tipos-de-valores-anulaveis.md
+          - Tipos de referência:
+              - ./dotnet/csharp/tipos/tipos-de-referencia/introducao.md
+              - ./dotnet/csharp/tipos/tipos-de-referencia/object.md
+              - ./dotnet/csharp/tipos/tipos-de-referencia/string.md
+              - ./dotnet/csharp/tipos/tipos-de-referencia/delegate.md
+              - ./dotnet/csharp/tipos/tipos-de-referencia/dynamic.md
+          - Modificadores:
+              - ./dotnet/csharp/modificadores/modificadores-acesso.md
+              - ./dotnet/csharp/modificadores/virtual.md
+              - ./dotnet/csharp/modificadores/abstract.md
+              - ./dotnet/csharp/modificadores/override.md
+          - Namespace:
+              - ./dotnet/csharp/namespace/using.md
+              - ./dotnet/csharp/namespace/namespace.md
+          - ./dotnet/csharp/classes-e-objetos.md
+          - ./dotnet/csharp/campos-e-propriedades.md
+          - ./dotnet/csharp/generics.md
+      - ./dotnet/matrizes-e-colecoes.md
+      - ./dotnet/entity-framework.md
+      - ./dotnet/container-ioc-di.md
+      - ./dotnet/erros-e-solucoes.md
+      - ./dotnet/swagger.md
+      - ./dotnet/dispose.md
+  - Javascript:
+      - ./javascript/introducao.md
+      - ./javascript/promise.md
+      - ./javascript/observable.md
+  - Arquitetura:
+      - Padrões de projeto:
+          - ./arquitetura/design-patterns/dependency-injection.md
+          - ./arquitetura/design-patterns/domain-driven-design.md
+          - ./arquitetura/design-patterns/cqrs.md
+          - ./arquitetura/design-patterns/observer.md
+          - Solid:
+              - ./arquitetura/design-patterns/solid/introducao.md
+              - ./arquitetura/design-patterns/solid/single-responsability-principle.md
+              - ./arquitetura/design-patterns/solid/open-close-principle.md
+              - ./arquitetura/design-patterns/solid/liskov-substitution-principle.md
+              - ./arquitetura/design-patterns/solid/interface-segregation-principle.md
+              - ./arquitetura/design-patterns/solid/dependency-inversion-principle.md
+      - Organização do projeto:
+          - ./arquitetura/organizacao-projeto/introducao.md
+  - Linux:
+      - ./linux/introducao.md
+      - Shell:
+          - ./linux/shell/linux-shell.md
+          - ./linux/shell/bash.md
+          - ./linux/shell/dash.md
+          - ./linux/shell/zsh.md
+          - ./linux/shell/gnome-terminal.md
+      - ./linux/arquivos-e-diretorios.md
+      - ./linux/servicos-e-processos.md
+      - ./linux/sessao-e-usuario.md
+      - Gerenciador de pacotes:
+          - ./linux/gerenciador-pacotes/apt.md
+          - ./linux/gerenciador-pacotes/snap.md
+          - ./linux/gerenciador-pacotes/flatpak.md
+          - ./linux/gerenciador-pacotes/yay.md
+          - ./linux/gerenciador-pacotes/yaourt.md
+      - Distribuições e ambientes gráficos:
+          - ./linux/distribuicoes-e-ambientes-graficos/gnome.md
+          - ./linux/distribuicoes-e-ambientes-graficos/pop-os.md
+          - ./linux/distribuicoes-e-ambientes-graficos/manjaro.md
+          - ./linux/distribuicoes-e-ambientes-graficos/arch-linux.md
+      - ./linux/boot.md
+      - Aplicativos:
+          - ./linux/aplicativos/7z.md
+          - ./linux/aplicativos/imagemagick.md
+          - ./linux/aplicativos/ntfsfix.md
+          - ./linux/aplicativos/puddletag.md
+          - ./linux/aplicativos/rsync.md
+          - ./linux/aplicativos/tmux.md
+      - ./linux/certificado-ssl.md
+  - Markdown:
+      - ./markdown/markdown.md
+      - ./markdown/markdown-to-medium.md
+      - ./markdown/mkdocs.md
+  - Angular:
+      - ./angular/introducao.md
+      - ./angular/componentes.md
+      - ./angular/diretivas.md
+      - ./angular/injecao-de-dependencia.md
+      - ./angular/pipes.md
+      - ./angular/interface-linha-comando.md
+      - ./angular/rotas.md
+      - ./angular/modulos.md
+  - Flutter:
+      - ./flutter/instalacao.md
+      - ./flutter/introducao.md
+      - ./flutter/dart.md
+      - ./flutter/interface-linha-comando.md
+      - ./flutter/erros-e-solucoes.md
+  - Go:
+      - ./go/introducao.md
+      - ./go/convensao.md
+      - ./go/package.md
+      - ./go/struct.md
+      - Third-party:
+          - ./go/third-party/swagger.md
+          - ./go/third-party/pgx.md
+  - Inglês:
+      - ./ingles/introducao.md
+      - ./ingles/historia.md
+      - ./ingles/verbos.md
+  - Outros:
+      - ./android/android.md
+      - ./sql/sql.md
+      - ./windows/windows.md
+      - Sistema Operacional:
+          - ./sistema_operacional/memoria.md
+      - Aplicativos:
+          - ./aplicativos/disk-drill.md
+          - ./aplicativos/docker.md
+          - ./aplicativos/docker-compose.md
+          - ./aplicativos/firebase.md
+          - ./aplicativos/git.md
+          - ./aplicativos/kafka.md
+          - ./aplicativos/maven.md
+          - ./aplicativos/mkvtoolnix.md
+          - ./aplicativos/mysql.md
+          - ./aplicativos/nginx.md
+          - ./aplicativos/nodejs.md
+          - ./aplicativos/postgresql.md
+          - ./aplicativos/raspberry.md
+          - ./aplicativos/retropie.md
+          - ./aplicativos/ssh.md
+          - ./aplicativos/veracrypt.md
+          - ./aplicativos/visual-studio-code.md
+      - Css:
+          - ./css/introducao.md
+          - ./css/grid.md
+          - ./css/flexbox.md
+      - Html:
+          - ./html/introducao.md
+      - Serviços:
+          - ./servicos/replit.md
+          - Azure:
+              - ./servicos/azure/service-bus.md
+              - ./servicos/azure/functions.md
+          - AWS:
+              - ./servicos/aws/introducao.md
+              - ./servicos/aws/infraestrutura-global.md
+              - ./servicos/aws/seguranca-e-identidade-e-conformidade.md
+              - ./servicos/aws/computacao.md
+              - ./servicos/aws/analise.md
+              - ./servicos/aws/integracao-aplicativos.md
+              - ./servicos/aws/containers.md
+              - ./servicos/aws/rede-e-entrega-de-conteudo.md
+              - ./servicos/aws/armazenamento.md
+              - ./servicos/aws/banco-de-dados.md
+              - ./servicos/aws/criptografia-e-pki.md
+              - ./servicos/aws/gerenciamento-e-governanca.md
+              - ./servicos/aws/preco-e-suporte.md
+              - ./servicos/aws/migracao-transferencia.md
+              - ./servicos/aws/aprendizado-de-maquina.md
+      - Dispositivos:
+          - ./dispositivos/teclado-blitz-wolf-bw-kb1.md
+          - ./dispositivos/teclado-keychron-k3-v2.md
