@@ -118,12 +118,25 @@
 ## Amazon Elastic File System (Amazon EFS)
 
 - Armazenas dados como **arquivos**.
-- É um sistema de arquivos escalável, serverless, usado com serviços da Nuvem AWS e recursos locais.
+- É um sistema de arquivos escalável, **serverless**, usado com serviços da Nuvem AWS e recursos locais.
 - Ideal para casos de uso em que um grande número de serviços e recursos precisam acessar os mesmos dados ao mesmo tempo.
 - À medida que você adiciona e remove arquivos, o *Amazon EFS* cresce e diminui automaticamente.
 - Pode ser dimensionado sob demanda para **petabytes** sem interromper os aplicativos.
 - Armazenado em várias **available zones** da região.
-- Servidores locais podem acessar o *Amazon EFS* usando o AWS Direct Connect.
+- Servidores locais podem acessar o *Amazon EFS* usando o AWS *Direct Connect*.
+
+### Amazon EFS x Amazon EBS
+
+- O EFS pode ser usado quando você precisar de uma opção de armazenamento de arquivos compartilhados para várias **instâncias do EC2** com **dimensionamento automático de alto desempenho**. Isso o torna um ótimo candidato para armazenamento de arquivos para sistemas de gerenciamento de conteúdo; para operações de elevação e deslocamento, pois seu potencial de escalonamento automático significa que você não precisa rearquitetar; para o desenvolvimento de aplicativos, pois o armazenamento de arquivos compartilháveis do EFS é ideal para armazenar códigos e arquivos de mídia.
+
+### Categoria
+
+|Classe de armazenamento|Projetado para|Durabilidade (projetada para)|Disponibilidade|Zonas de disponibilidade|Outras considerações|
+|--- |--- |--- |--- |--- |--- |
+|Padrão de EFS|Dados acessados com frequência que exigem a maior durabilidade e disponibilidade.|99,9999999% (11 9)|99,99%|>=3|Nenhum|
+|Padrão EFS - Acesso infrequente (IA)|Dados duradouros e acessados com pouca frequência que exigem a maior durabilidade e disponibilidade.|99,9999999% (11 9)|99,99%|>=3|Taxas de recuperação por GB são aplicáveis.|
+|EFS One Zone|Dados acessados com frequência que não exigem os mais altos níveis de durabilidade e disponibilidade.|99,999999999% (11 anos)|99,90%|1|Não resistente à perda da zona de disponibilidade.|
+|EFS One Zone-IA - IA|Dados duradouros, acessados com pouca frequência, que não exigem os mais altos níveis de durabilidade e disponibilidade.|99,999999999% (11 anos)|99,90%|1|Não resistente à perda da zona de disponibilidade. Taxas de recuperação por GB são aplicáveis.|
 
 ## Referências
 

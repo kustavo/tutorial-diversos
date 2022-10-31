@@ -18,6 +18,21 @@
     - Método 1: SHA-256 baseado no corpo da mensagem (não utiliza os atributos).
     - Método 2: O produtor fornece explicitamente um ID na mensagem para o controle de duplicidade. 
 
+## Amazon MQ
+
+- É um serviço gerenciado de *message broker* que **facilita a migração** para um agente de mensagem na nuvem.
+- Permite que aplicações de software e componentes se comuniquem usando várias linguagens de programação, sistemas operacionais e protocolos de sistemas de mensagens formais.
+- Atualmente, o Amazon MQ é compatível com os mecanismos *Apache ActiveMQ e RabbitMQ*.
+
+O Amazon MQ funciona com as aplicações e serviços existentes sem a necessidade de gerenciar, operar e manter seu próprio sistema de mensagens.
+
+## Amazon Simple Workflow Service (Amazon SWF)
+
+- Facilita a **criação de aplicativos que coordenem tarefas** entre componentes distribuídos.
+- No Amazon SWF, uma tarefa representa uma unidade lógica de trabalho que é executada por um componente do seu aplicativo.
+- A coordenação de tarefas dentro do aplicativo envolve o gerenciamento de dependências entre as tarefas, a programação e a concorrência de acordo com o fluxo lógico do aplicativo.
+- Com o Amazon SWF, você tem o controle total das tarefas de implementação e da coordenação delas sem se preocupar com complexidades fundamentais, como o acompanhamento do progresso e a manutenção do estado delas.
+
 ## Referências
 
 - <https://docs.aws.amazon.com/pt_br/sns/latest/dg/welcome.html>
