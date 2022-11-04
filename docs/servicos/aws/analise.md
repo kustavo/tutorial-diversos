@@ -17,10 +17,15 @@
 
 ### Serviços do Amazon Kinesis
 
-- **Amazon Kinesis Video Streams**: Capture, processe e armazene streams de vídeo para análises e machine learning.
-- **Amazon Kinesis Data Streams**: Crie aplicativos personalizados que analisam streams de dados usando populares estruturas de processamento de streams.
-- **Amazon Kinesis Data Firehose**: Carregue streams de dados em armazenamentos de dados da AWS.
-- **Amazon Kinesis Data Analytics**: Processa e analisa dados em streaming usando SQL ou Java.
+- **Amazon Kinesis Video Streams**:
+    - Capture, processe e armazene streams de vídeo para análises e machine learning.
+- **Amazon Kinesis Data Streams**:
+    - Crie aplicativos personalizados que analisam streams de dados usando populares estruturas de processamento de streams.
+- **Amazon Kinesis Data Firehose**:
+    - Envia streams de dados para armazenamentos de dados da AWS.
+    - É um serviço totalmente gerenciado para fornecimento em tempo real de streaming de dados para destinos como: Amazon S3, Amazon Redshift, Amazon OpenSearch Service, Splunk e qualquer endpoint HTTP de terceiros compatíveis, incluindo Datadog, Dynatrace, LogicMonitor, MongoDB, New Relic e Sumo Logic.
+- **Amazon Kinesis Data Analytics**:
+    - Processa e analisa dados em streaming usando SQL ou Java.
 
 ## Referências
 

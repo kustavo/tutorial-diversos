@@ -8,32 +8,46 @@ Cada diretório de trabalho do Git é um repositório com um histórico completo
 
 O Git é um software livre, distribuído sob os termos da versão 2 da GNU General Public License. Sua manutenção é atualmente supervisionada por Junio Hamano.
 
-## Comandos
+## Configuração
 
-### Configurações
+### git
+
+```bash
+git
+
+# Opções:
+# -v, --version | Ver versão
+# -h, --help | Ajuda
+```
+
+### config
 
 Configurar o nome e email do usuário para que estas informações sejam armazenadas no histórico de ações do gerenciador de repositório.
 
 ```bash
-git config --global user.name "<nome usuario>"
-git config --global user.email "<email-usuario>"
+git config user.name "<nome usuario>"
+git config user.email "<email-usuario>"
 ```
 
 Configurar o editor padrão:
 
 ```bash
-git config --global core.editor "<editor>"
+git config core.editor "<editor>"
 
-# exemplo:
+# Opções
+# --global | Define as configurações globalmente em `~/.gitconfig`
+# --local | Define as configurações localmente em `.git/config` (opção default)
+
+# Exemplo:
 # git config --global core.editor vim
 ```
 
 Configurar a ferramenta de merge padrão:
 
 ```bash
-git config --global merge.tool "<ferramenta>"
+git config merge.tool "<ferramenta>"
 
-# exemplo:
+# Exemplo:
 # git config --global merge.tool vimdiff
 ```
 
@@ -51,14 +65,21 @@ git config --global --list
 
 As configurações são armazenadas no arquivo `~/.gitconfig`.
 
+## Obter e Criação
+
 ### Init
 
-Transforma o diretório atual em um repositório do Git. Pode ser usado para converter um projeto existente e não versionado em um repositório do Git ou inicializar um novo repositório vazio.
+Transforma o diretório atual (não versionado) em um repositório do Git.
 
-O comando `git init` cria um subdiretório `.git` no diretório de trabalho atual, que contém todos os metadados Git necessários para o novo repositório. Esses metadados incluem subdiretórios para objetos, referências e arquivos de template. Também é criado um arquivo HEAD que aponta para o commit em uso no momento.
+O comando `git init` cria um subdiretório `.git` no diretório de trabalho atual, que contém todos os metadados Git necessários para o novo repositório.
+
+Esses metadados incluem subdiretórios para objetos, referências e arquivos de template. Também é criado um arquivo HEAD que aponta para o commit em uso no momento.
 
 ```bash
 git init
+
+# Opções:
+# -b <nome-branch> | Definir branch principal (default "master")
 ```
 
 ### Clone
@@ -73,28 +94,7 @@ git clone https://<caminho>.git
 git clone https://<caminho>.git <destino>
 ```
 
-### Remote
-
-Ver o endereço do repositório remoto.
-
-```bash
-git remote -v
-```
-
-Caso tenhamos criado o repositório localmente antes de criar no servidor, podemos adicionar o caminho com o comando set-url.
-
-```bash
-git remote set-url <repo-remoto> <endereco>
-
-# exemplo:
-# git remote set-url origin git@github.com:usuario/usuario.github.io.git
-```
-
-Excluir todas branchs locais que não tem mais referência remota.
-
-```bash
-git remote prune origin
-```
+## Snapshot
 
 ### Status
 
@@ -109,6 +109,153 @@ Status de forma resumida:
 ```bash
 git status -s
 ```
+
+### Add
+
+Adiciona os arquivos modificados à área de staging, estando prontos para serem comitados. O Stage também é chamado de Index ou Staging Area (ou área temporária) no Git.
+
+Adiciona todos arquivos criados, modificados ou excluídos à área de staging, incluindo arquivos dos diretórios superiores:
+
+```bash
+git add -A
+```
+
+Adiciona todos arquivos criados, modificados ou excluídos à área de staging do diretório corrente:
+
+```bash
+git add .
+```
+
+Adiciona arquivos criados e modificados somente. Não inclui arquivos excluídos: 
+
+```bash
+git add -u
+```
+
+Adiciona um arquivo específico à área de staging:
+
+```bash
+git add <arquivo>
+```
+
+### Reset
+
+Retornar para um commit anterior, porém diferente do `git revert`, ele não gera um novo commit. O comando `git reset` é uma ferramenta complexa e versátil para desfazer alterações. Ele tem três formas principais de invocação. Estas formas correspondem aos argumentos `--soft`, `--mixed`, `--hard` da linha de comandos. Cada um dos três argumentos corresponde a um mecanismo de gerenciamento do estado interno do Git: a árvore de confirmação (HEAD), o índice de staging e o diretório de trabalho.
+
+O ponteiro HEAD aponta para o último grupo de alterações(snapshot) comitado. Podemos alterar para qual commit o HEAD aponta executando os comandos commit ou reset, como veremos. A área de index, também chamada área de stage, contém o próximo snapshot a ser comitado. Alteramos a área de index quando executamos o comando add. Por fim, o diretório de trabalho contém as alterações que ainda não foram adicionadas à área de stage.
+
+O `git reset` tem comportamento semelhante ao `git checkout`. Enquanto o `git checkout` opera apenas no indicador de referência HEAD, o `git reset` move o indicador de referência HEAD e o indicador de referência da branch atual.
+
+#### Reset soft
+
+Move apenas o ponteiro HEAD para algum outro commit, sem alterar a área de stage ou o diretório de trabalho. É importante notar que, de fato, a operação moverá o branch para o qual o HEAD aponta e, por consequência, moverá também o ponteiro HEAD.
+
+Essa opção é a mais segura entre as três, pois caso seja executada por engano, todo o trabalho atual ainda está acessível através da branch local.
+
+Desfazendo uma alteração, mas colocando ela em stage:
+
+```bash
+git reset --soft HEAD~1
+```
+
+#### Reset mixed
+
+O opção mixed ou, por ser o tipo default, somente reset. Essa opção, além de mover o ponteiro HEAD, faz com que a área de stage contenha o mesmo snapshot do commit para o qual o ponteiro HEAD foi movido, porém não afeta o diretório de trabalho.
+
+Remove um arquivo específico da áreas de stage:
+
+```bash
+git reset <arquivo>
+```
+
+Remove todos arquivos da áreas de stage:
+
+```bash
+git reset HEAD .
+```
+
+#### Reset hard
+
+A opção hard não apenas descarta as alterações na área de stage como também reverte todas as alterações no diretório de trabalho para o estado do commit que foi especificado no comando. Todas as alterações após o commit especificado, comitadas ou não, serão perdidas.
+
+Desfazendo para o último commit sem colocar as alterações em stage:
+
+```bash
+git reset --hard HEAD~1
+```
+
+Desfazendo o último push:
+
+```bash
+git reset --hard HEAD~1 && git push -f origin master
+```
+
+### Rm
+
+Deletar arquivo ou diretório vazio:
+
+```bash
+git rm <arquivo-ou-diretorio>
+```
+
+Deletar diretório não vazio:
+
+```bash
+git rm -r <diretorio>
+```
+
+### Mv
+
+Mover ou renomear arquivos ou diretórios:
+
+```bash
+git mv <caminho-origem> <caminho-destino>
+```
+
+### Commit
+
+Commit é um processo simples que adiciona as alterações para o histórico do repositório e atribui um nome ao commit. O commit é como um *snapshot* do repositório no momento em que é executado.
+
+Commit que irá abrir o editor de texto para informar a mensagem:
+
+```bash
+git commit
+```
+
+Commit já informando a mensagem de descrição:
+
+```bash
+git commit -m "<mensagem>"
+```
+
+Commit já adicionando os arquivos à área de staging (commit + add):
+
+```bash
+git commit -am "<mensagem>"
+```
+
+Commit sem informar mensagem de descrição:
+
+```bash
+git commit -m.
+
+# add + commit
+git commit -am.
+```
+
+Modificar a mensagem do último commit realizado:
+
+```bash
+git commit --amend -m "<mensagem>"
+```
+
+Ver os últimos commits
+
+```bash
+git log
+```
+
+## Branch e Merge
 
 ### Branch
 
@@ -208,198 +355,157 @@ Mesclar uma branch com a branch corrente:
 git merge <branch>
 ```
 
-### Add
+### Stash
 
-Adiciona os arquivos modificados à área de staging, estando prontos para serem comitados. O Stage também é chamado de Index ou Staging Area (ou área temporária) no Git.
+Pega as alterações sem commit e as salva para uso posterior. O stash é local, ou seja, não são transferidos para o repositório remoto ao realizar um push. Novos arquivos que não estão na área de staging (não executou o `git add`) e arquivos ignorados não são salvos ao realizar o `git stash`.
 
-Adiciona todos arquivos criados, modificados ou excluídos à área de staging, incluindo arquivos dos diretórios superiores:
-
-```bash
-git add -A
-```
-
-Adiciona todos arquivos criados, modificados ou excluídos à área de staging do diretório corrente:
+Realiza o stash dos arquivos não comitados da branch corrente.
 
 ```bash
-git add .
+git stash
 ```
 
-Adiciona arquivos criados e modificados somente. Não inclui arquivos excluídos: 
+Realiza o stash com descrição:
 
 ```bash
-git add -u
+git stash save -u "<mensagem>"
 ```
 
-Adiciona um arquivo específico à área de staging:
+Lista dos stashs criados:
 
 ```bash
-git add <arquivo>
+git stash list
 ```
 
-### Reset
-
-Retornar para um commit anterior, porém diferente do `git revert`, ele não gera um novo commit. O comando `git reset` é uma ferramenta complexa e versátil para desfazer alterações. Ele tem três formas principais de invocação. Estas formas correspondem aos argumentos `--soft`, `--mixed`, `--hard` da linha de comandos. Cada um dos três argumentos corresponde a um mecanismo de gerenciamento do estado interno do Git: a árvore de confirmação (HEAD), o índice de staging e o diretório de trabalho.
-
-O ponteiro HEAD aponta para o último grupo de alterações(snapshot) comitado. Podemos alterar para qual commit o HEAD aponta executando os comandos commit ou reset, como veremos. A área de index, também chamada área de stage, contém o próximo snapshot a ser comitado. Alteramos a área de index quando executamos o comando add. Por fim, o diretório de trabalho contém as alterações que ainda não foram adicionadas à área de stage.
-
-O `git reset` tem comportamento semelhante ao `git checkout`. Enquanto o `git checkout` opera apenas no indicador de referência HEAD, o `git reset` move o indicador de referência HEAD e o indicador de referência da branch atual.
-
-#### Reset soft
-
-Move apenas o ponteiro HEAD para algum outro commit, sem alterar a área de stage ou o diretório de trabalho. É importante notar que, de fato, a operação moverá o branch para o qual o HEAD aponta e, por consequência, moverá também o ponteiro HEAD.
-
-Essa opção é a mais segura entre as três, pois caso seja executada por engano, todo o trabalho atual ainda está acessível através da branch local.
-
-Desfazendo uma alteração, mas colocando ela em stage:
+Aplica o stash mais recente na branch corrente:
 
 ```bash
-git reset --soft HEAD~1
+git stash apply
 ```
 
-#### Reset mixed
-
-O opção mixed ou, por ser o tipo default, somente reset. Essa opção, além de mover o ponteiro HEAD, faz com que a área de stage contenha o mesmo snapshot do commit para o qual o ponteiro HEAD foi movido, porém não afeta o diretório de trabalho.
-
-Remove um arquivo específico da áreas de stage:
+Aplica o stash de índice i:
 
 ```bash
-git reset <arquivo>
+git stash apply stash@{i}
 ```
 
-Remove todos arquivos da áreas de stage:
+Remove o stash mais recente:
 
 ```bash
-git reset HEAD .
+git stash pop
 ```
 
-#### Reset hard
-
-A opção hard não apenas descarta as alterações na área de stage como também reverte todas as alterações no diretório de trabalho para o estado do commit que foi especificado no comando. Todas as alterações após o commit especificado, comitadas ou não, serão perdidas.
-
-Desfazendo para o último commit sem colocar as alterações em stage:
+Remove o stash de índice i:
 
 ```bash
-git reset --hard HEAD~1
+git stash pop stash@{i}
 ```
 
-Desfazendo o último push:
+### Log
 
-```bash
-git reset --hard HEAD~1 && git push -f origin master
-```
-
-### Revert
-
-Pode ser considerado um comando do tipo "desfazer", entretanto ao invés vez de remover o commit do histórico do projeto, as alterações do commit especificado são desfeitas e um novo commit é gerado. Isto evita que o Git perca o histórico, o que é importante para a integridade do histórico de revisão e para uma colaboração confiável.
-
-Desfazendo para um commit específico:
-
-```bash
-git revert <hash-commit>
-
-# os primeiros números já são suficientes
-```
-
-### Diff
-
-Ver a lista do que foi modificado em uma branch:
-
-```bash
-git diff
-```
-
-Ver o que foi modificado em um arquivo:
-
-```bash
-git diff <arquivo>
-```
-
-### Blame
-
-Examina os pontos específicos do histórico de um arquivo e obtém quem foi o último autor que modificou a linha. É usado para explorar o histórico de código específico e responder dúvidas sobre o que, como e por que o código foi adicionado ao repositório.
-
-Lista as pessoas que realizaram modificações no arquivo:
-
-```bash
-git blame <arquivo>
-```
-
-Lista as pessoas que realizaram modificações no arquivo ignorando as mudanças de espaço em branco.
-
-```bash
-git blame -w <arquivo>
-```
-
-Lista as pessoas que realizaram modificações no arquivo detectando linhas que foram movidas ou copiadas dentro do mesmo arquivo. Isto vai exibir o autor original das linhas, ao invés do último autor que moveu ou copiou as linhas.
-
-```bash
-git blame -M <arquivo>
-```
-
-Lista as pessoas que realizaram modificações no arquivo detectando linhas que foram movidas ou copiadas de outros arquivos. Isto vai exibir o autor original das linhas, ao invés do último autor que moveu ou copiou as linhas.
-
-```bash
-git blame -C <arquivo>
-```
-
-Lista as pessoas que realizaram modificações no arquivo nas linhas x até y:
-
-```bash
-git blame -L <x>,<y> <arquivo>
-
-# exemplo
-# git blame -L 1,5 README.md
-```
-
-### Commit
-
-Commit é um processo simples que adiciona as alterações para o histórico do repositório e atribui um nome ao commit. O commit é como um *snapshot* do repositório no momento em que é executado.
-
-Commit que irá abrir o editor de texto para informar a mensagem:
-
-```bash
-git commit
-```
-
-Commit já informando a mensagem de descrição:
-
-```bash
-git commit -m "<mensagem>"
-```
-
-Commit já adicionando os arquivos à área de staging (commit + add):
-
-```bash
-git commit -am "<mensagem>"
-```
-
-Commit sem informar mensagem de descrição:
-
-```bash
-git commit -m.
-
-# add + commit
-git commit -am.
-```
-
-Modificar a mensagem do último commit realizado:
-
-```bash
-git commit --amend -m "<mensagem>"
-```
-
-Ver os últimos commits
+Ver histórico de commits:
 
 ```bash
 git log
 ```
 
-### Cherry-pick
-
-Aplicar o commit na branch atual
+Ver histórico dos últimos x commits:
 
 ```bash
-git cherry-pick <commit>
+git log -p -x
+
+# exemplo:
+# git log -p -2
+```
+
+Ver histórico de maneira resumida:
+
+```bash
+git log --pretty=oneline
+```
+
+Ver histórico de forma customizada:
+
+```bash
+git log --pretty=format:"%h = %an, %ar - %s"
+```
+
+Ver histórico por pessoa:
+
+```bash
+git log --author=nome_da_pessoa_ou_usuario
+```
+
+### Tag
+
+Criar tag:
+
+```bash
+git tag <versao>
+
+# exemplo:
+# git tag 0.0.1
+```
+
+Criar uma tag com mensagem (anotada):
+
+```bash
+git tag -a <versao> -m "<mensagem>"
+
+# exemplo:
+# git tag -a 0.0.1 -m "versão 0.0.1"
+```
+
+Criar uma tag a partir de um commit:
+
+```bash
+git tag -a <versao> <hash-commit>
+
+# exemplo:
+# git tag -a 0.0.1 b6120
+```
+
+Enviar uma tag para o repositório remoto:
+
+```bash
+git push <repo-remoto> <versao>
+
+# exemplo:
+# git push origin 0.0.1
+```
+
+Enviar todas tags para o repositório remoto:
+
+```bash
+git push <repo-remoto> --tags
+
+# exemplo:
+# git push origin --tags
+```
+
+## Compartilhar e atualizar
+
+### Remote
+
+Ver o endereço do repositório remoto.
+
+```bash
+git remote -v
+```
+
+Caso tenhamos criado o repositório localmente antes de criar no servidor, podemos adicionar o caminho com o comando set-url.
+
+```bash
+git remote set-url <repo-remoto> <endereco>
+
+# exemplo:
+# git remote set-url origin git@github.com:usuario/usuario.github.io.git
+```
+
+Excluir todas branchs locais que não tem mais referência remota.
+
+```bash
+git remote prune origin
 ```
 
 ### Push
@@ -485,157 +591,84 @@ Busca na branch informada do repositório remoto:
 git fetch <repo-remoto> <branch>
 ```
 
-### Stash
+## Inspecionar e comparar
 
-Pega as alterações sem commit e as salva para uso posterior. O stash é local, ou seja, não são transferidos para o repositório remoto ao realizar um push. Novos arquivos que não estão na área de staging (não executou o `git add`) e arquivos ignorados não são salvos ao realizar o `git stash`.
+## Patch
 
-Realiza o stash dos arquivos não comitados da branch corrente.
+### Revert
 
-```bash
-git stash
-```
+Pode ser considerado um comando do tipo "desfazer", entretanto ao invés vez de remover o commit do histórico do projeto, as alterações do commit especificado são desfeitas e um novo commit é gerado. Isto evita que o Git perca o histórico, o que é importante para a integridade do histórico de revisão e para uma colaboração confiável.
 
-Realiza o stash com descrição:
+Desfazendo para um commit específico:
 
 ```bash
-git stash save -u "<mensagem>"
+git revert <hash-commit>
+
+# os primeiros números já são suficientes
 ```
 
-Lista dos stashs criados:
+### Diff
+
+Ver a lista do que foi modificado em uma branch:
 
 ```bash
-git stash list
+git diff
 ```
 
-Aplica o stash mais recente na branch corrente:
+Ver o que foi modificado em um arquivo:
 
 ```bash
-git stash apply
+git diff <arquivo>
 ```
 
-Aplica o stash de índice i:
+### Cherry-pick
+
+Aplicar o commit na branch atual
 
 ```bash
-git stash apply stash@{i}
+git cherry-pick <commit>
 ```
 
-Remove o stash mais recente:
+## Debug
+
+### Blame
+
+Examina os pontos específicos do histórico de um arquivo e obtém quem foi o último autor que modificou a linha. É usado para explorar o histórico de código específico e responder dúvidas sobre o que, como e por que o código foi adicionado ao repositório.
+
+Lista as pessoas que realizaram modificações no arquivo:
 
 ```bash
-git stash pop
+git blame <arquivo>
 ```
 
-Remove o stash de índice i:
+Lista as pessoas que realizaram modificações no arquivo ignorando as mudanças de espaço em branco.
 
 ```bash
-git stash pop stash@{i}
+git blame -w <arquivo>
 ```
 
-### Rm
-
-Deletar arquivo ou diretório vazio:
+Lista as pessoas que realizaram modificações no arquivo detectando linhas que foram movidas ou copiadas dentro do mesmo arquivo. Isto vai exibir o autor original das linhas, ao invés do último autor que moveu ou copiou as linhas.
 
 ```bash
-git rm <arquivo-ou-diretorio>
+git blame -M <arquivo>
 ```
 
-Deletar diretório não vazio:
+Lista as pessoas que realizaram modificações no arquivo detectando linhas que foram movidas ou copiadas de outros arquivos. Isto vai exibir o autor original das linhas, ao invés do último autor que moveu ou copiou as linhas.
 
 ```bash
-git rm -r <diretorio>
+git blame -C <arquivo>
 ```
 
-### Mv
-
-Mover ou renomear arquivos ou diretórios:
+Lista as pessoas que realizaram modificações no arquivo nas linhas x até y:
 
 ```bash
-git mv <caminho-origem> <caminho-destino>
+git blame -L <x>,<y> <arquivo>
+
+# exemplo
+# git blame -L 1,5 README.md
 ```
 
-### Log
-
-Ver histórico de commits:
-
-```bash
-git log
-```
-
-Ver histórico dos últimos x commits:
-
-```bash
-git log -p -x
-
-# exemplo:
-# git log -p -2
-```
-
-Ver histórico de maneira resumida:
-
-```bash
-git log --pretty=oneline
-```
-
-Ver histórico de forma customizada:
-
-```bash
-git log --pretty=format:"%h = %an, %ar - %s"
-```
-
-Ver histórico por pessoa:
-
-```bash
-git log --author=nome_da_pessoa_ou_usuario
-```
-
-### Tag
-
-Criar tag:
-
-```bash
-git tag <versao>
-
-# exemplo:
-# git tag 0.0.1
-```
-
-Criar uma tag com mensagem (anotada):
-
-```bash
-git tag -a <versao> -m "<mensagem>"
-
-# exemplo:
-# git tag -a 0.0.1 -m "versão 0.0.1"
-```
-
-Criar uma tag a partir de um commit:
-
-```bash
-git tag -a <versao> <hash-commit>
-
-# exemplo:
-# git tag -a 0.0.1 b6120
-```
-
-Enviar uma tag para o repositório remoto:
-
-```bash
-git push <repo-remoto> <versao>
-
-# exemplo:
-# git push origin 0.0.1
-```
-
-Enviar todas tags para o repositório remoto:
-
-```bash
-git push <repo-remoto> --tags
-
-# exemplo:
-# git push origin --tags
-```
-
-## Gerenciadores de repositórios
+## Serviços Cloud
 
 ### Configurando a autenticação via SSH (Linux)
 
