@@ -698,6 +698,7 @@ git push origin :gh-pages
 
 ## Referências
 
+- <https://git-scm.com/docs>
 - <https://pt.wikipedia.org/wiki/Git>
 - <https://www.devmedia.com.br/como-usar-os-comandos-do-git/33665>
 - <https://www.atlassian.com/br/git/tutorials>
