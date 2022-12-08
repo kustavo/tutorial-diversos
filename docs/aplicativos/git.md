@@ -22,48 +22,47 @@ git
 
 ### config
 
-Configurar o nome e email do usuário para que estas informações sejam armazenadas no histórico de ações do gerenciador de repositório.
+Define as configurações a serem usadas pelo git.
 
 ```bash
+# Nome do usuário.
 git config user.name "<nome usuario>"
+# Email do usuário.
 git config user.email "<email-usuario>"
-```
-
-Configurar o editor padrão:
-
-```bash
+# Editor padrão.
 git config core.editor "<editor>"
-
-# Opções
-# --global | Define as configurações globalmente em `~/.gitconfig`
-# --local | Define as configurações localmente em `.git/config` (opção default)
-
-# Exemplo:
-# git config --global core.editor vim
-```
-
-Configurar a ferramenta de merge padrão:
-
-```bash
+# Define o arquivo que irá conter a lista de arquivos ignorados.
+git config core.excludesfile ~/.gitignore
+# Ferramenta de merge padrão.
 git config merge.tool "<ferramenta>"
 
-# Exemplo:
-# git config --global merge.tool vimdiff
+# Opções:
+# --local | Define as configurações localmente (local default ".git/config").
+# --global | Define as configurações globalmente para o usuário corrente (local default "~/.gitconfig").
+# --system | Define as configurações globalmente para todos os usuários  (local default "/etc/gitconfig"). 
 ```
 
-Configurar os arquivos a serem ignorados:
+Ver as configurações definidas.
 
 ```bash
-git config --global core.excludesfile ~/.gitignore
+git config --list
+
+# Opções:
+# --local | Configurações definidas no escopo local.
+# --global | Configurações definidas no escopo global.
+# --system | Configurações definidas no escopo de sistema.
 ```
 
-Ver as configurações definidas
+Abre o arquivo de configuração.
 
 ```bash
-git config --global --list
-```
+git config -e
 
-As configurações são armazenadas no arquivo `~/.gitconfig`.
+# Opções:
+# --local | Abre o arquivo de configuração local.
+# --global | Abre o arquivo de configuração global.
+# --system | Abre o arquivo de configuração de sistema.
+```
 
 ## Obter e Criação
 
@@ -79,22 +78,45 @@ Esses metadados incluem subdiretórios para objetos, referências e arquivos de 
 git init
 
 # Opções:
-# -b <nome-branch> | Definir branch principal (default "master")
+# -b <nome-branch> | Definir branch principal (default "master").
 ```
 
 ### Clone
 
-Clonagem (download) de um repositório que já existe remotamente, incluindo todos os arquivos, branches e commits.
+Clonagem (download) de um repositório que já existe remotamente, incluindo todos os arquivos, *branches* e *commits*.
 
 A clonagem de um repositório normalmente é feita apenas uma vez, no início de sua interação com um projeto. Uma vez que um repositório já exista em um local remoto, você clona esse repositório para que possa interagir com ele localmente.
 
 ```bash
-git clone https://<caminho>.git
-# ou
-git clone https://<caminho>.git <destino>
+# O nome padrão do diretório criado será o nome.git sem ".git".
+git clone https://<caminho>/<nome>.git
+
+# Opções:
+# <caminho-destino> | Especifica o destino e nome do diretório que será criado.
+# -b <nome-branch> | Especifica a branch para evitar uma mudança de branch logo em seguida.
+# –bare | Clone sem vínculo com o repositório remoto. Evita commits indesejados.
+# -depth <numero> | Número de commits mais recentes que queremos obter. Economiza espaço em disco para projetos grandes.
 ```
 
 ## Snapshot
+
+### Add
+
+Adiciona os arquivos modificados à área de *staging* (ou *index*), estando prontos para o *commit*.
+
+```bash
+# Adiciona todos arquivos criados, modificados ou excluídos à área de staging, incluindo arquivos dos diretórios superiores.
+git add -A
+
+# Adiciona todos arquivos criados, modificados ou excluídos à área de staging do diretório corrente.
+git add .
+
+# Adiciona arquivos criados e modificados somente. Não inclui arquivos excluídos.
+git add -u
+
+# Adiciona um arquivo específico à área de staging.
+git add <arquivo>
+```
 
 ### Status
 
@@ -108,34 +130,6 @@ Status de forma resumida:
 
 ```bash
 git status -s
-```
-
-### Add
-
-Adiciona os arquivos modificados à área de staging, estando prontos para serem comitados. O Stage também é chamado de Index ou Staging Area (ou área temporária) no Git.
-
-Adiciona todos arquivos criados, modificados ou excluídos à área de staging, incluindo arquivos dos diretórios superiores:
-
-```bash
-git add -A
-```
-
-Adiciona todos arquivos criados, modificados ou excluídos à área de staging do diretório corrente:
-
-```bash
-git add .
-```
-
-Adiciona arquivos criados e modificados somente. Não inclui arquivos excluídos: 
-
-```bash
-git add -u
-```
-
-Adiciona um arquivo específico à área de staging:
-
-```bash
-git add <arquivo>
 ```
 
 ### Reset
