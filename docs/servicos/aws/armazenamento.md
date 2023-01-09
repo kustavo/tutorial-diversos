@@ -115,6 +115,20 @@
 - Armazenamento com menor custo, projetado para arquivamento de dados.
 - Recupera objetos dentro de **12 horas**.
 
+### S3 Transfer Acceleration
+
+- É um recurso em nível de bucket que possibilita transferências de arquivos rápidas, fáceis e seguras em longas distâncias entre o seu cliente e um bucket do S3.
+- Foi projetado para otimizar as velocidades de transferência de todo o mundo para buckets do S3.
+- O Transfer Acceleration tira proveito dos pontos de presença distribuídos globalmente no Amazon CloudFront.
+    - Conforme os dados chegam em um ponto de presença, eles são roteados para o Amazon S3 por um **caminho de rede otimizado**.
+- Você pode usar o Transfer Acceleration em um bucket por vários motivos:
+    - Seus clientes fazem upload em um bucket centralizado do mundo todo.
+    - Você transfere gigabytes a terabytes de dados regularmente entre continentes.
+    - Não é possível utilizar toda a largura de banda disponível via Internet ao fazer upload para o Amazon S3.
+- Veja o que é necessário ao usar o Transfer Acceleration em um bucket do S3:
+    - O nome do bucket usado para o Transfer Acceleration deve ser compatível com DNS e não deve conter pontos (".").
+    - O Transfer Acceleration deve estar ativado no bucket.
+
 ## Amazon Elastic File System (Amazon EFS)
 
 - Armazenas dados como **arquivos**.

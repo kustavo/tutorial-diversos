@@ -92,7 +92,7 @@ Tanto as ACLs de rede quanto os grupos de segurança permitem que você configur
 
 ## Elastic Load Balancing
 
-- Distribui automaticamente o tráfego de aplicativos de entrada em vários recursos, sendo alguns deles:
+- Distribui automaticamente o tráfego de aplicativos de entrada em vários destinos em uma ou mais zonas de disponibilidade de uma **mesma região**, como:
     - Amazon EC2 Autoscaling, AWS Lambda, AWS Fargate, Amazon EKS, Amazon ECS, IP Address.
 - Atua como um único ponto de contato para todo o tráfego da Web de entrada para seu grupo da *Amazon EC2 Auto Scaling*.
     - À medida que você adiciona ou remove instâncias do Amazon EC2, essas solicitações são roteadas primeiro para o *load balancer*.
