@@ -142,7 +142,7 @@ Todo programa executável deve conter um pacote chamado `main` e uma função ch
 
 ### Diretório internal
 
-Colocar um pacote dentro de um diretório chamado `internal`, esconde ainda mais as estruturas internas do pacote, traz mais encapsulamento. Este pacote só poderá ser importado dos pacotes de seu diretório pai. 
+Colocar um pacote dentro de um diretório chamado `internal`, esconde ainda mais as estruturas internas do pacote, traz mais encapsulamento. Este pacote só poderá ser importado dos pacotes de seu diretório pai.
 
 O diretório `internal` é usado para tornar pacotes específicos não importáveis.
 
@@ -150,7 +150,7 @@ O diretório `internal` é usado para tornar pacotes específicos não importáv
 
 Como podemos compartilhar um código e garantir que todos tenham as dependências baixas e, o mais importante, a versão correta de cada dependência? Isso pode ser feito através de __vendoring__, que é basicamente á uma funcionalidade que permite aplicações Go utilizar dependências não só de `$GOPATH/src`, mas também de um diretório chamado `vendor` dentro de cada projeto. O compilador do Go primeiramente procurará pelos pacotes dentro do diretório `vendor`, antes de procurar em `$GOPATH`.
 
-## Oganização de projeto
+## Organização de projeto
 
 [Veja aqui](https://github.com/golang-standards/project-layout) uma proposta de Oganização de projeto bem aceita pela comunidade Go.
 

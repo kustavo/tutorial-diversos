@@ -22,7 +22,7 @@ Esse código declara que ele está no pacote `greet`. Depois, ele declara dois s
 
 ## Escopo
 
-O escopo de um pacote é o diretório no qual o arquivo se encontra. Arquivos de um mesmo diretório que declaram o mesmo pacote serão considerados arquivos desse pacote. Mesmo que um arquivo em um subdiretório declar o mesmo nome de pacote, este será considerado outro pacote.
+O escopo de um pacote é o diretório no qual o arquivo se encontra. Arquivos de um mesmo diretório que declaram o mesmo pacote serão considerados arquivos desse pacote. Mesmo que um arquivo em um subdiretório declarar o mesmo nome de pacote, este será considerado outro pacote.
 
 ## Referência
 
