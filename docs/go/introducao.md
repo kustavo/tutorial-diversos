@@ -4,7 +4,7 @@ A GoLang, também conhecida apenas como Go é uma linguagem de programação cri
 
 Algumas funcionalidades ausentes em Go são tratamento de exceção, herança, assert e sobrecarga de métodos. Os autores argumentam abertamente contra asserções e defendem a omissão de herança de tipos em favor da eficiência. Ao contrário de Java, vetores associativos são parte intrínseca da linguagem, assim como strings.
 
-## Instalação
+## Instalação (Linux)
 
 1. Segundo [link](https://go.dev/doc/install), baixar a última versão em <https://go.dev/dl> e configurar as variáveis de ambiente para o local onde se encontra o diretório `go`. Geralmente o local `/usr/local/go` é o mais recomendado.
 
@@ -28,16 +28,19 @@ Algumas funcionalidades ausentes em Go são tratamento de exceção, herança, a
 
 ## Gerenciador de dependências
 
-Go usa Módulos Go para configurar as dependências de pacotes para a importação de recursos. Os módulos Go são arquivos de configuração colocados no seu diretório de pacotes que dizem ao compilador de onde importar os pacotes. Abaixo um exemplo de um arquivo `.mod` onde estão as dependências de pacotes:
+Go usa Módulos Go para configurar as dependências de pacotes para a importação de recursos. Os módulos Go são arquivos de configuração `.mod` colocados no seu diretório de pacotes que dizem ao compilador de onde importar os pacotes. Além das dependências, é nesse arquivo onde o Go adiciona o nome do seu package e a versão do Go utilizada.
 
 ```go
 // go.mod
 module github.com/example/cmd
 
+go 1.19
+
+require gorm.io/gorm
 replace github.com/example/logging => ../logging
 ```
 
-A primeira linha desse arquivo diz ao compilador que o pacote `cmd` tem o caminho de arquivo `$GOPATH/src/` + `github.com/example/cmd`. A segunda linha diz ao compilador que o pacote `github.com/example/logging` pode ser encontrado localmente em disco, no diretório `../logging`.
+A primeira linha desse arquivo diz ao compilador que o nosso pacote chama `cmd` e tem o caminho de arquivo `$GOPATH/src/` + `github.com/example/cmd`. A segunda linha diz a versão Go utilizada. A terceira linha diz ao compilador que o pacote `gorm` está localizado em `gorm.io/gorm`. E a quarta linha diz ao compilador que o pacote `github.com/example/logging` pode ser encontrado localmente em disco, no diretório `../logging`.
 
 ### Comando "go mod init"
 
@@ -55,7 +58,7 @@ O que `go mod init` fará é criar o arquivo `go.mod` no diretório que será a 
 // go.mod
 module github.com/example
 
-go 1.18
+go 1.19
 ```
 
 ### Comando "go get"
@@ -76,24 +79,46 @@ Todos os pacotes são importados através de seu caminho completo começando de 
 // go.mod
 module github.com/example
 
-go 1.18
+go 1.19
 
 require github.com/gorilla/mux v1.5.2
 ```
 
+### Comando "go install"
+
+Esse comando compila todos os pacotes e gera os arquivos executáveis movendo-os para `$GOPATH/pkg` ou `$GOPATH/bin`.
+
+```bash
+go install
+```
+
 ### Comando "go mod tidy"
 
-Para atualizar o `go.mod`, ou seja, baixar as dependências e remover dependências não usadas, podemos usar o comando:
+Para atualizar o `go.mod`, ou seja, adicionar as dependências e remover dependências não usadas, podemos usar o comando:
 
 ```bash
 go mod tidy
 ```
 
+### Arquivo go.sum
+
+O arquivo `go.sum` é responsável por manter todas as informações para checksum das dependências utilizadas no projeto.
+
+Todos os packages que o Go referencia no `go.sum` foram adicionados ao seu diretório `$GOPATH/pkg/mod`. Com esse cache em mãos, o Go não precisa fazer download das dependências toda vez que você executar o projeto.
+
+Esse cache é global, ou seja, serão compartilhados por todos os projetos que você tiver ou criar na sua máquina.
+
 ### Vendoring
 
-Como podemos compartilhar um código e garantir que todos tenham as dependências baixas e, o mais importante, a versão correta de cada dependência? Isso pode ser feito através de __vendoring__, que é basicamente á uma funcionalidade que permite aplicações Go utilizar dependências não só de `$GOPATH/src`, mas também de um diretório chamado `vendor` dentro de cada projeto.
+Como podemos compartilhar um código e garantir que todos tenham as dependências baixas e, o mais importante, a versão correta de cada dependência? Isso pode ser feito através de __vendoring__, que basicamente permite que aplicações Go utilizem dependências não só de `$GOPATH/src`, mas também de um diretório chamado `vendor` dentro de cada projeto.
 
-Isto significa que você pode colocar suas dependências dentro do diretório `vendor` ao invés de compartilhá-la globalmente no diretório `$GOPATH`. O compilador do Go primeiramente procurará pelos pacotes dentro do diretório `vendor`, antes de procurar em `$GOPATH`.
+O compilador do Go primeiramente procurará pelos pacotes dentro do diretório `vendor`, antes de procurar em `$GOPATH`.
+
+Você pode executar o comando abaixo para gerar uma nova pasta chamada `vendor`:
+
+```bash
+go mod vendor
+```
 
 ### godoc
 
