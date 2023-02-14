@@ -129,8 +129,8 @@ if owner != user {
 
 Por convenção, as interfaces de um método são nomeadas pelo nome do método mais um sufixo `-er` ou modificação semelhante para construir um substantivo de agente: _Reader_, _Writer_, _Formatter_, _CloseNotifier_ etc.
 
-!!! note "Notas"
-    A regra geral é `NomeMetodo + er = NomeInterface`. A parte complicada aqui é quando você tem uma interface com mais de um método. Nomear seguindo a convenção nem sempre será óbvio. Devo dividir a interface em várias interfaces com um único método? Acho que é uma decisão subjetiva que depende do caso.
+> **Note**
+> A regra geral é `NomeMetodo + er = NomeInterface`. A parte complicada aqui é quando você tem uma interface com mais de um método. Nomear seguindo a convenção nem sempre será óbvio. Devo dividir a interface em várias interfaces com um único método? Acho que é uma decisão subjetiva que depende do caso.
 
 ## Pacotes especiais
 
