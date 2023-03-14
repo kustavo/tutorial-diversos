@@ -154,10 +154,6 @@ nav:
           - ./linux/aplicativos/rsync.md
           - ./linux/aplicativos/tmux.md
       - ./linux/certificado-ssl.md
-  - Markdown:
-      - ./markdown/markdown.md
-      - ./markdown/markdown-to-medium.md
-      - ./markdown/mkdocs.md
   - Angular:
       - ./angular/introducao.md
       - ./angular/componentes.md
@@ -178,7 +174,6 @@ nav:
       - ./ingles/historia.md
       - ./ingles/verbos.md
   - Outros:
-      - ./android/android.md
       - ./sql/sql.md
       - ./windows/windows.md
       - Sistema Operacional:
